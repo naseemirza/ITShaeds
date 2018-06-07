@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.user.itshaeds.MainActivity"
+    tools:showIn="@layout/app_bar_main">
+
+    <ImageView
+
+        android:id="@+id/imageView2"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/itshadslogo" />
+
+
+    <EditText
+        android:id="@+id/editTextU"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imageView2"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="  User id"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editTextP"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_below="@+id/editTextU"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint=" Password"
+        android:inputType="textPassword" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/editTextP"
+        android:layout_marginTop="15dp" />
+
+    <Button
+        android:id="@+id/buttonL"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/spinner"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@color/green"
+        android:text="Login"
+        android:textColor="@color/colorWhite"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonL"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textSize="15dp"
+        android:text="Sign Up here if not already registered" />
+
+    <TextView
+        android:id="@+id/textViewRgs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlack"
+        android:text="Registered" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:textColor="#FF0000"
+        android:textSize="15dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center_vertical"
+        android:layout_marginStart="130dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:layout_below="@+id/textViewRgs"
+        android:text="Forgot Password"
+        android:layout_marginLeft="130dp" />
+
+
+</RelativeLayout>
