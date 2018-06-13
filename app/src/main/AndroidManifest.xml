@@ -10,6 +10,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".SplashActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,15 +19,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait"
             android:label="Get Started"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Main2Activity"
+            android:screenOrientation="portrait"
             android:label=""
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".RegisterActivity"
-            android:parentActivityName=".MainActivity"/>
+            android:screenOrientation="portrait"
+            android:parentActivityName=".LoginActivity" />
         <activity android:name=".ForgotPassActivity"></activity>
     </application>
 
