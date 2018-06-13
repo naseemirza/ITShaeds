@@ -11,11 +11,12 @@
     <ImageView
 
         android:id="@+id/imageView2"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/itshadslogo" />
+        android:layout_width="80dp"
+        android:layout_marginStart="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/itshadslogo"
+        android:layout_marginLeft="10dp" />
 
 
     <EditText
@@ -26,9 +27,12 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/imageView2"
         android:layout_marginTop="10dp"
+        android:textSize="10dp"
         android:ems="10"
-        android:hint="  User id"
-        android:inputType="textPersonName" />
+        android:paddingStart="10dp"
+        android:hint="@string/user_id_login"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp" />
 
     <EditText
         android:id="@+id/editTextP"
@@ -37,8 +41,11 @@
         android:layout_below="@+id/editTextU"
         android:layout_marginTop="10dp"
         android:ems="10"
-        android:hint=" Password"
-        android:inputType="textPassword" />
+        android:textSize="10dp"
+        android:hint="@string/passwordtext_login"
+        android:paddingStart="10dp"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp" />
 
     <Spinner
         android:id="@+id/spinner"
@@ -59,8 +66,9 @@
         android:layout_marginTop="20dp"
         android:background="@color/green"
         android:text="Login"
+        android:textAllCaps="false"
         android:textColor="@color/colorWhite"
-        android:textSize="20dp"
+        android:textSize="10dp"
         android:textStyle="bold" />
 
     <TextView
@@ -70,8 +78,8 @@
         android:layout_below="@+id/buttonL"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:textSize="15dp"
-        android:text="Sign Up here if not already registered" />
+        android:textSize="12dp"
+        android:text="@string/signuptext_login" />
 
     <TextView
         android:id="@+id/textViewRgs"
@@ -80,23 +88,36 @@
         android:layout_below="@+id/textView3"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:textSize="20dp"
+        android:textSize="12dp"
         android:textStyle="bold"
         android:textColor="@color/colorBlack"
-        android:text="Registered" />
+        android:text="@string/registered_textlogin" />
+
+    <TextView
+        android:id="@+id/textViewfrgt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewRgs"
+        android:layout_marginLeft="130dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center_vertical"
+        android:text="@string/forgot_passwordtextlogin"
+        android:textColor="#FF0000"
+        android:textSize="12dp" />
 
     <TextView
         android:id="@+id/textView5"
-        android:textColor="#FF0000"
-        android:textSize="15dp"
-        android:layout_marginTop="30dp"
-        android:gravity="center_vertical"
-        android:layout_marginStart="130dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-       android:layout_below="@+id/textViewRgs"
-        android:text="Forgot Password"
-        android:layout_marginLeft="130dp" />
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:layout_alignEnd="@+id/textViewRgs"
+        android:layout_alignRight="@+id/textViewRgs"
+        android:layout_alignTop="@+id/imageView2"
+        android:layout_marginTop="40dp"
+        android:textColor="@color/green"
+        android:text="@string/get_startedLogintitle" />
 
 
 </RelativeLayout>

@@ -1,10 +1,10 @@
 package com.example.user.itshaeds;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,75 +14,45 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.Spinner;
-import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main2Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private Spinner spiner;
-    private Button buttonLogin;
-    private TextView reg,forgotpass;
-
-    final Context context = this;
-
+    List<ModelJobs> productList;
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        forgotpass=(TextView)findViewById(R.id.textViewfrgt);
-
-      forgotpass.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-              startActivity(new Intent(MainActivity.this,ForgotPassActivity.class));
-          }
-      });
-
-
-        reg=(TextView)findViewById(R.id.textViewRgs);
-
-        reg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,RegisterActivity.class));
-            }
-        });
+        setContentView(R.layout.activity_main2);
 
 
 
-        spiner = (Spinner) findViewById(R.id.spinner);
-        String[] users = new String[]{
-                       "Access Level",
-                        "Individual User",
-                        "Corparate"
-        };
 
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
-                this,R.layout.spinneritems,users
-        );
-        spinnerArrayAdapter.setDropDownViewResource(R.layout.spinneritems);
-        spiner.setAdapter(spinnerArrayAdapter);
+        recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+
+        //initializing the productlist
+        productList = new ArrayList<>();
+
+        productList.add(new ModelJobs("Jobs", R.drawable.jobs));
+        productList.add(new ModelJobs("IT Bytes", R.drawable.it));
+        productList.add(new ModelJobs("Classified", R.drawable.classifieds));
+        productList.add(new ModelJobs("Solutions", R.drawable.solutions));
+        productList.add(new ModelJobs("Learning \nDevelopment", R.drawable.learning));
+
+        AdapterJobs adapter = new AdapterJobs(this, productList);
+        recyclerView.setAdapter(adapter);
+
+
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        buttonLogin=(Button) findViewById(R.id.buttonL);
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent=new Intent(MainActivity.this,Main2Activity.class);
-                startActivity(intent);
-
-            }
-        });
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -98,7 +68,6 @@ public class MainActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -117,7 +86,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.main2, menu);
         return true;
     }
 
@@ -129,7 +98,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_search) {
             return true;
         }
 
@@ -142,13 +111,17 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_aboutus) {
+        if (id == R.id.nav_camera) {
             // Handle the camera action
-        } else if (id == R.id.nav_subsc) {
+        } else if (id == R.id.nav_gallery) {
 
-        } else if (id == R.id.nav_login) {
+        } else if (id == R.id.nav_slideshow) {
 
-        } else if (id == R.id.nav_contactus) {
+        } else if (id == R.id.nav_manage) {
+
+        } else if (id == R.id.nav_share) {
+
+        } else if (id == R.id.nav_send) {
 
         }
 
