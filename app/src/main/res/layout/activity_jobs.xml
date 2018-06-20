@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.user.itshaeds.JobsActivity">
+
+    <ScrollView
+        android:id="@+id/scrolview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/re"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/r1">
+
+        <ImageView
+            android:id="@+id/imgjob"
+            android:layout_width="70dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/itshadslogo" />
+
+        <TextView
+            android:id="@+id/textcj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img5"
+            android:layout_marginLeft="90dp"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="40dp"
+            android:layout_toRightOf="@+id/img11"
+            android:gravity="center_vertical"
+            android:text="Current Jobs"
+            android:textStyle="bold"
+            android:textColor="#545454"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/textpost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="75dp"
+            android:gravity="center_vertical"
+            android:text="Assistant Manager- .Net Sql Technical Lead- Hyderabad"
+            android:textAlignment="viewStart"
+            android:textColor="@color/green"
+            android:textSize="12dp"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/textYRS"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textpost"
+            android:layout_marginTop="100dp"
+            android:gravity="center_vertical"
+            android:text="7-10 years"
+            android:layout_marginStart="20dp"
+            android:textAlignment="viewStart"
+            android:textStyle="bold"
+            android:textColor="#545454"
+            android:textSize="10dp"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/textloc"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textpost"
+            android:layout_marginTop="100dp"
+            android:gravity="center_vertical"
+            android:text="India Hyderabad"
+            android:layout_marginStart="100dp"
+            android:textStyle="bold"
+            android:textAlignment="viewStart"
+            android:textColor="#545454"
+            android:textSize="10dp"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/textserv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textpost"
+            android:layout_marginTop="130dp"
+            android:gravity="center_vertical"
+            android:text="EGBG Services"
+            android:textStyle="bold"
+            android:layout_marginStart="20dp"
+            android:textAlignment="viewStart"
+            android:textColor="#545454"
+            android:textSize="12dp"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/textDESC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textpost"
+            android:layout_marginTop="160dp"
+            android:gravity="center_vertical"
+            android:text="@string/DESC"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:textColor="#545454"
+            android:textSize="12sp"
+            android:lineSpacingExtra="3sp"
+            tools:ignore="RtlCompat" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="240dp"
+            android:background="@drawable/buttoncorner"
+            android:textAllCaps="false"
+
+            android:text="Apply Now"
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="10dp"
+            android:textStyle="bold" />
+
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/card1">
+
+        <ImageView
+            android:id="@+id/imgjob2"
+            android:layout_width="70dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/itshadslogo" />
+
+        <TextView
+            android:id="@+id/textcj2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img5"
+            android:layout_marginLeft="90dp"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="40dp"
+            android:layout_toRightOf="@+id/img11"
+            android:gravity="center_vertical"
+            android:text="Current Jobs"
+            android:textStyle="bold"
+            android:textColor="#545454"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/textpost2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="75dp"
+            android:gravity="center_vertical"
+            android:text="Assistant Manager- .Net Sql Technical Lead- Hyderabad"
+            android:textAlignment="viewStart"
+            android:textColor="@color/green"
+            android:textSize="12dp"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/textYRS2"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textpost"
+            android:layout_marginTop="100dp"
+            android:gravity="center_vertical"
+            android:text="7-10 years"
+            android:layout_marginStart="20dp"
+            android:textAlignment="viewStart"
+            android:textStyle="bold"
+            android:textColor="#545454"
+            android:textSize="10dp"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/textloc2"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textpost"
+            android:layout_marginTop="100dp"
+            android:gravity="center_vertical"
+            android:text="India Hyderabad"
+            android:layout_marginStart="100dp"
+            android:textStyle="bold"
+            android:textAlignment="viewStart"
+            android:textColor="#545454"
+            android:textSize="10dp"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/textserv2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textpost"
+            android:layout_marginTop="130dp"
+            android:gravity="center_vertical"
+            android:text="EGBG Services"
+            android:textStyle="bold"
+            android:layout_marginStart="20dp"
+            android:textAlignment="viewStart"
+            android:textColor="#545454"
+            android:textSize="12dp"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/textDESC2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textpost"
+            android:layout_marginTop="160dp"
+            android:gravity="center_vertical"
+            android:text="@string/DESC"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:textColor="#545454"
+            android:textSize="12sp"
+            android:lineSpacingExtra="3sp"
+            tools:ignore="RtlCompat" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="240dp"
+            android:background="@drawable/buttoncorner"
+            android:textAllCaps="false"
+
+            android:text="Apply Now"
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="10dp"
+            android:textStyle="bold" />
+
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/card2">
+
+        <ImageView
+            android:id="@+id/imgjob3"
+            android:layout_width="70dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/itshadslogo" />
+
+        <TextView
+            android:id="@+id/textcj3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img5"
+            android:layout_marginLeft="90dp"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="40dp"
+            android:layout_toRightOf="@+id/img11"
+            android:gravity="center_vertical"
+            android:text="Current Jobs"
+            android:textStyle="bold"
+            android:textColor="#545454"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/textpost3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="75dp"
+            android:gravity="center_vertical"
+            android:text="Assistant Manager- .Net Sql Technical Lead- Hyderabad"
+            android:textAlignment="viewStart"
+            android:textColor="@color/green"
+            android:textSize="12dp"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/textYRS3"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textpost3"
+            android:layout_marginTop="100dp"
+            android:gravity="center_vertical"
+            android:text="7-10 years"
+            android:layout_marginStart="20dp"
+            android:textAlignment="viewStart"
+            android:textStyle="bold"
+            android:textColor="#545454"
+            android:textSize="10dp"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/textloc3"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textpost3"
+            android:layout_marginTop="100dp"
+            android:gravity="center_vertical"
+            android:text="India Hyderabad"
+            android:layout_marginStart="100dp"
+            android:textStyle="bold"
+            android:textAlignment="viewStart"
+            android:textColor="#545454"
+            android:textSize="10dp"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/textserv3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textpost3"
+            android:layout_marginTop="130dp"
+            android:gravity="center_vertical"
+            android:text="EGBG Services"
+            android:textStyle="bold"
+            android:layout_marginStart="20dp"
+            android:textAlignment="viewStart"
+            android:textColor="#545454"
+            android:textSize="12dp"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/textDESC3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textpost3"
+            android:layout_marginTop="160dp"
+            android:gravity="center_vertical"
+            android:text="@string/DESC"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:textColor="#545454"
+            android:textSize="12sp"
+            android:lineSpacingExtra="3sp"
+            tools:ignore="RtlCompat" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="240dp"
+            android:background="@drawable/buttoncorner"
+            android:textAllCaps="false"
+            android:text="Apply Now"
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="10dp"
+            android:textStyle="bold" />
+
+
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/card3">
+
+        <ImageView
+            android:id="@+id/imgjob4"
+            android:layout_width="70dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/itshadslogo" />
+
+        <TextView
+            android:id="@+id/textcj4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img5"
+            android:layout_marginLeft="90dp"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="40dp"
+            android:layout_toRightOf="@+id/img11"
+            android:gravity="center_vertical"
+            android:text="Current Jobs"
+            android:textStyle="bold"
+            android:textColor="#545454"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/textpost4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="75dp"
+            android:gravity="center_vertical"
+            android:text="Assistant Manager- .Net Sql Technical Lead- Hyderabad"
+            android:textAlignment="viewStart"
+            android:textColor="@color/green"
+            android:textSize="12dp"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/textYRS4"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textpost4"
+            android:layout_marginTop="100dp"
+            android:gravity="center_vertical"
+            android:text="7-10 years"
+            android:layout_marginStart="20dp"
+            android:textAlignment="viewStart"
+            android:textStyle="bold"
+            android:textColor="#545454"
+            android:textSize="10dp"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/textloc4"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textpost4"
+            android:layout_marginTop="100dp"
+            android:gravity="center_vertical"
+            android:text="India Hyderabad"
+            android:layout_marginStart="100dp"
+            android:textStyle="bold"
+            android:textAlignment="viewStart"
+            android:textColor="#545454"
+            android:textSize="10dp"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/textserv4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textpost4"
+            android:layout_marginTop="130dp"
+            android:gravity="center_vertical"
+            android:text="EGBG Services"
+            android:textStyle="bold"
+            android:layout_marginStart="20dp"
+            android:textAlignment="viewStart"
+            android:textColor="#545454"
+            android:textSize="12dp"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/textDESC4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textpost4"
+            android:layout_marginTop="160dp"
+            android:gravity="center_vertical"
+            android:text="@string/DESC"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:textColor="#545454"
+            android:textSize="12sp"
+            android:lineSpacingExtra="3sp"
+            tools:ignore="RtlCompat" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="240dp"
+            android:background="@drawable/buttoncorner"
+            android:textAllCaps="false"
+
+            android:text="Apply Now"
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="10dp"
+            android:textStyle="bold" />
+
+    </android.support.v7.widget.CardView>
+
+            <TextView
+                android:id="@+id/textblw1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/card4"
+                android:layout_marginBottom="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="40dp"
+                android:gravity="center_vertical"
+                android:text="Disclaimer"
+                android:textAlignment="viewStart"
+                android:textColor="@color/colorBlack"
+                android:textSize="12dp"
+                tools:ignore="RtlCompat" />
+
+            <TextView
+                android:id="@+id/textblw11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/card4"
+                android:layout_marginBottom="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="40dp"
+                android:layout_toRightOf="@+id/textblw1"
+                android:gravity="center_vertical"
+                android:text="Terms And Conditions"
+                android:textAlignment="viewStart"
+                android:textColor="@color/colorBlack"
+                android:textSize="12dp"
+                tools:ignore="RtlCompat" />
+
+            <TextView
+                android:id="@+id/textblw111"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/card4"
+                android:layout_marginBottom="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="40dp"
+                android:layout_toRightOf="@+id/textblw11"
+                android:gravity="center_vertical"
+                android:text="Privacy Policy"
+                android:textAlignment="viewStart"
+                android:textColor="@color/colorBlack"
+                android:textSize="12dp"
+                tools:ignore="RtlCompat" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

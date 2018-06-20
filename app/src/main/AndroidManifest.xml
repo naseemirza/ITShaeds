@@ -20,18 +20,37 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:screenOrientation="portrait"
             android:label="Get Started"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Main2Activity"
-            android:screenOrientation="portrait"
             android:label=""
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".RegisterActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".RegisterActivity"
+            android:parentActivityName=".LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ForgotPassActivity" />
+        <activity
+            android:name=".AboutUsActivity"
+            android:label=""
             android:parentActivityName=".LoginActivity" />
-        <activity android:name=".ForgotPassActivity"></activity>
+        <activity
+            android:name=".SubscribeActivity"
+            android:label=""
+            android:parentActivityName=".LoginActivity" />
+        <activity
+            android:name=".ContactUsActivity"
+            android:label=""
+            android:parentActivityName=".LoginActivity" />
+        <activity android:name=".JobsActivity"
+            android:label="" />
+        <activity android:name=".ITBytesActivity" />
+        <activity android:name=".ClassifiedsActivity" />
+        <activity android:name=".SolutionsActivity" />
+        <activity android:name=".LearningActivity"></activity>
     </application>
 
 </manifest>

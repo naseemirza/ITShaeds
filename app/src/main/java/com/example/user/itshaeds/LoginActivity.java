@@ -140,13 +140,14 @@ public class LoginActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_aboutus) {
-            // Handle the camera action
+            startActivity(new Intent(LoginActivity.this,AboutUsActivity.class));
         } else if (id == R.id.nav_subsc) {
-
+            startActivity(new Intent(LoginActivity.this,SubscribeActivity.class));
         } else if (id == R.id.nav_login) {
+            startActivity(new Intent(LoginActivity.this,LoginActivity.class));
 
         } else if (id == R.id.nav_contactus) {
-
+            startActivity(new Intent(LoginActivity.this,ContactUsActivity.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

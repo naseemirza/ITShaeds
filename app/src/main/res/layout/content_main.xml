@@ -64,7 +64,7 @@
         android:layout_below="@+id/spinner"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:background="@color/green"
+        android:background="@drawable/buttoncorner"
         android:text="Login"
         android:textAllCaps="false"
         android:textColor="@color/colorWhite"
