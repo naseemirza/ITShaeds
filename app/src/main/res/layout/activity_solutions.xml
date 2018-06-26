@@ -6,14 +6,63 @@
     android:layout_height="match_parent"
     tools:context="com.example.user.itshaeds.SolutionsActivity">
 
+
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:textSize="20dp"
-        android:textColor="@color/colorPrimaryDark"
-        android:text="Solutions" />
+        android:layout_marginTop="20dp"
+        android:textSize="12dp"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        android:text="View Enterprise IT Solutions" />
 
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView16"
+        android:layout_marginTop="70dp" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/spinner1"
+        android:layout_marginTop="30dp" />
+
+    <EditText
+        android:id="@+id/editText13"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/spinner2"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:paddingStart="10dp"
+        android:inputType="textPersonName"
+        android:textSize="10dp"
+       android:hint="Keywords"
+        android:paddingLeft="10dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText13"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="47dp"
+        android:textAllCaps="false"
+        android:textSize="10dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/buttoncorner"
+        android:text="Submit" />
 </RelativeLayout>

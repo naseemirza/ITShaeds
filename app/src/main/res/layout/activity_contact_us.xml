@@ -6,76 +6,135 @@
     android:layout_height="match_parent"
     tools:context="com.example.user.itshaeds.ContactUsActivity">
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="39dp"
-        android:layout_marginStart="39dp"
-        android:textSize="12dp"
-        android:textColor="@color/colorBlack"
-        android:layout_marginTop="24dp"
-        android:text="Contact Info :" />
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView9"
-        android:layout_alignStart="@+id/textView9"
-        android:layout_below="@+id/textView9"
-        android:layout_marginTop="12dp"
-        android:textSize="11dp"
-        android:text="Contact us and we'll get back to you within 24 hours" />
+    <ScrollView
+        android:id="@+id/scrolview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
+        <RelativeLayout
+            android:id="@+id/re"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+        <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView10"
-        android:layout_alignStart="@+id/textView10"
-        android:layout_below="@+id/textView10"
-        android:layout_marginTop="12dp"
-        android:textSize="10dp"
-        android:text="IT Shades P.O.Box 334 Iselin, NJ 08830-0334" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:text="Contact Info" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_alignLeft="@+id/textView11"
-        android:layout_alignStart="@+id/textView11"
         android:layout_below="@+id/textView11"
-        android:textSize="10dp"
-        android:textColor="@color/colorPrimaryDark"
-        android:text="+1 848 248 6045" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:text="Contact us and we'll get back to you within 24 hours" />
+
+    <LinearLayout
+        android:id="@+id/li1"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/textView12"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img1"
+            android:layout_marginStart="30dp"
+            android:src="@drawable/ic_place_black_24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp" />
+
+        <TextView
+            android:text="IT Shades P.O. Box 334 lselin, NJ 088300334"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_gravity="center_vertical"
+            android:textSize="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/li2"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/li1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img2"
+            android:layout_marginStart="30dp"
+            android:src="@drawable/ic_phone_in_talk_black_24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp" />
+
+        <TextView
+            android:text="+1 848 248 6045"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_gravity="center_vertical"
+            android:textSize="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/li3"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/li2"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img3"
+            android:layout_marginStart="30dp"
+            android:src="@drawable/ic_email_black_24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp" />
+
+        <TextView
+            android:text="contact@itshades.com"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_gravity="center_vertical"
+            android:textSize="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp" />
+
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView12"
-        android:layout_alignStart="@+id/textView12"
-        android:layout_below="@+id/textView12"
-        android:layout_marginTop="11dp"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="10dp"
-        android:text="contact@itshades.com" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView13"
-        android:layout_alignStart="@+id/textView13"
-        android:layout_below="@+id/textView13"
-        android:layout_marginTop="30dp"
-        android:textSize="12dp"
+        android:layout_below="@+id/li3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
         android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        android:textSize="15dp"
         android:text="Contact Us" />
 
     <EditText
@@ -83,9 +142,7 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:paddingStart="10dp"
-        android:layout_alignLeft="@+id/textView14"
-        android:layout_alignStart="@+id/textView14"
-        android:layout_below="@+id/textView14"
+        android:layout_below="@+id/textView13"
         android:layout_marginTop="11dp"
         android:textSize="10dp"
         android:ems="10"
@@ -99,14 +156,12 @@
         android:layout_height="45dp"
         android:paddingStart="10dp"
         android:paddingLeft="10dp"
-        android:layout_alignLeft="@+id/editText3"
-        android:layout_alignStart="@+id/editText3"
         android:layout_below="@+id/editText3"
         android:ems="10"
         android:textSize="10dp"
         android:hint="Email :"
         android:inputType="textPersonName"
-         />
+        />
 
     <EditText
         android:id="@+id/editText5"
@@ -114,8 +169,7 @@
         android:layout_height="45dp"
         android:paddingStart="10dp"
         android:paddingLeft="10dp"
-        android:layout_alignLeft="@+id/editText4"
-        android:layout_alignStart="@+id/editText4"
+
         android:layout_below="@+id/editText4"
         android:ems="10"
         android:inputType="textPersonName"
@@ -126,8 +180,6 @@
         android:id="@+id/editText6"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_alignLeft="@+id/editText5"
-        android:layout_alignStart="@+id/editText5"
         android:layout_below="@+id/editText5"
         android:ems="10"
         android:paddingStart="10dp"
@@ -140,8 +192,6 @@
         android:id="@+id/editText7"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_alignLeft="@+id/editText6"
-        android:layout_alignStart="@+id/editText6"
         android:layout_below="@+id/editText6"
         android:paddingStart="10dp"
         android:paddingLeft="10dp"
@@ -162,4 +212,7 @@
         android:layout_below="@+id/editText7"
         android:layout_marginTop="10dp"
         android:background="@drawable/buttoncorner" />
+
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>

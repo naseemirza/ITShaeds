@@ -43,14 +43,22 @@
             android:parentActivityName=".LoginActivity" />
         <activity
             android:name=".ContactUsActivity"
-            android:label=""
+            android:label="                Contact Us"
             android:parentActivityName=".LoginActivity" />
-        <activity android:name=".JobsActivity"
+        <activity
+            android:name=".JobsActivity"
             android:label="" />
         <activity android:name=".ITBytesActivity" />
         <activity android:name=".ClassifiedsActivity" />
         <activity android:name=".SolutionsActivity" />
-        <activity android:name=".LearningActivity"></activity>
+        <activity android:name=".LearningActivity" />
+        <activity
+            android:name=".FilterActivity"
+            android:label=""
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".CurrentJobActivity" />
+        <activity android:name=".CrntJobFilterActivity" />
+        <activity android:name=".DetailsActivity"></activity>
     </application>
 
 </manifest>

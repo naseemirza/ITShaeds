@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.user.itshaeds.DetailsActivity">
+
+
+    <ScrollView
+        android:id="@+id/scrolview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/re"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/textvpost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="post"
+        android:paddingStart="30dp"
+        android:textColor="@color/DarkGreen"
+        android:textSize="12dp"
+        android:gravity="start"
+        android:paddingLeft="30dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/li1"
+        android:layout_below="@+id/textvpost"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textyrs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:gravity="center_vertical"
+            android:text="7-10 years"
+            android:textAlignment="viewStart"
+            android:textColor="#545454"
+            android:textSize="10dp"
+            android:textStyle="bold"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/textlocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:gravity="center_vertical"
+            android:text="India Hyderabad"
+            android:textAlignment="viewStart"
+            android:textColor="#545454"
+            android:textSize="10dp"
+            android:textStyle="bold"
+            tools:ignore="RtlCompat" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/li2"
+        android:layout_below="@+id/li1"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/comp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:gravity="center_vertical"
+            android:text="Company Name"
+            android:textAlignment="viewStart"
+
+            android:textSize="11sp"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/compnm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="58dp"
+            android:gravity="center_vertical"
+            android:text="Admin"
+            android:textAlignment="viewStart"
+            android:textColor="@color/DarkGreen"
+            android:textSize="10dp"
+            android:textStyle="bold"
+            tools:ignore="RtlCompat" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/li3"
+        android:layout_below="@+id/li2"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/skills"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:gravity="center_vertical"
+            android:text="Key Skills:"
+            android:textAlignment="viewStart"
+
+            android:textSize="11sp"
+
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/kskls"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="85dp"
+            android:gravity="center_vertical"
+            android:layout_marginEnd="10dp"
+            android:text="@string/skils"
+            android:textAlignment="viewStart"
+            android:textColor="#545454"
+            android:textSize="12sp"
+            android:lineSpacingExtra="3sp"
+
+            tools:ignore="RtlCompat" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/li4"
+        android:layout_below="@+id/li3"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/jobdesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:gravity="center_vertical"
+            android:text="Job Description:"
+            android:textAlignment="viewStart"
+            android:textSize="11sp"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="55dp"
+            android:textColor="#545454"
+            android:textSize="12sp"
+            android:lineSpacingExtra="3sp"
+            android:layout_marginEnd="10dp"
+            android:gravity="center_vertical"
+            android:text="@string/jobdesc"
+            android:textAlignment="viewStart"
+
+            tools:ignore="RtlCompat" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/li5"
+        android:layout_below="@+id/li4"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/explvl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:gravity="center_vertical"
+            android:text="Experience Level"
+            android:textAlignment="viewStart"
+
+            android:textSize="10dp"
+            android:textStyle="bold"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/explevl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="55dp"
+            android:gravity="center_vertical"
+            android:text="Manager"
+            android:textAlignment="viewStart"
+            android:textSize="10dp"
+            android:textStyle="bold"
+            tools:ignore="RtlCompat" />
+
+    </LinearLayout>
+
+
+            <Button
+                android:text="Apply"
+                android:textAlignment="center"
+                android:textSize="10dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold"
+                android:layout_below="@+id/li5"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/buttoncorner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

@@ -51,13 +51,15 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
             if (position == 0){
                 intent =  new Intent(mCtx, JobsActivity.class);
             } else if (position == 1){
+                    intent =  new Intent(mCtx, CurrentJobActivity.class);
+                } else if (position == 2){
                 intent =  new Intent(mCtx, ITBytesActivity.class);
 
-            } else if (position== 2) {
+            } else if (position== 3) {
                 intent = new Intent(mCtx, ClassifiedsActivity.class);
-            }else if (position == 3) {
-                intent = new Intent(mCtx, SolutionsActivity.class);
             }else if (position == 4) {
+                intent = new Intent(mCtx, SolutionsActivity.class);
+            }else if (position == 5) {
                 intent = new Intent(mCtx, LearningActivity.class);
             }
             else {

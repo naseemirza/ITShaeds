@@ -6,14 +6,238 @@
     android:layout_height="match_parent"
     tools:context="com.example.user.itshaeds.ITBytesActivity">
 
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:textSize="20dp"
-        android:textColor="@color/colorPrimaryDark"
-        android:text="IT Bytes" />
+    <android.support.v7.widget.CardView
+        android:id="@+id/card1"
+        android:layout_width="170dp"
+        android:layout_height="130dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        app:cardElevation="6dp">
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:text="June 2018"
+            android:textColor="@color/DarkGreen"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="First-Edition"
+            android:textColor="@color/DarkGreen"
+            android:textSize="12dp" />
+
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card2"
+        android:layout_width="170dp"
+        android:layout_height="130dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/card1"
+        app:cardElevation="6dp"
+        android:layout_marginRight="10dp">
+
+        <TextView
+            android:id="@+id/text11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="center"
+            android:text="June 2018"
+            android:textColor="@color/DarkGreen"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/text22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Second-Edition"
+            android:textColor="@color/DarkGreen"
+            android:textSize="12dp" />
+
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card3"
+        android:layout_width="170dp"
+        android:layout_height="130dp"
+        android:layout_below="@+id/card1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        app:cardElevation="6dp">
+
+        <TextView
+            android:id="@+id/text12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:text="May 2018"
+            android:textColor="@color/DarkGreen"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/text221"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="First-Edition"
+            android:textColor="@color/DarkGreen"
+            android:textSize="12dp" />
+
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card4"
+        android:layout_width="170dp"
+        android:layout_height="130dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/card2"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/card3"
+        app:cardElevation="6dp"
+        android:layout_marginRight="10dp">
+
+        <TextView
+            android:id="@+id/text222"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:text="May 2018"
+            android:textColor="@color/DarkGreen"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/text223"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Second-Edition"
+            android:textColor="@color/DarkGreen"
+            android:textSize="12dp" />
+
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card5"
+        android:layout_width="170dp"
+        android:layout_height="130dp"
+        android:layout_below="@+id/card3"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        app:cardElevation="6dp">
+
+        <TextView
+            android:id="@+id/text121"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:text="Apr 2018"
+            android:textColor="@color/DarkGreen"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/text231"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="First-Edition"
+            android:textColor="@color/DarkGreen"
+            android:textSize="12dp" />
+
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card6"
+        android:layout_width="170dp"
+        android:layout_height="130dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/card4"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/card5"
+        app:cardElevation="6dp"
+        android:layout_marginRight="10dp">
+
+        <TextView
+            android:id="@+id/text224"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:text="Apr 2018"
+            android:textColor="@color/DarkGreen"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/text225"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Second-Edition"
+            android:textColor="@color/DarkGreen"
+            android:textSize="12dp" />
+
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card7"
+        android:layout_width="170dp"
+        android:layout_height="130dp"
+        android:layout_below="@+id/card5"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        app:cardElevation="6dp">
+
+        <TextView
+            android:id="@+id/text126"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:text="Previous"
+            android:textColor="@color/DarkGreen"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/text237"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Editions"
+            android:textColor="@color/DarkGreen"
+            android:textSize="12dp" />
+
+
+    </android.support.v7.widget.CardView>
 
 </RelativeLayout>
