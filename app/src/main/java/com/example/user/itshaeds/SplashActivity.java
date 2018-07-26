@@ -3,6 +3,7 @@ package com.example.user.itshaeds;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -24,6 +25,8 @@ public class SplashActivity extends AppCompatActivity {
 
         Animation animation= AnimationUtils.loadAnimation(this, R.anim.alpha);
         animation.reset();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         LinearLayout l= (LinearLayout) findViewById(R.id.lin_lay);
         l.clearAnimation();
         l.startAnimation(animation);

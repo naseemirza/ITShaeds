@@ -1,8 +1,13 @@
 package com.example.user.itshaeds;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,54 +19,82 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private Spinner spiner;
     private Button buttonLogin;
-    private TextView reg,forgotpass;
+    private TextView reg, forgotpass;
 
+    EditText editTextpass, editTextmail;
+    private static String LGN_URL = "https://www.itshades.com/appwebservices/login.php";
     final Context context = this;
+    ProgressDialog progressDialog;
+    String userrole;
 
+    int success;
+    int error;
+    String msg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        forgotpass=(TextView)findViewById(R.id.textViewfrgt);
+        editTextmail = (EditText) findViewById(R.id.editTextU);
+        editTextpass = (EditText) findViewById(R.id.editTextP);
 
-      forgotpass.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-              startActivity(new Intent(LoginActivity.this,ForgotPassActivity.class));
-          }
-      });
+        forgotpass = (TextView) findViewById(R.id.textViewfrgt);
 
-
-        reg=(TextView)findViewById(R.id.textViewRgs);
-
-        reg.setOnClickListener(new View.OnClickListener() {
+        forgotpass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
+                startActivity(new Intent(LoginActivity.this, ForgotPassActivity.class));
             }
         });
 
 
+        reg = (TextView) findViewById(R.id.textViewRgs);
+
+        reg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+            }
+        });
+
 
         spiner = (Spinner) findViewById(R.id.spinner);
         String[] users = new String[]{
-                       "Access Level",
-                        "Individual User",
-                        "Corparate"
+                "Access Level",
+                "Individual User",
+                "Corporate Customer"
         };
 
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
-                this,R.layout.spinneritems,users
+                this, R.layout.spinneritems, users
         );
         spinnerArrayAdapter.setDropDownViewResource(R.layout.spinneritems);
         spiner.setAdapter(spinnerArrayAdapter);
@@ -70,7 +103,7 @@ public class LoginActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        buttonLogin=(Button) findViewById(R.id.buttonL);
+        buttonLogin = (Button) findViewById(R.id.buttonL);
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,17 +111,32 @@ public class LoginActivity extends AppCompatActivity
                 Intent intent=new Intent(LoginActivity.this,Main2Activity.class);
                 startActivity(intent);
 
+//                final String email = editTextmail.getText().toString().trim();
+//
+//                if (TextUtils.isEmpty(email)) {
+//                    editTextmail.setError("Please enter your email");
+//                    editTextmail.requestFocus();
+//                }
+//
+//                if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+//                    editTextmail.setError("Enter a valid email");
+//                    editTextmail.requestFocus();
+//                }
+//
+//                if (editTextpass.getText().toString().length() == 0) {
+//                    editTextpass.setError("Password not entered");
+//                    editTextpass.requestFocus();
+//                }
+//                if (editTextpass.getText().toString().length() < 6) {
+//                    editTextpass.setError("Password should be atleast of 6 charactors");
+//                    editTextpass.requestFocus();
+//                } else {
+//
+//                    Loginbtn();
+//                }
+
             }
         });
-
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -100,6 +148,79 @@ public class LoginActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
+
+    private void Loginbtn() {
+
+        progressDialog = new ProgressDialog(LoginActivity.this);
+        progressDialog.setMessage("Signing In...");
+        progressDialog.show();
+
+        final String email = editTextmail.getText().toString().trim();
+        final String password = editTextpass.getText().toString().trim();
+        final String usertype = spiner.getSelectedItem().toString();
+
+        if (usertype.equals("Individual User")) {
+            userrole = "1";
+        } else if (usertype.equals("Corporate Customer")) {
+            userrole = "2";
+        }
+
+        Log.e("resp", userrole);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, LGN_URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.e("resp", response);
+                        progressDialog.dismiss();
+
+
+                        try {
+                            JSONObject obj = new JSONObject(response);
+                            success= Integer.parseInt(obj.getString("s"));
+                            error= Integer.parseInt(obj.getString("e"));
+                            msg=obj.getString("m");
+                            if (success==1)
+                            {
+                                    Toast.makeText(LoginActivity.this, msg, Toast.LENGTH_SHORT).show();
+                                    //progressBar.setVisibility(View.GONE);
+                                     progressDialog.dismiss();
+                                    Intent intent=new Intent(LoginActivity.this,Main2Activity.class);
+                                     startActivity(intent);
+
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(LoginActivity.this,e.getMessage(), Toast.LENGTH_SHORT).show();
+                            progressDialog.dismiss();
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(LoginActivity.this, "error" + error.getMessage(), Toast.LENGTH_SHORT).show();
+                        progressDialog.dismiss();
+
+                    }
+                }) {
+            @Override
+
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("username", email);
+                params.put("password", password);
+                params.put("job", userrole);
+                return params;
+            }
+        };
+
+        RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
+        queue.add(stringRequest);
+    }
+
 
     @Override
     public void onBackPressed() {

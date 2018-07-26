@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.user.itshaeds">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_foreground"
@@ -48,7 +50,7 @@
         <activity
             android:name=".JobsActivity"
             android:label="" />
-        <activity android:name=".ITBytesActivity" />
+        <activity android:name=".ITBytes.ITBytesActivity" />
         <activity android:name=".ClassifiedsActivity" />
         <activity android:name=".SolutionsActivity" />
         <activity android:name=".LearningActivity" />
@@ -58,7 +60,13 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".CurrentJobActivity" />
         <activity android:name=".CrntJobFilterActivity" />
-        <activity android:name=".DetailsActivity"></activity>
+        <activity
+            android:name=".DetailsActivity"
+            android:label="Job Description"
+            android:parentActivityName=".Main2Activity" />
+        <activity android:name=".PrevayActivity" />
+        <activity android:name=".TermsActivity" />
+        <activity android:name=".ITBytes.ITBytDetailsActivity"></activity>
     </application>
 
 </manifest>

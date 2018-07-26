@@ -45,7 +45,7 @@
     <string name="corporate_customerReg">Corporate Customer</string>
     <string name="click_here_to_read_and_agree_ourReg">Click Here To Read and Agree Our</string>
     <string name="privacy_policyReg">Privacy Policy</string>
-    <string name="terms_and_conditionsReg">Terms and Conditions</string>
+
     <string name="password_will_be_send_on_your_authorized_email_idFogtPass">Password Will Be Send On Your Authorized Email Id.</string>
     <string name="add">Add</string>
     <string name="reset">Reset</string>
@@ -63,5 +63,81 @@
         ITshades.com has been founded with singular aim of engaging and enabling the Talent with opportunities,
         learnings, best practices, collaboration and innovation from IT industry for best and brightest of businesses,
         professionals and students.</string>
+
+
+    <string name="proddesc1"> Company collects two types of information about you
+        2.1 Personally Identifiable Information. Personally Identifiable Information is information
+        that identifies a specific person. When you engage in certain activities via the Company Service,
+        including but not limited to creating an account, sending feedback, or otherwise
+        participating in the Company Service (collectively, “Identification Activities”),
+        we may ask you to provide certain information about yourself.
+        If you elect to engage in an Identification Activity we may ask you
+        to provide us with certain personal information about yourself, such as your name,
+        address (including zip code), email address, credit card information,
+        telephone number and/or any other information you provide to us, to process your transaction,
+        send communications about them to you, and populate forms for future transactions.</string>
+    <string name="proddesc2">3.1 In this Section 2 we have set out:\n
+       (a) the general categories of personal data that we may process;\n
+       (b) the purposes for which we may process personal data; and\n
+       (c) the legal bases of the processing.\n
+        3.2 We may process data about your use of our website and services ("usage data").
+        The usage data may include your IP address, geographical location, browser type and version,
+        operating system, referral source, length of visit, page views and website navigation paths,
+        as well as information about the timing, frequency and pattern of your service use].
+        The source of the usage data is our analytics tracking system.
+        This usage data may be processed for the purposes of analyzing the use of the website and services.
+        The legal basis for this processing is your consent or our legitimate interests,
+        namely monitoring and improving our website and services.</string>
+
+
+    <string name="intro">1.1 EGBC Services LLC (“Company,” or “we,” or “us,” or “our”) is committed to safeguarding
+        the privacy of our website and service users (“users” or “you”)
+        as it may relate to our website at  www.itshades.com.\n
+        1.2 This policy applies where we are acting as a data controller with respect to your personal data,
+        in other words, where we determine the purposes and means of the processing of that personal data.
+        In the event you are a business user of our site and service, other than a sole proprietor,
+        many of these terms may not be applicable to you.</string>
+
+    <string name="itdesc">EGBG Services LLC provides information and products in the technology industry
+        to companies and users of websites and mobile apps (the "Service" or “Company Service”)
+        offered from time to time at www.itshades.com (the “Site,” or “Sites”).
+        The Company Service is owned and operated by EGBG Services LLC  (“Company”, “we” or “us”).\n
+        Your use of the Company Service is subject to the terms and conditions set forth
+        in these Terms of Service (the “Terms of Service”).\n\n
+
+        PLEASE READ THE TERMS OF SERVICE CAREFULLY. BY ACCESSING OR USING ANY PART OF THE COMPANY SERVICE,
+        YOU ACKNOWLEDGE THAT YOU HAVE READ, UNDERSTAND AND AGREE TO BE BOUND BY ALL THE TERMS OF THE TERMS OF SERVICE.
+        IF YOU DO NOT AGREE TO THESE TERMS OF SERVICE, EXIT THIS PAGE AND DO NOT ACCESS OR USE THE COMPANY SERVICE.
+        USE OF THE COMPANY SERVICE IS EXPRESSLY CONDITIONED UPON YOUR ACCEPTANCE OF THE TERMS OF SERVICE.\n\n
+
+        1. Updates to Terms of Service; Integration. We may, in our sole discretion,
+        modify the Terms of Service via email or by posting notice on any part of the Company Service.
+        The “Last Updated” date at the top the Terms of Service indicates when the latest
+        modifications were made to the Terms of Service. By continuing to access and use the Company Service
+        you agree to any such modifications. Therefore, you are responsible for reviewing
+        and should become familiar with any such modifications.  You are encouraged to review this
+        Terms of Service periodically and to check the “Last Updated” date at the top of
+        the Terms of Service for the most recent version. In addition, when using services or features on the Company Service,
+        you will be subject to any posted guidelines or policies applicable to such services or features
+        that may be posted from time to time, including but not limited to the Privacy Policy as noted below.
+        All such guidelines or policies are hereby incorporated by reference into these Terms of Service.\n\n
+
+        2. Translation. We may translate these Terms of Service into other languages for your convenience.
+        Nevertheless, the English version governs your relationship with Company, and any inconsistencies
+        among the different versions will be resolved in favor of the English version.\n\n
+
+        3. Service Availability. The Company Service may be modified, updated, interrupted,
+        suspended or discontinued at any time without notice or liability. If the Company Service were discontinued
+        at any time, all data would be deleted pursuant to the discontinuation process.\n\n
+
+        4. Privacy Policy. Use of the Company Service is subject to the terms of our Privacy Policy
+        which is hereby incorporated into and made part of these Terms of Service.
+        Please carefully review our Privacy Policy. By using or accessing the Company Service,
+        you agree to be bound by the terms of our Privacy Policy.\n\n
+
+        5. Age. The Service is meant for those at least eighteen (18) years of age.
+        Use of the Service by anyone under this age is a violation of the Terms of Service.
+        You may not use the Service if you are a competitor of the Service, or if we have previously banned you
+        from use of the Service or closed your account.</string>
 
 </resources>
