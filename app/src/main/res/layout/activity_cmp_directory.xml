@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.user.itshaeds.CompnyDrctry.CmpDirectoryActivity">
+
+    <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:id="@+id/nestdscrolview"
+        android:fillViewport="true"
+        android:background="@color/colorWhite"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="com.example.naseem.priceomania1.ScrollingActivity"
+        >
+
+        <ScrollView
+            android:id="@+id/scrolview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/re"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:id="@+id/r1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff">
+
+                    <android.support.v7.widget.RecyclerView
+
+                        android:id="@+id/my_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scrollbars="horizontal" />
+
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/re1"
+
+                    android:layout_below="@+id/r1"
+                    android:background="@color/gray"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/my_recycler_jobs"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/textdesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/re1"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center_vertical"
+                    android:text="Disclaimer"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="12dp"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:id="@+id/texttnc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/re1"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_toRightOf="@+id/textdesc"
+                    android:gravity="center_vertical"
+                    android:text="Terms And Conditions"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="12dp"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:id="@+id/textpnp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/re1"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_toRightOf="@+id/texttnc"
+                    android:gravity="center_vertical"
+                    android:text="Privacy Policy"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="12dp"
+                    tools:ignore="RtlCompat" />
+
+
+            </RelativeLayout>
+
+
+        </ScrollView>
+    </android.support.v4.widget.NestedScrollView>
+
+</RelativeLayout>

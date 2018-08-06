@@ -139,5 +139,12 @@
         Use of the Service by anyone under this age is a violation of the Terms of Service.
         You may not use the Service if you are a competitor of the Service, or if we have previously banned you
         from use of the Service or closed your account.</string>
+    <string name="title_activity_comp_directory">CompDirectoryActivity</string>
+    <string name="msg">inMorphis is a Global Workplace Automation and Enterprise Service Management firm.
+        Over the past years, we have transformed and empowered enterprises in their digital journeys with the most scal....</string>
+    <string name="title_activity_comp_profile">CompProfileActivity</string>
+    <string name="title_activity_cmp_profile">CmpProfileActivity</string>
+    <string name="descriptions">This 2-hour online course is for any user in any region assigned a Job to review within Zinc MAPS.
+        Reviewers may also sign the final certificate, if applicable. </string>
 
 </resources>

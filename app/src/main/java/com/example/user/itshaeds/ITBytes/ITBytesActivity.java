@@ -36,14 +36,7 @@ public class ITBytesActivity extends AppCompatActivity {
             }
         });
 
-        ImageButton imageButton2= (ImageButton)view.findViewById(R.id.action_bar_forward);
 
-        imageButton2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //startActivity(new Intent(JobsActivity.this,FilterActivity.class));
-            }
-        });
 
         List<ITBytesModel> rowListItem = getAllItemList();
         lLayout = new GridLayoutManager(ITBytesActivity.this, 2);

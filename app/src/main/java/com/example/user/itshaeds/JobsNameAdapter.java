@@ -25,10 +25,10 @@ public class JobsNameAdapter extends RecyclerView.Adapter<JobsNameAdapter.Produc
     private Context mCtx;
     private List<JobsModelName> productList1;
 
-
     public JobsNameAdapter(Context mCtx, List<JobsModelName> productList1) {
         this.mCtx = mCtx;
         this.productList1 = productList1;
+
     }
 
     @Override
@@ -45,7 +45,6 @@ public class JobsNameAdapter extends RecyclerView.Adapter<JobsNameAdapter.Produc
 
         holder.textViewTitle.setText(product.getName());
         holder.textViewyrs.setText(product.getExp());
-        //holder.checkBox.setChecked(productList1.get(position).getSelected());
 
         holder.setItemClickListener(new RecyclerViewItemClickListener() {
             @Override
@@ -53,51 +52,60 @@ public class JobsNameAdapter extends RecyclerView.Adapter<JobsNameAdapter.Produc
 
                 String title=product.getName().toString();
                 String exp=product.getExp().toString();
-                //String location=product.getLoc().toString();
-
                 Log.e("responce", title);
-
                 SharedPreferences pref = view.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor edit = pref.edit();
-
                 edit.putString("Title",title);
                 edit.putString("Exp",exp);
-                //edit.putString("Loc",location);
 
                 edit.commit();
                 Intent intent = new Intent(view.getContext(), DetailsActivity.class);
                 view.getContext().startActivity(intent);
-
             }
         });
 
+//        holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                FloatingActionButton floatingActionButton=(FloatingActionButton)buttonView.findViewById(R.id.fab);
+//                CheckBox checkBox=(CheckBox)buttonView.findViewById(R.id.chkox);
+//                if (checkBox.isChecked()){
+//                    floatingActionButton.setVisibility(View.VISIBLE);
+//                }
+//                else
+//                {
+//                    floatingActionButton.setVisibility(View.GONE);
+//                }
+//            }
+//        });
     }
+
 
     @Override
     public int getItemCount() {
         return productList1.size();
     }
-
-
+                                                                                        //, CompoundButton.OnCheckedChangeListener
     class ProductViewHolder extends RecyclerView.ViewHolder  implements View.OnClickListener {
 
         TextView textViewTitle;
         TextView textViewyrs;
-        CheckBox checkBox;
         FloatingActionButton floatingActionButton;
-        //TextView textViewloc;
+        CheckBox checkBox;
 
         private RecyclerViewItemClickListener itemClickListener;
+
 
         public ProductViewHolder(final View itemView) {
             super(itemView);
             mCtx=itemView.getContext();
             textViewTitle = itemView.findViewById(R.id.nameTextview);
             textViewyrs = itemView.findViewById(R.id.yrsTextview);
-            checkBox=(CheckBox)itemView.findViewById(R.id.chkox);
-            floatingActionButton =(FloatingActionButton)itemView.findViewById(R.id.fab);
+
 
             itemView.setOnClickListener(this);
+            //checkBox.setOnCheckedChangeListener(this);
+
 
         }
         @Override
@@ -112,6 +120,10 @@ public class JobsNameAdapter extends RecyclerView.Adapter<JobsNameAdapter.Produc
 
         }
 
+//        @Override
+//        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//
+//        }
     }
 
 }

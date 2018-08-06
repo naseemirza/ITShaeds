@@ -22,7 +22,6 @@
 
             <TextView
                 android:id="@+id/nameTextview"
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
@@ -40,7 +39,6 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_alignParentRight="true"
             android:layout_marginBottom="5dp"
             android:layout_marginEnd="10dp"
@@ -58,21 +56,22 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/yrsTextview"
+                android:id="@+id/desctext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:layout_marginEnd="10dp"
-                android:textSize="12sp"
-                android:lineSpacingExtra="3sp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
-                android:maxLines="2"
-                android:text="Descriptions" />
-
+                android:lineSpacingExtra="3sp"
+                android:maxLines="3"
+                android:text="Descriptions"
+                android:textSize="12sp" />
 
         </LinearLayout>
+
+
 
 
     </RelativeLayout>

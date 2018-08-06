@@ -79,16 +79,16 @@ public class JobsActivity extends AppCompatActivity {
         recyclerViewtitle.setHasFixedSize(true);
 
 
-        productList1.add(new JobsModelName("Assistant Manager-.Net Sql Technical Lead","7-10 Yrs, India Hyderabad"));
-        productList1.add(new JobsModelName("Assistant Manager-.Net Sql Technical Lead","7-10 Yrs, India Hyderabad"));
-        productList1.add(new JobsModelName("Assistant Manager-.Net Sql Technical Lead","7-10 Yrs, India Hyderabad"));
-        productList1.add(new JobsModelName("Assistant Manager-.Net Sql Technical Lead","7-10 Yrs, India Hyderabad"));
-        productList1.add(new JobsModelName("Assistant Manager-.Net Sql Technical Lead","7-10 Yrs, India Hyderabad"));
-        productList1.add(new JobsModelName("Assistant Manager-.Net Sql Technical Lead","7-10 Yrs, India Hyderabad"));
-        productList1.add(new JobsModelName("Assistant Manager-.Net Sql Technical Lead","7-10 Yrs, India Hyderabad"));
-        productList1.add(new JobsModelName("Assistant Manager-.Net Sql Technical Lead","7-10 Yrs, India Hyderabad"));
-        productList1.add(new JobsModelName("Assistant Manager-.Net Sql Technical Lead","7-10 Yrs, India Hyderabad"));
-        productList1.add(new JobsModelName("Assistant Manager-.Net Sql Technical Lead","7-10 Yrs, India Hyderabad"));
+        productList1.add(new JobsModelName("Assistant Manager-.Net Sql Tech Lead","7-10 Yrs, India Hyderabad"));
+        productList1.add(new JobsModelName("Assistant Manager-.Net Sql Tech Lead","7-10 Yrs, India Hyderabad"));
+        productList1.add(new JobsModelName("Assistant Manager-.Net Sql Tech Lead","7-10 Yrs, India Hyderabad"));
+        productList1.add(new JobsModelName("Assistant Manager-.Net Sql Tech Lead","7-10 Yrs, India Hyderabad"));
+        productList1.add(new JobsModelName("Assistant Manager-.Net Sql Tech Lead","7-10 Yrs, India Hyderabad"));
+        productList1.add(new JobsModelName("Assistant Manager-.Net Sql Tech Lead","7-10 Yrs, India Hyderabad"));
+        productList1.add(new JobsModelName("Assistant Manager-.Net Sql Tech Lead","7-10 Yrs, India Hyderabad"));
+        productList1.add(new JobsModelName("Assistant Manager-.Net Sql Tech Lead","7-10 Yrs, India Hyderabad"));
+        productList1.add(new JobsModelName("Assistant Manager-.Net Sql Tech Lead","7-10 Yrs, India Hyderabad"));
+        productList1.add(new JobsModelName("Assistant Manager-.Net Sql Tech Lead","7-10 Yrs, India Hyderabad"));
 
 
         JobsNameAdapter adapter1 = new JobsNameAdapter(this, productList1);

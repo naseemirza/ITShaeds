@@ -23,16 +23,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main2Activity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener  {
 
     List<JobsModelName> productList1;
 
     List<ModelJobs> productList;
     RecyclerView recyclerView,recyclerViewtitle;
-    //CheckBox checkBox;
     TextView discla,termsndcond,prvynspolcy;
     FloatingActionButton floatingActionButton;
-
     CheckBox checkBox;
 
     @Override
@@ -40,8 +38,8 @@ public class Main2Activity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        floatingActionButton=(FloatingActionButton)findViewById(R.id.fab);
-        checkBox=(CheckBox)findViewById(R.id.chkox);
+        //floatingActionButton=(FloatingActionButton)findViewById(R.id.fab);
+        //checkBox=(CheckBox)findViewById(R.id.chkox);
 
 
 
@@ -163,21 +161,21 @@ public class Main2Activity extends AppCompatActivity
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_search) {
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        int id = item.getItemId();
 //
-//            return true;
-//        }
-
-        return super.onOptionsItemSelected(item);
-    }
+//        //noinspection SimplifiableIfStatement
+////        if (id == R.id.action_search) {
+////
+////            return true;
+////        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -202,4 +200,17 @@ public class Main2Activity extends AppCompatActivity
     }
 
 
+
+    public void CheckboxClick() {
+
+        FloatingActionButton floatingActionButton=(FloatingActionButton)findViewById(R.id.fab);
+        CheckBox checkBox=(CheckBox)findViewById(R.id.chkox);
+        if (checkBox.isChecked()){
+            floatingActionButton.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            floatingActionButton.setVisibility(View.GONE);
+        }
+    }
 }

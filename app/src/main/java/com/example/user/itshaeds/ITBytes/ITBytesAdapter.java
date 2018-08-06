@@ -2,12 +2,15 @@ package com.example.user.itshaeds.ITBytes;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.user.itshaeds.ModelJobs;
 import com.example.user.itshaeds.R;
 import com.example.user.itshaeds.RecyclerViewItemClickListener;
 
@@ -37,6 +40,9 @@ public class ITBytesAdapter extends RecyclerView.Adapter<ITBytesAdapter.ITBytesV
 
     @Override
     public void onBindViewHolder(ITBytesViewHolders holder, int position) {
+
+        final ITBytesModel product = itemList.get(position);
+
         holder.name1.setText(itemList.get(position).getName());
         holder.name2.setText(itemList.get(position).getDesc());
 
@@ -46,20 +52,20 @@ public class ITBytesAdapter extends RecyclerView.Adapter<ITBytesAdapter.ITBytesV
             @Override
             public void onClick(View view, int position) {
 
-//                String title=product.getName().toString();
-//                String exp=product.getExp().toString();
-//                //String location=product.getLoc().toString();
-//
-//                Log.e("responce", title);
-//
-//                SharedPreferences pref = view.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-//                SharedPreferences.Editor edit = pref.edit();
-//
-//                edit.putString("Title",title);
-//                edit.putString("Exp",exp);
-//                //edit.putString("Loc",location);
-//
-//                edit.commit();
+                String msg1=product.getName().toString();
+                String msg2=product.getDesc().toString();
+                //String location=product.getLoc().toString();
+
+                //Log.e("responce", title);
+
+                SharedPreferences pref = view.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor edit = pref.edit();
+
+                edit.putString("Title",msg1);
+                edit.putString("nm",msg2);
+                //edit.putString("Loc",location);
+
+                edit.commit();
                 Intent intent = new Intent(view.getContext(), ITBytDetailsActivity.class);
                 view.getContext().startActivity(intent);
 

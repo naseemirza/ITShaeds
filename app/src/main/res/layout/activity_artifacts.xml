@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.user.itshaeds.LearningActivity">
-
+    tools:context="com.example.user.itshaeds.ArtifactsActivity">
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30dp"
         android:layout_centerVertical="true"
-        android:textSize="20dp"
-        android:textColor="@color/colorPrimaryDark"
-        android:text="Learning and Development" />
+        android:text="Artifacts " />
+
 </RelativeLayout>

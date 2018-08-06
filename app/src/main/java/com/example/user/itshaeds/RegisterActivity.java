@@ -150,7 +150,6 @@ public class RegisterActivity extends AppCompatActivity {
                 }
 
 
-
                 if (!checkBoxPrvy.isChecked()) {
                     checkBoxPrvy.setError("Please Checked Privacy Policy");
                     checkBoxPrvy.requestFocus();

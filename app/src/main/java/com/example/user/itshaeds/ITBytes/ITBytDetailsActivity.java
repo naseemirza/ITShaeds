@@ -1,6 +1,9 @@
 package com.example.user.itshaeds.ITBytes;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,6 +12,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -40,13 +44,36 @@ public class ITBytDetailsActivity extends AppCompatActivity {
     ImageView imageViewadd,imageViewminus;
 
 
-    CheckBox checkBox;
+    TextView activitynametext;
+    String actvtyname,acttyname1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_itbyt_details);
 
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setCustomView(R.layout.itbytedetailbar);
+        View view =getSupportActionBar().getCustomView();
+
+        activitynametext=(TextView)findViewById(R.id.actname);
+        SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+
+        actvtyname=pref.getString("Title","");
+        acttyname1=pref.getString("nm","");
+
+        activitynametext.setText(actvtyname+" "+acttyname1);
+
+
+        ImageButton imageButton= (ImageButton)view.findViewById(R.id.action_bar_back);
+
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         discla=(TextView)findViewById(R.id.textdesc);
         termsndcond=(TextView)findViewById(R.id.texttnc);
@@ -98,13 +125,15 @@ public class ITBytDetailsActivity extends AppCompatActivity {
 
 
 
-//        imageViewadd=(ImageView)findViewById(R.id.imgadd);
-//        imageViewminus=(ImageView)findViewById(R.id.imgminus);
-//
-//
+        imageViewadd=(ImageView)findViewById(R.id.imgadd);
+        imageViewminus=(ImageView)findViewById(R.id.imgminus);
+
+
 //        expandableListView = (ExpandableListView)findViewById(R.id.expandableListView);
+//        expandableListView.setGroupIndicator(null);
 //        expandableListDetail = ExpandableListDataPump.getData();
 //        expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
+//
 //        expandableListAdapter = new CustomExpandableListAdapter(ITBytDetailsActivity.this, expandableListTitle, expandableListDetail);
 //        expandableListView.setAdapter(expandableListAdapter);
 //        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {

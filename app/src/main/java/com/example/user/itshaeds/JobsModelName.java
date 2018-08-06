@@ -1,5 +1,7 @@
 package com.example.user.itshaeds;
 
+import android.widget.CheckBox;
+
 /**
  * Created by User on 04-Jul-18.
  */

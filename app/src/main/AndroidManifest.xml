@@ -52,8 +52,6 @@
             android:label="" />
         <activity android:name=".ITBytes.ITBytesActivity" />
         <activity android:name=".ClassifiedsActivity" />
-        <activity android:name=".SolutionsActivity" />
-        <activity android:name=".LearningActivity" />
         <activity
             android:name=".FilterActivity"
             android:label=""
@@ -66,7 +64,30 @@
             android:parentActivityName=".Main2Activity" />
         <activity android:name=".PrevayActivity" />
         <activity android:name=".TermsActivity" />
-        <activity android:name=".ITBytes.ITBytDetailsActivity"></activity>
+        <activity android:name=".ITBytes.ITBytDetailsActivity" />
+        <activity android:name=".ITBytes.ITBytDetailsActivity1" />
+        <activity android:name=".ArtifactsActivity" />
+        <activity android:name=".CompReviewActivity" />
+        <activity android:name=".CompnyDrctry.CmpProfFilterActivity" />
+        <activity android:name=".CompnyDrctry.CmpDirectoryActivity" />
+        <activity
+            android:name=".CompnyDrctry.CmpProfileActivity"
+            android:parentActivityName=".CompnyDrctry.CmpDirectoryActivity" />
+        <activity android:name=".Solutions.ProdAndPlatformActivity" />
+        <activity android:name=".Solutions.ITConsltAndServActivity" />
+        <activity android:name=".Solutions.IndSolutionsActivity" />
+        <activity android:name=".LearningAndDevelopment.OnlineTranPortalActivity" />
+        <activity android:name=".LearningAndDevelopment.OnlineTrainingActivity" />
+        <activity android:name=".LearningAndDevelopment.ClassroomTraingActivity" />
+        <activity android:name=".LearningAndDevelopment.CertificationsActivity" />
+        <activity android:name=".LearningAndDevelopment.OnDemandTrangActivity" />
+        <activity android:name=".Artifacts.AnalystReportActivity" />
+        <activity android:name=".Artifacts.WhitePapersActivity" />
+        <activity android:name=".Artifacts.CustSuccStoriesActivity" />
+        <activity android:name=".Events.OnlineEventsActivity" />
+        <activity android:name=".Events.ConfrncSummitsActivity" />
+        <activity android:name=".Events.WebinarActivity" />
+        <activity android:name=".Solutions.FilterAllActivity"></activity>
     </application>
 
 </manifest>

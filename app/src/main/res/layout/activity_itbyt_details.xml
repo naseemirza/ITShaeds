@@ -12,10 +12,9 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:id="@+id/nestdscrolview"
-
-        android:fillViewport="true"
         android:background="@color/colorWhite"
         android:layout_height="match_parent"
+        android:fillViewport="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context="com.example.naseem.priceomania1.ScrollingActivity"
         tools:showIn="@layout/app_bar_main">

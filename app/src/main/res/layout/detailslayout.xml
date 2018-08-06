@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="1dp"
+    android:clickable="false"
+    card_view:cardElevation="1dp">
+
+    <RelativeLayout
+        android:id="@+id/re1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/liname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/nameTextview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:text="name "
+                android:textColor="@color/green"
+                android:textSize="16dp" />
+
+
+        </LinearLayout>
+
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_add_black_24dp" />
+
+
+        <LinearLayout
+            android:id="@+id/textlin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/liname"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/descTextview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="5dp"
+                android:lineSpacingExtra="3sp"
+                android:maxLines="2"
+                android:text="descriptions"
+                android:textSize="12sp" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/compsite"
+            android:text="View more>>"
+            android:layout_below="@+id/textlin"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="10dp"
+            android:textSize="10dp"
+            android:textColor="@color/green"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp" />
+
+        <LinearLayout
+            android:id="@+id/linhrz"
+            android:layout_below="@+id/compsite"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/indrelty"
+                android:layout_marginStart="10dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorBlack"
+                android:text="Industry Relevance : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp" />
+
+            <TextView
+                android:id="@+id/indrel"
+                android:text="All Industries"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linhrz1"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/linhrz"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/fcsar"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold"
+                android:text="Focus Area : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp" />
+
+            <TextView
+                android:id="@+id/fcsar1"
+                android:text=" Digital"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:id="@+id/linhrz2"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/linhrz1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/postedby"
+                android:layout_marginStart="10dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorBlack"
+                android:text="Posted By : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp" />
+
+            <TextView
+                android:id="@+id/admin"
+                android:text=" Admin"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginBottom="10dp"
+            android:id="@+id/linhrz3"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/linhrz2"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/postedate"
+                android:layout_marginStart="10dp"
+
+                android:textStyle="bold"
+                android:textColor="@color/colorBlack"
+                android:text="Posted Date : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp" />
+
+            <TextView
+                android:id="@+id/date1"
+                android:text=" Thursday, 05 July 2018"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>

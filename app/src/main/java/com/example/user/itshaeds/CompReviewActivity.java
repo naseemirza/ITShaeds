@@ -3,11 +3,11 @@ package com.example.user.itshaeds;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class LearningActivity extends AppCompatActivity {
+public class CompReviewActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_learning);
+        setContentView(R.layout.activity_comp_review);
     }
 }
