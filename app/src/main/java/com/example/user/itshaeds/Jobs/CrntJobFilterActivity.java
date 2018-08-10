@@ -1,4 +1,4 @@
-package com.example.user.itshaeds;
+package com.example.user.itshaeds.Jobs;
 
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,8 @@ import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+
+import com.example.user.itshaeds.R;
 
 public class CrntJobFilterActivity extends AppCompatActivity {
 

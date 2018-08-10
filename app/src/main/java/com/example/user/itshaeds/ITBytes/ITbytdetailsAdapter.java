@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.user.itshaeds.JobsModelName;
 import com.example.user.itshaeds.R;
 import com.example.user.itshaeds.RecyclerViewItemClickListener;
 
@@ -23,10 +22,10 @@ import java.util.List;
 public class ITbytdetailsAdapter extends RecyclerView.Adapter<ITbytdetailsAdapter.ProductViewHolder>  {
 
     private Context mCtx;
-    private List<JobsModelName> productList1;
+    private List<ITbytdetalsmodel> productList1;
 
 
-    public ITbytdetailsAdapter(Context mCtx, List<JobsModelName> productList1) {
+    public ITbytdetailsAdapter(Context mCtx, List<ITbytdetalsmodel> productList1) {
         this.mCtx = mCtx;
         this.productList1 = productList1;
     }
@@ -41,7 +40,7 @@ public class ITbytdetailsAdapter extends RecyclerView.Adapter<ITbytdetailsAdapte
 
     @Override
     public void onBindViewHolder(final ITbytdetailsAdapter.ProductViewHolder holder, int position) {
-        final JobsModelName product = productList1.get(position);
+        final ITbytdetalsmodel product = productList1.get(position);
 
         holder.textViewTitle.setText(product.getName());
         holder.textViewyrs.setText(product.getExp());

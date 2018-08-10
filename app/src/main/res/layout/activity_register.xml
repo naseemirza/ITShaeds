@@ -40,6 +40,8 @@
         android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="@string/first_nameReg"
+        android:textCursorDrawable="@drawable/black_cursor"
+        android:backgroundTint="@color/green"
         android:inputType="textPersonName"
         android:paddingLeft="5dp"
         android:paddingStart="5dp"
@@ -48,6 +50,8 @@
     <EditText
         android:id="@+id/editTextlnm"
         android:layout_width="match_parent"
+        android:textCursorDrawable="@drawable/black_cursor"
+        android:backgroundTint="@color/green"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editTextfnm"
         android:layout_marginTop="10dp"
@@ -61,6 +65,8 @@
     <EditText
         android:id="@+id/editTextemail"
         android:layout_width="match_parent"
+        android:textCursorDrawable="@drawable/black_cursor"
+        android:backgroundTint="@color/green"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editTextlnm"
         android:layout_marginTop="10dp"
@@ -77,6 +83,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/editTextemail"
         android:paddingStart="5dp"
+        android:textCursorDrawable="@drawable/black_cursor"
+        android:backgroundTint="@color/green"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:textSize="10dp"
@@ -90,6 +98,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/editTextps"
         android:paddingStart="5dp"
+        android:textCursorDrawable="@drawable/black_cursor"
+        android:backgroundTint="@color/green"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:textSize="10dp"
@@ -109,12 +119,14 @@
 
         <RadioButton
             android:id="@+id/rb1"
+            android:buttonTint="@color/green"
             android:text="Individual User"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <RadioButton
             android:id="@+id/rb2"
+            android:buttonTint="@color/green"
             android:text="Corporate Customer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -126,6 +138,7 @@
         android:id="@+id/checkBoxP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:buttonTint="@color/green"
         android:layout_alignBaseline="@+id/privacytext"
         android:layout_alignBottom="@+id/privacytext"
         android:layout_alignLeft="@+id/radioGroup"
@@ -154,6 +167,7 @@
         android:layout_below="@+id/checkBoxP"
         android:layout_marginLeft="30dp"
         android:layout_marginStart="30dp"
+        android:buttonTint="@color/green"
         android:textSize="12dp"
         android:textColor="@color/colorPrimaryDark"
         android:layout_marginTop="5dp" />

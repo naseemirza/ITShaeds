@@ -11,9 +11,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/back1"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-
             android:layout_gravity="center_vertical"
             android:background="@android:color/transparent"
             android:id="@+id/action_bar_back"
@@ -24,7 +21,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Conferences And Summits"
+            android:text="Dream Job Filter"
             android:gravity="center_horizontal"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textStyle="bold"
@@ -36,12 +33,14 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/filter1"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_person_outline_black_24dp"
             android:id="@+id/action_bar_forward"
             android:layout_gravity="center_vertical"
             android:background="@android:color/transparent"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="10dp" />
 
 
     </TableRow>

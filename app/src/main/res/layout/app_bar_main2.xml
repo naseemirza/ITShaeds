@@ -53,13 +53,28 @@
 
     <include layout="@layout/content_main2" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <Button
+        android:id="@+id/applybutton"
+        android:text="Apply"
+        android:background="@drawable/buttoncorner"
+        android:layout_gravity="bottom"
+        android:textAllCaps="false"
         android:visibility="gone"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_add_circle_outline_black_24dp" />
+        android:textColor="@color/colorWhite"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!--<android.support.design.widget.FloatingActionButton-->
+        <!--android:id="@+id/fab"-->
+        <!---->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:visibility="gone"-->
+        <!--android:layout_gravity="bottom|end"-->
+        <!--android:layout_margin="@dimen/fab_margin"-->
+        <!--android:src="@drawable/ic_add_circle_outline_black_24dp" />-->
 
 </android.support.design.widget.CoordinatorLayout>

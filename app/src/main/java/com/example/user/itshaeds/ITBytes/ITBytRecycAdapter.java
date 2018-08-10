@@ -1,6 +1,8 @@
 package com.example.user.itshaeds.ITBytes;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,10 +10,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.user.itshaeds.ModelJobs;
+import com.example.user.itshaeds.Jobs.ModelJobs;
 import com.example.user.itshaeds.R;
 import com.example.user.itshaeds.RecyclerViewItemClickListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,6 +25,8 @@ public class ITBytRecycAdapter extends RecyclerView.Adapter<ITBytRecycAdapter.Pr
 
     private Context mCtx;
     private List<ModelJobs> productList;
+    //private int selected_position = 0;
+    List<CardView>cardViewList = new ArrayList<>();
 
     public ITBytRecycAdapter(Context mCtx, List<ModelJobs> productList) {
         this.mCtx = mCtx;
@@ -39,6 +44,29 @@ public class ITBytRecycAdapter extends RecyclerView.Adapter<ITBytRecycAdapter.Pr
     @Override
     public void onBindViewHolder(ITBytRecycAdapter.ProductViewHolder holder, int position) {
         final ModelJobs product = productList.get(position);
+
+//        if (!cardViewList.contains(holder.cardView)) {
+//            cardViewList.add(holder.cardView);
+//        }
+//
+//        holder.cardView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //All card color is set to colorDefault
+//                for(CardView cardView :  cardViewList){
+//                    cardView.setCardBackgroundColor(mCtx.getResources().getColor(R.color.colorDefault));
+//                }
+//                //The selected card is set to colorSelected
+//                holder.cardView.setCardBackgroundColor(mCtx.getResources().getColor(R.color.colorSelected));
+//            }
+//        });
+
+//        if(selected_position == position)
+//            holder.itemView.setBackgroundColor(Color.CYAN);
+//        else
+//            holder.itemView.setBackgroundColor(Color.RED);
+
+       // holder.itemView.setBackgroundColor(selected_position == position ? Color.GREEN : Color.TRANSPARENT);
 
         holder.textViewTitle.setText(product.getName());
 
@@ -84,6 +112,7 @@ public class ITBytRecycAdapter extends RecyclerView.Adapter<ITBytRecycAdapter.Pr
 
         TextView textViewTitle;
         ImageView imageView;
+        //CardView cardView;
 
         private RecyclerViewItemClickListener itemClickListener;
 
@@ -92,6 +121,7 @@ public class ITBytRecycAdapter extends RecyclerView.Adapter<ITBytRecycAdapter.Pr
             mCtx=itemView.getContext();
             textViewTitle = itemView.findViewById(R.id.nameTextview);
             imageView = itemView.findViewById(R.id.imageview);
+            //cardView = itemView.findViewById(R.id.cardID);
             //itemView.setOnClickListener(this);
 
         }

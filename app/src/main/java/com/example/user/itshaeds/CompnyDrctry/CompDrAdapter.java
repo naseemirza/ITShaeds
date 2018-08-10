@@ -42,7 +42,6 @@ public class CompDrAdapter extends RecyclerView.Adapter<CompDrAdapter.ProductVie
         holder.textViewTitle.setText(product.getName());
 
 
-
 //        holder.setItemClickListener(new RecyclerViewItemClickListener() {
 //            @Override
 //            public void onClick(View view, int position) {

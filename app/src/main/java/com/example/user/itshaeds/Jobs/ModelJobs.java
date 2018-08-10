@@ -1,4 +1,4 @@
-package com.example.user.itshaeds;
+package com.example.user.itshaeds.Jobs;
 
 /**
  * Created by User on 08-Jun-18.

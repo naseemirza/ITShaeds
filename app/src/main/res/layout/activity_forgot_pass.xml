@@ -27,6 +27,8 @@
         android:layout_marginTop="36dp"
         android:paddingStart="5dp"
         android:ems="10"
+        android:textCursorDrawable="@drawable/black_cursor"
+        android:backgroundTint="@color/green"
         android:textSize="10dp"
         android:inputType="textPersonName"
        android:hint="@string/emailReg"

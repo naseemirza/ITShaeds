@@ -9,16 +9,13 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.user.itshaeds.AdapterJobs;
-import com.example.user.itshaeds.JobsModelName;
-import com.example.user.itshaeds.ModelJobs;
+import com.example.user.itshaeds.Jobs.ModelJobs;
 import com.example.user.itshaeds.PrevayActivity;
 import com.example.user.itshaeds.R;
 import com.example.user.itshaeds.TermsActivity;
@@ -29,7 +26,7 @@ import java.util.List;
 
 public class ITBytDetailsActivity extends AppCompatActivity {
 
-    List<JobsModelName> productList1;
+    List<ITbytdetalsmodel> productList1;
 
     List<ModelJobs> productList;
     RecyclerView recyclerView,recyclerViewtitle;
@@ -42,7 +39,6 @@ public class ITBytDetailsActivity extends AppCompatActivity {
     HashMap<String, List<String>> expandableListDetail;
 
     ImageView imageViewadd,imageViewminus;
-
 
     TextView activitynametext;
     String actvtyname,acttyname1;
@@ -60,11 +56,10 @@ public class ITBytDetailsActivity extends AppCompatActivity {
         activitynametext=(TextView)findViewById(R.id.actname);
         SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
-        actvtyname=pref.getString("Title","");
-        acttyname1=pref.getString("nm","");
+        actvtyname=pref.getString("Month","");
+        acttyname1=pref.getString("Edition","");
 
         activitynametext.setText(actvtyname+" "+acttyname1);
-
 
         ImageButton imageButton= (ImageButton)view.findViewById(R.id.action_bar_back);
 
@@ -118,15 +113,32 @@ public class ITBytDetailsActivity extends AppCompatActivity {
         productList.add(new ModelJobs("Announcements", R.drawable.anouncment));
 
 
-
-
         ITBytRecycAdapter adapter = new ITBytRecycAdapter(this, productList);
         recyclerView.setAdapter(adapter);
 
-
-
         imageViewadd=(ImageView)findViewById(R.id.imgadd);
         imageViewminus=(ImageView)findViewById(R.id.imgminus);
+
+
+        // Jobs Title names
+
+        productList1 = new ArrayList<>();
+        recyclerViewtitle = (RecyclerView) findViewById(R.id.my_recycler_jobs);
+        recyclerViewtitle.setNestedScrollingEnabled(false);
+        recyclerViewtitle.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        recyclerViewtitle.setHasFixedSize(true);
+
+
+        productList1.add(new ITbytdetalsmodel("Financial Results for the First Quarter","Infosys announces results for Infosys announces results for Infosys announces results for Infosys announces results for for Infosys announces results for Infosys announces results for"));
+        productList1.add(new ITbytdetalsmodel("Financial Results for the First Quarter","Infosys announces results for Infosys announces results for Infosys announces results for Infosys announces results for for Infosys announces results for Infosys announces results for"));
+        productList1.add(new ITbytdetalsmodel("Financial Results for the First Quarter","Infosys announces results for Infosys announces results for Infosys announces results for Infosys announces results for"));
+        productList1.add(new ITbytdetalsmodel("Financial Results for the First Quarter","Infosys announces results for Infosys announces results for Infosys announces results for Infosys announces results for"));
+        productList1.add(new ITbytdetalsmodel("Financial Results for the First Quarter","Infosys announces results for Infosys announces results for Infosys announces results for Infosys announces results for"));
+        productList1.add(new ITbytdetalsmodel("Financial Results for the First Quarter","Infosys announces results for Infosys announces results for Infosys announces results for Infosys announces results for"));
+        productList1.add(new ITbytdetalsmodel("Financial Results for the First Quarter","Infosys announces results for Infosys announces results for Infosys announces results for Infosys announces results for"));
+
+        ITbytdetailsAdapter adapter1 = new ITbytdetailsAdapter(this, productList1);
+        recyclerViewtitle.setAdapter(adapter1);
 
 
 //        expandableListView = (ExpandableListView)findViewById(R.id.expandableListView);
@@ -170,7 +182,7 @@ public class ITBytDetailsActivity extends AppCompatActivity {
 //
 //        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
 //            @Override
-//            public boolean onChildClick(ExpandableListView parent, View v,
+//            public boolean onChildClick(ExpandableListView Parent, View v,
 //                                        int groupPosition, int childPosition, long id) {
 //
 //
@@ -187,27 +199,6 @@ public class ITBytDetailsActivity extends AppCompatActivity {
 //        });
 
 
-        // Jobs Title names
 
-        productList1 = new ArrayList<>();
-        recyclerViewtitle = (RecyclerView) findViewById(R.id.my_recycler_jobs);
-        recyclerViewtitle.setNestedScrollingEnabled(false);
-        recyclerViewtitle.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        recyclerViewtitle.setHasFixedSize(true);
-
-
-
-        productList1.add(new JobsModelName("Financial Results for the First Quarter","Infosys announces results for Infosys announces results for Infosys announces results for Infosys announces results for"));
-        productList1.add(new JobsModelName("Financial Results for the First Quarter","Infosys announces results for Infosys announces results for Infosys announces results for Infosys announces results for"));
-        productList1.add(new JobsModelName("Financial Results for the First Quarter","Infosys announces results for Infosys announces results for Infosys announces results for Infosys announces results for"));
-        productList1.add(new JobsModelName("Financial Results for the First Quarter","Infosys announces results for Infosys announces results for Infosys announces results for Infosys announces results for"));
-        productList1.add(new JobsModelName("Financial Results for the First Quarter","Infosys announces results for Infosys announces results for Infosys announces results for Infosys announces results for"));
-        productList1.add(new JobsModelName("Financial Results for the First Quarter","Infosys announces results for Infosys announces results for Infosys announces results for Infosys announces results for"));
-        productList1.add(new JobsModelName("Financial Results for the First Quarter","Infosys announces results for Infosys announces results for Infosys announces results for Infosys announces results for"));
-
-
-
-        ITbytdetailsAdapter adapter1 = new ITbytdetailsAdapter(this, productList1);
-        recyclerViewtitle.setAdapter(adapter1);
     }
 }

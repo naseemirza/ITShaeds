@@ -40,7 +40,8 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView8"
         android:layout_marginStart="20dp"
-
+        android:textCursorDrawable="@drawable/black_cursor"
+        android:backgroundTint="@color/green"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp"
         android:ems="10"

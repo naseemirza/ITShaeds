@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.user.itshaeds.ModelJobs;
 import com.example.user.itshaeds.R;
 import com.example.user.itshaeds.RecyclerViewItemClickListener;
 
@@ -43,27 +42,30 @@ public class ITBytesAdapter extends RecyclerView.Adapter<ITBytesAdapter.ITBytesV
 
         final ITBytesModel product = itemList.get(position);
 
-        holder.name1.setText(itemList.get(position).getName());
-        holder.name2.setText(itemList.get(position).getDesc());
-
-
+        holder.month.setText(itemList.get(position).getMonth());
+        holder.edition.setText(itemList.get(position).getEdition());
 
         holder.setItemClickListener(new RecyclerViewItemClickListener() {
             @Override
             public void onClick(View view, int position) {
 
-                String msg1=product.getName().toString();
-                String msg2=product.getDesc().toString();
-                //String location=product.getLoc().toString();
+                String msg1=product.getMonth();
+                String msg2=product.getEdition();
 
-                //Log.e("responce", title);
+                String year=product.getYear();
+                String month_edition=product.getMonth_edition();
+
+               // Log.e("yr",year);
+               // Log.e("msg1",msg1);
 
                 SharedPreferences pref = view.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor edit = pref.edit();
 
-                edit.putString("Title",msg1);
-                edit.putString("nm",msg2);
-                //edit.putString("Loc",location);
+                edit.putString("Month",msg1);
+                edit.putString("Edition",msg2);
+
+                edit.putString("year",year);
+                edit.putString("month_edition",month_edition);
 
                 edit.commit();
                 Intent intent = new Intent(view.getContext(), ITBytDetailsActivity.class);
@@ -81,16 +83,15 @@ public class ITBytesAdapter extends RecyclerView.Adapter<ITBytesAdapter.ITBytesV
 
     class ITBytesViewHolders extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        public TextView name1, name2;
+        public TextView month, edition;
 
         private RecyclerViewItemClickListener itemClickListener;
-
 
         public ITBytesViewHolders(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
-            name1 = (TextView) itemView.findViewById(R.id.text1);
-            name2 = (TextView) itemView.findViewById(R.id.text2);
+            month = (TextView) itemView.findViewById(R.id.text1);
+            edition = (TextView) itemView.findViewById(R.id.text2);
 
             itemView.setOnClickListener(this);
 

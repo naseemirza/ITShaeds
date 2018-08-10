@@ -146,5 +146,12 @@
     <string name="title_activity_cmp_profile">CmpProfileActivity</string>
     <string name="descriptions">This 2-hour online course is for any user in any region assigned a Job to review within Zinc MAPS.
         Reviewers may also sign the final certificate, if applicable. </string>
+    <string name="title_activity_corp_main">CorpMainActivity</string>
+    <string name="welcome">Dear Customer,\n\nOur sincere thanks for your interest in enrollment with ITshades.com\n\nFor a limited time, ITshades.com is offering access to our Corporate customers at $0 cost for initial one year.
+        This access will include up to 5 authorized user access, Company Site functionality and
+        upto max 20 posts per user per month.\n\nWe intend to keep it that way i.e. $0 cost for a longer time for our customers benefits.However,
+        Given Platform running expenses and staff costs, If ITshades.com need to change your subscription
+        from $0 Cost to a paid basis at end of first year, we will inform you beforehand about the paid plans
+        and you can choose to decide to stay with ITshades.com accordingly.</string>
 
 </resources>

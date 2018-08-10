@@ -21,7 +21,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Jobs"
+            android:text=" Dream Jobs"
             android:gravity="center_horizontal"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textStyle="bold"

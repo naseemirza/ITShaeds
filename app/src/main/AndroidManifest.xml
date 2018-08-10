@@ -48,7 +48,7 @@
             android:label="                Contact Us"
             android:parentActivityName=".LoginActivity" />
         <activity
-            android:name=".JobsActivity"
+            android:name=".Jobs.JobsActivity"
             android:label="" />
         <activity android:name=".ITBytes.ITBytesActivity" />
         <activity android:name=".ClassifiedsActivity" />
@@ -56,10 +56,10 @@
             android:name=".FilterActivity"
             android:label=""
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".CurrentJobActivity" />
-        <activity android:name=".CrntJobFilterActivity" />
+        <activity android:name=".Jobs.CurrentJobActivity" />
+        <activity android:name=".Jobs.CrntJobFilterActivity" />
         <activity
-            android:name=".DetailsActivity"
+            android:name=".Jobs.DetailsActivity"
             android:label="Job Description"
             android:parentActivityName=".Main2Activity" />
         <activity android:name=".PrevayActivity" />
@@ -87,7 +87,35 @@
         <activity android:name=".Events.OnlineEventsActivity" />
         <activity android:name=".Events.ConfrncSummitsActivity" />
         <activity android:name=".Events.WebinarActivity" />
-        <activity android:name=".Solutions.FilterAllActivity"></activity>
+        <activity android:name=".Solutions.FilterAllActivity" />
+        <activity android:name=".Jobs.JobsFilterActivity" />
+        <activity
+            android:name=".CorpCustomer.CorpMainActivity"
+            android:label="Corporate Customer"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CorpCustomer.SubmissionLink.ParentActivity"
+            android:label="Submission Links"
+            android:parentActivityName=".CorpCustomer.CorpMainActivity" />
+        <activity
+            android:name=".CorpCustomer.Profile.ProfileActivity"
+            android:label="Profile Activity"
+            android:parentActivityName=".CorpCustomer.CorpMainActivity" />
+        <activity
+            android:name=".CorpCustomer.Profile.ChangePassActivity"
+            android:label="Password Change"
+            android:parentActivityName=".CorpCustomer.Profile.ProfileActivity" />
+        <activity
+            android:name=".CorpCustomer.Profile.AccDetailsActivity"
+            android:label="Account Details"
+            android:parentActivityName=".CorpCustomer.Profile.ProfileActivity" />
+        <activity
+            android:name=".CorpCustomer.Profile.InviteFrndsActivity"
+            android:label="Invite To Friends"
+            android:parentActivityName=".CorpCustomer.Profile.ProfileActivity" />
+        <activity android:name=".CorpCustomer.Profile.ContactUsPrflActivity"
+            android:label="Contact Us"
+            android:parentActivityName=".CorpCustomer.Profile.ProfileActivity"></activity>
     </application>
 
 </manifest>

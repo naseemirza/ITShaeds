@@ -9,15 +9,10 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.user.itshaeds.ITBytes.ITbytdetailsAdapter;
-import com.example.user.itshaeds.JobsActivity;
-import com.example.user.itshaeds.JobsModelName;
-import com.example.user.itshaeds.ModelJobs;
 import com.example.user.itshaeds.R;
 
 import java.util.ArrayList;

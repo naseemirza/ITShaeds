@@ -34,6 +34,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.user.itshaeds.CorpCustomer.CorpMainActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -111,6 +112,9 @@ public class LoginActivity extends AppCompatActivity
                 Intent intent=new Intent(LoginActivity.this,Main2Activity.class);
                 startActivity(intent);
 
+//                Intent intent=new Intent(LoginActivity.this,CorpMainActivity.class);
+//                startActivity(intent);
+
 //                final String email = editTextmail.getText().toString().trim();
 //
 //                if (TextUtils.isEmpty(email)) {
@@ -174,20 +178,22 @@ public class LoginActivity extends AppCompatActivity
                         Log.e("resp", response);
                         progressDialog.dismiss();
 
-
                         try {
                             JSONObject obj = new JSONObject(response);
-                            success= Integer.parseInt(obj.getString("s"));
-                            error= Integer.parseInt(obj.getString("e"));
+                            success= Integer.parseInt(((obj.getString("s"))));
+                            Log.e("succes", String.valueOf(success));
+                            error= Integer.parseInt(((obj.getString("e"))));
                             msg=obj.getString("m");
                             if (success==1)
                             {
                                     Toast.makeText(LoginActivity.this, msg, Toast.LENGTH_SHORT).show();
-                                    //progressBar.setVisibility(View.GONE);
                                      progressDialog.dismiss();
                                     Intent intent=new Intent(LoginActivity.this,Main2Activity.class);
                                      startActivity(intent);
-
+                            }
+                            else if(success==0)
+                            {
+                                Toast.makeText(LoginActivity.this, msg, Toast.LENGTH_SHORT).show();
                             }
 
                         } catch (JSONException e) {
@@ -243,7 +249,7 @@ public class LoginActivity extends AppCompatActivity
 //    public boolean onOptionsItemSelected(MenuItem item) {
 //        // Handle action bar item clicks here. The action bar will
 //        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
+//        // as you specify a Parent activity in AndroidManifest.xml.
 //        int id = item.getItemId();
 //
 //        //noinspection SimplifiableIfStatement

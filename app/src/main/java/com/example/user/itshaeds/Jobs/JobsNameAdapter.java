@@ -1,4 +1,4 @@
-package com.example.user.itshaeds;
+package com.example.user.itshaeds.Jobs;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,9 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.user.itshaeds.R;
+import com.example.user.itshaeds.RecyclerViewItemClickListener;
 
 import java.util.List;
 
@@ -33,7 +34,6 @@ public class JobsNameAdapter extends RecyclerView.Adapter<JobsNameAdapter.Produc
 
     @Override
     public JobsNameAdapter.ProductViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        //inflating and returning our view holder
         LayoutInflater inflater = LayoutInflater.from(mCtx);
         View view = inflater.inflate(R.layout.jobtitle,parent, false);
         return new JobsNameAdapter.ProductViewHolder(view);
@@ -43,20 +43,24 @@ public class JobsNameAdapter extends RecyclerView.Adapter<JobsNameAdapter.Produc
     public void onBindViewHolder( final ProductViewHolder holder, int position) {
         final JobsModelName product = productList1.get(position);
 
-        holder.textViewTitle.setText(product.getName());
-        holder.textViewyrs.setText(product.getExp());
+        holder.textViewTitle.setText(product.getTitle());
+        holder.textViewexp.setText(product.getExp()+" Yrs");
+        holder.textViewcontry.setText(product.getCountry());
+        holder.textViewloc.setText("["+product.getLoc()+"]");
 
         holder.setItemClickListener(new RecyclerViewItemClickListener() {
             @Override
             public void onClick(View view, int position) {
 
-                String title=product.getName().toString();
-                String exp=product.getExp().toString();
-                Log.e("responce", title);
+                String jobID=product.getmID().toString();
+                //String title=product.getName().toString();
+                //String exp=product.getExp().toString();
+                Log.e("responce", jobID);
                 SharedPreferences pref = view.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor edit = pref.edit();
-                edit.putString("Title",title);
-                edit.putString("Exp",exp);
+                //edit.putString("Title",title);
+               // edit.putString("Exp",exp);
+                edit.putString("JobID",jobID);
 
                 edit.commit();
                 Intent intent = new Intent(view.getContext(), DetailsActivity.class);
@@ -64,48 +68,35 @@ public class JobsNameAdapter extends RecyclerView.Adapter<JobsNameAdapter.Produc
             }
         });
 
-//        holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                FloatingActionButton floatingActionButton=(FloatingActionButton)buttonView.findViewById(R.id.fab);
-//                CheckBox checkBox=(CheckBox)buttonView.findViewById(R.id.chkox);
-//                if (checkBox.isChecked()){
-//                    floatingActionButton.setVisibility(View.VISIBLE);
-//                }
-//                else
-//                {
-//                    floatingActionButton.setVisibility(View.GONE);
-//                }
-//            }
-//        });
     }
-
 
     @Override
     public int getItemCount() {
         return productList1.size();
     }
-                                                                                        //, CompoundButton.OnCheckedChangeListener
-    class ProductViewHolder extends RecyclerView.ViewHolder  implements View.OnClickListener {
+
+
+    class ProductViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener  {
 
         TextView textViewTitle;
-        TextView textViewyrs;
+        TextView textViewexp;
+        TextView textViewcontry;
+        TextView textViewloc;
         FloatingActionButton floatingActionButton;
         CheckBox checkBox;
 
         private RecyclerViewItemClickListener itemClickListener;
 
-
         public ProductViewHolder(final View itemView) {
             super(itemView);
             mCtx=itemView.getContext();
             textViewTitle = itemView.findViewById(R.id.nameTextview);
-            textViewyrs = itemView.findViewById(R.id.yrsTextview);
-
+            textViewexp = itemView.findViewById(R.id.expTextview);
+            textViewcontry = itemView.findViewById(R.id.contryTextview);
+            textViewloc = itemView.findViewById(R.id.locTextview);
+            checkBox=itemView.findViewById(R.id.chkox);
 
             itemView.setOnClickListener(this);
-            //checkBox.setOnCheckedChangeListener(this);
-
 
         }
         @Override
@@ -119,13 +110,7 @@ public class JobsNameAdapter extends RecyclerView.Adapter<JobsNameAdapter.Produc
             this.itemClickListener=ic;
 
         }
-
-//        @Override
-//        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//
-//        }
     }
-
 }
 
 

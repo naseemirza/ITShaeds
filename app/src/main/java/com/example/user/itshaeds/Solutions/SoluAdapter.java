@@ -1,20 +1,13 @@
 package com.example.user.itshaeds.Solutions;
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.user.itshaeds.ITBytes.ITBytDetailsActivity1;
-import com.example.user.itshaeds.ITBytes.ITbytdetailsAdapter;
-import com.example.user.itshaeds.JobsModelName;
 import com.example.user.itshaeds.R;
-import com.example.user.itshaeds.RecyclerViewItemClickListener;
 
 import java.util.List;
 

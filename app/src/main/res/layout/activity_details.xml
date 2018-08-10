@@ -4,294 +4,91 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.user.itshaeds.DetailsActivity">
+    tools:context="com.example.user.itshaeds.Jobs.DetailsActivity">
+
 
 
     <ScrollView
-        android:id="@+id/scrolview"
+    android:id="@+id/scrolview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+    android:id="@+id/re"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/re1"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout
-            android:id="@+id/re"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/my_recycler_jobs"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent" />
 
-
-    <TextView
-        android:id="@+id/textvpost"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="post"
-        android:paddingStart="30dp"
-        android:textColor="@color/DarkGreen"
-        android:textSize="12dp"
-        android:gravity="start"
-        android:paddingLeft="30dp" />
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:id="@+id/li1"
-        android:layout_below="@+id/textvpost"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/textyrs"
+        <ProgressBar
+            android:visibility="gone"
+            android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:gravity="center_vertical"
-            android:text="7-10 years"
-            android:textAlignment="viewStart"
-            android:textColor="#545454"
-            android:textSize="10dp"
-            android:textStyle="bold"
-            tools:ignore="RtlCompat" />
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
+
+    </RelativeLayout>
+        <!--<TextView-->
+        <!--android:id="@+id/textdesc"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_marginBottom="20dp"-->
+        <!--android:layout_marginStart="20dp"-->
+        <!--android:layout_marginTop="30dp"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:text="Disclaimer"-->
+        <!--android:textAlignment="viewStart"-->
+        <!--android:textColor="@color/colorBlack"-->
+        <!--android:textSize="12dp"-->
+        <!--tools:ignore="RtlCompat" />-->
 
         <!--<TextView-->
-            <!--android:id="@+id/textlocation"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginStart="88dp"-->
-            <!--android:gravity="center_vertical"-->
-            <!--android:text="India Hyderabad"-->
-            <!--android:textAlignment="viewStart"-->
-            <!--android:textColor="#545454"-->
-            <!--android:textSize="10dp"-->
-            <!--android:textStyle="bold"-->
-            <!--tools:ignore="RtlCompat" />-->
+        <!--android:id="@+id/texttnc"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_marginBottom="20dp"-->
+        <!--android:layout_marginStart="20dp"-->
+        <!--android:layout_marginTop="30dp"-->
+        <!--android:layout_toRightOf="@+id/textdesc"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:text="Terms And Conditions"-->
+        <!--android:textAlignment="viewStart"-->
+        <!--android:textColor="@color/colorBlack"-->
+        <!--android:textSize="12dp"-->
+        <!--tools:ignore="RtlCompat" />-->
 
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:id="@+id/li2"
-        android:layout_below="@+id/li1"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/comp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:gravity="center_vertical"
-            android:text="Company Name"
-            android:textAlignment="viewStart"
-            android:textColor="@color/colorBlack"
-            android:textSize="11sp"
-            tools:ignore="RtlCompat" />
-
-        <TextView
-            android:id="@+id/compnm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:gravity="center_vertical"
-            android:text="Admin"
-            android:textAlignment="viewStart"
-            android:textColor="@color/DarkGreen"
-            android:textSize="10dp"
-            android:textStyle="bold"
-            tools:ignore="RtlCompat" />
-
-    </LinearLayout>
+        <!--<TextView-->
+        <!--android:id="@+id/textpnp"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="20dp"-->
+        <!--android:layout_marginStart="20dp"-->
+        <!--android:layout_marginTop="30dp"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_toRightOf="@+id/texttnc"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:text="Privacy Policy"-->
+        <!--android:textAlignment="viewStart"-->
+        <!--android:textColor="@color/colorBlack"-->
+        <!--android:textSize="12dp"-->
+        <!--tools:ignore="RtlCompat" />-->
 
 
-            <TextView
-                android:id="@+id/skills"
-                android:layout_below="@+id/li2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginStart="30dp"
-                android:textColor="@color/colorBlack"
-                android:gravity="center_vertical"
-                android:text="Key Skills:"
-                android:textAlignment="viewStart"
-                android:textSize="11sp"
-                tools:ignore="RtlCompat" />
+    </RelativeLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:id="@+id/li3"
-        android:layout_below="@+id/skills"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-        <TextView
-            android:id="@+id/kskls"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="30dp"
-            android:gravity="center_vertical"
-            android:lineSpacingExtra="3sp"
-            android:text="@string/skils"
-            android:textAlignment="viewStart"
-            android:textColor="#545454"
-            android:textSize="12sp"
-
-            tools:ignore="RtlCompat" />
-
-    </LinearLayout>
-
-            <TextView
-                android:id="@+id/jobdesc"
-                android:layout_below="@+id/li3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorBlack"
-                android:layout_marginTop="30dp"
-                android:layout_marginStart="30dp"
-                android:gravity="center_vertical"
-                android:text="Job Description:"
-                android:textAlignment="viewStart"
-                android:textSize="11sp"
-                tools:ignore="RtlCompat" />
-
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:id="@+id/li4"
-        android:layout_below="@+id/jobdesc"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-
-        <TextView
-            android:id="@+id/desc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:textColor="#545454"
-            android:textSize="12sp"
-            android:lineSpacingExtra="3sp"
-            android:layout_marginEnd="10dp"
-            android:gravity="center_vertical"
-            android:text="@string/jobdesc"
-            android:textAlignment="viewStart"
-
-            tools:ignore="RtlCompat" />
-
-    </LinearLayout>
-
-            <TextView
-                android:id="@+id/explvl"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="20dp"
-                android:layout_below="@+id/li4"
-                android:textColor="@color/colorBlack"
-                android:gravity="center_vertical"
-                android:text="Experience Level"
-                android:textAlignment="viewStart"
-                android:textSize="10dp"
-                android:textStyle="bold"
-                tools:ignore="RtlCompat" />
-
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:id="@+id/li5"
-        android:layout_below="@+id/explvl"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-
-        <TextView
-            android:id="@+id/explevl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:gravity="center_vertical"
-            android:text="Manager"
-            android:textAlignment="viewStart"
-            android:textSize="10dp"
-            android:textStyle="bold"
-            tools:ignore="RtlCompat" />
-
-    </LinearLayout>
-
-
-            <Button
-                android:text="Apply"
-                android:id="@+id/btnapply"
-                android:textAlignment="center"
-                android:textSize="10dp"
-                android:layout_marginTop="20dp"
-                android:textColor="@color/colorWhite"
-                android:textStyle="bold"
-                android:layout_below="@+id/li5"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/buttoncorner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-
-
-            <TextView
-                android:id="@+id/textdesc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/btnapply"
-                android:layout_marginBottom="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="30dp"
-                android:gravity="center_vertical"
-                android:text="Disclaimer"
-                android:textAlignment="viewStart"
-                android:textColor="@color/colorBlack"
-                android:textSize="12dp"
-                tools:ignore="RtlCompat" />
-
-            <TextView
-                android:id="@+id/texttnc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/btnapply"
-                android:layout_marginBottom="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="30dp"
-                android:layout_toRightOf="@+id/textdesc"
-                android:gravity="center_vertical"
-                android:text="Terms And Conditions"
-                android:textAlignment="viewStart"
-                android:textColor="@color/colorBlack"
-                android:textSize="12dp"
-                tools:ignore="RtlCompat" />
-
-            <TextView
-                android:id="@+id/textpnp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/btnapply"
-                android:layout_marginBottom="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="30dp"
-                android:layout_toRightOf="@+id/texttnc"
-                android:gravity="center_vertical"
-                android:text="Privacy Policy"
-                android:textAlignment="viewStart"
-                android:textColor="@color/colorBlack"
-                android:textSize="12dp"
-                tools:ignore="RtlCompat" />
-
-        </RelativeLayout>
     </ScrollView>
+
+
 
 </RelativeLayout>

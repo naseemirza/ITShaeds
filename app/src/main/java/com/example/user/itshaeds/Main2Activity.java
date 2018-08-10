@@ -3,9 +3,9 @@ package com.example.user.itshaeds;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,9 +15,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.user.itshaeds.Jobs.AdapterJobs;
+import com.example.user.itshaeds.Jobs.JobsModelName;
+import com.example.user.itshaeds.Jobs.JobsNameAdapter;
+import com.example.user.itshaeds.Jobs.ModelJobs;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,13 +41,18 @@ import java.util.List;
 public class Main2Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener  {
 
-    List<JobsModelName> productList1;
-
     List<ModelJobs> productList;
-    RecyclerView recyclerView,recyclerViewtitle;
+    RecyclerView recyclerView;
+
     TextView discla,termsndcond,prvynspolcy;
     FloatingActionButton floatingActionButton;
     CheckBox checkBox;
+    Button buttonaply;
+
+    private JobsNameAdapter mExampleAdapter1;
+    private ArrayList<JobsModelName> mExampleList1;
+    private RequestQueue mRequestQueue1;
+    private RecyclerView mRecyclerview1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +61,7 @@ public class Main2Activity extends AppCompatActivity
 
         //floatingActionButton=(FloatingActionButton)findViewById(R.id.fab);
         //checkBox=(CheckBox)findViewById(R.id.chkox);
+        buttonaply=(Button)findViewById(R.id.applybutton);
 
 
 
@@ -94,45 +116,27 @@ public class Main2Activity extends AppCompatActivity
 
         // Jobs Title names
 
-        productList1 = new ArrayList<>();
-        recyclerViewtitle = (RecyclerView) findViewById(R.id.my_recycler_jobs);
-        recyclerViewtitle.setNestedScrollingEnabled(false);
-        recyclerViewtitle.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        recyclerViewtitle.setHasFixedSize(true);
 
+        mExampleList1 = new ArrayList<>();
+        mRequestQueue1 = Volley.newRequestQueue(this);
+        mRecyclerview1=(RecyclerView)findViewById(R.id.my_recycler_jobs);
+        mRecyclerview1.setNestedScrollingEnabled(false);
+        mRecyclerview1.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        mRecyclerview1.setHasFixedSize(true);
 
-
-        productList1.add(new JobsModelName("Assistant Manager-.Net Sql Tech Lead","7-10 Yrs, India Hyderabad"));
-        productList1.add(new JobsModelName("Assistant Manager-.Net Sql Tech Lead","7-10 Yrs, India Hyderabad"));
-        productList1.add(new JobsModelName("Assistant Manager-.Net Sql Tech Lead","7-10 Yrs, India Hyderabad"));
-        productList1.add(new JobsModelName("Assistant Manager-.Net Sql Tech Lead","7-10 Yrs, India Hyderabad"));
-        productList1.add(new JobsModelName("Assistant Manager-.Net Sql Tech Lead","7-10 Yrs, India Hyderabad"));
-        productList1.add(new JobsModelName("Assistant Manager-.Net Sql Tech Lead","7-10 Yrs, India Hyderabad"));
-        productList1.add(new JobsModelName("Assistant Manager-.Net Sql Tech Lead","7-10 Yrs, India Hyderabad"));
-        productList1.add(new JobsModelName("Assistant Manager-.Net Sql Tech Lead","7-10 Yrs, India Hyderabad"));
-        productList1.add(new JobsModelName("Assistant Manager-.Net Sql Tech Lead","7-10 Yrs, India Hyderabad"));
-        productList1.add(new JobsModelName("Assistant Manager-.Net Sql Tech Lead","7-10 Yrs, India Hyderabad"));
-
-
-
-
-        JobsNameAdapter adapter1 = new JobsNameAdapter(this, productList1);
-        recyclerViewtitle.setAdapter(adapter1);
-
-
-
+        parseJSON1();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -143,6 +147,61 @@ public class Main2Activity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
+
+    private void parseJSON1() {
+
+        final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.VISIBLE);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, "https://www.itshades.com/appwebservices/job-search.php",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        progressBar.setVisibility(View.INVISIBLE);
+
+                        try {
+                            Log.e("rootJsonArray",response);
+                            JSONArray rootJsonArray = new JSONArray(response);
+
+                            Log.e("rootJsonArrayLength",rootJsonArray.length()+"");
+
+                            for (int i = 0; i < rootJsonArray.length(); i++) {
+                                JSONObject object = rootJsonArray.getJSONObject(i);
+
+                                mExampleList1.add(new JobsModelName(object.optString("id"),
+                                        object.optString("job_title"),
+                                        object.optString("expirence"),
+                                        object.optString("country"),
+                                        object.optString("work_city")));
+
+                            }
+
+                            Log.e("rootJsonArray",mExampleList1.size()+"");
+
+                            mExampleAdapter1 = new JobsNameAdapter(Main2Activity.this, mExampleList1);
+                            mRecyclerview1.setAdapter(mExampleAdapter1);
+                            mExampleAdapter1.notifyDataSetChanged();
+                            mRecyclerview1.setHasFixedSize(true);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                        Log.e("TAg",error.getMessage());
+                    }
+                });
+
+        mRequestQueue1 = Volley.newRequestQueue(this);
+        mRequestQueue1.add(stringRequest);
+    }
+
 
     @Override
     public void onBackPressed() {
@@ -165,7 +224,7 @@ public class Main2Activity extends AppCompatActivity
 //    public boolean onOptionsItemSelected(MenuItem item) {
 //        // Handle action bar item clicks here. The action bar will
 //        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
+//        // as you specify a Parent activity in AndroidManifest.xml.
 //        int id = item.getItemId();
 //
 //        //noinspection SimplifiableIfStatement
@@ -201,16 +260,5 @@ public class Main2Activity extends AppCompatActivity
 
 
 
-    public void CheckboxClick() {
 
-        FloatingActionButton floatingActionButton=(FloatingActionButton)findViewById(R.id.fab);
-        CheckBox checkBox=(CheckBox)findViewById(R.id.chkox);
-        if (checkBox.isChecked()){
-            floatingActionButton.setVisibility(View.VISIBLE);
-        }
-        else
-        {
-            floatingActionButton.setVisibility(View.GONE);
-        }
-    }
 }
