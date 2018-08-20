@@ -33,11 +33,19 @@ public class DetailsActivity extends AppCompatActivity {
 
     TextView discla,termsndcond,prvynspolcy;
 
-    private DetailsAdapter mExampleAdapter;
-    private ArrayList<DetailsModel> mExampleList;
-    private RequestQueue mRequestQueue;
-    private RecyclerView mRecyclerview;
-    String Jid;
+    TextView textViewTitle;
+    TextView textViewexp;
+    TextView textViewcontry;
+    TextView textViewloc;
+    TextView textViewcmpname;
+    TextView textViewkeyskills;
+    TextView textViewjobdesc;
+    TextView textViewexplevel;
+
+    String Actname;
+    TextView textname;
+
+    String title,exp,country,loc,cmpname,keyskills,jobdesc,explevel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +54,7 @@ public class DetailsActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setCustomView(R.layout.jobdetailsbar);
+        getSupportActionBar().setCustomView(R.layout.backbar);
         View view =getSupportActionBar().getCustomView();
 
         ImageButton imageButton= (ImageButton)view.findViewById(R.id.action_bar_back);
@@ -58,22 +66,47 @@ public class DetailsActivity extends AppCompatActivity {
             }
         });
 
+//        discla=(TextView)findViewById(R.id.textdesc);
+//        termsndcond=(TextView)findViewById(R.id.texttnc);
+//        prvynspolcy=(TextView)findViewById(R.id.textpnp);
+
+
+        textViewTitle = (TextView)findViewById(R.id.textvpost);
+        textViewexp = (TextView)findViewById(R.id.textyrs);
+        textViewcontry = (TextView)findViewById(R.id.textcontry);
+        textViewloc =(TextView)findViewById(R.id.textlocation);
+        textViewcmpname = (TextView)findViewById(R.id.compnm);
+        textViewkeyskills = (TextView)findViewById(R.id.kskls);
+        textViewjobdesc = (TextView)findViewById(R.id.desc);
+        textViewexplevel = (TextView)findViewById(R.id.explevl);
+
+
+
         SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-        Jid = pref.getString("JobID", "");
+        title = pref.getString("Title", "");
+        exp = pref.getString("Exp", "");
+        country = pref.getString("Country", "");
+        loc = pref.getString("Loc", "");
+        cmpname = pref.getString("Cmpname", "");
+        keyskills = pref.getString("Keyskills", "");
+        jobdesc = pref.getString("Jobdesc", "");
+        explevel = pref.getString("ExpLevel", "");
 
 
-        discla=(TextView)findViewById(R.id.textdesc);
-        termsndcond=(TextView)findViewById(R.id.texttnc);
-        prvynspolcy=(TextView)findViewById(R.id.textpnp);
+        Actname=pref.getString("Actvname","");
+        textname=(TextView)findViewById(R.id.textname);
+        textname.setText(Actname);
 
-        mExampleList = new ArrayList<>();
-        mRequestQueue = Volley.newRequestQueue(DetailsActivity.this);
 
-        mRecyclerview = (RecyclerView)findViewById(R.id.my_recycler_jobs);
-        mRecyclerview.setNestedScrollingEnabled(false);
-        mRecyclerview.setLayoutManager(new LinearLayoutManager(DetailsActivity.this, LinearLayoutManager.VERTICAL, false));
-        mRecyclerview.setHasFixedSize(true);
-        parseJSON();
+       textViewTitle.setText(title);
+        textViewexp.setText(exp);
+       textViewcontry.setText(country);
+        textViewloc.setText(loc);
+        textViewcmpname.setText(cmpname);
+        textViewkeyskills.setText(keyskills);
+        textViewjobdesc.setText(jobdesc);
+        textViewexplevel.setText(explevel);
+
 
 //        discla.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -97,64 +130,6 @@ public class DetailsActivity extends AppCompatActivity {
 //        });
 //
 
-//        SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-//
-//        textpost=pref.getString("Title","");
-//        textexp=pref.getString("Exp","");
-//       // textloc=pref.getString("Loc","");
-//
-//
-//        textViewpost.setText(textpost);
-//        textViewexp.setText(textexp);
-        //textViewloc.setText(textloc);
     }
 
-    private void parseJSON() {
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, "https://www.itshades.com/appwebservices/job-search-single.php?id="+Jid,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject rootJsonObject = new JSONObject(response);
-                            JSONArray subCategoryArray = rootJsonObject.getJSONArray("jobdetailbyid");
-                            Log.e("subCategoryArray", subCategoryArray.length() + "");
-
-                            for (int i = 0; i < subCategoryArray.length(); i++) {
-                                JSONObject object = subCategoryArray.getJSONObject(i);
-
-                                mExampleList.add(new DetailsModel(object.optString("id"),
-                                        object.optString("job_title"),
-                                        object.optString("expirence"),
-                                        object.optString("country"),
-                                        object.optString("work_city"),
-                                        object.optString("company_name"),
-                                        object.optString("job_keyskill"),
-                                        object.optString("job_description"),
-                                        object.optString("job_postion")));
-                            }
-
-                            Log.e("rootJsonArray",mExampleList.size()+"");
-
-                            mExampleAdapter = new DetailsAdapter(DetailsActivity.this, mExampleList);
-                            mRecyclerview.setAdapter(mExampleAdapter);
-                            mExampleAdapter.notifyDataSetChanged();
-                            mRecyclerview.setHasFixedSize(true);
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
-                        Log.e("TAg",error.getMessage());
-                    }
-                });
-
-        mRequestQueue = Volley.newRequestQueue(DetailsActivity.this);
-        mRequestQueue.add(stringRequest);
-    }
 }

@@ -1,6 +1,8 @@
 package com.example.user.itshaeds.Jobs;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -32,6 +35,9 @@ public class CurrentJobActivity extends AppCompatActivity {
     private RequestQueue mRequestQueue1;
     private RecyclerView mRecyclerview1;
 
+    String Actname;
+    TextView textname;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,8 +45,14 @@ public class CurrentJobActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setCustomView(R.layout.currentjobsfilterbar);
+        getSupportActionBar().setCustomView(R.layout.backandfilterbar);
         View view =getSupportActionBar().getCustomView();
+
+        SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+
+        Actname=pref.getString("Actvname","");
+        textname=(TextView)findViewById(R.id.textname);
+        textname.setText(Actname);
 
         ImageButton imageButton= (ImageButton)view.findViewById(R.id.action_bar_back);
 
@@ -56,7 +68,17 @@ public class CurrentJobActivity extends AppCompatActivity {
         imageButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(CurrentJobActivity.this,CrntJobFilterActivity.class));
+                String actname ="Current Job Filter";
+                SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor edit = pref.edit();
+
+                edit.putString("Actvname",actname);
+
+                edit.commit();
+                Intent intent = new Intent(CurrentJobActivity.this, CrntJobFilterActivity.class);
+                startActivity(intent);
+
+                //startActivity(new Intent(CurrentJobActivity.this,CrntJobFilterActivity.class));
             }
         });
 
@@ -97,7 +119,11 @@ public class CurrentJobActivity extends AppCompatActivity {
                                         object.optString("job_title"),
                                         object.optString("expirence"),
                                         object.optString("country"),
-                                        object.optString("work_city")));
+                                        object.optString("work_city"),
+                                        object.optString("company_name"),
+                                        object.optString("job_keyskill"),
+                                        object.optString("job_description"),
+                                        object.optString("job_postion")));
                             }
 
                             Log.e("rootJsonArray",mExampleList1.size()+"");

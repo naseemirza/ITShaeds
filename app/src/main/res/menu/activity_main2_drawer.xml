@@ -13,9 +13,14 @@
             android:icon="@drawable/ic_check_black_24dp"
             android:title="Subscribe" />
         <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_person_outline_black_24dp"
+            android:title="My Profile" />
+
+        <item
             android:id="@+id/nav_login"
             android:icon="@drawable/ic_lock_outline_black_24dp"
-            android:title="Login" />
+            android:title="Logout" />
         <item
             android:id="@+id/nav_contactus"
             android:icon="@drawable/ic_people_black_24dp"

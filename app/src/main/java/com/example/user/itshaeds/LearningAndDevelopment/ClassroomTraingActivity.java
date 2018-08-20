@@ -23,8 +23,8 @@ import java.util.List;
 
 public class ClassroomTraingActivity extends AppCompatActivity {
 
-    String actname;
-    TextView actnametext;
+    String Actname;
+    TextView textname;
 
     List<SoluModel> productList1;
     RecyclerView recyclerView;
@@ -36,14 +36,14 @@ public class ClassroomTraingActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setCustomView(R.layout.activitynamebar);
+        getSupportActionBar().setCustomView(R.layout.backandfilterbar);
         View view =getSupportActionBar().getCustomView();
 
-        actnametext=(TextView)findViewById(R.id.actnameall);
-        SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-        actname = pref.getString("Activityname", "");
+        SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
-        actnametext.setText(actname);
+        Actname=pref.getString("Actvname","");
+        textname=(TextView)findViewById(R.id.textname);
+        textname.setText(Actname);
 
 
         ImageButton imageButton= (ImageButton)view.findViewById(R.id.action_bar_back);
@@ -60,10 +60,10 @@ public class ClassroomTraingActivity extends AppCompatActivity {
         imageButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String actvtyname="Filtration";
+                String actname ="Filtration";
                 SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor edit = pref.edit();
-                edit.putString("Actvtname",actvtyname);
+                edit.putString("Actvname",actname );
 
                 edit.commit();
                 Intent intent=new Intent(ClassroomTraingActivity.this,FilterAllActivity.class);

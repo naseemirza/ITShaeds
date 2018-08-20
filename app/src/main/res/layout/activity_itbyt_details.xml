@@ -55,20 +55,19 @@
                     android:layout_marginTop="5dp"
                     android:background="@color/gray">
 
-                    <!--<ExpandableListView-->
-                        <!--android:id="@+id/expandableListView"-->
-                        <!--android:layout_marginTop="10dp"-->
-                        <!--android:layout_height="match_parent"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:nestedScrollingEnabled="true"-->
-                        <!--android:divider="@android:color/darker_gray"-->
-                        <!--android:dividerHeight="0.5dp" />-->
-
 
                     <android.support.v7.widget.RecyclerView
                     android:id="@+id/my_recycler_jobs"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
+
+                    <ProgressBar
+                        android:visibility="gone"
+                        android:id="@+id/progressBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true" />
 
 
                 </RelativeLayout>

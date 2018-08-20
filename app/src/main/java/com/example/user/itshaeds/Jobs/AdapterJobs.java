@@ -76,13 +76,36 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
 
                 //final Intent intent;
             if (position == 0){
+                String actname="Dream Jobs";
+                SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor edit = pref.edit();
+
+                edit.putString("Actvname",actname);
+
+                edit.commit();
                Intent intent0 =  new Intent(mCtx, JobsActivity.class);
                 mCtx.startActivity(intent0);
             } else if (position == 1){
+                String actname="Cuurent Jobs";
+                SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor edit = pref.edit();
+
+                edit.putString("Actvname",actname);
+
+                edit.commit();
+
                   Intent  intent1 =  new Intent(mCtx, CurrentJobActivity.class);
                 mCtx.startActivity(intent1);
                 } else if (position == 2){
-               Intent intent2 =  new Intent(mCtx, ITBytesActivity.class);
+                String actname="IT Bytes";
+                SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor edit = pref.edit();
+
+                edit.putString("Actvname",actname);
+
+                edit.commit();
+
+                Intent intent2 =  new Intent(mCtx, ITBytesActivity.class);
                 mCtx.startActivity(intent2);
 
             } else if (position== 3) {
@@ -100,6 +123,14 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
 
                         buttoncls.setBackgroundResource(R.drawable.clickbgclor);
                         buttoncls.setTextColor(Color.WHITE);
+
+                        String actname="Classifieds";
+                        SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor edit = pref.edit();
+
+                        edit.putString("Actvname",actname);
+
+                        edit.commit();
                         mCtx.startActivity(new Intent(mCtx,ClassifiedsActivity.class));
                     }
                 });
@@ -113,6 +144,14 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
 
                         buttondrc.setBackgroundResource(R.drawable.clickbgclor);
                         buttondrc.setTextColor(Color.WHITE);
+
+                        String actname="Company Directory";
+                        SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor edit = pref.edit();
+
+                        edit.putString("Actvname",actname);
+
+                        edit.commit();
 
                         mCtx.startActivity(new Intent(mCtx,CmpDirectoryActivity.class));
                     }
@@ -183,7 +222,7 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
                 buttonprd.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String name="Products & Platforms";
+                        String actname="Products & Platforms";
                         buttonitcns.setBackgroundResource(R.drawable.buttonalrt);
                         buttonitcns.setTextColor(Color.BLACK);
                         buttonindsol.setBackgroundResource(R.drawable.buttonalrt);
@@ -194,9 +233,9 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
 
                         SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                         SharedPreferences.Editor edit = pref.edit();
-                        edit.putString("Activityname",name);
+                        edit.putString("Actvname",actname);
 
-                        edit.commit();
+                        edit.apply();
                         Intent intent=new Intent(mCtx,ProdAndPlatformActivity.class);
                         mCtx.startActivity(intent);
                         //mCtx.startActivity(new Intent(mCtx,ProdAndPlatformActivity.class));
@@ -206,7 +245,7 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
                 buttonitcns.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String name="IT Consulting & Services";
+                        String actname="IT Consulting & Services";
                         buttonprd.setBackgroundResource(R.drawable.buttonalrt);
                         buttonprd.setTextColor(Color.BLACK);
                         buttonindsol.setBackgroundResource(R.drawable.buttonalrt);
@@ -216,9 +255,9 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
                         buttonitcns.setTextColor(Color.WHITE);
                         SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                         SharedPreferences.Editor edit = pref.edit();
-                        edit.putString("Activityname",name);
+                        edit.putString("Actvname",actname);
 
-                        edit.commit();
+                        edit.apply();
                         Intent intent=new Intent(mCtx,ITConsltAndServActivity.class);
                         mCtx.startActivity(intent);
 
@@ -229,7 +268,7 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
                 buttonindsol.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String name="Industry Solutions";
+                        String actname="Industry Solutions";
 
                         buttonitcns.setBackgroundResource(R.drawable.buttonalrt);
                         buttonitcns.setTextColor(Color.BLACK);
@@ -240,7 +279,7 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
                         buttonindsol.setTextColor(Color.WHITE);
                         SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                         SharedPreferences.Editor edit = pref.edit();
-                        edit.putString("Activityname",name);
+                        edit.putString("Actvname",actname);
 
                         edit.commit();
                         Intent intent=new Intent(mCtx,IndSolutionsActivity.class);
@@ -320,7 +359,7 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
                 buttonOTP.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        //String name="Online Training Portals";
+                        String actname="Online Training Portals";
                         buttonOT.setBackgroundResource(R.drawable.buttonalrt);
                         buttonOT.setTextColor(Color.BLACK);
                         buttonCRmT.setBackgroundResource(R.drawable.buttonalrt);
@@ -332,21 +371,21 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
 
                         buttonOTP.setBackgroundResource(R.drawable.clickbgclor);
                         buttonOTP.setTextColor(Color.WHITE);
-//                        SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-//                        SharedPreferences.Editor edit = pref.edit();
-//                        edit.putString("Activityname",name);
-//
-//                        edit.commit();
-//                        Intent intent=new Intent(mCtx,OnlineTranPortalActivity.class);
-//                        mCtx.startActivity(intent);
-                        mCtx.startActivity(new Intent(mCtx,OnlineTranPortalActivity.class));
+                        SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor edit = pref.edit();
+                        edit.putString("Actvname",actname);
+
+                        edit.commit();
+                        Intent intent=new Intent(mCtx,OnlineTranPortalActivity.class);
+                        mCtx.startActivity(intent);
+                       // mCtx.startActivity(new Intent(mCtx,OnlineTranPortalActivity.class));
                     }
                 });
 
                 buttonOT.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String name="Online Training";
+                        String actname ="Online Training";
 
                         buttonOTP.setBackgroundResource(R.drawable.buttonalrt);
                         buttonOTP.setTextColor(Color.BLACK);
@@ -361,9 +400,9 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
                         buttonOT.setTextColor(Color.WHITE);
                         SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                         SharedPreferences.Editor edit = pref.edit();
-                        edit.putString("Activityname",name);
+                        edit.putString("Actvname",actname );
 
-                        edit.commit();
+                        edit.apply();
                         Intent intent=new Intent(mCtx,OnlineTrainingActivity.class);
                         mCtx.startActivity(intent);
 
@@ -375,7 +414,7 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
                     @Override
                     public void onClick(View v) {
 
-                        String name="Classroom Training";
+                        String actname="Classroom Training";
                         buttonOTP.setBackgroundResource(R.drawable.buttonalrt);
                         buttonOTP.setTextColor(Color.BLACK);
                         buttonOT.setBackgroundResource(R.drawable.buttonalrt);
@@ -389,9 +428,9 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
                         buttonCRmT.setTextColor(Color.WHITE);
                         SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                         SharedPreferences.Editor edit = pref.edit();
-                        edit.putString("Activityname",name);
+                        edit.putString("Actvname",actname);
 
-                        edit.commit();
+                        edit.apply();
                         Intent intent=new Intent(mCtx,ClassroomTraingActivity.class);
                         mCtx.startActivity(intent);
 
@@ -402,7 +441,7 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
                 buttonCrtf.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String name="Certifications";
+                        String actname="Certifications";
 
                         buttonOTP.setBackgroundResource(R.drawable.buttonalrt);
                         buttonOTP.setTextColor(Color.BLACK);
@@ -417,9 +456,9 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
                         buttonCrtf.setTextColor(Color.WHITE);
                         SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                         SharedPreferences.Editor edit = pref.edit();
-                        edit.putString("Activityname",name);
+                        edit.putString("Actvname",actname);
 
-                        edit.commit();
+                        edit.apply();
                         Intent intent=new Intent(mCtx,CertificationsActivity.class);
                         mCtx.startActivity(intent);
 
@@ -430,7 +469,7 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
                 buttonODT.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String name="On Demand Training";
+                        String actname="On Demand Training";
 
                         buttonOTP.setBackgroundResource(R.drawable.buttonalrt);
                         buttonOTP.setTextColor(Color.BLACK);
@@ -445,9 +484,9 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
                         buttonODT.setTextColor(Color.WHITE);
                         SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                         SharedPreferences.Editor edit = pref.edit();
-                        edit.putString("Activityname",name);
+                        edit.putString("Actvname",actname);
 
-                        edit.commit();
+                        edit.apply();
                         Intent intent=new Intent(mCtx,OnDemandTrangActivity.class);
                         mCtx.startActivity(intent);
 
@@ -522,7 +561,7 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
                 buttonAR.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String name="Analyst Reports";
+                        String actname="Analyst Reports";
                         buttonWP.setBackgroundResource(R.drawable.buttonalrt);
                         buttonWP.setTextColor(Color.BLACK);
                         buttonCSS.setBackgroundResource(R.drawable.buttonalrt);
@@ -532,9 +571,9 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
                         buttonAR.setTextColor(Color.WHITE);
                         SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                         SharedPreferences.Editor edit = pref.edit();
-                        edit.putString("Activityname",name);
+                        edit.putString("Actvname",actname);
 
-                        edit.commit();
+                        edit.apply();
                         Intent intent=new Intent(mCtx,AnalystReportActivity.class);
                         mCtx.startActivity(intent);
 
@@ -545,7 +584,7 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
                 buttonWP.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String name="White Papers";
+                        String actname="White Papers";
 
                         buttonCSS.setBackgroundResource(R.drawable.buttonalrt);
                         buttonCSS.setTextColor(Color.BLACK);
@@ -557,9 +596,9 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
 
                         SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                         SharedPreferences.Editor edit = pref.edit();
-                        edit.putString("Activityname",name);
+                        edit.putString("Actvname",actname);
 
-                        edit.commit();
+                        edit.apply();
                         Intent intent=new Intent(mCtx,WhitePapersActivity.class);
                         mCtx.startActivity(intent);
                         //mCtx.startActivity(new Intent(mCtx,WhitePapersActivity.class));
@@ -569,7 +608,7 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
                 buttonCSS.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String name="Customer Success Stories";
+                        String actname="Customer Success Stories";
 
                         buttonAR.setBackgroundResource(R.drawable.buttonalrt);
                         buttonAR.setTextColor(Color.BLACK);
@@ -581,9 +620,9 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
 
                         SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                         SharedPreferences.Editor edit = pref.edit();
-                        edit.putString("Activityname",name);
+                        edit.putString("Actvname",actname);
 
-                        edit.commit();
+                        edit.apply();
                         Intent intent=new Intent(mCtx,CustSuccStoriesActivity.class);
                         mCtx.startActivity(intent);
 
@@ -658,7 +697,7 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
                 buttonOE.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String name="Online Events";
+                        String actname="Online Events";
 
                         buttonOnfrndsumt.setBackgroundResource(R.drawable.buttonalrt);
                         buttonOnfrndsumt.setTextColor(Color.BLACK);
@@ -670,9 +709,9 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
 
                         SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                         SharedPreferences.Editor edit = pref.edit();
-                        edit.putString("Activityname",name);
+                        edit.putString("Actvname",actname);
 
-                        edit.commit();
+                        edit.apply();
                         Intent intent=new Intent(mCtx,OnlineEventsActivity.class);
                         mCtx.startActivity(intent);
                         //mCtx.startActivity(new Intent(mCtx,OnlineEventsActivity.class));
@@ -683,7 +722,7 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
                     @Override
                     public void onClick(View v) {
 
-                        String name="Conferences & Summits";
+                        String actname="Conferences & Summits";
                         buttonWebnr.setBackgroundResource(R.drawable.buttonalrt);
                         buttonWebnr.setTextColor(Color.BLACK);
                         buttonOE.setBackgroundResource(R.drawable.buttonalrt);
@@ -694,9 +733,9 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
 
                         SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                         SharedPreferences.Editor edit = pref.edit();
-                        edit.putString("Activityname",name);
+                        edit.putString("Actvname",actname);
 
-                        edit.commit();
+                        edit.apply();
                         Intent intent=new Intent(mCtx,ConfrncSummitsActivity.class);
                         mCtx.startActivity(intent);
 
@@ -708,7 +747,7 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
                     @Override
                     public void onClick(View v) {
 
-                        String name="Webinar";
+                        String actname="Webinar";
 
                         buttonOE.setBackgroundResource(R.drawable.buttonalrt);
                         buttonOE.setTextColor(Color.BLACK);
@@ -720,9 +759,9 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
 
                         SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                         SharedPreferences.Editor edit = pref.edit();
-                        edit.putString("Activityname",name);
+                        edit.putString("Actvname",actname);
 
-                        edit.commit();
+                        edit.apply();
                         Intent intent=new Intent(mCtx,WebinarActivity.class);
                         mCtx.startActivity(intent);
 

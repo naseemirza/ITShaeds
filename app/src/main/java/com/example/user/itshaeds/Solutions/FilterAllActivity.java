@@ -16,8 +16,8 @@ import com.example.user.itshaeds.R;
 public class FilterAllActivity extends AppCompatActivity {
 
     private Spinner spinerInd,spinerFA;
-    String actname;
-    TextView textactname;
+    String Actname;
+    TextView textname;
 
 
     @Override
@@ -27,14 +27,14 @@ public class FilterAllActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setCustomView(R.layout.filterallbar);
+        getSupportActionBar().setCustomView(R.layout.backbar);
         View view =getSupportActionBar().getCustomView();
 
-        textactname=(TextView)findViewById(R.id.textactname);
-        SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-        actname = pref.getString("Actvtname", "");
+        SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
-        textactname.setText(actname);
+        Actname=pref.getString("Actvname","");
+        textname=(TextView)findViewById(R.id.textname);
+        textname.setText(Actname);
 
         ImageButton imageButton= (ImageButton)view.findViewById(R.id.action_bar_back);
 

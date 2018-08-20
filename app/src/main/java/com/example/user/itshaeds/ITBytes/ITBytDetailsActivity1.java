@@ -16,6 +16,8 @@ public class ITBytDetailsActivity1 extends AppCompatActivity {
     TextView textViewpost,textViewexp;
     String textpost1,textexp1;
 
+    String Actname;
+    TextView textname;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +25,7 @@ public class ITBytDetailsActivity1 extends AppCompatActivity {
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setCustomView(R.layout.itbytdtls1bar);
+        getSupportActionBar().setCustomView(R.layout.backbar);
         View view =getSupportActionBar().getCustomView();
 
         ImageButton imageButton= (ImageButton)view.findViewById(R.id.action_bar_back);
@@ -41,11 +43,13 @@ public class ITBytDetailsActivity1 extends AppCompatActivity {
         SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
         textpost1=pref.getString("Title","");
-        textexp1=pref.getString("Exp","");
-
-
+        textexp1=pref.getString("Descr","");
 
         textViewpost.setText(textpost1);
         textViewexp.setText(textexp1);
+
+        Actname=pref.getString("Actvname","");
+        textname=(TextView)findViewById(R.id.textname);
+        textname.setText(Actname);
     }
 }

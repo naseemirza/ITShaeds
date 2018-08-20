@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.user.itshaeds">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -113,9 +115,19 @@
             android:name=".CorpCustomer.Profile.InviteFrndsActivity"
             android:label="Invite To Friends"
             android:parentActivityName=".CorpCustomer.Profile.ProfileActivity" />
-        <activity android:name=".CorpCustomer.Profile.ContactUsPrflActivity"
+        <activity
+            android:name=".CorpCustomer.Profile.ContactUsPrflActivity"
             android:label="Contact Us"
-            android:parentActivityName=".CorpCustomer.Profile.ProfileActivity"></activity>
+            android:parentActivityName=".CorpCustomer.Profile.ProfileActivity" />
+        <activity android:name=".ITByteDetailsRecy.FinancialActivity" />
+        <activity android:name=".MyProfileActivity" />
+        <activity android:name=".ITByteDetailsRecy.SolutionsActivity" />
+        <activity android:name=".ITByteDetailsRecy.RewardAndRecogActivity" />
+        <activity android:name=".ITByteDetailsRecy.CustSuccessActivity" />
+        <activity android:name=".ITByteDetailsRecy.MarktAndEventsActivity" />
+        <activity android:name=".ITByteDetailsRecy.MandAPartActivity" />
+        <activity android:name=".ITByteDetailsRecy.MiscellaneousActivity" />
+        <activity android:name=".ITByteDetailsRecy.AnnouncementsActivity"></activity>
     </application>
 
 </manifest>

@@ -4,21 +4,38 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.user.itshaeds.Jobs.JobsActivity;
+import com.example.user.itshaeds.Jobs.JobsModelName;
+import com.example.user.itshaeds.Jobs.JobsNameAdapter;
 import com.example.user.itshaeds.Jobs.ModelJobs;
 import com.example.user.itshaeds.PrevayActivity;
 import com.example.user.itshaeds.R;
 import com.example.user.itshaeds.TermsActivity;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,15 +50,18 @@ public class ITBytDetailsActivity extends AppCompatActivity {
     //CheckBox checkBox;
     TextView discla,termsndcond,prvynspolcy;
 
-    ExpandableListView expandableListView;
-    ExpandableListAdapter expandableListAdapter;
-    List<String> expandableListTitle;
-    HashMap<String, List<String>> expandableListDetail;
+    private ITbytdetailsAdapter mExampleAdapter1;
+    private ArrayList<ITbytdetalsmodel> mExampleList1;
+    private RequestQueue mRequestQueue1;
+    private RecyclerView mRecyclerview1;
+
 
     ImageView imageViewadd,imageViewminus;
 
-    TextView activitynametext;
     String actvtyname,acttyname1;
+    String year,month_edition , pos;
+
+    TextView textname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,16 +70,29 @@ public class ITBytDetailsActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setCustomView(R.layout.itbytedetailbar);
+        getSupportActionBar().setCustomView(R.layout.backbar);
         View view =getSupportActionBar().getCustomView();
 
-        activitynametext=(TextView)findViewById(R.id.actname);
         SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
         actvtyname=pref.getString("Month","");
         acttyname1=pref.getString("Edition","");
+        textname=(TextView)findViewById(R.id.textname);
+        textname.setText(actvtyname+" "+acttyname1);
 
-        activitynametext.setText(actvtyname+" "+acttyname1);
+        year=pref.getString("year","");
+        month_edition=pref.getString("month_edition","");
+        pos=pref.getString("position","");
+
+        Log.e("position",pos);
+
+//        activitynametext=(TextView)findViewById(R.id.actname);
+//        SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+//
+//        actvtyname=pref.getString("Month","");
+//        acttyname1=pref.getString("Edition","");
+//
+//        activitynametext.setText(actvtyname+" "+acttyname1);
 
         ImageButton imageButton= (ImageButton)view.findViewById(R.id.action_bar_back);
 
@@ -112,7 +145,6 @@ public class ITBytDetailsActivity extends AppCompatActivity {
         productList.add(new ModelJobs("Miscellaneous", R.drawable.misclenious));
         productList.add(new ModelJobs("Announcements", R.drawable.anouncment));
 
-
         ITBytRecycAdapter adapter = new ITBytRecycAdapter(this, productList);
         recyclerView.setAdapter(adapter);
 
@@ -122,83 +154,74 @@ public class ITBytDetailsActivity extends AppCompatActivity {
 
         // Jobs Title names
 
-        productList1 = new ArrayList<>();
-        recyclerViewtitle = (RecyclerView) findViewById(R.id.my_recycler_jobs);
-        recyclerViewtitle.setNestedScrollingEnabled(false);
-        recyclerViewtitle.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        recyclerViewtitle.setHasFixedSize(true);
+        mExampleList1 = new ArrayList<>();
+        mRequestQueue1 = Volley.newRequestQueue(this);
 
+        mRecyclerview1=(RecyclerView)findViewById(R.id.my_recycler_jobs);
+        mRecyclerview1.setNestedScrollingEnabled(false);
+        mRecyclerview1.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        mRecyclerview1.setHasFixedSize(true);
 
-        productList1.add(new ITbytdetalsmodel("Financial Results for the First Quarter","Infosys announces results for Infosys announces results for Infosys announces results for Infosys announces results for for Infosys announces results for Infosys announces results for"));
-        productList1.add(new ITbytdetalsmodel("Financial Results for the First Quarter","Infosys announces results for Infosys announces results for Infosys announces results for Infosys announces results for for Infosys announces results for Infosys announces results for"));
-        productList1.add(new ITbytdetalsmodel("Financial Results for the First Quarter","Infosys announces results for Infosys announces results for Infosys announces results for Infosys announces results for"));
-        productList1.add(new ITbytdetalsmodel("Financial Results for the First Quarter","Infosys announces results for Infosys announces results for Infosys announces results for Infosys announces results for"));
-        productList1.add(new ITbytdetalsmodel("Financial Results for the First Quarter","Infosys announces results for Infosys announces results for Infosys announces results for Infosys announces results for"));
-        productList1.add(new ITbytdetalsmodel("Financial Results for the First Quarter","Infosys announces results for Infosys announces results for Infosys announces results for Infosys announces results for"));
-        productList1.add(new ITbytdetalsmodel("Financial Results for the First Quarter","Infosys announces results for Infosys announces results for Infosys announces results for Infosys announces results for"));
+        parseJSON1();
 
-        ITbytdetailsAdapter adapter1 = new ITbytdetailsAdapter(this, productList1);
-        recyclerViewtitle.setAdapter(adapter1);
+    }
 
+    private void parseJSON1() {
 
-//        expandableListView = (ExpandableListView)findViewById(R.id.expandableListView);
-//        expandableListView.setGroupIndicator(null);
-//        expandableListDetail = ExpandableListDataPump.getData();
-//        expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
-//
-//        expandableListAdapter = new CustomExpandableListAdapter(ITBytDetailsActivity.this, expandableListTitle, expandableListDetail);
-//        expandableListView.setAdapter(expandableListAdapter);
-//        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-//
-//            @Override
-//            public void onGroupExpand(int groupPosition) {
-//
-//                imageViewadd=(ImageView)findViewById(R.id.imgadd);
-//                imageViewminus=(ImageView)findViewById(R.id.imgminus);
-//
-//                imageViewadd.setVisibility(View.GONE);
-//                imageViewminus.setVisibility(View.VISIBLE);
-//
-////                        Toast.makeText(getActivity().getApplicationContext(),
-////                                expandableListTitle.get(groupPosition) + " List Expanded.",
-////                                Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//
-//        expandableListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
-//
-//            @Override
-//            public void onGroupCollapse(int groupPosition) {
-//
-//                imageViewadd.setVisibility(View.VISIBLE);
-//                imageViewminus.setVisibility(View.GONE);
-//
-////                        Toast.makeText(getActivity().getApplicationContext(),
-////                                expandableListTitle.get(groupPosition) + " List Collapsed.",
-////                                Toast.LENGTH_SHORT).show();
-//
-//            }
-//        });
-//
-//        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-//            @Override
-//            public boolean onChildClick(ExpandableListView Parent, View v,
-//                                        int groupPosition, int childPosition, long id) {
-//
-//
-////                        Toast.makeText(
-////                                getActivity().getApplicationContext(),
-////                                expandableListTitle.get(groupPosition)
-////                                        + " -> "
-////                                        + expandableListDetail.get(
-////                                        expandableListTitle.get(groupPosition)).get(
-////                                        childPosition), Toast.LENGTH_SHORT
-////                        ).show();
-//                return false;
-//            }
-//        });
+        final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.VISIBLE);
+        String rurl = "https://www.itshades.com/appwebservices/industry-update.php?year="+year+"&month_edition="+month_edition+"&catid="+pos+"";
+        // Log.e("Url",rurl);
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, rurl,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
 
+                        progressBar.setVisibility(View.INVISIBLE);
 
+                        if (response!=null) {
 
+                            try {
+                                Log.e("rootJsonArray", response);
+                                JSONArray rootJsonArray = new JSONArray(response);
+
+                                Log.e("rootJsonArrayLength", rootJsonArray.length() + "");
+
+                                for (int i = 0; i < rootJsonArray.length(); i++) {
+                                    JSONObject object = rootJsonArray.getJSONObject(i);
+
+                                    mExampleList1.add(new ITbytdetalsmodel(object.optString("id"),
+                                            object.optString("news_title"),
+                                            object.optString("description")));
+
+                                }
+
+                                Log.e("rootJsonArray", mExampleList1.size() + "");
+
+                                mExampleAdapter1 = new ITbytdetailsAdapter(ITBytDetailsActivity.this, mExampleList1);
+                                mRecyclerview1.setAdapter(mExampleAdapter1);
+                                mExampleAdapter1.notifyDataSetChanged();
+                                mRecyclerview1.setHasFixedSize(true);
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                        else {
+                            Toast.makeText(ITBytDetailsActivity.this,"There is No Data to show",Toast.LENGTH_LONG).show();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                        Log.e("TAg",error.getMessage());
+                    }
+                });
+
+        mRequestQueue1 = Volley.newRequestQueue(this);
+        mRequestQueue1.add(stringRequest);
     }
 }

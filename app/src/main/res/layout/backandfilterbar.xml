@@ -10,7 +10,10 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/back1"
+            android:src="@drawable/backblk"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+
             android:layout_gravity="center_vertical"
             android:background="@android:color/transparent"
             android:id="@+id/action_bar_back"
@@ -19,12 +22,14 @@
 
 
         <TextView
+            android:id="@+id/textname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Company Directory"
+            android:text="textname"
+            android:textColor="@color/colorBlack"
             android:gravity="center_horizontal"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textStyle="bold"
+
             android:padding="10dp"
             android:layout_alignParentTop="true"
             android:layout_weight="1"
@@ -33,7 +38,7 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/filter1"
+            android:src="@drawable/filterblk"
             android:id="@+id/action_bar_forward"
             android:layout_gravity="center_vertical"
             android:background="@android:color/transparent"

@@ -24,8 +24,9 @@ public class ProdAndPlatformActivity extends AppCompatActivity {
     private Spinner spiner1,spiner2;
     List<SoluModel> productList1;
     RecyclerView recyclerView;
-    String actname;
-    TextView actnametext;
+
+    String Actname;
+    TextView textname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,14 +35,14 @@ public class ProdAndPlatformActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setCustomView(R.layout.activitynamebar);
+        getSupportActionBar().setCustomView(R.layout.backandfilterbar);
         View view =getSupportActionBar().getCustomView();
 
-        actnametext=(TextView)findViewById(R.id.actnameall);
-        SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-        actname = pref.getString("Activityname", "");
+        SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
-        actnametext.setText(actname);
+        Actname=pref.getString("Actvname","");
+        textname=(TextView)findViewById(R.id.textname);
+        textname.setText(Actname);
 
         productList1 = new ArrayList<>();
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_jobs);
@@ -155,10 +156,10 @@ public class ProdAndPlatformActivity extends AppCompatActivity {
         imageButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String actvtyname="Filtration";
+                String actname ="Filtration";
                 SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor edit = pref.edit();
-                edit.putString("Actvtname",actvtyname);
+                edit.putString("Actvname",actname );
 
                 edit.commit();
                 Intent intent=new Intent(ProdAndPlatformActivity.this,FilterAllActivity.class);

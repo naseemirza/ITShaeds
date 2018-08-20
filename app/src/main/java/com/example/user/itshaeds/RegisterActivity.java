@@ -1,7 +1,9 @@
 package com.example.user.itshaeds;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -42,6 +44,9 @@ public class RegisterActivity extends AppCompatActivity {
      RadioGroup radioGroup;
      RadioButton radioButton;
 
+     String Actname;
+     TextView textname;
+
     CheckBox checkBoxPrvy,checkBoxTnc;
     TextView textViewPrvcy ,tctext;
     ProgressDialog progressDialog;
@@ -58,7 +63,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setCustomView(R.layout.regactivitybar);
+        getSupportActionBar().setCustomView(R.layout.backbar);
         View view =getSupportActionBar().getCustomView();
 
 
@@ -70,6 +75,12 @@ public class RegisterActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+
+        Actname=pref.getString("Actvname","");
+        textname=(TextView)findViewById(R.id.textname);
+        textname.setText(Actname);
 
 
         checkBoxPrvy=(CheckBox)findViewById(R.id.checkBoxP);

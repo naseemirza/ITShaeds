@@ -6,27 +6,37 @@ package com.example.user.itshaeds.ITBytes;
 
 public class ITbytdetalsmodel {
 
-    private String name;
-    private String exp;
+    private String id ;
+    private String titlename;
+    private String descr;
 
-    public ITbytdetalsmodel(String name, String exp) {
-        this.name = name;
-        this.exp = exp;
+    public ITbytdetalsmodel(String id, String titlename, String descr) {
+        this.id = id;
+        this.titlename = titlename;
+        this.descr = descr;
     }
 
-    public String getName() {
-        return name;
+    public String getId() {
+        return id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getExp() {
-        return exp;
+    public String getTitlename() {
+        return titlename;
     }
 
-    public void setExp(String exp) {
-        this.exp = exp;
+    public void setTitlename(String titlename) {
+        this.titlename = titlename;
+    }
+
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr;
     }
 }

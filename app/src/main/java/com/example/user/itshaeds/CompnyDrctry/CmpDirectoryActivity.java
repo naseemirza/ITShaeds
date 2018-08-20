@@ -1,6 +1,8 @@
 package com.example.user.itshaeds.CompnyDrctry;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,6 +27,9 @@ public class CmpDirectoryActivity extends AppCompatActivity {
     //CheckBox checkBox;
     TextView discla,termsndcond,prvynspolcy;
 
+    String Actname;
+    TextView textname;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,8 +37,14 @@ public class CmpDirectoryActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setCustomView(R.layout.cmpdriectrybar);
+        getSupportActionBar().setCustomView(R.layout.backandfilterbar);
         View view =getSupportActionBar().getCustomView();
+
+        SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+
+        Actname=pref.getString("Actvname","");
+        textname=(TextView)findViewById(R.id.textname);
+        textname.setText(Actname);
 
         ImageButton imageButton= (ImageButton)view.findViewById(R.id.action_bar_back);
 
@@ -49,7 +60,16 @@ public class CmpDirectoryActivity extends AppCompatActivity {
         imageButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(CmpDirectoryActivity.this,CmpProfFilterActivity.class));
+                String actname ="Company Directory Filter";
+                SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor edit = pref.edit();
+
+                edit.putString("Actvname",actname);
+
+                edit.commit();
+                Intent intent = new Intent(CmpDirectoryActivity.this, CmpProfFilterActivity.class);
+                startActivity(intent);
+                //startActivity(new Intent(CmpDirectoryActivity.this,CmpProfFilterActivity.class));
             }
         });
 

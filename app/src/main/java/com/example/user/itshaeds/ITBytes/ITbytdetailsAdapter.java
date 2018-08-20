@@ -42,17 +42,17 @@ public class ITbytdetailsAdapter extends RecyclerView.Adapter<ITbytdetailsAdapte
     public void onBindViewHolder(final ITbytdetailsAdapter.ProductViewHolder holder, int position) {
         final ITbytdetalsmodel product = productList1.get(position);
 
-        holder.textViewTitle.setText(product.getName());
-        holder.textViewyrs.setText(product.getExp());
+        holder.textViewTitle.setText(product.getTitlename());
+        holder.textViewyrs.setText(product.getDescr());
         //holder.checkBox.setChecked(productList1.get(position).getSelected());
 
         holder.setItemClickListener(new RecyclerViewItemClickListener() {
             @Override
             public void onClick(View view, int position) {
 
-                String title=product.getName().toString();
-                String exp=product.getExp().toString();
-
+                String actname="Financial ";
+                String title=product.getTitlename();
+                String desc=product.getDescr();
 
                 Log.e("responce", title);
 
@@ -60,7 +60,8 @@ public class ITbytdetailsAdapter extends RecyclerView.Adapter<ITbytdetailsAdapte
                 SharedPreferences.Editor edit = pref.edit();
 
                 edit.putString("Title",title);
-                edit.putString("Exp",exp);
+                edit.putString("Descr",desc);
+                edit.putString("Actvname",actname);
 
 
                 edit.commit();

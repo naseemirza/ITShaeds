@@ -49,6 +49,8 @@ public class ITBytesAdapter extends RecyclerView.Adapter<ITBytesAdapter.ITBytesV
             @Override
             public void onClick(View view, int position) {
 
+                String pos="0";
+
                 String msg1=product.getMonth();
                 String msg2=product.getEdition();
 
@@ -66,6 +68,7 @@ public class ITBytesAdapter extends RecyclerView.Adapter<ITBytesAdapter.ITBytesV
 
                 edit.putString("year",year);
                 edit.putString("month_edition",month_edition);
+                edit.putString("position",pos);
 
                 edit.commit();
                 Intent intent = new Intent(view.getContext(), ITBytDetailsActivity.class);

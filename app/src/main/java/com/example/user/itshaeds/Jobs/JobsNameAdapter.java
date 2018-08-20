@@ -9,8 +9,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.user.itshaeds.R;
 import com.example.user.itshaeds.RecyclerViewItemClickListener;
@@ -48,21 +51,62 @@ public class JobsNameAdapter extends RecyclerView.Adapter<JobsNameAdapter.Produc
         holder.textViewcontry.setText(product.getCountry());
         holder.textViewloc.setText("["+product.getLoc()+"]");
 
+        holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                if(isChecked){
+
+                    // visible button here
+
+                   // holder.buttonaply.setVisibility(View.VISIBLE);
+
+                }else{
+
+                    //invisble button here
+                   // holder.buttonaply.setVisibility(View.GONE);
+                }
+
+            }
+        });
+
+
+
         holder.setItemClickListener(new RecyclerViewItemClickListener() {
             @Override
             public void onClick(View view, int position) {
 
-                String jobID=product.getmID().toString();
-                //String title=product.getName().toString();
-                //String exp=product.getExp().toString();
+                String actname ="Job Descriptions";
+
+                String jobID=product.getmID();
+                String title=product.getTitle();
+                String exp=product.getExp()+" Yrs";
+                String contry=product.getCountry();
+                String loc="["+product.getLoc()+"]";
+                String cmpname=product.getCmpName();
+                String keyskils=product.getKeyskils();
+                String jobdes=product.getJobDesc();
+                String explevel=product.getExpLevel();
+
+
                 Log.e("responce", jobID);
+
                 SharedPreferences pref = view.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor edit = pref.edit();
-                //edit.putString("Title",title);
-               // edit.putString("Exp",exp);
-                edit.putString("JobID",jobID);
+                edit.putString("Title",title);
+                edit.putString("Exp",exp);
+                edit.putString("Country",contry);
+                edit.putString("Loc",loc);
+                edit.putString("Cmpname",cmpname);
+                edit.putString("Keyskills",keyskils);
+                edit.putString("Jobdesc",jobdes);
+                edit.putString("ExpLevel",explevel);
+                edit.putString("Actvname",actname);
 
-                edit.commit();
+
+                edit.apply();
                 Intent intent = new Intent(view.getContext(), DetailsActivity.class);
                 view.getContext().startActivity(intent);
             }
@@ -82,8 +126,8 @@ public class JobsNameAdapter extends RecyclerView.Adapter<JobsNameAdapter.Produc
         TextView textViewexp;
         TextView textViewcontry;
         TextView textViewloc;
-        FloatingActionButton floatingActionButton;
         CheckBox checkBox;
+//        Button buttonaply;
 
         private RecyclerViewItemClickListener itemClickListener;
 
@@ -95,6 +139,7 @@ public class JobsNameAdapter extends RecyclerView.Adapter<JobsNameAdapter.Produc
             textViewcontry = itemView.findViewById(R.id.contryTextview);
             textViewloc = itemView.findViewById(R.id.locTextview);
             checkBox=itemView.findViewById(R.id.chkox);
+//            buttonaply=itemView.findViewById(R.id.applybutton);
 
             itemView.setOnClickListener(this);
 

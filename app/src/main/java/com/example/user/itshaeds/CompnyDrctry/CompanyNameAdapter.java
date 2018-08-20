@@ -50,15 +50,13 @@ public class CompanyNameAdapter extends RecyclerView.Adapter<CompanyNameAdapter.
             @Override
             public void onClick(View view, int position) {
 
-                  String cmpname=product.getName().toString();
-//                int cmpdesc=product.getCompnydesc();
-//                int img=product.getImage();
-//
-//
+
+                String actname=product.getName().toString();
+
                 SharedPreferences pref = view.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor edit = pref.edit();
 
-                edit.putString("Compname",cmpname);
+                edit.putString("Actvname",actname);
 
 
                edit.commit();

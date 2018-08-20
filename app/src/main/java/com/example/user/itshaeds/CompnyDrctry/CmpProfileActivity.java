@@ -28,37 +28,31 @@ public class CmpProfileActivity extends AppCompatActivity {
     List<CompPrflModel> productList;
     RecyclerView recyclerView;
 
+    String Actname;
+    TextView textname;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cmp_profile);
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setCustomView(R.layout.backbar);
+        View view =getSupportActionBar().getCustomView();
+
+        ImageButton imageButton= (ImageButton)view.findViewById(R.id.action_bar_back);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-        cmpname = pref.getString("Compname", "");
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(cmpname);
-
-        textViewnm = (TextView) findViewById(R.id.cmpname1);
-
-//        textViewDes = (TextView) findViewById(R.id.abtcmpny);
-//        cmpimage = (ImageView) findViewById(R.id.compid);
-//
-
-//        cmpdesc = pref.getString("Descrp", "");
-//        cmpimg = pref.getString("cardimage", "");
-//
-//        Glide.with(this)
-//                .load(cmpimg)
-//                .diskCacheStrategy(DiskCacheStrategy.ALL)
-//                .fitCenter()
-//                .into(cmpimage);
-//
-//        // Picasso.with(getActivity()).load(mimage).fit().centerInside().into(imageView);
-//        //textViewname.setText(mname);
-        textViewnm.setText(cmpname);
-        //textViewnm1.setError(cmpname);
-//        textViewDes.setText(cmpdesc);
+        Actname=pref.getString("Actvname","");
+        textname=(TextView)findViewById(R.id.textname);
+        textname.setText(Actname);
 
         //category name with icon
 

@@ -1,6 +1,8 @@
 package com.example.user.itshaeds;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -26,6 +29,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.user.itshaeds.CorpCustomer.Profile.ProfileActivity;
 import com.example.user.itshaeds.Jobs.AdapterJobs;
 import com.example.user.itshaeds.Jobs.JobsModelName;
 import com.example.user.itshaeds.Jobs.JobsNameAdapter;
@@ -59,9 +63,17 @@ public class Main2Activity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
+
+
+//        if(!isConnected(Main2Activity.this)) buildDialog(Main2Activity.this).show();
+//        else {
+//            //Toast.makeText(MainActivity.this,"", Toast.LENGTH_SHORT).show();
+//            setContentView(R.layout.activity_main2);
+//        }
+
         //floatingActionButton=(FloatingActionButton)findViewById(R.id.fab);
         //checkBox=(CheckBox)findViewById(R.id.chkox);
-        buttonaply=(Button)findViewById(R.id.applybutton);
+        //buttonaply=(Button)findViewById(R.id.applybutton);
 
 
 
@@ -129,6 +141,8 @@ public class Main2Activity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -142,11 +156,48 @@ public class Main2Activity extends AppCompatActivity
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
+        toggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.colorBlack));
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
+
+
+
+//    public boolean isConnected(Context context) {
+//
+//        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+//        NetworkInfo netinfo = cm.getActiveNetworkInfo();
+//
+//        if (netinfo != null && netinfo.isConnectedOrConnecting()) {
+//            android.net.NetworkInfo wifi = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+//            android.net.NetworkInfo mobile = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+//
+//            if((mobile != null && mobile.isConnectedOrConnecting()) || (wifi != null && wifi.isConnectedOrConnecting())) return true;
+//            else return false;
+//        } else
+//            return false;
+//    }
+//
+//    public AlertDialog.Builder buildDialog(Context c) {
+//
+//        AlertDialog.Builder builder = new AlertDialog.Builder(c);
+//        builder.setTitle("No Internet Connection");
+//        builder.setMessage("You need to have Mobile Data or wifi to access this. Press ok to Exit");
+//
+//        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+//
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//
+//               dialog.dismiss();
+//            }
+//        });
+//
+//        return builder;
+//    }
+
 
     private void parseJSON1() {
 
@@ -173,7 +224,11 @@ public class Main2Activity extends AppCompatActivity
                                         object.optString("job_title"),
                                         object.optString("expirence"),
                                         object.optString("country"),
-                                        object.optString("work_city")));
+                                        object.optString("work_city"),
+                                        object.optString("company_name"),
+                                        object.optString("job_keyskill"),
+                                        object.optString("job_description"),
+                                        object.optString("job_postion")));
 
                             }
 
@@ -243,13 +298,40 @@ public class Main2Activity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_aboutus) {
+            String actname ="About Us";
+            SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor edit = pref.edit();
+
+            edit.putString("Actvname",actname);
+
+            edit.commit();
+
             startActivity(new Intent(Main2Activity.this,AboutUsActivity.class));
         } else if (id == R.id.nav_subsc) {
-            startActivity(new Intent(Main2Activity.this,SubscribeActivity.class));
-        } else if (id == R.id.nav_login) {
+
+            String actname ="Subscribe";
+            SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor edit = pref.edit();
+
+            edit.putString("Actvname",actname);
+
+            edit.commit();
+            startActivity(new Intent(Main2Activity.this, SubscribeActivity.class));
+        } else if (id == R.id.nav_profile) {
+                startActivity(new Intent(Main2Activity.this,MyProfileActivity.class));
+            }
+         else if (id == R.id.nav_login) {
             startActivity(new Intent(Main2Activity.this,LoginActivity.class));
 
         } else if (id == R.id.nav_contactus) {
+
+            String actname ="Contact Us";
+            SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor edit = pref.edit();
+
+            edit.putString("Actvname",actname);
+
+            edit.commit();
             startActivity(new Intent(Main2Activity.this,ContactUsActivity.class));
         }
 
