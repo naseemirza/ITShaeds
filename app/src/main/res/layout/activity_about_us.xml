@@ -6,7 +6,18 @@
     android:layout_height="match_parent"
     tools:context="com.example.user.itshaeds.AboutUsActivity">
 
-    <TextView
+    <ScrollView
+        android:id="@+id/scrolview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/re"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,4 +42,8 @@
         android:layout_below="@+id/textView9"
         android:layout_marginTop="10dp"
         android:text="@string/Aboutus" />
+
+        </RelativeLayout>
+    </ScrollView>
+
 </RelativeLayout>

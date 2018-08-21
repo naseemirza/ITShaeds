@@ -8,15 +8,61 @@
     tools:context="com.example.user.itshaeds.LoginActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <ImageView
+    <ScrollView
+        android:id="@+id/scrolview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        android:id="@+id/imageView2"
-        android:layout_width="80dp"
-        android:layout_marginStart="10dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/itshadslogo"
-        android:layout_marginLeft="10dp" />
+        <RelativeLayout
+            android:id="@+id/re"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+
+                android:id="@+id/imageView2"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/itshadslogo" />
+
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold"
+                android:textSize="12dp"
+                android:textColor="@color/green"
+                android:layout_marginTop="40dp"
+                android:text="@string/get_startedLogintitle" />
+
+            <!--<ImageView-->
+                <!--android:id="@+id/imageView2"-->
+                <!--android:layout_width="80dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_alignParentLeft="true"-->
+                <!--android:layout_alignParentStart="true"-->
+                <!--android:layout_alignParentTop="true"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:src="@drawable/itshadslogo"-->
+                <!--android:layout_marginLeft="10dp" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/textView5"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textSize="12dp"-->
+                <!--android:textStyle="bold"-->
+                <!--android:gravity="center"-->
+                <!--android:layout_below="@+id/imageView2"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:textColor="@color/green"-->
+                <!--android:text="@string/get_startedLogintitle" />-->
 
 
     <EditText
@@ -25,7 +71,7 @@
         android:layout_height="45dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/imageView2"
+        android:layout_below="@+id/textView4"
         android:layout_marginTop="10dp"
         android:textSize="10dp"
         android:textCursorDrawable="@drawable/black_cursor"
@@ -76,22 +122,24 @@
         android:textSize="10dp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/buttonL"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:textSize="12dp"
-        android:text="@string/signuptext_login" />
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/buttonL"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:text="@string/signuptext_login"
+                android:textSize="12dp" />
 
     <TextView
         android:id="@+id/textViewRgs"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView3"
         android:layout_centerHorizontal="true"
+        android:gravity="center"
         android:layout_marginTop="20dp"
         android:textSize="12dp"
         android:textStyle="bold"
@@ -100,31 +148,19 @@
 
     <TextView
         android:id="@+id/textViewfrgt"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewRgs"
-        android:layout_marginLeft="130dp"
-        android:layout_marginStart="130dp"
         android:layout_marginTop="30dp"
-        android:gravity="center_vertical"
+        android:gravity="center"
         android:text="@string/forgot_passwordtextlogin"
         android:textColor="#FF0000"
         android:textSize="12dp" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="12dp"
-        android:textStyle="bold"
-        android:layout_alignEnd="@+id/textViewRgs"
-        android:layout_alignRight="@+id/textViewRgs"
-        android:layout_alignTop="@+id/imageView2"
-        android:layout_marginTop="40dp"
-        android:textColor="@color/green"
-        android:text="@string/get_startedLogintitle" />
 
 
+        </RelativeLayout>
+    </ScrollView>
 
 
 </RelativeLayout>

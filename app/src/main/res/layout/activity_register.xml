@@ -7,7 +7,15 @@
     tools:context="com.example.user.itshaeds.RegisterActivity">
 
 
+    <ScrollView
+        android:id="@+id/scrolview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <RelativeLayout
+            android:id="@+id/re"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
     <ImageView
 
@@ -199,6 +207,8 @@
         android:textSize="12dp"
         android:textStyle="bold" />
 
+        </RelativeLayout>
+    </ScrollView>
 
 
 </RelativeLayout>

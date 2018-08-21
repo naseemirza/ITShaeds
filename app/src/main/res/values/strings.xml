@@ -33,8 +33,8 @@
 
     <string name="user_id_login">User id</string>
     <string name="passwordtext_login">Password(6 or more characters)*</string>
-    <string name="signuptext_login">Sign Up here if not already registered</string>
-    <string name="registered_textlogin">Registered</string>
+    <string name="signuptext_login">Sign Up here if not already registered ?</string>
+    <string name="registered_textlogin">Registere</string>
     <string name="forgot_passwordtextlogin">Forgot Password</string>
     <string name="get_startedLogintitle">Get Started</string>
     <string name="first_nameReg">First Name*</string>

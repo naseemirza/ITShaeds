@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context="com.example.user.itshaeds.ClassifiedsActivity">
 
+    <ScrollView
+        android:id="@+id/scrolview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/re"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
 
     <TextView
         android:id="@+id/textView14"
@@ -84,4 +94,8 @@
         android:textColor="@color/colorWhite"
         android:background="@drawable/buttoncorner"
         android:text="Search" />
+
+        </RelativeLayout>
+    </ScrollView>
+
 </RelativeLayout>

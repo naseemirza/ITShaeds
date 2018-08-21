@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".SplashActivity"
-            android:screenOrientation="portrait"
+
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,17 +25,17 @@
         <activity
             android:name=".LoginActivity"
             android:label="Get Started"
-            android:screenOrientation="portrait"
+
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Main2Activity"
             android:label=""
-            android:screenOrientation="portrait"
+
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".RegisterActivity"
             android:parentActivityName=".LoginActivity"
-            android:screenOrientation="portrait" />
+            />
         <activity android:name=".ForgotPassActivity" />
         <activity
             android:name=".AboutUsActivity"
