@@ -8,29 +8,41 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.user.itshaeds.R;
 import com.example.user.itshaeds.Solutions.FilterAllActivity;
-import com.example.user.itshaeds.Solutions.ProdAndPlatformActivity;
-import com.example.user.itshaeds.Solutions.SoluAdapter;
-import com.example.user.itshaeds.Solutions.SoluModel;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class OnDemandTrangActivity extends AppCompatActivity {
 
     private Spinner spiner1,spiner2;
-    String Actname;
+    String Actname,CatId;
     TextView textname;
 
+    private LnDAdapter mExampleAdapter1;
+    private ArrayList<LnDModel> mExampleList1;
+    private RequestQueue mRequestQueue1;
+    private RecyclerView mRecyclerview1;
 
-    List<SoluModel> productList1;
+
+    //List<LnDModel> productList1;
     RecyclerView recyclerView;
 
     @Override
@@ -46,6 +58,8 @@ public class OnDemandTrangActivity extends AppCompatActivity {
         SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
         Actname=pref.getString("Actvname","");
+        CatId=pref.getString("CatId","");
+
         textname=(TextView)findViewById(R.id.textname);
         textname.setText(Actname);
 
@@ -64,12 +78,12 @@ public class OnDemandTrangActivity extends AppCompatActivity {
         imageButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String actname ="Filtration";
-                SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-                SharedPreferences.Editor edit = pref.edit();
-                edit.putString("Actvname",actname );
+                //String actname ="Filtration";
+                //SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                //SharedPreferences.Editor edit = pref.edit();
+                //edit.putString("Actvname",actname );
 
-                edit.commit();
+                //edit.commit();
                 Intent intent=new Intent(OnDemandTrangActivity.this,FilterAllActivity.class);
 
                 startActivity(intent);
@@ -78,58 +92,70 @@ public class OnDemandTrangActivity extends AppCompatActivity {
 
 
 
-        productList1 = new ArrayList<>();
-        recyclerView = (RecyclerView) findViewById(R.id.my_recycler_jobs);
-        recyclerView.setNestedScrollingEnabled(false);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        recyclerView.setHasFixedSize(true);
+        mExampleList1 = new ArrayList<>();
+        mRequestQueue1 = Volley.newRequestQueue(this);
 
+        mRecyclerview1=(RecyclerView)findViewById(R.id.my_recycler_jobs);
+        mRecyclerview1.setNestedScrollingEnabled(false);
+        mRecyclerview1.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        mRecyclerview1.setHasFixedSize(true);
 
+        parseJSON1();
 
-        productList1.add(new SoluModel("Veeva-ZincMAPS Originator End User Course",
-                "This 2-hour online course is for any user in any region assigned a Job to review within Zinc MAPS. Reviewers may also sign the final certificate, if applicable.",
-                "Industry Relevance :"," All Industries","Focus Area :"," Digital",
-                "Posted By :"," Admin","Posted Date :"," Thursday, 05 July 2018"));
-        productList1.add(new SoluModel("Veeva-ZincMAPS Originator End User Course",
-                "This 2-hour online course is for any user in any region assigned a Job to review within Zinc MAPS. Reviewers may also sign the final certificate, if applicable.",
-                "Industry Relevance :"," All Industries","Focus Area :"," Digital",
-                "Posted By :"," Admin","Posted Date :"," Thursday, 05 July 2018"));
-        productList1.add(new SoluModel("Veeva-ZincMAPS Originator End User Course",
-                "This 2-hour online course is for any user in any region assigned a Job to review within Zinc MAPS. Reviewers may also sign the final certificate, if applicable.",
-                "Industry Relevance :"," All Industries","Focus Area :"," Digital",
-                "Posted By :"," Admin","Posted Date :"," Thursday, 05 July 2018"));
-        productList1.add(new SoluModel("Veeva-ZincMAPS Originator End User Course",
-                "This 2-hour online course is for any user in any region assigned a Job to review within Zinc MAPS. Reviewers may also sign the final certificate, if applicable.",
-                "Industry Relevance :"," All Industries","Focus Area :"," Digital",
-                "Posted By :"," Admin","Posted Date :"," Thursday, 05 July 2018"));
-        productList1.add(new SoluModel("Veeva-ZincMAPS Originator End User Course",
-                "This 2-hour online course is for any user in any region assigned a Job to review within Zinc MAPS. Reviewers may also sign the final certificate, if applicable.",
-                "Industry Relevance :"," All Industries","Focus Area :"," Digital",
-                "Posted By :"," Admin","Posted Date :"," Thursday, 05 July 2018"));
-        productList1.add(new SoluModel("Veeva-ZincMAPS Originator End User Course",
-                "This 2-hour online course is for any user in any region assigned a Job to review within Zinc MAPS. Reviewers may also sign the final certificate, if applicable.",
-                "Industry Relevance :"," All Industries","Focus Area :"," Digital",
-                "Posted By :"," Admin","Posted Date :"," Thursday, 05 July 2018"));
-        productList1.add(new SoluModel("Veeva-ZincMAPS Originator End User Course",
-                "This 2-hour online course is for any user in any region assigned a Job to review within Zinc MAPS. Reviewers may also sign the final certificate, if applicable.",
-                "Industry Relevance :"," All Industries","Focus Area :"," Digital",
-                "Posted By :"," Admin","Posted Date :"," Thursday, 05 July 2018"));
-        productList1.add(new SoluModel("Veeva-ZincMAPS Originator End User Course",
-                "This 2-hour online course is for any user in any region assigned a Job to review within Zinc MAPS. Reviewers may also sign the final certificate, if applicable.",
-                "Industry Relevance :"," All Industries","Focus Area :"," Digital",
-                "Posted By :"," Admin","Posted Date :"," Thursday, 05 July 2018"));
-        productList1.add(new SoluModel("Veeva-ZincMAPS Originator End User Course",
-                "This 2-hour online course is for any user in any region assigned a Job to review within Zinc MAPS. Reviewers may also sign the final certificate, if applicable.",
-                "Industry Relevance :"," All Industries","Focus Area :"," Digital",
-                "Posted By :"," Admin","Posted Date :"," Thursday, 05 July 2018"));
-        productList1.add(new SoluModel("Veeva-ZincMAPS Originator End User Course",
-                "This 2-hour online course is for any user in any region assigned a Job to review within Zinc MAPS. Reviewers may also sign the final certificate, if applicable.",
-                "Industry Relevance :"," All Industries","Focus Area :"," Digital",
-                "Posted By :"," Admin","Posted Date :"," Thursday, 05 July 2018"));
+    }
 
+    private void parseJSON1() {
 
+        final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.VISIBLE);
 
-        SoluAdapter adapter1 = new SoluAdapter(this, productList1);
-        recyclerView.setAdapter(adapter1);
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, "https://www.itshades.com/appwebservices/online-training.php?cat_id="+CatId,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        progressBar.setVisibility(View.INVISIBLE);
+
+                        try {
+                            Log.e("rootJsonArray",response);
+                            JSONArray rootJsonArray = new JSONArray(response);
+
+                            Log.e("rootJsonArrayLength",rootJsonArray.length()+"");
+
+                            for (int i = 0; i < rootJsonArray.length(); i++) {
+                                JSONObject object = rootJsonArray.getJSONObject(i);
+
+                                mExampleList1.add(new LnDModel(object.optString("id"),
+                                        object.optString("title_name"),
+                                        object.optString("breif_desc"),
+                                        object.optString("industry_relevance"),
+                                        object.optString("focus_area"),
+                                        object.optString("added_by")));
+
+                            }
+
+                            Log.e("rootJsonArray",mExampleList1.size()+"");
+
+                            mExampleAdapter1 = new LnDAdapter(OnDemandTrangActivity.this, mExampleList1);
+                            mRecyclerview1.setAdapter(mExampleAdapter1);
+                            mExampleAdapter1.notifyDataSetChanged();
+                            mRecyclerview1.setHasFixedSize(true);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                        Log.e("TAg",error.getMessage());
+                    }
+                });
+
+        mRequestQueue1 = Volley.newRequestQueue(this);
+        mRequestQueue1.add(stringRequest);
     }
 }

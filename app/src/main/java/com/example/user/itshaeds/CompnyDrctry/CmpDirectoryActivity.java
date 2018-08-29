@@ -8,18 +8,38 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.user.itshaeds.Jobs.JobsActivity;
+import com.example.user.itshaeds.Jobs.JobsModelName;
+import com.example.user.itshaeds.Jobs.JobsNameAdapter;
 import com.example.user.itshaeds.PrevayActivity;
 import com.example.user.itshaeds.R;
 import com.example.user.itshaeds.TermsActivity;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CmpDirectoryActivity extends AppCompatActivity {
+
+    private CompanyNameAdapter mExampleAdapter1;
+    private ArrayList<CompnyNameModel> mExampleList1;
+    private RequestQueue mRequestQueue1;
+    private RecyclerView mRecyclerview1;
 
     List<CmpDrModel> productList;
     List<CompnyNameModel> productList1;
@@ -144,31 +164,71 @@ public class CmpDirectoryActivity extends AppCompatActivity {
 
         //Companies
 
-        productList1 = new ArrayList<>();
-        recyclerCompny = (RecyclerView) findViewById(R.id.my_recycler_jobs);
-        recyclerCompny.setNestedScrollingEnabled(false);
-        recyclerCompny.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        recyclerCompny.setHasFixedSize(true);
+        mExampleList1 = new ArrayList<>();
+        mRequestQueue1 = Volley.newRequestQueue(this);
 
+        mRecyclerview1=(RecyclerView)findViewById(R.id.my_recycler_jobs);
+        mRecyclerview1.setNestedScrollingEnabled(false);
+        mRecyclerview1.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        mRecyclerview1.setHasFixedSize(true);
 
+        parseJSON1();
 
-        productList1.add(new CompnyNameModel("inMorphis Services Pvt. Ltd.",R.string.msg,R.drawable.compnylogo));
-        productList1.add(new CompnyNameModel("inMorphis Services Pvt. Ltd.",R.string.msg,R.drawable.compnylogo));
-        productList1.add(new CompnyNameModel("inMorphis Services Pvt. Ltd.",R.string.msg,R.drawable.compnylogo));
-        productList1.add(new CompnyNameModel("inMorphis Services Pvt. Ltd.",R.string.msg,R.drawable.compnylogo));
-        productList1.add(new CompnyNameModel("inMorphis Services Pvt. Ltd.",R.string.msg,R.drawable.compnylogo));
-        productList1.add(new CompnyNameModel("inMorphis Services Pvt. Ltd.",R.string.msg,R.drawable.compnylogo));
-        productList1.add(new CompnyNameModel("inMorphis Services Pvt. Ltd.",R.string.msg,R.drawable.compnylogo));
-        productList1.add(new CompnyNameModel("inMorphis Services Pvt. Ltd.",R.string.msg,R.drawable.compnylogo));
-        productList1.add(new CompnyNameModel("inMorphis Services Pvt. Ltd.",R.string.msg,R.drawable.compnylogo));
-        productList1.add(new CompnyNameModel("inMorphis Services Pvt. Ltd.",R.string.msg,R.drawable.compnylogo));
-        productList1.add(new CompnyNameModel("inMorphis Services Pvt. Ltd.",R.string.msg,R.drawable.compnylogo));
+    }
 
+    private void parseJSON1() {
 
+        final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.VISIBLE);
 
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, "https://www.itshades.com/appwebservices/company-profile.php",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
 
+                        progressBar.setVisibility(View.INVISIBLE);
 
-        CompanyNameAdapter adapter1 = new CompanyNameAdapter(this, productList1);
-        recyclerCompny.setAdapter(adapter1);
+                        try {
+                            Log.e("rootJsonArray",response);
+                            JSONArray rootJsonArray = new JSONArray(response);
+
+                            Log.e("rootJsonArrayLength",rootJsonArray.length()+"");
+
+                            for (int i = 0; i < rootJsonArray.length(); i++) {
+                                JSONObject object = rootJsonArray.getJSONObject(i);
+
+                                mExampleList1.add(new CompnyNameModel(object.optString("id"),
+                                        object.optString("company_name"),
+                                        object.optString("company_logo"),
+                                        object.optString("discription"),
+                                        object.optString("company_website"),
+                                        object.optString("country_phonecode"),
+                                        object.optString("company_number"),
+                                        object.optString("company_email")));
+                            }
+
+                            Log.e("rootJsonArray",mExampleList1.size()+"");
+
+                            mExampleAdapter1 = new CompanyNameAdapter(CmpDirectoryActivity.this, mExampleList1);
+                            mRecyclerview1.setAdapter(mExampleAdapter1);
+                            mExampleAdapter1.notifyDataSetChanged();
+                            mRecyclerview1.setHasFixedSize(true);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                        Log.e("TAg",error.getMessage());
+                    }
+                });
+
+        mRequestQueue1 = Volley.newRequestQueue(this);
+        mRequestQueue1.add(stringRequest);
     }
 }

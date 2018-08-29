@@ -50,7 +50,7 @@ public class ITBytDetailsActivity extends AppCompatActivity {
     //CheckBox checkBox;
     TextView discla,termsndcond,prvynspolcy;
 
-    private ITbytdetailsAdapter mExampleAdapter1;
+    private ITbytdetailsAdapter11 mExampleAdapter1;
     private ArrayList<ITbytdetalsmodel> mExampleList1;
     private RequestQueue mRequestQueue1;
     private RecyclerView mRecyclerview1;
@@ -198,7 +198,7 @@ public class ITBytDetailsActivity extends AppCompatActivity {
 
                                 Log.e("rootJsonArray", mExampleList1.size() + "");
 
-                                mExampleAdapter1 = new ITbytdetailsAdapter(ITBytDetailsActivity.this, mExampleList1);
+                                mExampleAdapter1 = new ITbytdetailsAdapter11(ITBytDetailsActivity.this, mExampleList1);
                                 mRecyclerview1.setAdapter(mExampleAdapter1);
                                 mExampleAdapter1.notifyDataSetChanged();
                                 mRecyclerview1.setHasFixedSize(true);

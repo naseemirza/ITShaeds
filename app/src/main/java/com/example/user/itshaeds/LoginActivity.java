@@ -18,6 +18,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -108,7 +110,7 @@ public class LoginActivity extends AppCompatActivity
 
         spiner = (Spinner) findViewById(R.id.spinner);
         String[] users = new String[]{
-                "Access Level",
+                "Select Access Level",
                 "Individual User",
                 "Corporate Customer"
         };
@@ -210,11 +212,15 @@ public class LoginActivity extends AppCompatActivity
                                      progressDialog.dismiss();
                                     Intent intent=new Intent(LoginActivity.this,Main2Activity.class);
                                      startActivity(intent);
+                                editTextmail.setText("");
+                                editTextpass.setText("");
                             }
                             else if(success==0)
                             {
                                 Toast.makeText(LoginActivity.this, msg, Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(LoginActivity.this, "Invalid User", Toast.LENGTH_SHORT).show();
                             }
+
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -247,6 +253,38 @@ public class LoginActivity extends AppCompatActivity
         queue.add(stringRequest);
     }
 
+
+//    public void SetError(String errorMessage)
+//    {
+//        View view = spiner.getSelectedView();
+//
+//        // Set TextView in Secondary Unit spinner to be in error so that red (!) icon
+//        // appears, and then shake control if in error
+//        TextView tvListItem = (TextView)view;
+//
+//        // Set fake TextView to be in error so that the error message appears
+//        TextView tvInvisibleError = (TextView)findViewById(R.id.tvInvisibleError);
+//
+//        // Shake and set error if in error state, otherwise clear error
+//        if(errorMessage != null)
+//        {
+//            tvListItem.setError(errorMessage);
+//            tvListItem.requestFocus();
+//
+//            // Shake the spinner to highlight that current selection
+//            // is invalid -- SEE COMMENT BELOW
+//            //Animation shake = AnimationUtils.loadAnimation(this, R.anim.shake);
+//            //spiner.startAnimation(shake);
+//
+//            tvInvisibleError.requestFocus();
+//            tvInvisibleError.setError(errorMessage);
+//        }
+//        else
+//        {
+//            tvListItem.setError(null);
+//            tvInvisibleError.setError(null);
+//        }
+//    }
 
     @Override
     public void onBackPressed() {

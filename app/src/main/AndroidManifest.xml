@@ -14,7 +14,6 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".SplashActivity"
-
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,17 +24,14 @@
         <activity
             android:name=".LoginActivity"
             android:label="Get Started"
-
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Main2Activity"
             android:label=""
-
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".RegisterActivity"
-            android:parentActivityName=".LoginActivity"
-            />
+            android:parentActivityName=".LoginActivity" />
         <activity android:name=".ForgotPassActivity" />
         <activity
             android:name=".AboutUsActivity"
@@ -127,7 +123,8 @@
         <activity android:name=".ITByteDetailsRecy.MarktAndEventsActivity" />
         <activity android:name=".ITByteDetailsRecy.MandAPartActivity" />
         <activity android:name=".ITByteDetailsRecy.MiscellaneousActivity" />
-        <activity android:name=".ITByteDetailsRecy.AnnouncementsActivity"></activity>
+        <activity android:name=".ITByteDetailsRecy.AnnouncementsActivity" />
+        <activity android:name=".ITBytes.ITBytDetailsActivity11"></activity>
     </application>
 
 </manifest>

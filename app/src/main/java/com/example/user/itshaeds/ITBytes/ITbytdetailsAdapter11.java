@@ -16,30 +16,30 @@ import com.example.user.itshaeds.RecyclerViewItemClickListener;
 import java.util.List;
 
 /**
- * Created by User on 24-Jul-18.
+ * Created by User on 28-Aug-18.
  */
 
-public class ITbytdetailsAdapter extends RecyclerView.Adapter<ITbytdetailsAdapter.ProductViewHolder>  {
+public class ITbytdetailsAdapter11 extends RecyclerView.Adapter<ITbytdetailsAdapter11.ProductViewHolder> {
 
     private Context mCtx;
     private List<ITbytdetalsmodel> productList1;
 
 
-    public ITbytdetailsAdapter(Context mCtx, List<ITbytdetalsmodel> productList1) {
+    public ITbytdetailsAdapter11(Context mCtx, List<ITbytdetalsmodel> productList1) {
         this.mCtx = mCtx;
         this.productList1 = productList1;
     }
 
     @Override
-    public ITbytdetailsAdapter.ProductViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ITbytdetailsAdapter11.ProductViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //inflating and returning our view holder
         LayoutInflater inflater = LayoutInflater.from(mCtx);
         View view = inflater.inflate(R.layout.itbytdetails,parent, false);
-        return new ITbytdetailsAdapter.ProductViewHolder(view);
+        return new ITbytdetailsAdapter11.ProductViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final ITbytdetailsAdapter.ProductViewHolder holder, int position) {
+    public void onBindViewHolder(final ITbytdetailsAdapter11.ProductViewHolder holder, int position) {
         final ITbytdetalsmodel product = productList1.get(position);
 
         holder.textViewTitle.setText(product.getTitlename());
@@ -50,38 +50,23 @@ public class ITbytdetailsAdapter extends RecyclerView.Adapter<ITbytdetailsAdapte
             @Override
             public void onClick(View view, int position) {
 
-                //SharedPreferences pref1 = view.getContext().getSharedPreferences("MyPrefs1", Context.MODE_PRIVATE);
-                //String actname1="Financial";
-
-
                 SharedPreferences pref = view.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-                String actname=pref.getString("Actvname","");
-
-                    String title = product.getTitlename();
-                    String desc = product.getDescr();
 
 
-
-                    SharedPreferences.Editor edit = pref.edit();
-                    edit.putString("Title", title);
-                    edit.putString("Descr", desc);
-                    edit.putString("Actvname", actname);
-
-
-                    edit.commit();
-                    Intent intent = new Intent(view.getContext(), ITBytDetailsActivity1.class);
-                    view.getContext().startActivity(intent);
+                String title = product.getTitlename();
+                String desc = product.getDescr();
 
 
 
-//                SharedPreferences.Editor edit1 = pref1.edit();
-//                edit1.putString("Actvname1", actname1);
-//
-//                Log.e("responce", actname1);
-//
-//                edit1.commit();
-//                Intent intent1 = new Intent(view.getContext(), ITBytDetailsActivity11.class);
-//                view.getContext().startActivity(intent1);
+                SharedPreferences.Editor edit = pref.edit();
+                edit.putString("Title", title);
+                edit.putString("Descr", desc);
+
+
+
+                edit.commit();
+                Intent intent = new Intent(view.getContext(), ITBytDetailsActivity11.class);
+                view.getContext().startActivity(intent);
             }
         });
 
@@ -125,3 +110,5 @@ public class ITbytdetailsAdapter extends RecyclerView.Adapter<ITbytdetailsAdapte
     }
 
 }
+
+

@@ -29,41 +29,101 @@
                 android:text="Company Profile" />
 
 
+            <TextView
+                android:id="@+id/texContry"
+                android:layout_below="@+id/textView17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorBlack"
+                android:textSize="15dp"
+                android:text="Country" />
+
             <Spinner
                 android:id="@+id/spinnerCntry"
                 android:layout_width="match_parent"
-                android:layout_below="@+id/textView17"
-                android:layout_marginTop="12dp"
-                android:layout_height="45dp"
+                android:layout_below="@+id/texContry"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 />
+
+            <TextView
+                android:id="@+id/textInd"
+                android:layout_below="@+id/spinnerCntry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorBlack"
+                android:textSize="15dp"
+                android:text="Industry" />
 
             <Spinner
                 android:id="@+id/spinnerInd"
                 android:layout_width="match_parent"
-                android:layout_below="@+id/spinnerCntry"
-                android:layout_marginTop="12dp"
-                android:layout_height="45dp"
+                android:layout_below="@+id/textInd"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 />
 
-            <Spinner
-                android:id="@+id/spinnerFocsarea"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/textFA"
                 android:layout_below="@+id/spinnerInd"
-                android:layout_marginTop="12dp"
-                android:layout_height="45dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorBlack"
+                android:textSize="15dp"
+                android:text="Focus Area" />
+
+            <Spinner
+                android:id="@+id/spinnerFA"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/textFA"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 />
-            <Spinner
-                android:id="@+id/spinneroffrng"
+            <TextView
+                android:id="@+id/textOffring"
+                android:layout_below="@+id/spinnerFA"
                 android:layout_width="match_parent"
-                android:layout_below="@+id/spinnerFocsarea"
-                android:layout_marginTop="12dp"
-                android:layout_height="45dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorBlack"
+                android:textSize="15dp"
+                android:text="Offerings" />
+
+            <Spinner
+                android:id="@+id/spinnerOffrings"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/textOffring"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 />
@@ -73,11 +133,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
-                android:textSize="10dp"
+                android:textSize="12dp"
                 android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
                 android:textColor="@color/colorWhite"
                 android:background="@drawable/buttoncorner"
-                android:layout_below="@+id/spinneroffrng"
+                android:layout_below="@+id/spinnerOffrings"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
                 android:text="Submit" />

@@ -9,15 +9,32 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.user.itshaeds.CompnyDrctry.CmpDirectoryActivity;
 import com.example.user.itshaeds.CompnyDrctry.CmpProfFilterActivity;
 import com.example.user.itshaeds.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 public class JobsFilterActivity extends AppCompatActivity {
 
-    private Spinner spinerrl,spinercntry,spinercrntcntry;
+    private Spinner spinerCntry,spinerConfCntry,spinerRL;
+    private ArrayList<String> Country =new ArrayList<String>();
+    private ArrayList<String> ConfCountry =new ArrayList<String>();
+    private ArrayList<String> Rolvl =new ArrayList<String>();
 
-    //ImageButton imageButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,44 +64,125 @@ public class JobsFilterActivity extends AppCompatActivity {
             }
         });
 
-        spinerrl = (Spinner) findViewById(R.id.spinnerRolllevel);
-        String[] users = new String[]{
-                "Access Level",
-                "Individual User",
-                "Corparate"
-        };
+        spinerRL = (Spinner) findViewById(R.id.spinnerRolllevel);
+        getDataRolvl();
 
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
-                this,R.layout.spinneritems,users
-        );
-        spinnerArrayAdapter.setDropDownViewResource(R.layout.spinneritems);
-        spinerrl.setAdapter(spinnerArrayAdapter);
+        spinerCntry = (Spinner) findViewById(R.id.spinnercntry);
+        getDataCountry();
 
-        spinercntry = (Spinner) findViewById(R.id.spinnercntry);
-        String[] users1 = new String[]{
-                "Access Level",
-                "Individual User",
-                "Corparate"
-        };
+        spinerConfCntry = (Spinner) findViewById(R.id.spinnercrntcntry);
+        getDataConfCountry();
 
-        ArrayAdapter<String> spinnerArrayAdapter1 = new ArrayAdapter<String>(
-                this,R.layout.spinneritems,users1
-        );
-        spinnerArrayAdapter1.setDropDownViewResource(R.layout.spinneritems);
-        spinercntry.setAdapter(spinnerArrayAdapter1);
+    }
 
-        spinercrntcntry = (Spinner) findViewById(R.id.spinnercrntcntry);
-        String[] users2 = new String[]{
-                "Access Level",
-                "Individual User",
-                "Corparate"
-        };
+    private void  getDataCountry() {
 
-        ArrayAdapter<String> spinnerArrayAdapter2 = new ArrayAdapter<String>(
-                this,R.layout.spinneritems,users2
-        );
-        spinnerArrayAdapter2.setDropDownViewResource(R.layout.spinneritems);
-        spinercrntcntry.setAdapter(spinnerArrayAdapter2);
+        StringRequest stringRequest=new StringRequest(Request.Method.GET, "https://www.itshades.com/appwebservices/country.php",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // Log.e("rootJsonArray",response);
+                        try{
+                            JSONArray rootJsonArray = new JSONArray(response);
 
+                            for(int i=0;i<rootJsonArray.length();i++){
+                                JSONObject jsonObject1=rootJsonArray.getJSONObject(i);
+                                String country=jsonObject1.getString("name");
+                                Country.add(country);
+                            }
+
+                            spinerCntry.setAdapter(new ArrayAdapter<String>(JobsFilterActivity.this, R.layout.spinneritems, Country));
+
+                        }catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        int socketTimeout = 30000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(policy);
+        requestQueue.add(stringRequest);
+    }
+
+    private void  getDataConfCountry() {
+
+        StringRequest stringRequest=new StringRequest(Request.Method.GET, "https://www.itshades.com/appwebservices/country.php",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // Log.e("rootJsonArray",response);
+                        try{
+                            JSONArray rootJsonArray = new JSONArray(response);
+
+                            for(int i=0;i<rootJsonArray.length();i++){
+                                JSONObject jsonObject1=rootJsonArray.getJSONObject(i);
+                                String country=jsonObject1.getString("name");
+                                ConfCountry.add(country);
+                            }
+
+                            spinerConfCntry.setAdapter(new ArrayAdapter<String>(JobsFilterActivity.this, R.layout.spinneritems, ConfCountry));
+
+                        }catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        int socketTimeout = 30000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(policy);
+        requestQueue.add(stringRequest);
+    }
+
+    private void  getDataRolvl() {
+
+        StringRequest stringRequest=new StringRequest(Request.Method.GET, "https://www.itshades.com/appwebservices/role-level.php",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // Log.e("rootJsonArray",response);
+                        try{
+                            JSONArray rootJsonArray = new JSONArray(response);
+
+                            for(int i=0;i<rootJsonArray.length();i++){
+                                JSONObject jsonObject1=rootJsonArray.getJSONObject(i);
+                                String country=jsonObject1.getString("name");
+                                Rolvl.add(country);
+                            }
+
+                            spinerRL.setAdapter(new ArrayAdapter<String>(JobsFilterActivity.this, R.layout.spinneritems, Rolvl));
+
+                        }catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        int socketTimeout = 30000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(policy);
+        requestQueue.add(stringRequest);
     }
 }

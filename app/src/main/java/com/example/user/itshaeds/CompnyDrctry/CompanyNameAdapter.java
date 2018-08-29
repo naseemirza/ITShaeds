@@ -1,18 +1,28 @@
 package com.example.user.itshaeds.CompnyDrctry;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.LabeledIntent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.user.itshaeds.R;
 import com.example.user.itshaeds.RecyclerViewItemClickListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -41,20 +51,120 @@ public class CompanyNameAdapter extends RecyclerView.Adapter<CompanyNameAdapter.
     public void onBindViewHolder(CompanyNameAdapter.ProductViewHolder holder, int position) {
         final CompnyNameModel product = productList.get(position);
 
-        holder.textViewTitle.setText(product.getName());
-        holder.textViewdesc.setText(product.getCompnydesc());
+        final String sitename = product.getSiteName();
+        final String desc = product.getDescr();
+        final String imageUrl = product.getSitelogo();
 
-        holder.imageView.setImageDrawable(mCtx.getResources().getDrawable(product.getImage()));
+
+        holder.Compname.setText(sitename);
+        holder.textViewdesc.setText(desc);
+
+        holder.buttonSite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v ) {
+
+                String siteurl=product.getSiteurl();
+
+                Intent browserIntent = new Intent( Intent.ACTION_VIEW, Uri.parse((siteurl)));
+                v.getContext().startActivity(browserIntent);
+            }
+        });
+
+        holder.buttonCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v ) {
+
+                String cntrcode=product.getCntryCode();
+                String number=product.getNumber();
+
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_NO_USER_ACTION);
+                intent.setData(Uri.parse("tel:" + "+"+cntrcode+number));
+                if (ActivityCompat.checkSelfPermission(mCtx, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+
+                }
+                 v.getContext(). startActivity(intent);
+            }
+        });
+
+        holder.buttonMail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v ) {
+
+                String mailid=product.getMailID();
+
+                Intent emailIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:"));
+                PackageManager pm = mCtx.getPackageManager();
+
+                List<ResolveInfo> resInfo = pm.queryIntentActivities(emailIntent, 0);
+                if (resInfo.size() > 0) {
+                    ResolveInfo ri = resInfo.get(0);
+                    // First create an intent with only the package name of the first registered email app
+                    // and build a picked based on it
+                    Intent intentChooser = pm.getLaunchIntentForPackage(ri.activityInfo.packageName);
+                    Intent openInChooser =
+                            Intent.createChooser(intentChooser,mailid);
+
+                    // Then create a list of LabeledIntent for the rest of the registered email apps
+                    List<LabeledIntent> intentList = new ArrayList<LabeledIntent>();
+                    for (int i = 1; i < resInfo.size(); i++) {
+                        // Extract the label and repackage it in a LabeledIntent
+                        ri = resInfo.get(i);
+                        String packageName = ri.activityInfo.packageName;
+                        Intent intent = pm.getLaunchIntentForPackage(packageName);
+                        intentList.add(new LabeledIntent(intent, packageName, ri.loadLabel(pm), ri.icon));
+                    }
+
+                    LabeledIntent[] extraIntents = intentList.toArray(new LabeledIntent[intentList.size()]);
+                    // Add the rest of the email apps to the picker selection
+                    openInChooser.putExtra(Intent.EXTRA_INITIAL_INTENTS, extraIntents);
+                    v.getContext().startActivity(openInChooser);
+                }
+
+//                Intent browserIntent = new Intent( Intent.ACTION_SENDTO, Uri.parse((mailid)));
+//                v.getContext().startActivity(browserIntent);
+
+            }
+        });
+
+
+        Glide.with(mCtx)
+                .load(imageUrl)
+                .fitCenter()
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(holder.mImageViewsite);
 
         holder.setItemClickListener(new RecyclerViewItemClickListener() {
             @Override
             public void onClick(View view, int position) {
 
 
-                String actname=product.getName().toString();
+                String actname=product.getSiteName().toString();
+                String cntrcode=product.getCntryCode();
+                String number=product.getNumber();
+                String website=product.getSiteurl();
+                String image=product.getSitelogo();
+                String mailid=product.getMailID();
+
+
 
                 SharedPreferences pref = view.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor edit = pref.edit();
+
+                edit.putString("sitename",sitename);
+                edit.putString("phone","+"+cntrcode+number);
+                edit.putString("website",website);
+                edit.putString("desc",desc);
+                edit.putString("image",image);
+                edit.putString("mailid",mailid);
+
 
                 edit.putString("Actvname",actname);
 
@@ -76,17 +186,24 @@ public class CompanyNameAdapter extends RecyclerView.Adapter<CompanyNameAdapter.
 
     class ProductViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener  {
 
-        TextView textViewTitle,textViewdesc;
-        ImageView imageView;
+        TextView Compname,textViewdesc;
+        public ImageView mImageViewsite;
+        public Button buttonSite;
+        public Button buttonMail;
+        public Button buttonCall;
 
         private RecyclerViewItemClickListener itemClickListener;
 
         public ProductViewHolder(View itemView) {
             super(itemView);
             mCtx=itemView.getContext();
-            textViewTitle = itemView.findViewById(R.id.compname);
+            Compname = itemView.findViewById(R.id.compname);
             textViewdesc = itemView.findViewById(R.id.companydetails);
-            imageView = itemView.findViewById(R.id.compid);
+            mImageViewsite = itemView.findViewById(R.id.compid);
+            buttonSite=(Button) itemView.findViewById(R.id.websitebutton);
+            buttonMail=(Button) itemView.findViewById(R.id.emailbutton);
+            buttonCall=(Button) itemView.findViewById(R.id.callbutton);
+
             itemView.setOnClickListener(this);
 
         }

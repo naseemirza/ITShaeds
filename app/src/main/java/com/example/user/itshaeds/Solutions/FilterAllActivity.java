@@ -11,13 +11,31 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.user.itshaeds.CompnyDrctry.CmpProfFilterActivity;
 import com.example.user.itshaeds.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class FilterAllActivity extends AppCompatActivity {
 
-    private Spinner spinerInd,spinerFA;
-    String Actname;
-    TextView textname;
+    private Spinner spinerFA,spinerInd;
+    String Actname,filter;
+    TextView textname,filtext;
+
+    private ArrayList<String> FocusArea =new ArrayList<String>();
+    private ArrayList<String> Indst =new ArrayList<String>();
 
 
     @Override
@@ -33,8 +51,10 @@ public class FilterAllActivity extends AppCompatActivity {
         SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
         Actname=pref.getString("Actvname","");
+
+
         textname=(TextView)findViewById(R.id.textname);
-        textname.setText(Actname);
+        textname.setText("View "+Actname);
 
         ImageButton imageButton= (ImageButton)view.findViewById(R.id.action_bar_back);
 
@@ -46,45 +66,84 @@ public class FilterAllActivity extends AppCompatActivity {
         });
 
         spinerInd = (Spinner) findViewById(R.id.spinnerInd);
-        String[] users1 = new String[]{
-                "All",
-                "Airlines",
-                "Banking",
-                "Airlines",
-                "Banking",
-                "Airlines",
-                "Banking",
-                "Airlines",
-                "Banking",
-                "Airlines",
-                "Banking"
-        };
-        ArrayAdapter<String> spinnerArrayAdapter1 = new ArrayAdapter<String>(
-                this,R.layout.spinneritems,users1
-        );
-        spinnerArrayAdapter1.setDropDownViewResource(R.layout.spinneritems);
-        spinerInd.setAdapter(spinnerArrayAdapter1);
+        getDataInd();
 
+        spinerFA = (Spinner) findViewById(R.id.spinnerFA);
+        getDataFA();
 
-        spinerFA = (Spinner) findViewById(R.id.spinnerFocsarea);
-        String[] usersfa = new String[]{
-                "All",
-                "Airlines",
-                "Banking",
-                "Airlines",
-                "Banking",
-                "Airlines",
-                "Banking",
-                "Airlines",
-                "Banking",
-                "Airlines",
-                "Banking"
-        };
-        ArrayAdapter<String> spinnerArrayAdapterfa = new ArrayAdapter<String>(
-                this,R.layout.spinneritems,usersfa
-        );
-        spinnerArrayAdapterfa.setDropDownViewResource(R.layout.spinneritems);
-        spinerFA.setAdapter(spinnerArrayAdapterfa);
+    }
 
+    private void  getDataInd() {
+
+        StringRequest stringRequest=new StringRequest(Request.Method.GET, "https://www.itshades.com/appwebservices/industry.php",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // Log.e("rootJsonArray",response);
+                        try{
+                            JSONArray rootJsonArray = new JSONArray(response);
+
+                            for(int i=0;i<rootJsonArray.length();i++){
+                                JSONObject jsonObject1=rootJsonArray.getJSONObject(i);
+                                String country=jsonObject1.getString("industry_name");
+                                Indst.add(country);
+                            }
+
+                            spinerInd.setAdapter(new ArrayAdapter<String>(FilterAllActivity.this, R.layout.spinneritems, Indst));
+
+                        }catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        int socketTimeout = 30000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(policy);
+        requestQueue.add(stringRequest);
+    }
+
+    private void  getDataFA() {
+
+        StringRequest stringRequest=new StringRequest(Request.Method.GET, "https://www.itshades.com/appwebservices/focus-area.php",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // Log.e("rootJsonArray",response);
+                        try{
+                            JSONArray rootJsonArray = new JSONArray(response);
+
+                            for(int i=0;i<rootJsonArray.length();i++){
+                                JSONObject jsonObject1=rootJsonArray.getJSONObject(i);
+                                String country=jsonObject1.getString("item_name");
+                                FocusArea.add(country);
+                            }
+
+                            spinerFA.setAdapter(new ArrayAdapter<String>(FilterAllActivity.this, R.layout.spinneritems, FocusArea));
+
+                        }catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        int socketTimeout = 30000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(policy);
+        requestQueue.add(stringRequest);
     }
 }

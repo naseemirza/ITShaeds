@@ -1,33 +1,35 @@
 package com.example.user.itshaeds.Solutions;
 
 /**
- * Created by User on 03-Aug-18.
+ * Created by User on 29-Aug-18.
  */
 
 public class SoluModel {
 
+    private String id;
     private String name;
     private String desc;
-    private String Indrelby;
-    private String Indrel;
-    private String focarby;
-    private String focsar;
-    private String pstdby;
+    private String uprice;
     private String psted;
-    private String pstdate;
-    private String date1;
+    private String evntstart;
+    private String evntend;
 
-    public SoluModel(String name, String desc, String indrelby, String indrel, String focarby, String focsar, String pstdby, String psted, String pstdate, String date1) {
+    public SoluModel(String id, String name, String desc, String uprice, String psted, String evntstart, String evntend) {
+        this.id = id;
         this.name = name;
         this.desc = desc;
-        Indrelby = indrelby;
-        Indrel = indrel;
-        this.focarby = focarby;
-        this.focsar = focsar;
-        this.pstdby = pstdby;
+        this.uprice = uprice;
         this.psted = psted;
-        this.pstdate=pstdate;
-        this.date1=date1;
+        this.evntstart = evntstart;
+        this.evntend = evntend;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -46,44 +48,12 @@ public class SoluModel {
         this.desc = desc;
     }
 
-    public String getIndrelby() {
-        return Indrelby;
+    public String getUprice() {
+        return uprice;
     }
 
-    public void setIndrelby(String indrelby) {
-        Indrelby = indrelby;
-    }
-
-    public String getIndrel() {
-        return Indrel;
-    }
-
-    public void setIndrel(String indrel) {
-        Indrel = indrel;
-    }
-
-    public String getFocarby() {
-        return focarby;
-    }
-
-    public void setFocarby(String focarby) {
-        this.focarby = focarby;
-    }
-
-    public String getFocsar() {
-        return focsar;
-    }
-
-    public void setFocsar(String focsar) {
-        this.focsar = focsar;
-    }
-
-    public String getPstdby() {
-        return pstdby;
-    }
-
-    public void setPstdby(String pstdby) {
-        this.pstdby = pstdby;
+    public void setUprice(String uprice) {
+        this.uprice = uprice;
     }
 
     public String getPsted() {
@@ -94,19 +64,19 @@ public class SoluModel {
         this.psted = psted;
     }
 
-    public String getPstdate() {
-        return pstdate;
+    public String getEvntstart() {
+        return evntstart;
     }
 
-    public void setPstdate(String pstdate) {
-        this.pstdate = pstdate;
+    public void setEvntstart(String evntstart) {
+        this.evntstart = evntstart;
     }
 
-    public String getDate1() {
-        return date1;
+    public String getEvntend() {
+        return evntend;
     }
 
-    public void setDate1(String date1) {
-        this.date1 = date1;
+    public void setEvntend(String evntend) {
+        this.evntend = evntend;
     }
 }

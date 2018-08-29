@@ -11,13 +11,33 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.user.itshaeds.Jobs.CrntJobFilterActivity;
 import com.example.user.itshaeds.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class CmpProfFilterActivity extends AppCompatActivity {
 
     String Actname;
     TextView textname;
     private Spinner spinerFA,spinerInd,spinerOffrng,spinerCntry;
+
+    private ArrayList<String> FocusArea =new ArrayList<String>();
+    private ArrayList<String> Indst =new ArrayList<String>();
+    //private ArrayList<String> Offrings =new ArrayList<String>();
+    private ArrayList<String> Country =new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,50 +67,17 @@ public class CmpProfFilterActivity extends AppCompatActivity {
 
 
         spinerCntry = (Spinner) findViewById(R.id.spinnerCntry);
-        String[] users3 = new String[]{
-                "--Select Country--",
-                "Afganistan",
-                "Albania",
-                "India"
-        };
-        ArrayAdapter<String> spinnerArrayAdapter3 = new ArrayAdapter<String>(
-                this,R.layout.spinneritems,users3
-        );
-        spinnerArrayAdapter3.setDropDownViewResource(R.layout.spinneritems);
-        spinerCntry.setAdapter(spinnerArrayAdapter3);
-
-
+        getDataCountry();
 
         spinerInd = (Spinner) findViewById(R.id.spinnerInd);
-        String[] users1 = new String[]{
-                "--Select Industry--",
-                "All Industries",
-                "Airlines"
-        };
-        ArrayAdapter<String> spinnerArrayAdapter1 = new ArrayAdapter<String>(
-                this,R.layout.spinneritems,users1
-        );
-        spinnerArrayAdapter1.setDropDownViewResource(R.layout.spinneritems);
-        spinerInd.setAdapter(spinnerArrayAdapter1);
+        getDataInd();
 
+        spinerFA = (Spinner) findViewById(R.id.spinnerFA);
+        getDataFA();
 
-        spinerFA = (Spinner) findViewById(R.id.spinnerFocsarea);
-        String[] usersfa = new String[]{
-                "--Select Focus Area--",
-                "Agile",
-                "Analytics",
-                "Application Development"
-        };
-        ArrayAdapter<String> spinnerArrayAdapterfa = new ArrayAdapter<String>(
-                this,R.layout.spinneritems,usersfa
-        );
-        spinnerArrayAdapterfa.setDropDownViewResource(R.layout.spinneritems);
-        spinerFA.setAdapter(spinnerArrayAdapterfa);
-
-
-        spinerOffrng = (Spinner) findViewById(R.id.spinneroffrng);
-        String[] usersoff = new String[]{
-                "--Select Offerings--",
+        spinerOffrng = (Spinner) findViewById(R.id.spinnerOffrings);
+        //getDataOffrng();
+        String[] users = new String[]{
                 "IT Services",
                 "IT Projects",
                 "Platforms",
@@ -104,11 +91,126 @@ public class CmpProfFilterActivity extends AppCompatActivity {
                 "Immigration",
                 "Event"
         };
-        ArrayAdapter<String> spinnerArrayAdapteroff = new ArrayAdapter<String>(
-                this,R.layout.spinneritems,usersoff
-        );
-        spinnerArrayAdapteroff.setDropDownViewResource(R.layout.spinneritems);
-        spinerOffrng.setAdapter(spinnerArrayAdapteroff);
 
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
+                this, R.layout.spinneritems, users
+        );
+        spinnerArrayAdapter.setDropDownViewResource(R.layout.spinneritems);
+        spinerOffrng.setAdapter(spinnerArrayAdapter);
+
+
+
+
+    }
+
+    private void  getDataCountry() {
+
+        StringRequest stringRequest=new StringRequest(Request.Method.GET, "https://www.itshades.com/appwebservices/country.php",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // Log.e("rootJsonArray",response);
+                        try{
+                            JSONArray rootJsonArray = new JSONArray(response);
+
+                            for(int i=0;i<rootJsonArray.length();i++){
+                                JSONObject jsonObject1=rootJsonArray.getJSONObject(i);
+                                String country=jsonObject1.getString("name");
+                                Country.add(country);
+                            }
+
+                            spinerCntry.setAdapter(new ArrayAdapter<String>(CmpProfFilterActivity.this, R.layout.spinneritems, Country));
+
+                        }catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        int socketTimeout = 30000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(policy);
+        requestQueue.add(stringRequest);
+    }
+
+    private void  getDataInd() {
+
+        StringRequest stringRequest=new StringRequest(Request.Method.GET, "https://www.itshades.com/appwebservices/industry.php",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // Log.e("rootJsonArray",response);
+                        try{
+                            JSONArray rootJsonArray = new JSONArray(response);
+
+                            for(int i=0;i<rootJsonArray.length();i++){
+                                JSONObject jsonObject1=rootJsonArray.getJSONObject(i);
+                                String country=jsonObject1.getString("industry_name");
+                                Indst.add(country);
+                            }
+
+                            spinerInd.setAdapter(new ArrayAdapter<String>(CmpProfFilterActivity.this, R.layout.spinneritems, Indst));
+
+                        }catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        int socketTimeout = 30000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(policy);
+        requestQueue.add(stringRequest);
+    }
+
+    private void  getDataFA() {
+
+        StringRequest stringRequest=new StringRequest(Request.Method.GET, "https://www.itshades.com/appwebservices/focus-area.php",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // Log.e("rootJsonArray",response);
+                        try{
+                            JSONArray rootJsonArray = new JSONArray(response);
+
+                            for(int i=0;i<rootJsonArray.length();i++){
+                                JSONObject jsonObject1=rootJsonArray.getJSONObject(i);
+                                String country=jsonObject1.getString("item_name");
+                                FocusArea.add(country);
+                            }
+
+                            spinerFA.setAdapter(new ArrayAdapter<String>(CmpProfFilterActivity.this, R.layout.spinneritems, FocusArea));
+
+                        }catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        int socketTimeout = 30000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(policy);
+        requestQueue.add(stringRequest);
     }
 }

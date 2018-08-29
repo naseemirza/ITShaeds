@@ -15,6 +15,7 @@
 
         <RelativeLayout
             android:id="@+id/re"
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -72,8 +73,10 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView4"
-        android:layout_marginTop="10dp"
-        android:textSize="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textSize="12dp"
         android:textCursorDrawable="@drawable/black_cursor"
         android:backgroundTint="@color/green"
         android:ems="10"
@@ -87,10 +90,12 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_below="@+id/editTextU"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:ems="10"
         android:textCursorDrawable="@drawable/black_cursor"
-        android:textSize="10dp"
+        android:textSize="12dp"
         android:backgroundTint="@color/green"
         android:hint="@string/passwordtext_login"
         android:paddingStart="10dp"
@@ -101,25 +106,40 @@
         android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/editTextP"
         android:layout_marginTop="15dp" />
 
+            <android.widget.TextView
+                android:id="@+id/tvInvisibleError"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_alignRight="@+id/spinner"
+                android:layout_alignBottom="@+id/spinner"
+                android:layout_marginTop="0dp"
+                android:paddingTop="0dp"
+                android:paddingRight="50dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                />
+
     <Button
         android:id="@+id/buttonL"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_below="@+id/spinner"
-
+        android:layout_below="@+id/tvInvisibleError"
         android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/buttoncorner"
         android:text="Login"
         android:textAllCaps="false"
         android:textColor="@color/colorWhite"
-        android:textSize="10dp"
+        android:textSize="12dp"
         android:textStyle="bold" />
 
             <TextView
@@ -131,7 +151,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="30dp"
                 android:text="@string/signuptext_login"
-                android:textSize="12dp" />
+                android:textSize="14dp" />
 
     <TextView
         android:id="@+id/textViewRgs"
@@ -141,7 +161,7 @@
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:layout_marginTop="20dp"
-        android:textSize="12dp"
+        android:textSize="14dp"
         android:textStyle="bold"
         android:textColor="@color/colorBlack"
         android:text="@string/registered_textlogin" />
@@ -155,7 +175,7 @@
         android:gravity="center"
         android:text="@string/forgot_passwordtextlogin"
         android:textColor="#FF0000"
-        android:textSize="12dp" />
+        android:textSize="14dp" />
 
 
 

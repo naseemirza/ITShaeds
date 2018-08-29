@@ -1,4 +1,4 @@
-package com.example.user.itshaeds.Solutions;
+package com.example.user.itshaeds.Artifacts;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -17,36 +17,35 @@ import java.util.List;
  * Created by User on 29-Aug-18.
  */
 
-public class SoluAdapter extends RecyclerView.Adapter<SoluAdapter.ProductViewHolder> {
+public class ArtfAdapter  extends RecyclerView.Adapter<ArtfAdapter.ProductViewHolder>  {
 
     private Context mCtx;
-    private List<SoluModel> productList1;
+    private List<ArtfModel> productList1;
 
 
-    public SoluAdapter(Context mCtx, List<SoluModel> productList1) {
+    public ArtfAdapter(Context mCtx, List<ArtfModel> productList1) {
         this.mCtx = mCtx;
         this.productList1 = productList1;
     }
 
-
     @Override
-    public SoluAdapter.ProductViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ArtfAdapter.ProductViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //inflating and returning our view holder
         LayoutInflater inflater = LayoutInflater.from(mCtx);
-        View view = inflater.inflate(R.layout.solulayout,parent, false);
-        return new SoluAdapter.ProductViewHolder(view);
+        View view = inflater.inflate(R.layout.artifactslayout,parent, false);
+        return new ArtfAdapter.ProductViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final SoluAdapter.ProductViewHolder holder, int position) {
-        final SoluModel product = productList1.get(position);
+    public void onBindViewHolder(final ArtfAdapter.ProductViewHolder holder, int position) {
+        final ArtfModel product = productList1.get(position);
 
         holder.textViewName.setText(product.getName());
         holder.textViewDesc.setText(product.getDesc());
-        holder.textViewprce.setText(product.getUprice());
-        holder.textViewpstd.setText(product.getPsted());
-        holder.textViewevntstrt.setText(product.getEvntstart());
-        holder.textViewevntend.setText(product.getEvntend());
+        holder.textViewIndAra.setText(product.getIndAra());
+        holder.textViewFocsAra.setText(product.getFocsar());
+        holder.textViewpstd.setText(product.getPstedby());
+        holder.textViewpstdate.setText(product.getPstdate());
         //holder.checkBox.setChecked(productList1.get(position).getSelected());
 
 //        holder.setItemClickListener(new RecyclerViewItemClickListener() {
@@ -85,10 +84,10 @@ public class SoluAdapter extends RecyclerView.Adapter<SoluAdapter.ProductViewHol
 
         TextView textViewName;
         TextView textViewDesc;
-        TextView textViewprce;
+        TextView textViewIndAra;
+        TextView textViewFocsAra;
         TextView textViewpstd;
-        TextView textViewevntstrt;
-        TextView textViewevntend;
+        TextView textViewpstdate;
 
 
 
@@ -100,10 +99,10 @@ public class SoluAdapter extends RecyclerView.Adapter<SoluAdapter.ProductViewHol
             mCtx=itemView.getContext();
             textViewName = itemView.findViewById(R.id.nameTextview);
             textViewDesc = itemView.findViewById(R.id.descTextview);
-            textViewprce = itemView.findViewById(R.id.price);
-            textViewpstd = itemView.findViewById(R.id.pstdby);
-            textViewevntstrt = itemView.findViewById(R.id.date1);
-            textViewevntend = itemView.findViewById(R.id.date2);
+            textViewIndAra = itemView.findViewById(R.id.indrel);
+            textViewFocsAra = itemView.findViewById(R.id.fcsar1);
+            textViewpstd = itemView.findViewById(R.id.admin);
+            textViewpstdate = itemView.findViewById(R.id.date1);
 
             //itemView.setOnClickListener(this);
 
@@ -123,3 +122,4 @@ public class SoluAdapter extends RecyclerView.Adapter<SoluAdapter.ProductViewHol
     }
 
 }
+
