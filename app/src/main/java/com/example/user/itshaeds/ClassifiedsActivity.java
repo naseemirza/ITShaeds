@@ -36,7 +36,7 @@ public class ClassifiedsActivity extends AppCompatActivity implements AdapterVie
 
         Actname=pref.getString("Actvname","");
         textname=(TextView)findViewById(R.id.textname);
-        textname.setText(Actname);
+        textname.setText("View "+Actname);
 
         ImageButton imageButton= (ImageButton)view.findViewById(R.id.action_bar_back);
 

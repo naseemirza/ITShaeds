@@ -18,35 +18,23 @@
 
 
     <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textStyle="bold"
-        android:textColor="@color/green"
-        android:textSize="12dp"
-        android:layout_marginTop="25dp"
-        android:text="View Classifieds" />
-
-    <TextView
         android:id="@+id/textView19"
-        android:layout_marginStart="20dp"
-        android:textSize="11dp"
-        android:textColor="@color/colorBlack"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView14"
-        android:layout_marginTop="36dp"
-        android:text="Types Of Classifieds"
-        android:layout_marginLeft="20dp" />
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlack"
+        android:textSize="14sp"
+        android:layout_marginTop="50dp"
+        android:text="Types Of Classifieds" />
 
     <Spinner
         android:id="@+id/spinner3"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView19"
@@ -57,43 +45,84 @@
     <Spinner
         android:id="@+id/spinner4"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:visibility="gone"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/spinner3"
         android:layout_marginTop="20dp" />
 
+            <EditText
+                android:id="@+id/editText13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/spinner4"
+                android:background="@color/colorWhite"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textCursorDrawable="@color/darkgray"
+                android:textSize="12dp"
+                android:layout_marginTop="30dp"
+                android:ems="10"
+                android:focusableInTouchMode="true"
+                android:paddingStart="10dp"
+                android:inputType="textPersonName"
+                android:hint="Keywords"
+                android:paddingLeft="10dp"/>
 
 
-    <EditText
-        android:id="@+id/editText13"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/spinner4"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:paddingStart="10dp"
-        android:inputType="textPersonName"
-        android:textSize="10dp"
-        android:hint="Keywords"
-        android:paddingLeft="10dp" />
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/buttoncorner"
+                android:layout_below="@+id/editText13"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="20dp"
+                android:text="Search" />
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editText13"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="47dp"
-        android:textAllCaps="false"
-        android:textSize="10dp"
-        android:textStyle="bold"
-        android:textColor="@color/colorWhite"
-        android:background="@drawable/buttoncorner"
-        android:text="Search" />
+
+    <!--<EditText-->
+        <!--android:id="@+id/editText13"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_below="@+id/spinner4"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:ems="10"-->
+        <!--android:paddingStart="10dp"-->
+        <!--android:inputType="textPersonName"-->
+        <!--android:textSize="10dp"-->
+        <!--android:hint="Keywords"-->
+        <!--android:paddingLeft="10dp" />-->
+
+    <!--<Button-->
+        <!--android:id="@+id/button4"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/editText13"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="47dp"-->
+        <!--android:textAllCaps="false"-->
+        <!--android:textSize="10dp"-->
+        <!--android:textStyle="bold"-->
+        <!--android:textColor="@color/colorWhite"-->
+        <!--android:background="@drawable/buttoncorner"-->
+        <!--android:text="Search" />-->
 
         </RelativeLayout>
     </ScrollView>

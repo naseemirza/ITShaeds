@@ -192,7 +192,7 @@ public class CrntJobFilterActivity extends AppCompatActivity  {
                             for(int i=0;i<rootJsonArray.length();i++){
                                 JSONObject jsonObject1=rootJsonArray.getJSONObject(i);
                                 String country=jsonObject1.getString("exp_name");
-                                YrExp.add(country);
+                                YrExp.add(country+" Years");
                             }
 
                             spinerExp.setAdapter(new ArrayAdapter<String>(CrntJobFilterActivity.this, R.layout.spinneritems, YrExp));

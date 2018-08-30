@@ -58,10 +58,19 @@ public class Main2Activity extends AppCompatActivity
     private RequestQueue mRequestQueue1;
     private RecyclerView mRecyclerview1;
 
+    String username,usermail;
+    TextView textViewname,textViewemail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+
+        SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        username = pref.getString("Username", "");
+        usermail = pref.getString("email", "");
+
 
 
 
@@ -161,6 +170,10 @@ public class Main2Activity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        textViewname= (TextView) navigationView.getHeaderView(0).findViewById(R.id.usernametext);
+        textViewemail= (TextView) navigationView.getHeaderView(0).findViewById(R.id.textViewmail);
+        textViewname.setText(username);
+        textViewemail.setText(usermail);
     }
 
 
@@ -321,7 +334,7 @@ public class Main2Activity extends AppCompatActivity
         } else if (id == R.id.nav_profile) {
                 startActivity(new Intent(Main2Activity.this,MyProfileActivity.class));
             }
-         else if (id == R.id.nav_login) {
+         else if (id == R.id.nav_logout) {
             startActivity(new Intent(Main2Activity.this,LoginActivity.class));
 
         } else if (id == R.id.nav_contactus) {

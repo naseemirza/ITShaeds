@@ -124,7 +124,9 @@
         <activity android:name=".ITByteDetailsRecy.MandAPartActivity" />
         <activity android:name=".ITByteDetailsRecy.MiscellaneousActivity" />
         <activity android:name=".ITByteDetailsRecy.AnnouncementsActivity" />
-        <activity android:name=".ITBytes.ITBytDetailsActivity11"></activity>
+        <activity android:name=".ITBytes.ITBytDetailsActivity11" />
+        <activity android:name=".CorpCustomer.BusinessUserActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

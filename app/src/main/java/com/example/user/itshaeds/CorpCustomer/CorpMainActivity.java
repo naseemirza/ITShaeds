@@ -1,7 +1,9 @@
 package com.example.user.itshaeds.CorpCustomer;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -15,6 +17,7 @@ import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.TextView;
 
 import com.example.user.itshaeds.CorpCustomer.Profile.ProfileActivity;
 import com.example.user.itshaeds.CorpCustomer.SubmissionLink.ParentActivity;
@@ -26,6 +29,9 @@ public class CorpMainActivity extends AppCompatActivity
     WebView mywebview;
     ProgressDialog progressDialog;
 
+    String username,usermail;
+    TextView textViewname,textViewemail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,13 +40,18 @@ public class CorpMainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 
-        mywebview = (WebView) findViewById(R.id.webView1);
-        mywebview.setWebViewClient(new MyWebViewClient());
+        SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        username = pref.getString("Username", "");
+        usermail = pref.getString("email", "");
 
-        String url="https://www.itshades.com/index.php";
-        mywebview.getSettings().setJavaScriptEnabled(true);
-        mywebview.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
-        mywebview.loadUrl(url);
+
+//        mywebview = (WebView) findViewById(R.id.webView1);
+//        mywebview.setWebViewClient(new MyWebViewClient());
+//
+//        String url="https://www.itshades.com/index.php";
+//        mywebview.getSettings().setJavaScriptEnabled(true);
+//        mywebview.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+//        mywebview.loadUrl(url);
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -55,35 +66,40 @@ public class CorpMainActivity extends AppCompatActivity
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
+        toggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.colorBlack));
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        textViewname= (TextView) navigationView.getHeaderView(0).findViewById(R.id.corptext);
+        textViewemail= (TextView) navigationView.getHeaderView(0).findViewById(R.id.corptextmail);
+        textViewname.setText(username);
+        textViewemail.setText(usermail);
     }
 
-    private class MyWebViewClient extends WebViewClient {
-        @Override
-        public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            view.loadUrl(url);
-            return true;
-        }
-
-        @Override
-        public void onPageStarted(WebView view, String url, Bitmap favicon) {
-            super.onPageStarted(view, url, favicon);
-            progressDialog = new ProgressDialog(CorpMainActivity.this);
-            progressDialog.setMessage("Please wait ...");
-            progressDialog.setProgressStyle(90);
-            progressDialog.show();
-        }
-        @Override
-        public void onPageFinished(WebView view, String url) {
-            super.onPageFinished(view, url);
-            if (progressDialog != null) {
-                progressDialog.dismiss();
-            }
-        }
-    }
+//    private class MyWebViewClient extends WebViewClient {
+//        @Override
+//        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+//            view.loadUrl(url);
+//            return true;
+//        }
+//
+//        @Override
+//        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+//            super.onPageStarted(view, url, favicon);
+//            progressDialog = new ProgressDialog(CorpMainActivity.this);
+//            progressDialog.setMessage("Please wait ...");
+//            progressDialog.setProgressStyle(90);
+//            progressDialog.show();
+//        }
+//        @Override
+//        public void onPageFinished(WebView view, String url) {
+//            super.onPageFinished(view, url);
+//            if (progressDialog != null) {
+//                progressDialog.dismiss();
+//            }
+//        }
+//    }
 
     @Override
     public void onBackPressed() {

@@ -37,6 +37,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.user.itshaeds.CorpCustomer.BusinessUserActivity;
 import com.example.user.itshaeds.CorpCustomer.CorpMainActivity;
 import com.example.user.itshaeds.ITBytes.ITBytDetailsActivity1;
 
@@ -133,7 +134,7 @@ public class LoginActivity extends AppCompatActivity
                 Intent intent=new Intent(LoginActivity.this,Main2Activity.class);
                 startActivity(intent);
 
-//                Intent intent=new Intent(LoginActivity.this,CorpMainActivity.class);
+//                Intent intent=new Intent(LoginActivity.this,BusinessUserActivity.class);
 //                startActivity(intent);
 
 //                final String email = editTextmail.getText().toString().trim();
@@ -152,7 +153,7 @@ public class LoginActivity extends AppCompatActivity
 //                    editTextpass.setError("Password not entered");
 //                    editTextpass.requestFocus();
 //                }
-//                if (editTextpass.getText().toString().length() < 6) {
+//                if (editTextpass.getText().toString().length() < 5) {
 //                    editTextpass.setError("Password should be atleast of 6 charactors");
 //                    editTextpass.requestFocus();
 //                } else {
@@ -208,18 +209,73 @@ public class LoginActivity extends AppCompatActivity
                             msg=obj.getString("m");
                             if (success==1)
                             {
+                                if (userrole.equals("1")){
+
+                                    SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                                    SharedPreferences.Editor edit = pref.edit();
+                                    edit.putString("Username",usertype);
+                                    edit.putString("email",email);
+                                    Log.e("resp", usertype);
+
                                     Toast.makeText(LoginActivity.this, msg, Toast.LENGTH_SHORT).show();
-                                     progressDialog.dismiss();
+                                    progressDialog.dismiss();
+                                    edit.apply();
                                     Intent intent=new Intent(LoginActivity.this,Main2Activity.class);
-                                     startActivity(intent);
+                                    startActivity(intent);
+                                    editTextmail.setText("");
+                                    editTextpass.setText("");
+
+                                }
+
+                               else if (userrole.equals("2")){
+
+                                    SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                                    SharedPreferences.Editor edit = pref.edit();
+                                    edit.putString("Username",usertype);
+                                    edit.putString("email",email);
+
+                                    Log.e("resp", usertype);
+
+                                Toast.makeText(LoginActivity.this, msg, Toast.LENGTH_SHORT).show();
+                                progressDialog.dismiss();
+                                    edit.apply();
+                                Intent intent=new Intent(LoginActivity.this,CorpMainActivity.class);
+                                startActivity(intent);
                                 editTextmail.setText("");
                                 editTextpass.setText("");
+                            }
+
                             }
                             else if(success==0)
                             {
                                 Toast.makeText(LoginActivity.this, msg, Toast.LENGTH_SHORT).show();
                                 //Toast.makeText(LoginActivity.this, "Invalid User", Toast.LENGTH_SHORT).show();
                             }
+
+//                            if (success==1)
+//                            {
+//                                if (userrole.equals("2")){
+//                                    SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+//                                    SharedPreferences.Editor edit = pref.edit();
+//                                    edit.putString("Username",usertype);
+//                                    edit.putString("email",email);
+//
+//                                    Log.e("resp", usertype);
+//
+//                                Toast.makeText(LoginActivity.this, msg, Toast.LENGTH_SHORT).show();
+//                                progressDialog.dismiss();
+//                                    edit.apply();
+//                                Intent intent=new Intent(LoginActivity.this,CorpMainActivity.class);
+//                                startActivity(intent);
+//                                editTextmail.setText("");
+//                                editTextpass.setText("");
+//                            }
+//                            }
+//                            else if(success==0)
+//                            {
+//                                Toast.makeText(LoginActivity.this, msg, Toast.LENGTH_SHORT).show();
+//                                //Toast.makeText(LoginActivity.this, "Invalid User", Toast.LENGTH_SHORT).show();
+//                            }
 
 
                         } catch (JSONException e) {
