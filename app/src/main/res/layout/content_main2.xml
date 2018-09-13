@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.user.itshaeds.Main2Activity"
+    tools:context="tbs.thinkbiz.solutions.itshades.Main2Activity"
     tools:showIn="@layout/app_bar_main2">
 
     <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -57,13 +57,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/my_recycler_jobs"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
-
-
 
 
             </RelativeLayout>
@@ -134,5 +131,23 @@
 
         </ScrollView>
     </android.support.v4.widget.NestedScrollView>
+
+
+
+    <Button
+        android:id="@+id/applybutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/buttoncorner"
+        android:text="Apply"
+        android:textAllCaps="false"
+        android:textColor="@color/colorWhite"
+        android:visibility="gone" />
 
 </RelativeLayout>

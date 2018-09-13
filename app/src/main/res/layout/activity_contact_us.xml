@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.user.itshaeds.ContactUsActivity">
+    tools:context="tbs.thinkbiz.solutions.itshades.ContactUsActivity">
 
 
     <ScrollView
@@ -222,7 +222,8 @@
             <EditText
                 android:id="@+id/editText7"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
+                android:paddingBottom="100dp"
                 android:layout_below="@+id/editText6"
                 android:textCursorDrawable="@color/darkgray"
                 android:background="@color/colorWhite"

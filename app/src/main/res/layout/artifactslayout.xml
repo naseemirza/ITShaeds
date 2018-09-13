@@ -9,16 +9,18 @@
 
     <RelativeLayout
         android:id="@+id/re1"
+        android:clickable="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/liname"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="25dp"
-            android:layout_marginRight="25dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginTop="5dp"
+            android:clickable="true"
             android:orientation="horizontal">
 
             <TextView
@@ -27,6 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
+                android:clickable="true"
                 android:text="name "
                 android:textColor="@color/green"
                 android:textSize="16dp" />
@@ -35,22 +38,13 @@
         </LinearLayout>
 
 
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp"
-            android:src="@drawable/ic_add_black_24dp" />
-
-
         <LinearLayout
             android:id="@+id/textlin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/liname"
             android:layout_marginEnd="10dp"
+            android:clickable="true"
             android:layout_marginTop="5dp"
             android:layout_marginRight="10dp"
             android:orientation="vertical">
@@ -63,6 +57,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginBottom="5dp"
+                android:clickable="true"
                 android:lineSpacingExtra="3sp"
                 android:maxLines="2"
                 android:text="descriptions"
@@ -77,7 +72,8 @@
             android:layout_below="@+id/textlin"
             android:layout_alignParentRight="true"
             android:layout_marginEnd="10dp"
-            android:textSize="10dp"
+            android:textSize="12sp"
+            android:clickable="false"
             android:textColor="@color/green"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -87,6 +83,7 @@
             android:id="@+id/linhrz"
             android:layout_below="@+id/compsite"
             android:orientation="horizontal"
+            android:clickable="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -98,12 +95,14 @@
                 android:text="Industry Area : "
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:clickable="true"
                 android:layout_marginLeft="10dp" />
 
             <TextView
                 android:id="@+id/indrel"
                 android:text="All Industries"
                 android:layout_width="wrap_content"
+                android:clickable="true"
                 android:layout_height="wrap_content" />
 
 
@@ -112,6 +111,7 @@
         <LinearLayout
             android:id="@+id/linhrz1"
             android:layout_marginTop="5dp"
+            android:clickable="true"
             android:layout_below="@+id/linhrz"
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -123,6 +123,7 @@
                 android:textColor="@color/colorBlack"
                 android:textStyle="bold"
                 android:text="Focus Area : "
+                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp" />
@@ -130,6 +131,7 @@
             <TextView
                 android:id="@+id/fcsar1"
                 android:text=" Digital"
+                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -141,7 +143,7 @@
             android:id="@+id/linhrz2"
             android:layout_marginTop="5dp"
             android:layout_below="@+id/linhrz1"
-
+            android:clickable="true"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -150,6 +152,7 @@
                 android:id="@+id/postedby"
                 android:layout_marginStart="10dp"
                 android:textStyle="bold"
+                android:clickable="true"
                 android:textColor="@color/colorBlack"
                 android:text="Posted By : "
                 android:layout_width="wrap_content"
@@ -161,6 +164,7 @@
                 android:text=" Admin"
                 android:textColor="@color/colorBlack"
                 android:textStyle="bold"
+                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -171,6 +175,7 @@
         android:layout_marginBottom="10dp"
         android:id="@+id/linhrz3"
         android:layout_marginTop="5dp"
+            android:clickable="true"
         android:layout_below="@+id/linhrz2"
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -179,7 +184,7 @@
         <TextView
         android:id="@+id/postedate"
         android:layout_marginStart="10dp"
-
+            android:clickable="true"
         android:textStyle="bold"
         android:textColor="@color/colorBlack"
         android:text="Posted Date : "
@@ -192,6 +197,7 @@
         android:text=" Thursday, 05 July 2018"
         android:textColor="@color/colorBlack"
         android:textStyle="bold"
+            android:clickable="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

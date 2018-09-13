@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.user.itshaeds.Jobs.DetailsActivity">
+    tools:context="tbs.thinkbiz.solutions.itshades.Jobs.DetailsActivity">
 
 
     <ScrollView
@@ -257,6 +257,8 @@
                 android:textStyle="bold"
                 android:layout_below="@+id/li5"
                 android:layout_marginBottom="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
                 android:background="@drawable/buttoncorner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />

@@ -4,21 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="1dp"
-    android:clickable="false"
+    android:clickable="true"
     card_view:cardElevation="1dp">
 
     <RelativeLayout
         android:id="@+id/re1"
+        android:clickable="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/liname"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="25dp"
-            android:layout_marginRight="25dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginTop="5dp"
+            android:clickable="true"
             android:orientation="horizontal">
 
             <TextView
@@ -27,22 +29,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
+                android:clickable="true"
                 android:text="name "
                 android:textColor="@color/green"
-                android:textSize="16dp" />
+                android:textSize="15sp" />
 
 
         </LinearLayout>
-
-
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp"
-            android:src="@drawable/ic_add_black_24dp" />
 
 
         <LinearLayout
@@ -51,6 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/liname"
             android:layout_marginEnd="10dp"
+            android:clickable="true"
             android:layout_marginTop="5dp"
             android:layout_marginRight="10dp"
             android:orientation="vertical">
@@ -60,6 +54,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
+                android:clickable="true"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginBottom="5dp"
@@ -77,7 +72,8 @@
             android:layout_below="@+id/textlin"
             android:layout_alignParentRight="true"
             android:layout_marginEnd="10dp"
-            android:textSize="10dp"
+            android:textSize="12sp"
+            android:clickable="false"
             android:textColor="@color/green"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -88,6 +84,7 @@
             android:layout_below="@+id/compsite"
             android:orientation="horizontal"
             android:layout_width="match_parent"
+            android:clickable="true"
             android:layout_height="wrap_content">
 
             <TextView
@@ -95,6 +92,7 @@
                 android:layout_marginStart="10dp"
                 android:textStyle="bold"
                 android:textColor="@color/colorBlack"
+                android:clickable="true"
                 android:text="Industry Relevance : "
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -103,6 +101,7 @@
             <TextView
                 android:id="@+id/indrel"
                 android:text="All Industries"
+                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -114,6 +113,7 @@
             android:layout_marginTop="5dp"
             android:layout_below="@+id/linhrz"
             android:orientation="horizontal"
+            android:clickable="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -122,6 +122,7 @@
                 android:layout_marginStart="10dp"
                 android:textColor="@color/colorBlack"
                 android:textStyle="bold"
+                android:clickable="true"
                 android:text="Focus Area : "
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -129,6 +130,7 @@
 
             <TextView
                 android:id="@+id/fcsar1"
+                android:clickable="true"
                 android:text=" Digital"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -143,6 +145,7 @@
             android:layout_below="@+id/linhrz1"
             android:layout_marginBottom="10dp"
             android:orientation="horizontal"
+            android:clickable="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -152,12 +155,14 @@
                 android:textStyle="bold"
                 android:textColor="@color/colorBlack"
                 android:text="Posted By : "
+                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp" />
 
             <TextView
                 android:id="@+id/admin"
+                android:clickable="true"
                 android:text=" Admin"
                 android:textColor="@color/colorBlack"
                 android:textStyle="bold"
@@ -166,37 +171,6 @@
 
 
         </LinearLayout>
-
-        <!--<LinearLayout-->
-            <!--android:layout_marginBottom="10dp"-->
-            <!--android:id="@+id/linhrz3"-->
-            <!--android:layout_marginTop="5dp"-->
-            <!--android:layout_below="@+id/linhrz2"-->
-            <!--android:orientation="horizontal"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-
-            <!--<TextView-->
-                <!--android:id="@+id/postedate"-->
-                <!--android:layout_marginStart="10dp"-->
-
-                <!--android:textStyle="bold"-->
-                <!--android:textColor="@color/colorBlack"-->
-                <!--android:text="Posted Date : "-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginLeft="10dp" />-->
-
-            <!--<TextView-->
-                <!--android:id="@+id/date1"-->
-                <!--android:text=" Thursday, 05 July 2018"-->
-                <!--android:textColor="@color/colorBlack"-->
-                <!--android:textStyle="bold"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content" />-->
-
-
-        <!--</LinearLayout>-->
 
 
     </RelativeLayout>

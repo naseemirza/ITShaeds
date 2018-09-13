@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="tbs.thinkbiz.solutions.itshades.LearningAndDevelopment.ContactForm">
+
+
+    <ScrollView
+        android:id="@+id/scrolview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/re"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textname1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/li3"
+        android:layout_marginLeft="20dp"
+        android:textColor="#272727"
+        android:textSize="15sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:text="Name" />
+
+
+    <EditText
+        android:id="@+id/fname"
+        android:layout_below="@+id/textname1"
+        android:textCursorDrawable="@color/darkgray"
+        android:background="@color/colorWhite"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textSize="12sp"
+        android:paddingStart="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:hint="Indtest Test"
+        android:layout_marginLeft="20dp"
+        />
+
+
+
+    <TextView
+        android:id="@+id/textViewemail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/fname"
+        android:layout_marginLeft="20dp"
+        android:textColor="#272727"
+        android:textSize="15sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Email" />
+
+    <EditText
+        android:id="@+id/editTextemail"
+        android:layout_below="@+id/textViewemail"
+        android:background="@color/colorWhite"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textSize="12sp"
+        android:textCursorDrawable="@color/darkgray"
+        android:paddingStart="10dp"
+        android:layout_width="match_parent"
+        android:hint="Indtest@gmail.com"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:layout_marginLeft="20dp"
+        android:ems="10"
+        android:inputType="textEmailAddress" />
+
+    <TextView
+        android:id="@+id/textViewphn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/editTextemail"
+        android:layout_marginLeft="20dp"
+        android:textColor="#272727"
+        android:textSize="15sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Reference" />
+
+    <EditText
+        android:id="@+id/refrence"
+        android:layout_below="@+id/textViewphn"
+        android:background="@color/colorWhite"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:textCursorDrawable="@color/darkgray"
+        android:layout_marginEnd="20dp"
+        android:textSize="12sp"
+        android:paddingStart="10dp"
+        android:layout_width="match_parent"
+        android:hint="Ref. To(Classroom training) :- Magnolia Website Developer Training"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:paddingLeft="10dp" />
+
+
+    <TextView
+        android:id="@+id/msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/refrence"
+        android:layout_marginLeft="20dp"
+        android:textColor="#272727"
+        android:textSize="15sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Message" />
+
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="100dp"
+        android:layout_below="@+id/msg"
+        android:textCursorDrawable="@color/darkgray"
+        android:background="@color/colorWhite"
+        android:gravity="top|left"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textSize="12sp"
+        android:paddingStart="10dp"
+        android:hint="Enter Message"
+        android:inputType="textMultiLine"
+        android:paddingLeft="10dp" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_marginBottom="30dp"
+                android:layout_below="@+id/editText2"
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+     <Button
+        android:id="@+id/buttonsbmt"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textSize="13sp"
+        android:layout_gravity="center"
+        android:textColor="@color/colorWhite"
+        android:textAllCaps="false"
+        android:paddingLeft="60dp"
+        android:paddingRight="60dp"
+        android:textStyle="bold"
+        android:text="Submit"
+        android:background="@drawable/buttoncorner" />
+
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.user.itshaeds.RegisterActivity">
+    tools:context="tbs.thinkbiz.solutions.itshades.RegisterActivity">
 
 
     <ScrollView
@@ -35,7 +35,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textStyle="bold"
-        android:textSize="12dp"
+        android:textSize="13sp"
         android:textColor="@color/green"
         android:layout_marginTop="40dp"
         android:text="@string/get_startedLogintitle" />
@@ -48,12 +48,14 @@
         android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="@string/first_nameReg"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:textCursorDrawable="@drawable/black_cursor"
         android:backgroundTint="@color/green"
         android:inputType="textPersonName"
         android:paddingLeft="5dp"
         android:paddingStart="5dp"
-        android:textSize="10dp" />
+        android:textSize="12sp" />
 
     <EditText
         android:id="@+id/editTextlnm"
@@ -63,7 +65,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/editTextfnm"
         android:layout_marginTop="10dp"
-        android:textSize="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textSize="12sp"
         android:paddingStart="5dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -78,7 +82,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/editTextlnm"
         android:layout_marginTop="10dp"
-        android:textSize="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textSize="12sp"
         android:paddingStart="5dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -90,12 +96,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editTextemail"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:paddingStart="5dp"
         android:textCursorDrawable="@drawable/black_cursor"
         android:backgroundTint="@color/green"
         android:layout_marginTop="10dp"
         android:ems="10"
-        android:textSize="10dp"
+        android:textSize="12sp"
         android:hint="@string/passwordtext_login"
         android:inputType="textPassword"
         android:paddingLeft="5dp" />
@@ -108,9 +116,11 @@
         android:paddingStart="5dp"
         android:textCursorDrawable="@drawable/black_cursor"
         android:backgroundTint="@color/green"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
         android:ems="10"
-        android:textSize="10dp"
+        android:textSize="12sp"
         android:hint="@string/confirm_passwordReg"
         android:inputType="textPassword"
         android:paddingLeft="5dp" />
@@ -152,7 +162,7 @@
         android:layout_alignLeft="@+id/radioGroup"
         android:layout_alignStart="@+id/radioGroup"
         android:text="@string/click_here_to_read_and_agree_ourReg"
-        android:textSize="12dp" />
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/privacytext"
@@ -166,7 +176,7 @@
         android:layout_toRightOf="@+id/checkBoxP"
         android:text="@string/privacy_policyReg"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="12dp" />
+        android:textSize="12sp" />
 
     <CheckBox
         android:id="@+id/checkBoxTc"
@@ -176,7 +186,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginStart="30dp"
         android:buttonTint="@color/green"
-        android:textSize="12dp"
+        android:textSize="12sp"
         android:textColor="@color/colorPrimaryDark"
         android:layout_marginTop="5dp" />
     <TextView
@@ -191,7 +201,7 @@
         android:layout_toRightOf="@+id/checkBoxTc"
         android:text="Terms and conditions"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="12dp" />
+        android:textSize="12sp" />
 
     <Button
         android:id="@+id/button_regs"
@@ -200,11 +210,13 @@
         android:layout_below="@+id/checkBoxTc"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="12dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:background="@drawable/buttoncorner"
         android:text="Register"
         android:textAllCaps="false"
         android:textColor="@color/colorWhite"
-        android:textSize="12dp"
+        android:textSize="12sp"
         android:textStyle="bold" />
 
         </RelativeLayout>

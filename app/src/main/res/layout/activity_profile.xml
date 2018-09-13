@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.user.itshaeds.CorpCustomer.Profile.ProfileActivity">
+    tools:context="tbs.thinkbiz.solutions.itshades.CorpCustomer.Profile.ProfileActivity">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerprofile"

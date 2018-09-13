@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginTop="-5dp"
+    android:layout_height="wrap_content">
+
+    <ScrollView
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:scrollbarStyle="outsideInset"
+        android:scrollbars="horizontal|vertical">
+
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="horizontal|vertical">
+
+            <TableLayout
+                android:id="@+id/tl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:scrollbars="vertical">
+
+                <TableRow
+                    android:id="@+id/tr_item_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/table_row_last_bg"
+                    android:padding="6dp"
+                   >
+
+                    <TextView
+                        android:id="@+id/tv_nmbr"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/table_cell_bg"
+                        android:gravity="center"
+                        android:maxLines="3"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="10dp"
+                        android:text="1" />
+
+                    <TextView
+                        android:id="@+id/tv_add"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/table_cell_bg"
+                        android:gravity="center"
+                        android:maxLines="3"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="10dp" />
+
+                    <TextView
+                        android:id="@+id/tv_country"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/table_cell_bg"
+                        android:gravity="center"
+                        android:maxLines="3"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="10dp"
+                        android:text="Switzerland" />
+
+                    <TextView
+                        android:id="@+id/tv_telcbrdge"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/table_cell_bg"
+                        android:gravity="center"
+                        android:maxLines="3"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="10dp" />
+
+                    <TextView
+                        android:id="@+id/tv_city1"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/table_cell_bg"
+                        android:gravity="center"
+                        android:maxLines="3"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="10dp"
+                        android:text="Münchenstein (Basel) Switzerland" />
+
+                    <TextView
+                        android:id="@+id/tv_userprc"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/table_cell_bg"
+                        android:gravity="center"
+                        android:maxLines="3"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="10dp"
+                        android:text="Available on registration link" />
+
+                    <TextView
+                        android:id="@+id/tv_Reglnk"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/table_cell_bg"
+                        android:gravity="center"
+                        android:maxLines="3"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="10dp"
+                        android:text="Click"
+                        android:textColor="@color/colorPrimary" />
+
+                    <TextView
+                        android:id="@+id/tv_pstdby"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/table_cell_bg"
+                        android:gravity="center"
+                        android:maxLines="3"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="10dp"
+                        android:text="Corporates User" />
+
+                    <TextView
+                        android:id="@+id/tv_strtdate"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/table_cell_bg"
+                        android:gravity="center"
+                        android:maxLines="3"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="10dp"
+                        android:text="Tue, 25 Sep 2018" />
+
+                    <TextView
+                        android:id="@+id/tv_Enddate"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/table_cell_bg"
+                        android:gravity="center"
+                        android:maxLines="3"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="10dp"
+                        android:text="Thu, 27 Sep 2018" />
+
+                    <TextView
+                        android:id="@+id/tv_Resorce"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:maxLines="3"
+
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="10dp" />
+                </TableRow>
+            </TableLayout>
+
+        </HorizontalScrollView>
+    </ScrollView>
+
+</RelativeLayout>

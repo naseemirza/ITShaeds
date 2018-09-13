@@ -1,6 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context=".Jobs.JobsActivity">
+    xmlns:tools="http://schemas.android.com/tools" tools:context="tbs.thinkbiz.solutions.itshades.Jobs.JobsActivity">
 
     <item
         android:id="@+id/add"

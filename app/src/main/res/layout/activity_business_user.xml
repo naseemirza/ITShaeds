@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.user.itshaeds.CorpCustomer.BusinessUserActivity">
+    tools:context="tbs.thinkbiz.solutions.itshades.CorpCustomer.BusinessUserActivity">
 
     <WebView
         android:id="@+id/webView1"

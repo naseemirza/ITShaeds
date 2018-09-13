@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.user.itshaeds.ClassifiedsActivity">
+    tools:context="tbs.thinkbiz.solutions.itshades.ClassifiedsActivity">
 
     <ScrollView
         android:id="@+id/scrolview"
@@ -94,35 +94,6 @@
                 android:layout_marginBottom="20dp"
                 android:text="Search" />
 
-
-    <!--<EditText-->
-        <!--android:id="@+id/editText13"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_alignParentStart="true"-->
-        <!--android:layout_below="@+id/spinner4"-->
-        <!--android:layout_marginTop="20dp"-->
-        <!--android:ems="10"-->
-        <!--android:paddingStart="10dp"-->
-        <!--android:inputType="textPersonName"-->
-        <!--android:textSize="10dp"-->
-        <!--android:hint="Keywords"-->
-        <!--android:paddingLeft="10dp" />-->
-
-    <!--<Button-->
-        <!--android:id="@+id/button4"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_below="@+id/editText13"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_marginTop="47dp"-->
-        <!--android:textAllCaps="false"-->
-        <!--android:textSize="10dp"-->
-        <!--android:textStyle="bold"-->
-        <!--android:textColor="@color/colorWhite"-->
-        <!--android:background="@drawable/buttoncorner"-->
-        <!--android:text="Search" />-->
 
         </RelativeLayout>
     </ScrollView>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.user.itshaeds">
+    package="tbs.thinkbiz.solutions.itshades">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -64,7 +64,6 @@
         <activity android:name=".TermsActivity" />
         <activity android:name=".ITBytes.ITBytDetailsActivity" />
         <activity android:name=".ITBytes.ITBytDetailsActivity1" />
-        <activity android:name=".ArtifactsActivity" />
         <activity android:name=".CompReviewActivity" />
         <activity android:name=".CompnyDrctry.CmpProfFilterActivity" />
         <activity android:name=".CompnyDrctry.CmpDirectoryActivity" />
@@ -82,9 +81,9 @@
         <activity android:name=".Artifacts.AnalystReportActivity" />
         <activity android:name=".Artifacts.WhitePapersActivity" />
         <activity android:name=".Artifacts.CustSuccStoriesActivity" />
-        <activity android:name=".Events.OnlineEventsActivity" />
-        <activity android:name=".Events.ConfrncSummitsActivity" />
-        <activity android:name=".Events.WebinarActivity" />
+        <activity android:name=".Events.OnlineEvent.OnlineEventsActivity" />
+        <activity android:name=".Events.ConfSumm.ConfrncSummitsActivity" />
+        <activity android:name=".Events.Webinar.WebinarActivity" />
         <activity android:name=".Solutions.FilterAllActivity" />
         <activity android:name=".Jobs.JobsFilterActivity" />
         <activity
@@ -125,8 +124,14 @@
         <activity android:name=".ITByteDetailsRecy.MiscellaneousActivity" />
         <activity android:name=".ITByteDetailsRecy.AnnouncementsActivity" />
         <activity android:name=".ITBytes.ITBytDetailsActivity11" />
-        <activity android:name=".CorpCustomer.BusinessUserActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".CorpCustomer.BusinessUserActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".LearningAndDevelopment.LandDetailsActivity" />
+        <activity android:name=".LearningAndDevelopment.ContactForm" />
+        <activity android:name=".Events.OnlineEvent.OnlineEventDetailsActivity" />
+        <activity android:name=".Events.ConfSumm.ConfSummDetailsActivity" />
+        <activity android:name=".Events.Webinar.WebinarDetailsActivity"></activity>
     </application>
 
 </manifest>

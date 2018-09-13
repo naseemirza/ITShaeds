@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:clickable="true"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<android.support.v7.widget.CardView
+ <android.support.v7.widget.CardView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="1dp"
-    android:clickable="false"
+    android:clickable="true"
     android:elevation="1dp"
     app:cardPreventCornerOverlap="false"
     app:cardUseCompatPadding="true"
@@ -18,11 +18,13 @@
 
     <RelativeLayout
         android:id="@+id/re1"
+        android:clickable="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/liname"
+            android:clickable="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
@@ -33,6 +35,7 @@
 
             <TextView
                 android:id="@+id/compname"
+                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="CompanyName"
@@ -49,6 +52,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginBottom="5dp"
             android:layout_marginEnd="10dp"
+            android:clickable="true"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/my_button_bg"
@@ -59,7 +63,7 @@
 
         <LinearLayout
             android:id="@+id/linimg"
-
+            android:clickable="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/liname"
@@ -79,6 +83,7 @@
 
                     android:id="@+id/compid"
                     android:layout_width="wrap_content"
+                   android:scaleType="centerInside"
                     android:layout_height="wrap_content"
                     android:paddingEnd="10dp"
                     android:paddingStart="10dp"
@@ -108,6 +113,7 @@
             android:layout_alignParentRight="true"
             android:layout_below="@+id/linimg"
             android:layout_marginBottom="10dp"
+            android:clickable="false"
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
             android:text="Company Site>>"
@@ -130,8 +136,8 @@
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="30dp"
+                android:clickable="false"
                 android:layout_marginTop="5dp"
-
                 android:layout_weight="1"
                 android:background="@drawable/my_button_bg"
                 android:text="Website"
@@ -143,7 +149,7 @@
                 android:id="@+id/callbutton"
                 android:layout_width="wrap_content"
                 android:layout_height="25dp"
-
+                android:clickable="false"
                 android:layout_marginBottom="5dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginTop="5dp"
@@ -164,7 +170,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
-
+                android:clickable="false"
                 android:layout_weight="1"
                 android:background="@drawable/my_button_bg"
                 android:text="Email"
