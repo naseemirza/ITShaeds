@@ -21,6 +21,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import tbs.thinkbiz.solutions.itshades.ITBytes.ITbytdetailsAdapter;
 import tbs.thinkbiz.solutions.itshades.ITBytes.ITbytdetalsmodel;
+import tbs.thinkbiz.solutions.itshades.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -46,7 +47,7 @@ public class RewardAndRecogActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setCustomView(tbs.thinkbiz.solutions.itshades.R.layout.backandfilterbar);
+        getSupportActionBar().setCustomView(R.layout.backbar);
         View view =getSupportActionBar().getCustomView();
 
         SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
@@ -66,23 +67,6 @@ public class RewardAndRecogActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-//        ImageButton imageButton2= (ImageButton)view.findViewById(R.id.action_bar_forward);
-//
-//        imageButton2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String actname ="Filtration";
-//                SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-//                SharedPreferences.Editor edit = pref.edit();
-//                edit.putString("Actvname",actname );
-//
-//                edit.commit();
-//                Intent intent=new Intent(OnlineTrainingActivity.this,FilterAllActivity.class);
-//
-//                startActivity(intent);
-//            }
-//        });
 
 
 

@@ -1,13 +1,25 @@
 package tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import tbs.thinkbiz.solutions.itshades.AllUrls;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.ArtifactsB.ArtifactsBActivity;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.JobSubmission.JobSubmiActivity;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.LearngAndDevActivity;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.MarkEvents.MarktngEvntsActivity;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.SolutionsB.ProdAndPlatfActivity;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.SolutionsB.SolutionBActivity;
+import tbs.thinkbiz.solutions.itshades.Jobs.JobsActivity;
+import tbs.thinkbiz.solutions.itshades.Main2Activity;
 import tbs.thinkbiz.solutions.itshades.R;
 import tbs.thinkbiz.solutions.itshades.RecyclerViewItemClickListener;
 
@@ -43,30 +55,70 @@ public class ParentAdapter extends RecyclerView.Adapter<ParentAdapter.ViewHolder
         //String imageurl = app.getImageUrl();
         holder.mTextViewName.setText(Pname);
 
-//        Glide.with(mCtx)
-//                .load(imageurl)
-//                .diskCacheStrategy(DiskCacheStrategy.ALL)
-//                .fitCenter()
-//                .into(holder.mImageView);
+        holder.setItemClickListener(new RecyclerViewItemClickListener() {
+            @Override
+            public void onClick(View view, int position) {
 
-//        holder.setItemClickListener(new RecyclerViewItemClickListener() {
-//            @Override
-//            public void onClick(View view, int position) {
-//                String plistid=app.getId().toString();
-//                String Pdname=app.getName().toString();
-//                Log.e("responce",Pdname);
-//
-//                SharedPreferences pref = view.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-//                SharedPreferences.Editor edit = pref.edit();
-//                edit.putString("pid",plistid);
-//                edit.putString("pname",Pdname);
-//
-//                edit.commit();
-//                Intent intent = new Intent(view.getContext(), ChildActivity.class);
-//                view.getContext().startActivity(intent);
-//
-//            }
-//        });
+                if (position == 0){
+                    String actname="Jobs Submission";
+
+                    SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor edit = pref.edit();
+
+                    edit.putString("Actvname",actname);
+
+                    edit.commit();
+                    Intent intent0 =  new Intent(mCtx, JobSubmiActivity.class);
+                    mCtx.startActivity(intent0);
+                } else if (position == 1){
+                    String actname="Solutions";
+
+                    SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor edit = pref.edit();
+
+                    edit.putString("Actvname",actname);
+
+                    edit.commit();
+                    Intent intent0 =  new Intent(mCtx, SolutionBActivity.class);
+                    mCtx.startActivity(intent0);
+                } else if (position == 2){
+                    String actname="Learning & Development";
+
+                    SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor edit = pref.edit();
+
+                    edit.putString("Actvname",actname);
+
+                    edit.commit();
+                    Intent intent0 =  new Intent(mCtx, LearngAndDevActivity.class);
+                    mCtx.startActivity(intent0);
+                }else if (position == 3){
+                    String actname="Artifacts";
+
+                    SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor edit = pref.edit();
+
+                    edit.putString("Actvname",actname);
+
+                    edit.commit();
+                    Intent intent0 =  new Intent(mCtx, ArtifactsBActivity.class);
+                    mCtx.startActivity(intent0);
+                } else if (position == 4){
+                    String actname="Marketing Events";
+
+                    SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor edit = pref.edit();
+
+                    edit.putString("Actvname",actname);
+
+                    edit.commit();
+                    Intent intent0 =  new Intent(mCtx, MarktngEvntsActivity.class);
+                    mCtx.startActivity(intent0);
+                }
+
+
+            }
+        });
 
     }
 
@@ -82,7 +134,7 @@ public class ParentAdapter extends RecyclerView.Adapter<ParentAdapter.ViewHolder
     }
 
                                                       // implements View.OnClickListener
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public ImageView mImageView;
         public TextView mTextViewName;
@@ -94,20 +146,20 @@ public class ParentAdapter extends RecyclerView.Adapter<ParentAdapter.ViewHolder
             super(itemView);
             //mImageView=(ImageView)itemView.findViewById(R.id.imageViewName);
             mTextViewName=(TextView) itemView.findViewById(R.id.listTitle);
-            //itemView.setOnClickListener(this);
+            itemView.setOnClickListener(this);
 
         }
 
-//        @Override
-//        public void onClick(View v) {
-//            this.itemClickListener.onClick(v,getLayoutPosition());
-//        }
-//
-//        public void setItemClickListener(RecyclerViewItemClickListener ic)
-//        {
-//            this.itemClickListener=ic;
-//
-//        }
+        @Override
+        public void onClick(View v) {
+            this.itemClickListener.onClick(v,getLayoutPosition());
+        }
+
+        public void setItemClickListener(RecyclerViewItemClickListener ic)
+        {
+            this.itemClickListener=ic;
+
+        }
     }
 }
 

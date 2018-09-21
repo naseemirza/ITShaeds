@@ -11,15 +11,16 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
 import android.widget.TextView;
 
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.ManagAuthUsers.MangAuthUsersActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.Profile.ProfileActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.ParentActivity;
 import tbs.thinkbiz.solutions.itshades.LoginActivity;
-import tbs.thinkbiz.solutions.itshades.Main2Activity;
 import tbs.thinkbiz.solutions.itshades.R;
 
 public class CorpMainActivity extends AppCompatActivity
@@ -28,7 +29,7 @@ public class CorpMainActivity extends AppCompatActivity
     WebView mywebview;
     ProgressDialog progressDialog;
 
-    String username,usermail;
+    String username,usermail,Userid;
     TextView textViewname,textViewemail;
 
     @Override
@@ -42,6 +43,9 @@ public class CorpMainActivity extends AppCompatActivity
         SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         username = pref.getString("Username", "");
         usermail = pref.getString("email", "");
+        Userid = pref.getString("userid", "");
+
+        Log.e("userid",Userid);
 
 
 //        mywebview = (WebView) findViewById(R.id.webView1);
@@ -102,12 +106,16 @@ public class CorpMainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(tbs.thinkbiz.solutions.itshades.R.id.drawer_layout);
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
+
             super.onBackPressed();
         }
+
+
     }
 
     @Override
@@ -138,20 +146,64 @@ public class CorpMainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == tbs.thinkbiz.solutions.itshades.R.id.nav_profile) {
-            startActivity(new Intent(CorpMainActivity.this,ProfileActivity.class));
+        if (id == R.id.nav_profile) {
+
+            String actname="Profile";
+
+            SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor edit = pref.edit();
+
+            edit.putString("Actvname",actname);
+
+            edit.commit();
+            Intent intent=new Intent(CorpMainActivity.this,ProfileActivity.class);
+            startActivity(intent);
             // Handle the camera action
-        } else if (id == tbs.thinkbiz.solutions.itshades.R.id.nav_subm) {
-           startActivity(new Intent(CorpMainActivity.this,ParentActivity.class));
+        } else if (id == R.id.nav_subm) {
+
+            String actname="Submission Links";
+
+            SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor edit = pref.edit();
+
+            edit.putString("Actvname",actname);
+
+            edit.commit();
+            Intent intent=new Intent(CorpMainActivity.this,ParentActivity.class);
+            startActivity(intent);
+           //startActivity(new Intent(CorpMainActivity.this,ParentActivity.class));
         } if (id == R.id.nav_logout) {
-            startActivity(new Intent(CorpMainActivity.this,LoginActivity.class));
 
-        }else if (id == tbs.thinkbiz.solutions.itshades.R.id.nav_authuser) {
+            String actname="Profile";
 
+            SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor edit = pref.edit();
+
+            edit.putString("Actvname",actname);
+
+            edit.commit();
+            Intent intent=new Intent(CorpMainActivity.this,LoginActivity.class);
+            startActivity(intent);
+            //startActivity(new Intent(CorpMainActivity.this,LoginActivity.class));
+
+        }else if (id == R.id.nav_authuser) {
+
+            String actname=" Manage Authorized Users";
+
+            SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor edit = pref.edit();
+
+            edit.putString("Actvname",actname);
+
+            edit.commit();
+            Intent intent=new Intent(CorpMainActivity.this,MangAuthUsersActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(tbs.thinkbiz.solutions.itshades.R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }

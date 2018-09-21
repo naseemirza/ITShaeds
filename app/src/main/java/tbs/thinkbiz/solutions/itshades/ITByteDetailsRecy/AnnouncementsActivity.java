@@ -47,7 +47,7 @@ public class AnnouncementsActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setCustomView(R.layout.backandfilterbar);
+        getSupportActionBar().setCustomView(R.layout.backbar);
         View view =getSupportActionBar().getCustomView();
 
         SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
@@ -67,24 +67,6 @@ public class AnnouncementsActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-//        ImageButton imageButton2= (ImageButton)view.findViewById(R.id.action_bar_forward);
-//
-//        imageButton2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String actname ="Filtration";
-//                SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-//                SharedPreferences.Editor edit = pref.edit();
-//                edit.putString("Actvname",actname );
-//
-//                edit.commit();
-//                Intent intent=new Intent(OnlineTrainingActivity.this,FilterAllActivity.class);
-//
-//                startActivity(intent);
-//            }
-//        });
-
 
 
         // Jobs Title names

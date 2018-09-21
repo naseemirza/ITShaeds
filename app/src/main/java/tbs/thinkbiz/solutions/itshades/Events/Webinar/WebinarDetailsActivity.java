@@ -73,7 +73,7 @@ public class WebinarDetailsActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setCustomView(R.layout.backandfilterbar);
+        getSupportActionBar().setCustomView(R.layout.backbar);
         View view = getSupportActionBar().getCustomView();
 
         SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
@@ -95,25 +95,6 @@ public class WebinarDetailsActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-        //ImageButton imageButton2= (ImageButton)view.findViewById(R.id.action_bar_forward);
-
-//        imageButton2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String actname ="Current Job Filter";
-//                SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-//                SharedPreferences.Editor edit = pref.edit();
-//
-//                edit.putString("Actvname",actname);
-//
-//                edit.commit();
-//                Intent intent = new Intent(CurrentJobActivity.this, CrntJobFilterActivity.class);
-//                startActivity(intent);
-//
-//                //startActivity(new Intent(CurrentJobActivity.this,CrntJobFilterActivity.class));
-//            }
-//        });
 
         textViewTitle = (TextView) findViewById(R.id.textvpost);
         indstry = (TextView) findViewById(R.id.indrel);
@@ -162,7 +143,7 @@ public class WebinarDetailsActivity extends AppCompatActivity {
         mRecyclerview.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         mRecyclerview.setHasFixedSize(true);
 
-        //parseJSON();
+        parseJSON();
 
 
         //Related
@@ -174,16 +155,19 @@ public class WebinarDetailsActivity extends AppCompatActivity {
         mRecyclerview1.setNestedScrollingEnabled(false);
         mRecyclerview1.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         mRecyclerview1.setHasFixedSize(true);
+        parseJSON1();
 
-        //parseJSON1();
     }
+
+
+    //Related
 
     private void parseJSON1() {
 
         final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
 
-        String url = ""+id;
+        String url = "https://www.itshades.com/appwebservices/webinar-related.php?id="+id;
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
@@ -238,12 +222,14 @@ public class WebinarDetailsActivity extends AppCompatActivity {
     }
 
 
+    //TableData
+
     private void parseJSON() {
 
         final ProgressBar progressBar1 = (ProgressBar) findViewById(R.id.progressBar1);
         progressBar1.setVisibility(View.VISIBLE);
 
-        String Tab_Url = ""+id;
+        String Tab_Url = "https://www.itshades.com/appwebservices/webinar-detail.php?id="+id;
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, Tab_Url,
                 new Response.Listener<String>() {

@@ -16,7 +16,7 @@
         <!--android:textStyle="bold"-->
         <!--android:textColor="@color/green"-->
         <!--android:textSize="15dp"-->
-        <!--android:text="Company Profile" />-->
+        <!--android:text="CompProfileModelfile" />-->
 
 
     <TextView

@@ -124,14 +124,38 @@
         <activity android:name=".ITByteDetailsRecy.MiscellaneousActivity" />
         <activity android:name=".ITByteDetailsRecy.AnnouncementsActivity" />
         <activity android:name=".ITBytes.ITBytDetailsActivity11" />
-        <activity
-            android:name=".CorpCustomer.BusinessUserActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".LearningAndDevelopment.LandDetailsActivity" />
         <activity android:name=".LearningAndDevelopment.ContactForm" />
         <activity android:name=".Events.OnlineEvent.OnlineEventDetailsActivity" />
         <activity android:name=".Events.ConfSumm.ConfSummDetailsActivity" />
-        <activity android:name=".Events.Webinar.WebinarDetailsActivity"></activity>
+        <activity android:name=".Events.Webinar.WebinarDetailsActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.JobSubmission.AddnewJobActivity" />
+        <activity android:name=".CorpCustomer.ManagAuthUsers.MangAuthUsersActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.JobSubmission.JobSubmiActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.JobSubmission.EditViewActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.SolutionsB.ProdAndPlatfActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.SolutionsB.ITConsAndServActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.SolutionsB.IndsSolutActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.LearnAndDevlp.OnlnTrangActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.LearnAndDevlp.ClassRmTrngActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.LearnAndDevlp.CertifictinActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.LearnAndDevlp.OnDemndTrngActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.ArtifactsB.AnalysReprtActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.ArtifactsB.WhtPapersActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.ArtifactsB.CustScsStoriesActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.MarkEvents.OnlinEvntsActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.MarkEvents.ConfAndSummtsActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.ClassifiedsB.ClassifidsBActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.Blog.BlogActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.WebinarB.WebinarBActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.MyEmployer.MyEmployerActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.SolutionsB.SolutionBActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.LearnAndDevlp.LearngAndDevActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.ArtifactsB.ArtifactsBActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.MarkEvents.MarktngEvntsActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.LearnAndDevlp.LnDCorpEditActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.ArtifactsB.ArtEditActivity" />
+        <activity android:name=".CorpCustomer.Profile.CompanySiteActivity" />
     </application>
 
 </manifest>

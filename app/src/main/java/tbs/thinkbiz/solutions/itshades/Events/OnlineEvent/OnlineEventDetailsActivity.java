@@ -73,7 +73,7 @@ public class OnlineEventDetailsActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setCustomView(R.layout.backandfilterbar);
+        getSupportActionBar().setCustomView(R.layout.backbar);
         View view = getSupportActionBar().getCustomView();
 
         SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
@@ -96,24 +96,6 @@ public class OnlineEventDetailsActivity extends AppCompatActivity {
             }
         });
 
-        //ImageButton imageButton2= (ImageButton)view.findViewById(R.id.action_bar_forward);
-
-//        imageButton2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String actname ="Current Job Filter";
-//                SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-//                SharedPreferences.Editor edit = pref.edit();
-//
-//                edit.putString("Actvname",actname);
-//
-//                edit.commit();
-//                Intent intent = new Intent(CurrentJobActivity.this, CrntJobFilterActivity.class);
-//                startActivity(intent);
-//
-//                //startActivity(new Intent(CurrentJobActivity.this,CrntJobFilterActivity.class));
-//            }
-//        });
 
         textViewTitle = (TextView) findViewById(R.id.textvpost);
         indstry = (TextView) findViewById(R.id.indrel);

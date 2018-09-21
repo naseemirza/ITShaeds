@@ -3,6 +3,8 @@ package tbs.thinkbiz.solutions.itshades.Jobs;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -173,4 +175,6 @@ public class CurrentJobActivity extends AppCompatActivity {
         mRequestQueue1 = Volley.newRequestQueue(this);
         mRequestQueue1.add(stringRequest);
     }
+
+
 }

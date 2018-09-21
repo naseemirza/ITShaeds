@@ -24,6 +24,8 @@ public class AllUrls {
     public static final String CONFIRMSUMMITS="https://www.itshades.com/appwebservices/inperson-events.php";
     public static final String WEBINAR="https://www.itshades.com/appwebservices/webinar.php";
 
+    //public static final String uid="329";
+
     public static final String CONTACT_US="";
 
 

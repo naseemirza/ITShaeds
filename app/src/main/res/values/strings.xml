@@ -32,7 +32,7 @@
        </string>
 
     <string name="user_id_login">User id</string>
-    <string name="passwordtext_login">Password(6 or more characters)*</string>
+    <string name="passwordtext_login">Password(5 or more characters)*</string>
     <string name="signuptext_login">Sign Up here if not already registered ?</string>
     <string name="registered_textlogin">Register</string>
     <string name="forgot_passwordtextlogin">Forgot Password</string>
@@ -153,5 +153,8 @@
         Given Platform running expenses and staff costs, If ITshades.com need to change your subscription
         from $0 Cost to a paid basis at end of first year, we will inform you beforehand about the paid plans
         and you can choose to decide to stay with ITshades.com accordingly.</string>
+    <string name="aboutitshades">ITshades.com has been founded with singular aim of engaging and enabling
+        the Talent with opportunities, learnings, best practices, collaboration and innovation from IT industry
+        for best and brightest of businesses, professionals and students.</string>
 
 </resources>

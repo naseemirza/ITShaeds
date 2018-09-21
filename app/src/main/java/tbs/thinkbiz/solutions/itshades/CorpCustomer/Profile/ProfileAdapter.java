@@ -2,6 +2,7 @@ package tbs.thinkbiz.solutions.itshades.CorpCustomer.Profile;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,10 +23,10 @@ import java.util.List;
 
 public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHolder> {
 
-    private List<Profile> parentList;
+    private List<ProfileModel> parentList;
     private Context mCtx;
 
-    public ProfileAdapter(Context context, List<Profile> apps){
+    public ProfileAdapter(Context context, List<ProfileModel> apps){
         mCtx=context;
         parentList=apps;
 
@@ -40,7 +41,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(final ProfileAdapter.ViewHolder holder, int position) {
-        final Profile app=parentList.get(position);
+        final ProfileModel app=parentList.get(position);
 
         final String Pname = app.getName();
         //String imageurl = app.getImageUrl();
@@ -59,7 +60,15 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
 
 
                 if (position == 0){
-                    Intent intent0 =  new Intent(mCtx, CmpProfileActivity.class);
+                    String actname="Company Site";
+                    SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor edit = pref.edit();
+
+                    edit.putString("Actvname",actname);
+
+                    edit.commit();
+
+                    Intent intent0 =  new Intent(mCtx, CompanySiteActivity.class);
                     mCtx.startActivity(intent0);
                 } else if (position == 1){
                     Intent  intent1 =  new Intent(mCtx, AccDetailsActivity.class);

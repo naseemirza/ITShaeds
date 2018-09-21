@@ -75,7 +75,7 @@ public class LandDetailsActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setCustomView(R.layout.backandfilterbar);
+        getSupportActionBar().setCustomView(R.layout.backbar);
         View view = getSupportActionBar().getCustomView();
 
         SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
@@ -84,6 +84,8 @@ public class LandDetailsActivity extends AppCompatActivity {
         Actname = pref.getString("Actvname", "");
         id = pref.getString("Id", "");
         CatId = pref.getString("CatId", "");
+
+        Log.e("id",id);
 
 
         textname = (TextView) findViewById(R.id.textname);
@@ -97,25 +99,6 @@ public class LandDetailsActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-        //ImageButton imageButton2= (ImageButton)view.findViewById(R.id.action_bar_forward);
-
-//        imageButton2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String actname ="Current Job Filter";
-//                SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-//                SharedPreferences.Editor edit = pref.edit();
-//
-//                edit.putString("Actvname",actname);
-//
-//                edit.commit();
-//                Intent intent = new Intent(CurrentJobActivity.this, CrntJobFilterActivity.class);
-//                startActivity(intent);
-//
-//                //startActivity(new Intent(CurrentJobActivity.this,CrntJobFilterActivity.class));
-//            }
-//        });
 
         textViewTitle = (TextView) findViewById(R.id.textvpost);
         indstry = (TextView) findViewById(R.id.indrel);
@@ -182,8 +165,6 @@ public class LandDetailsActivity extends AppCompatActivity {
 
     }
 
-
-
     private void parseJSON1() {
 
         final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
@@ -249,7 +230,7 @@ public class LandDetailsActivity extends AppCompatActivity {
         final ProgressBar progressBar1 = (ProgressBar) findViewById(R.id.progressBar1);
         progressBar1.setVisibility(View.VISIBLE);
 
-        String Tab_Url=" https://www.itshades.com/appwebservices/learning-development-detail.php?cat_id="+CatId+"&id="+id;
+        String Tab_Url="https://www.itshades.com/appwebservices/learning-development-detail.php?cat_id="+CatId+"&id="+id;
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET,Tab_Url,
                 new Response.Listener<String>() {

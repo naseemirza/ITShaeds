@@ -4,14 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/tools"
     tools:context="tbs.thinkbiz.solutions.itshades.CorpCustomer.Profile.ProfileActivity">
+
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerprofile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-
     </android.support.v7.widget.RecyclerView>
 
+
+
 </RelativeLayout>
+
+
+
+
+

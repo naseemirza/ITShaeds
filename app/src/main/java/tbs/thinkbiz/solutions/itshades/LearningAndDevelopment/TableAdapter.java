@@ -2,6 +2,7 @@ package tbs.thinkbiz.solutions.itshades.LearningAndDevelopment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -50,7 +52,7 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.ProductViewH
         holder.textViewPstdby.setText(product.getPostedby());
         holder.textViewStrdate.setText(product.getStrtdate());
         holder.textViewEndate.setText(product.getEndate());
-        holder.textViewRes.setText(product.getResource());
+       // holder.textViewRes.setText(product.getResource());
 
 
         holder.textViewRegL.setOnClickListener(new View.OnClickListener() {
@@ -58,9 +60,29 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.ProductViewH
             public void onClick(View v) {
                 String cmpurl=product.getReglink();
                 Log.e("responce", cmpurl);
+                if (!cmpurl.equalsIgnoreCase("")) {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse((cmpurl)));
+                    v.getContext().startActivity(browserIntent);
+                }
+                else {
+                    Toast.makeText(v.getContext(),"No Data",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
-                Intent browserIntent = new Intent( Intent.ACTION_VIEW, Uri.parse((cmpurl)));
-                v.getContext().startActivity(browserIntent);
+        holder.textViewRes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String cmpurl1=product.getReglink();
+                Log.e("responce", cmpurl1);
+
+                if (!cmpurl1.equalsIgnoreCase("")) {
+                    Intent browserIntent1 = new Intent(Intent.ACTION_VIEW, Uri.parse((cmpurl1)));
+                    v.getContext().startActivity(browserIntent1);
+                }
+                else {
+                    Toast.makeText(v.getContext(),"Empty Resource",Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -103,6 +125,7 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.ProductViewH
             textViewStrdate = itemView.findViewById(R.id.tv_strtdate);
             textViewEndate = itemView.findViewById(R.id.tv_Enddate);
             textViewRes = itemView.findViewById(R.id.tv_Resorce);
+            textViewRes.setPaintFlags(textViewRes.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
 
 

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -51,6 +52,7 @@ public class LoginActivity extends AppCompatActivity
     ProgressDialog progressDialog;
     String userrole;
 
+   //public static String uid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +61,8 @@ public class LoginActivity extends AppCompatActivity
 
         editTextmail = (EditText) findViewById(R.id.editTextU);
         editTextpass = (EditText) findViewById(R.id.editTextP);
+
+
 
         forgotpass = (TextView) findViewById(R.id.textViewfrgt);
 
@@ -98,7 +102,7 @@ public class LoginActivity extends AppCompatActivity
 
 
         spiner = (Spinner) findViewById(R.id.spinner);
-        spiner.setFocusable(true);
+        //spiner.setFocusable(false);
         spiner.setFocusableInTouchMode(true);
 
         String[] users = new String[]{
@@ -122,15 +126,15 @@ public class LoginActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
 
-//                if(isValidate())
-//                {
-//                    Loginbtn();
-//                }
+                if(isValidate())
+                {
+                    Loginbtn();
+                }
 
-                Intent intent=new Intent(LoginActivity.this,Main2Activity.class);
-                startActivity(intent);
+//                Intent intent=new Intent(LoginActivity.this,Main2Activity.class);
+//                startActivity(intent);
 
-//                Intent intent=new Intent(LoginActivity.this,BusinessUserActivity.class);
+//                Intent intent=new Intent(LoginActivity.this,CorpMainActivity.class);
 //                startActivity(intent);
 
             }
@@ -176,7 +180,7 @@ public class LoginActivity extends AppCompatActivity
                     return false;
                 }
                 if (pos==0){
-                    spiner.requestFocus();
+                    //spiner.requestFocus();
                     Toast.makeText(LoginActivity.this, "Select User Type", Toast.LENGTH_LONG).show();
                     return false;
                 }
@@ -206,6 +210,7 @@ public class LoginActivity extends AppCompatActivity
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+
                         Log.e("resp", response);
                         progressDialog.dismiss();
 
@@ -214,6 +219,14 @@ public class LoginActivity extends AppCompatActivity
                             String success= obj.getString("s");
                             String error= obj.getString("e");
                             String msg=obj.getString("m");
+                            String uid=obj.getString("userid");
+
+                           // SharedPreferences.Editor editor = getSharedPreferences("MyPrefs", MODE_PRIVATE).edit();
+                            //editor.putString("userid", uid);
+                            //editor.commit();
+
+
+                            Log.e("resp", uid);
 
                             if (success.equalsIgnoreCase("1"))
                             {
@@ -223,6 +236,8 @@ public class LoginActivity extends AppCompatActivity
                                     SharedPreferences.Editor edit = pref.edit();
                                     edit.putString("Username",usertype);
                                     edit.putString("email",email);
+                                    edit.putString("userid",uid);
+
                                     Log.e("resp", usertype);
 
                                     Toast.makeText(LoginActivity.this, msg, Toast.LENGTH_SHORT).show();
@@ -235,13 +250,13 @@ public class LoginActivity extends AppCompatActivity
 
                                 }
 
-
                              else if (userrole.equals("2")){
 
                                     SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                                     SharedPreferences.Editor edit = pref.edit();
                                     edit.putString("Username",usertype);
                                     edit.putString("email",email);
+                                    edit.putString("userid",uid);
 
                                     Log.e("resp", usertype);
 
@@ -293,37 +308,6 @@ public class LoginActivity extends AppCompatActivity
     }
 
 
-//    public void SetError(String errorMessage)
-//    {
-//        View view = spiner.getSelectedView();
-//
-//        // Set TextView in Secondary Unit spinner to be in error so that red (!) icon
-//        // appears, and then shake control if in error
-//        TextView tvListItem = (TextView)view;
-//
-//        // Set fake TextView to be in error so that the error message appears
-//        TextView tvInvisibleError = (TextView)findViewById(R.id.tvInvisibleError);
-//
-//        // Shake and set error if in error state, otherwise clear error
-//        if(errorMessage != null)
-//        {
-//            tvListItem.setError(errorMessage);
-//            tvListItem.requestFocus();
-//
-//            // Shake the spinner to highlight that current selection
-//            // is invalid -- SEE COMMENT BELOW
-//            //Animation shake = AnimationUtils.loadAnimation(this, R.anim.shake);
-//            //spiner.startAnimation(shake);
-//
-//            tvInvisibleError.requestFocus();
-//            tvInvisibleError.setError(errorMessage);
-//        }
-//        else
-//        {
-//            tvListItem.setError(null);
-//            tvInvisibleError.setError(null);
-//        }
-//    }
 
     @Override
     public void onBackPressed() {
@@ -342,20 +326,6 @@ public class LoginActivity extends AppCompatActivity
         return true;
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a Parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override

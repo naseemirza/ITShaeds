@@ -21,6 +21,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import tbs.thinkbiz.solutions.itshades.ITBytes.ITbytdetailsAdapter;
 import tbs.thinkbiz.solutions.itshades.ITBytes.ITbytdetalsmodel;
+import tbs.thinkbiz.solutions.itshades.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -46,7 +47,7 @@ public class SolutionsActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setCustomView(tbs.thinkbiz.solutions.itshades.R.layout.backandfilterbar);
+        getSupportActionBar().setCustomView(R.layout.backbar);
         View view =getSupportActionBar().getCustomView();
 
         SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
@@ -55,10 +56,10 @@ public class SolutionsActivity extends AppCompatActivity {
         pos=pref.getString("position","");
 
         Actname=pref.getString("Actvname","");
-        textname=(TextView)findViewById(tbs.thinkbiz.solutions.itshades.R.id.textname);
+        textname=(TextView)findViewById(R.id.textname);
         textname.setText(Actname);
 
-        ImageButton imageButton= (ImageButton)view.findViewById(tbs.thinkbiz.solutions.itshades.R.id.action_bar_back);
+        ImageButton imageButton= (ImageButton)view.findViewById(R.id.action_bar_back);
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,31 +68,13 @@ public class SolutionsActivity extends AppCompatActivity {
             }
         });
 
-//        ImageButton imageButton2= (ImageButton)view.findViewById(R.id.action_bar_forward);
-//
-//        imageButton2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String actname ="Filtration";
-//                SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-//                SharedPreferences.Editor edit = pref.edit();
-//                edit.putString("Actvname",actname );
-//
-//                edit.commit();
-//                Intent intent=new Intent(OnlineTrainingActivity.this,FilterAllActivity.class);
-//
-//                startActivity(intent);
-//            }
-//        });
-
-
 
         // Jobs Title names
 
         mExampleList1 = new ArrayList<>();
         mRequestQueue1 = Volley.newRequestQueue(this);
 
-        mRecyclerview1=(RecyclerView)findViewById(tbs.thinkbiz.solutions.itshades.R.id.my_recycler_jobs);
+        mRecyclerview1=(RecyclerView)findViewById(R.id.my_recycler_jobs);
         mRecyclerview1.setNestedScrollingEnabled(false);
         mRecyclerview1.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         mRecyclerview1.setHasFixedSize(true);
@@ -101,7 +84,7 @@ public class SolutionsActivity extends AppCompatActivity {
     }
     private void parseJSON1() {
 
-        final ProgressBar progressBar = (ProgressBar) findViewById(tbs.thinkbiz.solutions.itshades.R.id.progressBar);
+        final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
         String rurl = "https://www.itshades.com/appwebservices/industry-update.php?year="+year+"&month_edition="+month_edition+"&catid="+pos+"";
         // Log.e("Url",rurl);
