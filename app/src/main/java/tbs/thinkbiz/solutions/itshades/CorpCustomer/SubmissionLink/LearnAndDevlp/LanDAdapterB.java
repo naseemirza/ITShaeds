@@ -56,20 +56,17 @@ public class LanDAdapterB extends RecyclerView.Adapter<LanDAdapterB.ViewHolder> 
 
                    SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                    SharedPreferences.Editor edit = pref.edit();
-
                    edit.putString("Actvname",actname);
                    edit.putString("CatId",CatId);
-
                    edit.commit();
                    Intent intent0 =  new Intent(mCtx, OnlnTrangActivity.class);
                    mCtx.startActivity(intent0);
                } else if (position == 1){
                    String actname="Classroom Training";
-                   String CatId="2";
 
+                   String CatId="2";
                    SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                    SharedPreferences.Editor edit = pref.edit();
-
                    edit.putString("Actvname",actname);
                    edit.putString("CatId",CatId);
 
@@ -82,10 +79,8 @@ public class LanDAdapterB extends RecyclerView.Adapter<LanDAdapterB.ViewHolder> 
 
                    SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                    SharedPreferences.Editor edit = pref.edit();
-
                    edit.putString("Actvname",actname);
                    edit.putString("CatId",CatId);
-
                    edit.commit();
                    Intent intent0 =  new Intent(mCtx, CertifictinActivity.class);
                    mCtx.startActivity(intent0);
@@ -95,10 +90,8 @@ public class LanDAdapterB extends RecyclerView.Adapter<LanDAdapterB.ViewHolder> 
 
                    SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                    SharedPreferences.Editor edit = pref.edit();
-
                    edit.putString("Actvname",actname);
                    edit.putString("CatId",CatId);
-
                    edit.commit();
                    Intent intent0 =  new Intent(mCtx, OnDemndTrngActivity.class);
                    mCtx.startActivity(intent0);
