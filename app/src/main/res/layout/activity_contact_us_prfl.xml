@@ -27,10 +27,9 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:text="Reason"
-        android:textStyle="bold"
         android:textAllCaps="false"
         android:textColor="@color/colorBlack"
-        android:textSize="15dp" />
+        android:textSize="15sp" />
 
     <Spinner
         android:id="@+id/spinner2"
@@ -53,6 +52,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
                 android:textSize="12dp"
+                android:visibility="gone"
                 android:paddingStart="10dp"
                 android:layout_width="match_parent"
                 android:hint="Your Company Name"
@@ -66,6 +66,7 @@
             <EditText
                 android:id="@+id/editTextmail"
                 android:layout_below="@+id/editTextadmin"
+                android:visibility="gone"
                 android:textCursorDrawable="@color/colorBlack"
                 android:background="@color/colorWhite"
                 android:layout_marginTop="15dp"
@@ -85,6 +86,7 @@
             <EditText
                 android:id="@+id/editTextphone"
                 android:layout_below="@+id/editTextmail"
+                android:visibility="gone"
                 android:textCursorDrawable="@color/colorBlack"
                 android:background="@color/colorWhite"
                 android:layout_marginTop="15dp"
@@ -101,6 +103,7 @@
             <EditText
                 android:id="@+id/editTextmsg"
                 android:layout_below="@+id/editTextphone"
+                android:visibility="gone"
                 android:textCursorDrawable="@color/colorBlack"
                 android:background="@color/colorWhite"
                 android:layout_marginTop="15dp"
@@ -141,13 +144,13 @@
         android:id="@+id/buttonsendmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="visible"
         android:textSize="10dp"
         android:textColor="@color/colorWhite"
         android:textAllCaps="false"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginTop="20dp"
+        android:visibility="gone"
         android:layout_marginBottom="20dp"
         android:textStyle="bold"
         android:text="Send Mail"

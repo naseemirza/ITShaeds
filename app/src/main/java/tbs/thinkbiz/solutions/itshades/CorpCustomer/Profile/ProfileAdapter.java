@@ -74,12 +74,33 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
                     Intent  intent1 =  new Intent(mCtx, AccDetailsActivity.class);
                     mCtx.startActivity(intent1);
                 } else if (position == 2){
+                    String actname="Change Password";
+                    SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor edit = pref.edit();
+
+                    edit.putString("Actvname",actname);
+
+                    edit.commit();
                     Intent intent2 =  new Intent(mCtx, ChangePassActivity.class);
                     mCtx.startActivity(intent2);
                }else if (position == 3) {
+                    String actname="Invite To Friends";
+                    SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor edit = pref.edit();
+
+                    edit.putString("Actvname",actname);
+
+                    edit.commit();
                     Intent intent3 = new Intent(mCtx, InviteFrndsActivity.class);
                     mCtx.startActivity(intent3);
                 }else if (position == 4) {
+                    String actname="Contact us";
+                    SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor edit = pref.edit();
+
+                    edit.putString("Actvname",actname);
+
+                    edit.commit();
                     Intent intent4 = new Intent(mCtx, ContactUsPrflActivity.class);
                     mCtx.startActivity(intent4);
                 }

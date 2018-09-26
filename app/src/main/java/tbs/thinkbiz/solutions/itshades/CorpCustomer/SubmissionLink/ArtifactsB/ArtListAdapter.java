@@ -100,7 +100,7 @@ public class ArtListAdapter extends RecyclerView.Adapter<ArtListAdapter.ProductV
             mCtx=itemView.getContext();
 
             tvtitlename = itemView.findViewById(R.id.titlenametv);
-            tvindsrelv = itemView.findViewById(R.id.indsrel);
+            tvindsrelv = itemView.findViewById(R.id.email);
             tvfocsara = itemView.findViewById(R.id.fcsar1);
             tvuserprice = itemView.findViewById(R.id.userprice);
             tvaddeddate = itemView.findViewById(R.id.addatetv);

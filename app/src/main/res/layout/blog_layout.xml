@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="1dp"
+    android:clickable="true"
+    card_view:cardElevation="1dp">
+
+    <RelativeLayout
+        android:id="@+id/re1"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/liname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:clickable="true"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/nameTextview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:clickable="true"
+                android:text="Job Title : "
+                android:textColor="@color/green"
+                android:textSize="16sp" />
+
+            <TextView
+
+                android:id="@+id/parent_id"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:clickable="false"
+            android:id="@+id/editbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_edit_black_24dp" />
+
+        <TextView
+            android:id="@+id/titlenametv"
+            android:clickable="true"
+            android:layout_below="@+id/liname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:text="Software Development Specialist	"
+            android:textAlignment="viewStart"
+            tools:ignore="RtlCompat" />
+
+        <LinearLayout
+            android:id="@+id/linhrz"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/titlenametv"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:clickable="true"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/indrelty"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/green"
+                android:clickable="true"
+                android:text="Short Desc : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp" />
+
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:text="Desc" />
+
+
+        </LinearLayout>
+
+        <!--<LinearLayout-->
+            <!--android:id="@+id/linhrz1"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_below="@+id/linhrz"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:clickable="true"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/fcsar"-->
+                <!--android:layout_marginStart="10dp"-->
+                <!--android:textColor="@color/green"-->
+                <!--android:clickable="true"-->
+                <!--android:text="Focus Area : "-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="10dp" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/fcsar1"-->
+                <!--android:clickable="true"-->
+                <!--android:text=" Digital"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content" />-->
+
+
+        <!--</LinearLayout>-->
+
+        <!--<LinearLayout-->
+
+            <!--android:id="@+id/linhrz2"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_below="@+id/linhrz1"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:clickable="true"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/userprice1"-->
+                <!--android:layout_marginStart="10dp"-->
+                <!--android:textColor="@color/green"-->
+                <!--android:text="User Price Per Unit : "-->
+                <!--android:clickable="true"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="10dp" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/userprice"-->
+                <!--android:clickable="true"-->
+                <!--android:text=" user price"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content" />-->
+
+
+        <!--</LinearLayout>-->
+
+
+        <!--<LinearLayout-->
+            <!--android:id="@+id/linhrz3"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_below="@+id/linhrz"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:clickable="true"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/adate"-->
+                <!--android:layout_marginStart="10dp"-->
+                <!--android:textColor="@color/green"-->
+                <!--android:text="Added Date : "-->
+                <!--android:clickable="true"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="10dp" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/addatetv"-->
+                <!--android:clickable="true"-->
+                <!--android:text=" added date"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content" />-->
+
+
+        <!--</LinearLayout>-->
+
+        <LinearLayout
+            android:id="@+id/linhrz4"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/linhrz"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/status"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/green"
+                android:text="Status : "
+                android:clickable="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp" />
+
+            <TextView
+                android:id="@+id/statustv"
+                android:clickable="true"
+                android:text=" Status"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

@@ -117,7 +117,7 @@ public class JobSubAdapter extends RecyclerView.Adapter<JobSubAdapter.ProductVie
         public ProductViewHolder(final View itemView) {
             super(itemView);
             mCtx=itemView.getContext();
-            titletext = itemView.findViewById(R.id.indsrel);
+            titletext = itemView.findViewById(R.id.email);
             keytext = itemView.findViewById(R.id.kskls);
             desctext = itemView.findViewById(R.id.desc);
             editable = (ImageView) itemView.findViewById(R.id.editbtn);

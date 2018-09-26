@@ -73,6 +73,7 @@ public class ParentActivity extends AppCompatActivity {
         productList1.add(new Parent("Classifieds"));
         productList1.add(new Parent("Blog"));
         productList1.add(new Parent("Webinar"));
+        productList1.add(new Parent("My Employer"));
 
 
         ParentAdapter adapter1 = new ParentAdapter(this, productList1);

@@ -10,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -35,6 +36,7 @@ public class OnDemndTrngActivity extends AppCompatActivity {
     String Actname;
     TextView textname;
     String uid, CatId;
+    Button addondmnd;
 
     //Table Data
 
@@ -86,6 +88,23 @@ public class OnDemndTrngActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(OnDemndTrngActivity.this,FilterAllActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        addondmnd=(Button)findViewById(R.id.addnewjob);
+        addondmnd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String actname="Add New On Demand Training";
+                SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor edit = pref.edit();
+
+                edit.putString("Actvname",actname);
+                edit.commit();
+
+                Intent intent=  new Intent(OnDemndTrngActivity.this,AddNewLnDActivity.class);
                 startActivity(intent);
             }
         });

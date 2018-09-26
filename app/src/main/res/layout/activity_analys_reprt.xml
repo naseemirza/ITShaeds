@@ -6,11 +6,35 @@
     android:layout_height="match_parent"
     tools:context="tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.ArtifactsB.AnalysReprtActivity">
 
+    <LinearLayout
+        android:id="@+id/addjob"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/addnewjob"
+            android:text="Add New Analyst Report"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/buttoncorner"
+            android:textColor="@color/colorWhite"
+            android:textAllCaps="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
     <RelativeLayout
+        android:layout_marginTop="10dp"
         android:id="@+id/re1"
+        android:layout_below="@+id/addjob"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/gray">
+
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/my_recycler_jobs1"

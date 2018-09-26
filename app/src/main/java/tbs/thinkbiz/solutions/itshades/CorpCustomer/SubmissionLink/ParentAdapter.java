@@ -13,11 +13,16 @@ import android.widget.TextView;
 
 import tbs.thinkbiz.solutions.itshades.AllUrls;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.ArtifactsB.ArtifactsBActivity;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.Blog.BlogActivity;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.ClassifiedsB.ClassifidsBActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.JobSubmission.JobSubmiActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.LearngAndDevActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.MarkEvents.MarktngEvntsActivity;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.MyEmployer.MyEmployerActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.SolutionsB.ProdAndPlatfActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.SolutionsB.SolutionBActivity;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.WebinarB.WebinarBActivity;
+import tbs.thinkbiz.solutions.itshades.Events.Webinar.WebinarActivity;
 import tbs.thinkbiz.solutions.itshades.Jobs.JobsActivity;
 import tbs.thinkbiz.solutions.itshades.Main2Activity;
 import tbs.thinkbiz.solutions.itshades.R;
@@ -113,6 +118,50 @@ public class ParentAdapter extends RecyclerView.Adapter<ParentAdapter.ViewHolder
 
                     edit.commit();
                     Intent intent0 =  new Intent(mCtx, MarktngEvntsActivity.class);
+                    mCtx.startActivity(intent0);
+                }else if (position == 5){
+                    String actname="Classifieds";
+
+                    SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor edit = pref.edit();
+
+                    edit.putString("Actvname",actname);
+
+                    edit.commit();
+                    Intent intent0 =  new Intent(mCtx, ClassifidsBActivity.class);
+                    mCtx.startActivity(intent0);
+                }else if (position == 6){
+                    String actname="Blog";
+
+                    SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor edit = pref.edit();
+
+                    edit.putString("Actvname",actname);
+
+                    edit.commit();
+                    Intent intent0 =  new Intent(mCtx, BlogActivity.class);
+                    mCtx.startActivity(intent0);
+                } else if (position == 7){
+                    String actname="Webinar";
+
+                    SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor edit = pref.edit();
+
+                    edit.putString("Actvname",actname);
+
+                    edit.commit();
+                    Intent intent0 =  new Intent(mCtx, WebinarBActivity.class);
+                    mCtx.startActivity(intent0);
+                } else if (position == 8){
+                    String actname="My Employer";
+
+                    SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor edit = pref.edit();
+
+                    edit.putString("Actvname",actname);
+
+                    edit.commit();
+                    Intent intent0 =  new Intent(mCtx, MyEmployerActivity.class);
                     mCtx.startActivity(intent0);
                 }
 

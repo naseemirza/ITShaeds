@@ -10,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -27,10 +28,12 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.AddNewLnDActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.CertifictinActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.LearngAndDevActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.ListAdapterB;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.ListModelB;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.OnlnTrangActivity;
 import tbs.thinkbiz.solutions.itshades.R;
 import tbs.thinkbiz.solutions.itshades.Solutions.FilterAllActivity;
 
@@ -39,6 +42,7 @@ public class AnalysReprtActivity extends AppCompatActivity {
     String Actname;
     TextView textname;
     String uid, CatId;
+    Button addAnlysyrprt;
 
     //Table Data
 
@@ -93,6 +97,23 @@ public class AnalysReprtActivity extends AppCompatActivity {
 //                startActivity(intent);
 //            }
 //        });
+
+        addAnlysyrprt=(Button)findViewById(R.id.addnewjob);
+        addAnlysyrprt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String actname="Add New Analyst Report";
+                SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor edit = pref.edit();
+
+                edit.putString("Actvname",actname);
+                edit.commit();
+
+                Intent intent=  new Intent(AnalysReprtActivity.this,AddNewArtifactsActivity.class);
+                startActivity(intent);
+            }
+        });
 
         //TableData
 

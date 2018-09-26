@@ -100,7 +100,7 @@ public class ListAdapterB extends RecyclerView.Adapter<ListAdapterB.ProductViewH
             mCtx=itemView.getContext();
 
             tvtitlename = itemView.findViewById(R.id.titlenametv);
-            tvindsrelv = itemView.findViewById(R.id.indsrel);
+            tvindsrelv = itemView.findViewById(R.id.email);
             tvfocsara = itemView.findViewById(R.id.fcsar1);
             tvuserprice = itemView.findViewById(R.id.userprice);
             tvaddeddate = itemView.findViewById(R.id.addatetv);

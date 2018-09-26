@@ -156,6 +156,19 @@
         <activity android:name=".CorpCustomer.SubmissionLink.LearnAndDevlp.LnDCorpEditActivity" />
         <activity android:name=".CorpCustomer.SubmissionLink.ArtifactsB.ArtEditActivity" />
         <activity android:name=".CorpCustomer.Profile.CompanySiteActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.MarkEvents.EvntEditActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.Blog.BlogEditActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.WebinarB.WebinarEditActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.WebinarB.AddNewWebinarActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.LearnAndDevlp.AddNewLnDActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.ArtifactsB.AddNewArtifactsActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.MarkEvents.AddNewOnlnEvntActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.MarkEvents.AddNewConfnSumtActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.Blog.AddNewBlogActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.MyEmployer.MyEmpEditActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.MyEmployer.AddNewEmpActivity" />
+        <activity android:name=".CorpCustomer.ManagAuthUsers.ManagAuthEditActivity" />
+        <activity android:name=".CorpCustomer.ManagAuthUsers.AddNewManagActivity"></activity>
     </application>
 
 </manifest>

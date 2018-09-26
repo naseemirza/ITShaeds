@@ -10,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -27,6 +28,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.AddNewLnDActivity;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.OnlnTrangActivity;
 import tbs.thinkbiz.solutions.itshades.R;
 import tbs.thinkbiz.solutions.itshades.Solutions.FilterAllActivity;
 
@@ -35,6 +38,7 @@ public class WhtPapersActivity extends AppCompatActivity {
     String Actname;
     TextView textname;
     String uid, CatId;
+    Button addwhtpaper;
 
     //Table Data
 
@@ -91,6 +95,23 @@ public class WhtPapersActivity extends AppCompatActivity {
 //            }
 //        });
 
+
+        addwhtpaper=(Button)findViewById(R.id.addnewjob);
+        addwhtpaper.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String actname="Add New White Papers";
+                SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor edit = pref.edit();
+
+                edit.putString("Actvname",actname);
+                edit.commit();
+
+                Intent intent=  new Intent(WhtPapersActivity.this,AddNewArtifactsActivity.class);
+                startActivity(intent);
+            }
+        });
         //TableData
 
         mExampleList = new ArrayList<>();

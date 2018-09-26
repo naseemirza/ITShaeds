@@ -10,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -27,6 +28,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.WebinarB.AddNewWebinarActivity;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.WebinarB.WebinarBActivity;
 import tbs.thinkbiz.solutions.itshades.LearningAndDevelopment.LandDetailsActivity;
 import tbs.thinkbiz.solutions.itshades.LearningAndDevelopment.TableAdapter;
 import tbs.thinkbiz.solutions.itshades.LearningAndDevelopment.TableModel;
@@ -39,6 +42,7 @@ public class OnlnTrangActivity extends AppCompatActivity {
     String Actname;
     TextView textname;
     String uid, CatId;
+    Button addonlntrng;
 
     //Table Data
 
@@ -90,6 +94,23 @@ public class OnlnTrangActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(OnlnTrangActivity.this,FilterAllActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        addonlntrng=(Button)findViewById(R.id.addnewjob);
+        addonlntrng.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String actname="Add New Online Training";
+                SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor edit = pref.edit();
+
+                edit.putString("Actvname",actname);
+                edit.commit();
+
+                Intent intent=  new Intent(OnlnTrangActivity.this,AddNewLnDActivity.class);
                 startActivity(intent);
             }
         });

@@ -54,7 +54,7 @@
             android:src="@drawable/ic_edit_black_24dp" />
 
         <TextView
-            android:id="@+id/indsrel"
+            android:id="@+id/email"
             android:clickable="true"
             android:layout_below="@+id/liname"
             android:layout_width="wrap_content"
@@ -71,7 +71,7 @@
             android:id="@+id/likskl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/indsrel"
+            android:layout_below="@+id/email"
             android:layout_marginRight="10dp"
             android:layout_marginTop="5dp"
             android:clickable="true"

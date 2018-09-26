@@ -1,6 +1,8 @@
 package tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.MarkEvents;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,9 +11,13 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.ArtifactsB.AnalysReprtActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.ArtifactsB.ArtifactsAdapterB;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.ArtifactsB.ArtifactsModelB;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.ArtifactsB.CustScsStoriesActivity;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.ArtifactsB.WhtPapersActivity;
 import tbs.thinkbiz.solutions.itshades.R;
+import tbs.thinkbiz.solutions.itshades.RecyclerViewItemClickListener;
 
 /**
  * Created by User on 19-Sep-18.
@@ -43,25 +49,41 @@ public class EventsAdapterB extends RecyclerView.Adapter<EventsAdapterB.ViewHold
         final String Pname = app.getName();
         holder.mTextViewName.setText(Pname);
 
-//        holder.setItemClickListener(new RecyclerViewItemClickListener() {
-//            @Override
-//            public void onClick(View view, int position) {
-//
-//                if (position == 0){
-//                    String actname="Solutions";
-//
-//                    SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-//                    SharedPreferences.Editor edit = pref.edit();
-//
-//                    edit.putString("Actvname",actname);
-//
-//                    edit.commit();
-//                    Intent intent0 =  new Intent(mCtx, SolutionBActivity.class);
-//                    mCtx.startActivity(intent0);
-//                }
-//
-//            }
-//        });
+
+        holder.setItemClickListener(new RecyclerViewItemClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+
+                if (position == 0){
+                    String actname="Online Event";
+                    String CatId="1";
+
+                    SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor edit = pref.edit();
+
+                    edit.putString("Actvname",actname);
+                    edit.putString("CatId",CatId);
+
+                    edit.commit();
+                    Intent intent0 =  new Intent(mCtx, OnlinEvntsActivity.class);
+                    mCtx.startActivity(intent0);
+                } else if (position == 1){
+                    String actname="Conferences & Summits";
+                    String CatId="2";
+
+                    SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor edit = pref.edit();
+
+                    edit.putString("Actvname",actname);
+                    edit.putString("CatId",CatId);
+
+                    edit.commit();
+                    Intent intent1 =  new Intent(mCtx, ConfAndSummtsActivity.class);
+                    mCtx.startActivity(intent1);
+                }
+            }
+        });
+
 
     }
 
@@ -77,29 +99,29 @@ public class EventsAdapterB extends RecyclerView.Adapter<EventsAdapterB.ViewHold
     }
 
     // implements View.OnClickListener
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         public TextView mTextViewName;
 
-        // private RecyclerViewItemClickListener itemClickListener;
+       private RecyclerViewItemClickListener itemClickListener;
 
         public ViewHolder(View itemView) {
 
             super(itemView);
             mTextViewName = (TextView) itemView.findViewById(R.id.listTitle);
-            //itemView.setOnClickListener(this);
+            itemView.setOnClickListener(this);
 
         }
 
-//        @Override
-//        public void onClick(View v) {
-//            this.itemClickListener.onClick(v,getLayoutPosition());
-//        }
-//
-//        public void setItemClickListener(RecyclerViewItemClickListener ic)
-//        {
-//            this.itemClickListener=ic;
-//
-//        }
+        @Override
+        public void onClick(View v) {
+            this.itemClickListener.onClick(v,getLayoutPosition());
+        }
+
+        public void setItemClickListener(RecyclerViewItemClickListener ic)
+        {
+            this.itemClickListener=ic;
+
+        }
     }
 }

@@ -6,15 +6,62 @@
     android:layout_height="match_parent"
     tools:context="tbs.thinkbiz.solutions.itshades.CorpCustomer.Profile.InviteFrndsActivity">
 
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/editText6"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/colorWhite"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textCursorDrawable="@color/darkgray"
+        android:textSize="12sp"
+        android:paddingLeft="10dp"
+        android:layout_marginTop="50dp"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:hint="For Multiple Friends You Have To Write Email Like: abc@xyz.com, def@xyz.com :" />
+
+    <EditText
+        android:id="@+id/editText7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"
+        android:layout_below="@+id/editText6"
+        android:textCursorDrawable="@color/darkgray"
+        android:background="@color/colorWhite"
+        android:gravity="top|left"
+        android:paddingTop="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textSize="12sp"
+        android:paddingStart="10dp"
+        android:hint="Hello, I am inviting you to explore joining www.itshades.com.
+
+ Regards
+ Admin  "
+        android:inputType="textMultiLine"
+        android:paddingLeft="10dp" />
+
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/colorWhite"
         android:textAllCaps="false"
-        android:textColor="@color/green"
-        android:textSize="30dp"
-        android:text="Invite To Friends" />
+        android:textStyle="bold"
+        android:text="Submit"
+        android:layout_below="@+id/editText7"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/buttoncorner" />
 
 </RelativeLayout>
