@@ -1,4 +1,4 @@
-package tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.ArtifactsB;
+package tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.SolutionsB;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -17,9 +17,13 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.AddNewLnDActivity;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.CertifictinActivity;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.ClassRmTrngActivity;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.OnDemndTrngActivity;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.OnlnTrangActivity;
 import tbs.thinkbiz.solutions.itshades.R;
 
-public class AddNewArtifactsActivity extends AppCompatActivity {
+public class AddNewSolutionActivity extends AppCompatActivity {
 
     WebView mywebview;
     ProgressDialog progressDialog;
@@ -31,7 +35,7 @@ public class AddNewArtifactsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_new_artifacts);
+        setContentView(R.layout.activity_add_new_solution);
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
@@ -54,23 +58,10 @@ public class AddNewArtifactsActivity extends AppCompatActivity {
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if (CatId.equalsIgnoreCase("1")){
-                    String actname="Analyst Report";
-
-                    SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-                    SharedPreferences.Editor edit = pref.edit();
-
-                    edit.putString("Actvname",actname);
-                    edit.commit();
-
-                    Intent intent=new Intent(AddNewArtifactsActivity.this, AnalysReprtActivity.class);
-                    startActivity(intent);
-
-                }
-                else if (CatId.equalsIgnoreCase("2")){
-
-                    String actname="White Papers";
+                //finish();
+                if (CatId.equalsIgnoreCase("1"))
+                {
+                    String actname="Products & Platforms";
 
                     SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                     SharedPreferences.Editor edit = pref.edit();
@@ -78,13 +69,12 @@ public class AddNewArtifactsActivity extends AppCompatActivity {
                     edit.putString("Actvname",actname);
                     edit.commit();
 
-                    Intent intent=new Intent(AddNewArtifactsActivity.this, WhtPapersActivity.class);
+                    Intent intent=new Intent(AddNewSolutionActivity.this, ProdAndPlatfActivity.class);
                     startActivity(intent);
-
                 }
-                else if (CatId.equalsIgnoreCase("3")){
-
-                    String actname="Customer Success Stories";
+                else if (CatId.equalsIgnoreCase("2"))
+                {
+                    String actname="IT Consulting & Services";
 
                     SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                     SharedPreferences.Editor edit = pref.edit();
@@ -92,20 +82,31 @@ public class AddNewArtifactsActivity extends AppCompatActivity {
                     edit.putString("Actvname",actname);
                     edit.commit();
 
-                    Intent intent=new Intent(AddNewArtifactsActivity.this, CustScsStoriesActivity.class);
+                    Intent intent=new Intent(AddNewSolutionActivity.this, ITConsAndServActivity.class);
                     startActivity(intent);
-
                 }
 
+                else if (CatId.equalsIgnoreCase("3"))
+                {
+                    String actname="Industry Solution";
+
+                    SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor edit = pref.edit();
+
+                    edit.putString("Actvname",actname);
+                    edit.commit();
+
+                    Intent intent=new Intent(AddNewSolutionActivity.this, IndsSolutActivity.class);
+                    startActivity(intent);
+                }
             }
         });
 
         mywebview = (WebView) findViewById(R.id.webView1);
         mywebview.setWebViewClient(new MyWebViewClient());
-       // editkey=6
-        String url="https://www.itshades.com/appdata/addartifacts.php?&cat_id="+CatId+"&uid="+uid;
 
-        //String url=" https://www.itshades.com/appdata/emp-addwebinar.php?editkey=20&uid="+uid;
+        String url="https://www.itshades.com/appdata/emp-addnewusecases.php?&cat_id="+CatId+"&uid="+uid;
+
         mywebview.getSettings().setJavaScriptEnabled(true);
         mywebview.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
         mywebview.loadUrl(url);
@@ -121,7 +122,7 @@ public class AddNewArtifactsActivity extends AppCompatActivity {
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
             super.onPageStarted(view, url, favicon);
-            progressDialog = new ProgressDialog(AddNewArtifactsActivity.this);
+            progressDialog = new ProgressDialog(AddNewSolutionActivity.this);
             progressDialog.setMessage("Please wait ...");
             progressDialog.setProgressStyle(90);
             progressDialog.show();

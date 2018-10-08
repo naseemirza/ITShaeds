@@ -28,6 +28,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.Filteration.LnDFilterActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.WebinarB.AddNewWebinarActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.WebinarB.WebinarBActivity;
 import tbs.thinkbiz.solutions.itshades.LearningAndDevelopment.LandDetailsActivity;
@@ -93,7 +94,7 @@ public class OnlnTrangActivity extends AppCompatActivity {
         imageButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(OnlnTrangActivity.this,FilterAllActivity.class);
+                Intent intent=new Intent(OnlnTrangActivity.this,LnDFilterActivity.class);
                 startActivity(intent);
             }
         });
@@ -148,7 +149,6 @@ public class OnlnTrangActivity extends AppCompatActivity {
                         try {
                             Log.e("rootJsonArray",response);
                             JSONArray rootJsonArray = new JSONArray(response);
-
 
                             Log.e("rootJsonArrayLength",rootJsonArray.length()+"");
 

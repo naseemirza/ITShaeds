@@ -1,6 +1,7 @@
 package tbs.thinkbiz.solutions.itshades.CorpCustomer.Profile;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.AddNewLnDActivity;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.OnlnTrangActivity;
 import tbs.thinkbiz.solutions.itshades.R;
 
 public class ChangePassActivity extends AppCompatActivity {
@@ -30,7 +33,16 @@ public class ChangePassActivity extends AppCompatActivity {
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                //finish();
+                String actname="Profile";
+
+                SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor edit = pref.edit();
+
+                edit.putString("Actvname",actname);
+                edit.commit();
+                Intent intent=new Intent(ChangePassActivity.this, ProfileActivity.class);
+                startActivity(intent);
             }
         });
 

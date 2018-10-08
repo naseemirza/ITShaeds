@@ -4,31 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.SolutionsB.IndsSolutActivity">
+    tools:context="tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.Filteration.LnDFiltrationActivity">
 
-    <LinearLayout
-        android:id="@+id/addjob"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <!--<LinearLayout-->
+        <!--android:id="@+id/addjob"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
 
-        <Button
-            android:id="@+id/addnewjob"
-            android:text="Add New Industry Solution"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:background="@drawable/buttoncorner"
-            android:textColor="@color/colorWhite"
-            android:textAllCaps="false"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+        <!--<Button-->
+            <!--android:id="@+id/addnewjob"-->
+            <!--android:text="Add New Online Training"-->
+            <!--android:layout_marginLeft="40dp"-->
+            <!--android:layout_marginRight="40dp"-->
+            <!--android:background="@drawable/buttoncorner"-->
+            <!--android:textColor="@color/colorWhite"-->
+            <!--android:textAllCaps="false"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content" />-->
 
 
-    </LinearLayout>
+    <!--</LinearLayout>-->
 
     <RelativeLayout
-        android:layout_marginTop="10dp"
         android:id="@+id/re1"
         android:layout_below="@+id/addjob"
         android:layout_width="match_parent"

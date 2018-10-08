@@ -22,41 +22,33 @@
             <ImageView
 
                 android:id="@+id/imageView2"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
                 android:src="@drawable/itshadslogo" />
 
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:textStyle="bold"
-                android:textSize="13sp"
-                android:textColor="@color/green"
-                android:layout_marginTop="40dp"
-                android:text="@string/get_startedLogintitle" />
+
 
 
 
     <EditText
         android:id="@+id/editTextU"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView4"
-        android:layout_marginTop="20dp"
+        android:layout_below="@+id/imageView2"
+        android:layout_marginTop="30dp"
+        android:textSize="13sp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:textSize="12sp"
-        android:textCursorDrawable="@drawable/black_cursor"
-        android:backgroundTint="@color/green"
+        android:textCursorDrawable="@color/darkgray"
+        android:background="@color/colorWhite"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
         android:ems="10"
         android:paddingStart="10dp"
         android:hint="@string/user_id_login"
@@ -66,15 +58,17 @@
     <EditText
         android:id="@+id/editTextP"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/editTextU"
         android:layout_marginTop="15dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:ems="10"
-        android:textCursorDrawable="@drawable/black_cursor"
-        android:textSize="12sp"
-        android:backgroundTint="@color/green"
+        android:textCursorDrawable="@color/darkgray"
+        android:background="@color/colorWhite"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:textSize="13sp"
         android:hint="@string/passwordtext_login"
         android:paddingStart="10dp"
         android:inputType="textPassword"
@@ -83,7 +77,7 @@
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="40dp"
         android:layout_marginLeft="20dp"
         android:clickable="false"
         android:focusable="false"
@@ -107,7 +101,7 @@
         android:text="Login"
         android:textAllCaps="false"
         android:textColor="@color/colorWhite"
-        android:textSize="12sp"
+        android:textSize="15sp"
         android:textStyle="bold" />
 
             <TextView
@@ -119,7 +113,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="30dp"
                 android:text="@string/signuptext_login"
-                android:textSize="14dp" />
+                android:textSize="14sp" />
 
     <TextView
         android:id="@+id/textViewRgs"
@@ -129,7 +123,7 @@
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:layout_marginTop="20dp"
-        android:textSize="14dp"
+        android:textSize="14sp"
         android:textStyle="bold"
         android:textColor="@color/colorBlack"
         android:text="@string/registered_textlogin" />
@@ -143,7 +137,7 @@
         android:gravity="center"
         android:text="@string/forgot_passwordtextlogin"
         android:textColor="#FF0000"
-        android:textSize="14dp" />
+        android:textSize="14sp" />
 
 
 

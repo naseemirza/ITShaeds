@@ -70,17 +70,16 @@ public class CompanySiteActivity extends AppCompatActivity {
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
-//                String actname="My Employer";
-//
-//                SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-//                SharedPreferences.Editor edit = pref.edit();
-//
-//                edit.putString("Actvname",actname);
-//                edit.commit();
-//
-//                Intent intent=new Intent(AddNewEmpActivity.this, MyEmployerActivity.class);
-//                startActivity(intent);
+                //finish();
+                String actname="Profile";
+
+                SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor edit = pref.edit();
+
+                edit.putString("Actvname",actname);
+                edit.commit();
+                Intent intent=new Intent(CompanySiteActivity.this, ProfileActivity.class);
+                startActivity(intent);
             }
         });
 

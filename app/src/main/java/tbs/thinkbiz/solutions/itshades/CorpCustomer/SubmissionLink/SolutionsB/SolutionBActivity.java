@@ -29,7 +29,6 @@ public class SolutionBActivity extends AppCompatActivity {
     String Actname;
     TextView textname;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,10 +73,7 @@ public class SolutionBActivity extends AppCompatActivity {
 
         productList1.add(new SoluModelB("Products & Platforms"));
         productList1.add(new SoluModelB("IT Consulting & Services"));
-        productList1.add(new SoluModelB("Industry Solution"));
-
-
-
+        productList1.add(new SoluModelB("Industry Solutions"));
 
         SoluAdapterB adapter1 = new SoluAdapterB(this, productList1);
         recyclerViewtitle.setAdapter(adapter1);

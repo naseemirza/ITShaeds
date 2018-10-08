@@ -71,6 +71,13 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
                     Intent intent0 =  new Intent(mCtx, CompanySiteActivity.class);
                     mCtx.startActivity(intent0);
                 } else if (position == 1){
+                    String actname="Account Details";
+                    SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor edit = pref.edit();
+
+                    edit.putString("Actvname",actname);
+
+                    edit.commit();
                     Intent  intent1 =  new Intent(mCtx, AccDetailsActivity.class);
                     mCtx.startActivity(intent1);
                 } else if (position == 2){

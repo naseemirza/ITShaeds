@@ -1,4 +1,4 @@
-package tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp;
+package tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.Filteration;
 
 import android.content.Context;
 import android.content.Intent;
@@ -28,32 +28,39 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.Filteration.LnDFilterActivity;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.AddNewLnDActivity;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.CertifictinActivity;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.ClassRmTrngActivity;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.LearngAndDevActivity;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.ListAdapterB;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.ListModelB;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.LnDCorpEditActivity;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.OnDemndTrngActivity;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.OnlnTrangActivity;
 import tbs.thinkbiz.solutions.itshades.R;
-import tbs.thinkbiz.solutions.itshades.Solutions.FilterAllActivity;
 
-public class CertifictinActivity extends AppCompatActivity {
+public class LnDFiltrationActivity extends AppCompatActivity {
 
-    String Actname;
+    String Actname,SpInd,SpFA,EdtSrch;
     TextView textname;
     String uid, CatId;
-    Button addcerti;
+    Button addonlntrng;
 
     //Table Data
 
-    private ListAdapterB mExampleAdapter;
-    private ArrayList<ListModelB> mExampleList;
+    private LnDFiltrAdapter mExampleAdapter;
+    private ArrayList<LnDFiltrModel> mExampleList;
     private RequestQueue mRequestQueue;
     private RecyclerView mRecyclerview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_certifictin);
+        setContentView(R.layout.activity_ln_dfiltration);
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setCustomView(R.layout.backandfilterbar);
+        getSupportActionBar().setCustomView(R.layout.backbar);
         View view = getSupportActionBar().getCustomView();
 
         SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
@@ -63,8 +70,12 @@ public class CertifictinActivity extends AppCompatActivity {
         uid = pref.getString("userid", "");
         CatId = pref.getString("CatId", "");
 
-        Log.e("rootJsonArray",uid);
-        Log.e("rootJsonArray1",CatId);
+        SpInd = pref.getString("SPInd", "");
+        SpFA = pref.getString("SPFA", "");
+        EdtSrch = pref.getString("EditSearch", "");
+
+        Log.e("rootJsonArray",SpInd);
+        Log.e("rootJsonArray1",SpFA);
 
         textname = (TextView) findViewById(R.id.textname);
         textname.setText(Actname);
@@ -73,42 +84,64 @@ public class CertifictinActivity extends AppCompatActivity {
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String actname="Learning & Development";
-                SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-                SharedPreferences.Editor edit = pref.edit();
-                edit.putString("Actvname",actname);
 
-                edit.commit();
-                Intent intent=new Intent(CertifictinActivity.this,LearngAndDevActivity.class);
-                startActivity(intent);
+                //finish();
+                if (CatId.equalsIgnoreCase("1"))
+                {
+                    String actname="Online Trainng";
+
+                    SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor edit = pref.edit();
+
+                    edit.putString("Actvname",actname);
+                    edit.commit();
+
+                    Intent intent=new Intent(LnDFiltrationActivity.this, LnDFilterActivity.class);
+                    startActivity(intent);
+                }
+                else if (CatId.equalsIgnoreCase("2"))
+                {
+                    String actname="Classroom Trainng";
+
+                    SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor edit = pref.edit();
+
+                    edit.putString("Actvname",actname);
+                    edit.commit();
+
+                    Intent intent=new Intent(LnDFiltrationActivity.this, LnDFilterActivity.class);
+                    startActivity(intent);
+                }
+
+                else if (CatId.equalsIgnoreCase("3"))
+                {
+                    String actname="Certification";
+
+                    SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor edit = pref.edit();
+
+                    edit.putString("Actvname",actname);
+                    edit.commit();
+
+                    Intent intent=new Intent(LnDFiltrationActivity.this, LnDFilterActivity.class);
+                    startActivity(intent);
+                }
+                else if (CatId.equalsIgnoreCase("4"))
+                {
+                    String actname="On Demand Trainng";
+
+                    SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor edit = pref.edit();
+
+                    edit.putString("Actvname",actname);
+                    edit.commit();
+
+                    Intent intent=new Intent(LnDFiltrationActivity.this, LnDFilterActivity.class);
+                    startActivity(intent);
+                }
             }
         });
 
-        ImageButton imageButton2= (ImageButton)view.findViewById(R.id.action_bar_forward);
-        imageButton2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(CertifictinActivity.this,LnDFilterActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        addcerti=(Button)findViewById(R.id.addnewjob);
-        addcerti.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String actname="Add New Certifications";
-                SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-                SharedPreferences.Editor edit = pref.edit();
-
-                edit.putString("Actvname",actname);
-                edit.commit();
-
-                Intent intent=  new Intent(CertifictinActivity.this,AddNewLnDActivity.class);
-                startActivity(intent);
-            }
-        });
         //TableData
 
         mExampleList = new ArrayList<>();
@@ -120,7 +153,6 @@ public class CertifictinActivity extends AppCompatActivity {
         mRecyclerview.setHasFixedSize(true);
 
         parseJSON();
-
     }
 
     private void parseJSON() {
@@ -128,8 +160,9 @@ public class CertifictinActivity extends AppCompatActivity {
         final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
 
+        //String Tab_Url=" https://www.itshades.com/appdata/emp-onlinetraining.php?cat_id=1&uid=329&industry=&item=&title_search=";
 
-        String Tab_Url="https://www.itshades.com/appdata/emp-onlinetraining.php?cat_id="+CatId+"&uid="+uid;
+      String Tab_Url="https://www.itshades.com/appdata/emp-onlinetraining.php?cat_id="+CatId+"&uid="+uid+"&industry="+SpInd+"&item="+SpFA+"&title_search="+EdtSrch;
 
         Log.e("rootJsonArray",Tab_Url);
 
@@ -150,8 +183,7 @@ public class CertifictinActivity extends AppCompatActivity {
                             for (int i = 0; i < rootJsonArray.length(); i++) {
                                 JSONObject object = rootJsonArray.getJSONObject(i);
 
-
-                                mExampleList.add(new ListModelB(object.optString("id"),
+                                mExampleList.add(new LnDFiltrModel(object.optString("id"),
                                         object.optString("title_name"),
                                         object.optString("industry_relevance"),
                                         object.optString("focus_area"),
@@ -164,7 +196,7 @@ public class CertifictinActivity extends AppCompatActivity {
 
                             Log.e("rootJsonArray",mExampleList.size()+"");
 
-                            mExampleAdapter = new ListAdapterB(CertifictinActivity.this, mExampleList);
+                            mExampleAdapter = new LnDFiltrAdapter(LnDFiltrationActivity.this, mExampleList);
                             mRecyclerview.setAdapter(mExampleAdapter);
                             mExampleAdapter.notifyDataSetChanged();
                             mRecyclerview.setHasFixedSize(true);
@@ -186,5 +218,11 @@ public class CertifictinActivity extends AppCompatActivity {
         mRequestQueue = Volley.newRequestQueue(this);
         mRequestQueue.add(stringRequest);
     }
-}
 
+    @Override
+    public void onBackPressed() {
+
+        finish();
+
+    }
+}

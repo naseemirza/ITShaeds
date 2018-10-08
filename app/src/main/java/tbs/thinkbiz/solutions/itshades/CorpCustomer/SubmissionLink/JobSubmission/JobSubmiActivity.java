@@ -44,7 +44,6 @@ public class JobSubmiActivity extends AppCompatActivity {
 
 
     Button jobadd;
-
     String Actname;
     TextView textname;
 
@@ -52,10 +51,6 @@ public class JobSubmiActivity extends AppCompatActivity {
     private ArrayList<JobSubModel> mExampleList1;
     private RequestQueue mRequestQueue1;
     private RecyclerView mRecyclerview1;
-
-//    WebView mywebview;
-//    ProgressDialog progressDialog;
-
     String uid;
 
     @Override
@@ -82,7 +77,6 @@ public class JobSubmiActivity extends AppCompatActivity {
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // finish();
 
                 String actname="Submission Links";
 
@@ -115,14 +109,6 @@ public class JobSubmiActivity extends AppCompatActivity {
             }
         });
 
-//        mywebview = (WebView) findViewById(R.id.webView1);
-//        mywebview.setWebViewClient(new JobSubmiActivity.MyWebViewClient());
-//
-//        String url="https://www.itshades.com/appdata/employer-job.php?uid="+uid;
-//        mywebview.getSettings().setJavaScriptEnabled(true);
-//        mywebview.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
-//        mywebview.loadUrl(url);
-
         mExampleList1 = new ArrayList<>();
         mRequestQueue1 = Volley.newRequestQueue(this);
 
@@ -133,32 +119,6 @@ public class JobSubmiActivity extends AppCompatActivity {
 
         parseJSON1();
     }
-
-//    private class MyWebViewClient extends WebViewClient {
-//        @Override
-//        public boolean shouldOverrideUrlLoading(WebView view, String url) {
-//            view.loadUrl(url);
-//            return true;
-//        }
-//
-//        @Override
-//        public void onPageStarted(WebView view, String url, Bitmap favicon) {
-//            super.onPageStarted(view, url, favicon);
-//            progressDialog = new ProgressDialog(JobSubmiActivity.this);
-//            progressDialog.setMessage("Please wait ...");
-//            progressDialog.setProgressStyle(90);
-//            progressDialog.show();
-//        }
-//        @Override
-//        public void onPageFinished(WebView view, String url) {
-//            super.onPageFinished(view, url);
-//            if (progressDialog != null) {
-//                progressDialog.dismiss();
-//            }
-//        }
-//    }
-
-
 
     private void parseJSON1() {
 

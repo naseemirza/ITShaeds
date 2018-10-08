@@ -1,6 +1,7 @@
 package tbs.thinkbiz.solutions.itshades.CorpCustomer.Profile;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.CorpMainActivity;
 import tbs.thinkbiz.solutions.itshades.R;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -46,7 +48,17 @@ public class ProfileActivity extends AppCompatActivity {
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                //finish();
+
+//                String actname="Corporate Customer";
+//
+//                SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+//                SharedPreferences.Editor edit = pref.edit();
+//
+//                edit.putString("Actvname",actname);
+//                edit.commit();
+                Intent intent=new Intent(ProfileActivity.this, CorpMainActivity.class);
+                startActivity(intent);
             }
         });
 

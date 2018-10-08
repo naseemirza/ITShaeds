@@ -32,6 +32,10 @@ public class CorpMainActivity extends AppCompatActivity
     String username,usermail,Userid;
     TextView textViewname,textViewemail;
 
+    String Actname ;
+    TextView textname;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +48,9 @@ public class CorpMainActivity extends AppCompatActivity
         username = pref.getString("Username", "");
         usermail = pref.getString("email", "");
         Userid = pref.getString("userid", "");
+        //Actname = pref.getString("Actvname", "");
+
+       // getSupportActionBar().setTitle(Actname);
 
         Log.e("userid",Userid);
 
@@ -112,7 +119,11 @@ public class CorpMainActivity extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         } else {
 
-            super.onBackPressed();
+            //super.onBackPressed();
+            Intent a = new Intent(Intent.ACTION_MAIN);
+            a.addCategory(Intent.CATEGORY_HOME);
+            a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(a);
         }
 
 
@@ -186,19 +197,20 @@ public class CorpMainActivity extends AppCompatActivity
             startActivity(intent);
             //startActivity(new Intent(CorpMainActivity.this,LoginActivity.class));
 
-        }else if (id == R.id.nav_authuser) {
-
-            String actname=" Manage Authorized Users";
-
-            SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-            SharedPreferences.Editor edit = pref.edit();
-
-            edit.putString("Actvname",actname);
-
-            edit.commit();
-            Intent intent=new Intent(CorpMainActivity.this,MangAuthUsersActivity.class);
-            startActivity(intent);
-        }
+          }
+//         else if (id == R.id.nav_authuser) {
+//
+//            String actname=" Manage Authorized Users";
+//
+//            SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+//            SharedPreferences.Editor edit = pref.edit();
+//
+//            edit.putString("Actvname",actname);
+//
+//            edit.commit();
+//            Intent intent=new Intent(CorpMainActivity.this,MangAuthUsersActivity.class);
+//            startActivity(intent);
+       // }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(tbs.thinkbiz.solutions.itshades.R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

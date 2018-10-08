@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="tbs.thinkbiz.solutions.itshades.Solutions.FilterAllActivity">
-
+    tools:context="tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.Filteration.LnDFilterActivity">
 
     <TextView
         android:id="@+id/textInd"
@@ -61,7 +60,7 @@
 
 
     <EditText
-        android:id="@+id/editText13"
+        android:id="@+id/editTextsrch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -83,10 +82,10 @@
         android:paddingLeft="10dp"/>
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/buttonSrch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editText13"
+        android:layout_below="@+id/editTextsrch"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="47dp"
         android:textAllCaps="false"

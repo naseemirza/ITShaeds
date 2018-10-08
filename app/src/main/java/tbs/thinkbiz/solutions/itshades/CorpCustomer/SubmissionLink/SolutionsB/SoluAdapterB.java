@@ -13,6 +13,9 @@ import android.widget.TextView;
 import java.util.List;
 
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.JobSubmission.JobSubmiActivity;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.CertifictinActivity;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.ClassRmTrngActivity;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.OnlnTrangActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.Parent;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.ParentAdapter;
 import tbs.thinkbiz.solutions.itshades.R;
@@ -47,25 +50,48 @@ public class SoluAdapterB extends RecyclerView.Adapter<SoluAdapterB.ViewHolder> 
         final String Pname = app.getName();
         holder.mTextViewName.setText(Pname);
 
-//        holder.setItemClickListener(new RecyclerViewItemClickListener() {
-//            @Override
-//            public void onClick(View view, int position) {
-//
-//                if (position == 0){
-//                    String actname="Solutions";
-//
-//                    SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-//                    SharedPreferences.Editor edit = pref.edit();
-//
-//                    edit.putString("Actvname",actname);
-//
-//                    edit.commit();
-//                    Intent intent0 =  new Intent(mCtx, SolutionBActivity.class);
-//                    mCtx.startActivity(intent0);
-//                }
-//
-//            }
-//        });
+        holder.setItemClickListener(new RecyclerViewItemClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+
+        if (position == 0){
+            String actname="Products & Platforms";
+            String CatId="1";
+
+            SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor edit = pref.edit();
+            edit.putString("Actvname",actname);
+            edit.putString("CatId",CatId);
+            edit.commit();
+            Intent intent0 =  new Intent(mCtx, ProdAndPlatfActivity.class);
+            mCtx.startActivity(intent0);
+        } else if (position == 1){
+            String actname="IT Consulting & Services";
+
+            String CatId="2";
+            SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor edit = pref.edit();
+            edit.putString("Actvname",actname);
+            edit.putString("CatId",CatId);
+
+            edit.commit();
+            Intent intent0 =  new Intent(mCtx, ITConsAndServActivity.class);
+            mCtx.startActivity(intent0);
+        } else if (position == 2){
+            String actname="Industry Solution";
+            String CatId="3";
+
+            SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor edit = pref.edit();
+            edit.putString("Actvname",actname);
+            edit.putString("CatId",CatId);
+            edit.commit();
+            Intent intent0 =  new Intent(mCtx, IndsSolutActivity.class);
+            mCtx.startActivity(intent0);
+        }
+
+            }
+        });
 
     }
 
@@ -81,29 +107,29 @@ public class SoluAdapterB extends RecyclerView.Adapter<SoluAdapterB.ViewHolder> 
     }
 
     // implements View.OnClickListener
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public TextView mTextViewName;
 
-       // private RecyclerViewItemClickListener itemClickListener;
+      private RecyclerViewItemClickListener itemClickListener;
 
         public ViewHolder(View itemView ) {
 
             super(itemView);
             mTextViewName=(TextView) itemView.findViewById(R.id.listTitle);
-            //itemView.setOnClickListener(this);
+            itemView.setOnClickListener(this);
 
         }
 
-//        @Override
-//        public void onClick(View v) {
-//            this.itemClickListener.onClick(v,getLayoutPosition());
-//        }
-//
-//        public void setItemClickListener(RecyclerViewItemClickListener ic)
-//        {
-//            this.itemClickListener=ic;
-//
-//        }
+        @Override
+        public void onClick(View v) {
+            this.itemClickListener.onClick(v,getLayoutPosition());
+        }
+
+        public void setItemClickListener(RecyclerViewItemClickListener ic)
+        {
+            this.itemClickListener=ic;
+
+        }
     }
 }

@@ -71,6 +71,8 @@ public class AddnewJobActivity extends AppCompatActivity {
         mywebview.setWebViewClient(new MyWebViewClient());
 
         String url="https://www.itshades.com/appdata/employer-add-job.php?uid="+uid;
+
+        //String url="https://www.itshades.com/appdata/employer-add-job.php?uid="+uid;
         mywebview.getSettings().setJavaScriptEnabled(true);
         mywebview.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
         mywebview.loadUrl(url);

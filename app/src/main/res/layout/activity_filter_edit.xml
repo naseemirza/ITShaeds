@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="tbs.thinkbiz.solutions.itshades.CorpCustomer.Profile.AccDetailsActivity">
-
+    tools:context="tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.Filteration.FilterEditActivity">
 
     <WebView
         android:id="@+id/webView1"
@@ -15,4 +14,5 @@
         android:layout_centerHorizontal="true">
 
     </WebView>
+
 </RelativeLayout>

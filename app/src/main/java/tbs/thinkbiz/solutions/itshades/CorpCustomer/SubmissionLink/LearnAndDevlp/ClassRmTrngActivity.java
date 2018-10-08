@@ -28,6 +28,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.Filteration.LnDFilterActivity;
 import tbs.thinkbiz.solutions.itshades.R;
 import tbs.thinkbiz.solutions.itshades.Solutions.FilterAllActivity;
 
@@ -87,7 +88,7 @@ public class ClassRmTrngActivity extends AppCompatActivity {
         imageButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(ClassRmTrngActivity.this,FilterAllActivity.class);
+                Intent intent=new Intent(ClassRmTrngActivity.this,LnDFilterActivity.class);
                 startActivity(intent);
             }
         });
@@ -126,7 +127,6 @@ public class ClassRmTrngActivity extends AppCompatActivity {
 
         final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
-
 
         String Tab_Url="https://www.itshades.com/appdata/emp-onlinetraining.php?cat_id="+CatId+"&uid="+uid;
 
@@ -177,6 +177,7 @@ public class ClassRmTrngActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+
                         //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
                         Log.e("TAg",error.getMessage());
                     }

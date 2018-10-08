@@ -1,6 +1,7 @@
 package tbs.thinkbiz.solutions.itshades.CorpCustomer.Profile;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -38,7 +39,16 @@ public class ContactUsPrflActivity extends AppCompatActivity implements AdapterV
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                //finish();
+                String actname="Profile";
+
+                SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor edit = pref.edit();
+
+                edit.putString("Actvname",actname);
+                edit.commit();
+                Intent intent=new Intent(ContactUsPrflActivity.this, ProfileActivity.class);
+                startActivity(intent);
             }
         });
 
