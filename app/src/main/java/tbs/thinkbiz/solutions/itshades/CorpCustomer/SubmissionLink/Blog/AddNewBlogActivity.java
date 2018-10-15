@@ -16,6 +16,7 @@ import android.webkit.WebViewClient;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import tbs.thinkbiz.solutions.itshades.AllUrls;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.WebinarB.AddNewWebinarActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.WebinarB.WebinarBActivity;
 import tbs.thinkbiz.solutions.itshades.R;
@@ -61,7 +62,7 @@ public class AddNewBlogActivity extends AppCompatActivity {
                 SharedPreferences.Editor edit = pref.edit();
 
                 edit.putString("Actvname",actname);
-                edit.commit();
+                edit.apply();
 
                 Intent intent=new Intent(AddNewBlogActivity.this, BlogActivity.class);
                 startActivity(intent);
@@ -71,8 +72,7 @@ public class AddNewBlogActivity extends AppCompatActivity {
         mywebview = (WebView) findViewById(R.id.webView1);
         mywebview.setWebViewClient(new MyWebViewClient());
 
-
-        String url="https://www.itshades.com/appdata/emp-addnewblog.php?&uid="+uid;
+        String url= AllUrls.ADDNEW_BLOG+uid;
         mywebview.getSettings().setJavaScriptEnabled(true);
         mywebview.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
         mywebview.loadUrl(url);

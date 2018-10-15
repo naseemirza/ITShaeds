@@ -17,7 +17,6 @@ import android.view.MenuItem;
 import android.webkit.WebView;
 import android.widget.TextView;
 
-import tbs.thinkbiz.solutions.itshades.CorpCustomer.ManagAuthUsers.MangAuthUsersActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.Profile.ProfileActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.ParentActivity;
 import tbs.thinkbiz.solutions.itshades.LoginActivity;
@@ -183,7 +182,12 @@ public class CorpMainActivity extends AppCompatActivity
             Intent intent=new Intent(CorpMainActivity.this,ParentActivity.class);
             startActivity(intent);
            //startActivity(new Intent(CorpMainActivity.this,ParentActivity.class));
-        } if (id == R.id.nav_logout) {
+        }
+        else if (id == R.id.nav_subsc) {
+
+            startActivity(new Intent(CorpMainActivity.this, SubscribeActivity.class));
+        }
+        if (id == R.id.nav_logout) {
 
             String actname="Profile";
 

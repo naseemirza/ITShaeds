@@ -15,6 +15,7 @@ import android.webkit.WebViewClient;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import tbs.thinkbiz.solutions.itshades.AllUrls;
 import tbs.thinkbiz.solutions.itshades.R;
 
 public class AccDetailsActivity extends AppCompatActivity {
@@ -22,7 +23,6 @@ public class AccDetailsActivity extends AppCompatActivity {
     WebView mywebview;
     ProgressDialog progressDialog;
     String uid;
-
     String Actname ;
     TextView textname;
 
@@ -40,30 +40,26 @@ public class AccDetailsActivity extends AppCompatActivity {
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //finish();
                 String actname="Profile";
-
                 SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor edit = pref.edit();
 
                 edit.putString("Actvname",actname);
-                edit.commit();
+                edit.apply();
                 Intent intent=new Intent(AccDetailsActivity.this, ProfileActivity.class);
                 startActivity(intent);
             }
         });
 
         SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-
         Actname=pref.getString("Actvname","");
-
+        uid=pref.getString("userid","");
         textname=(TextView)findViewById(R.id.textname);
         textname.setText(Actname);
 
         mywebview = (WebView) findViewById(R.id.webView1);
         mywebview.setWebViewClient(new MyWebViewClient());
-
-        String url="https://www.itshades.com/appdata/employer-details.php?uid="+uid;
+        String url= AllUrls.ACC_DETAILS+uid;
         mywebview.getSettings().setJavaScriptEnabled(true);
         mywebview.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
         mywebview.loadUrl(url);

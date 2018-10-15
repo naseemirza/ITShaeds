@@ -16,6 +16,7 @@ import android.webkit.WebViewClient;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import tbs.thinkbiz.solutions.itshades.AllUrls;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.JobSubmission.AddnewJobActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.JobSubmission.JobSubmiActivity;
 import tbs.thinkbiz.solutions.itshades.R;
@@ -33,7 +34,6 @@ public class AddNewWebinarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_webinar);
-
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
@@ -73,7 +73,7 @@ public class AddNewWebinarActivity extends AppCompatActivity {
         mywebview.setWebViewClient(new MyWebViewClient());
 
                                                 //editkey=20
-        String url=" https://www.itshades.com/appdata/emp-addwebinar.php?&uid="+uid;
+        String url= AllUrls.ADDNEW_WEBINAR_B+uid;
         mywebview.getSettings().setJavaScriptEnabled(true);
         mywebview.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
         mywebview.loadUrl(url);

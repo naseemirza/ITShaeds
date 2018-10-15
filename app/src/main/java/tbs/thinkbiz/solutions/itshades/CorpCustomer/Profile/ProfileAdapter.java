@@ -44,77 +44,60 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
         final ProfileModel app=parentList.get(position);
 
         final String Pname = app.getName();
-        //String imageurl = app.getImageUrl();
         holder.mTextViewName.setText(Pname);
-
-//        Glide.with(mCtx)
-//                .load(imageurl)
-//                .diskCacheStrategy(DiskCacheStrategy.ALL)
-//                .fitCenter()
-//                .into(holder.mImageView);
 
         holder.setItemClickListener(new RecyclerViewItemClickListener() {
             @Override
             public void onClick(View view, int position) {
                 Log.e("responce", String.valueOf(position));
 
-
                 if (position == 0){
                     String actname="Company Site";
                     SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                     SharedPreferences.Editor edit = pref.edit();
-
                     edit.putString("Actvname",actname);
-
-                    edit.commit();
-
+                    edit.apply();
                     Intent intent0 =  new Intent(mCtx, CompanySiteActivity.class);
                     mCtx.startActivity(intent0);
+
                 } else if (position == 1){
                     String actname="Account Details";
                     SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                     SharedPreferences.Editor edit = pref.edit();
-
                     edit.putString("Actvname",actname);
-
-                    edit.commit();
+                    edit.apply();
                     Intent  intent1 =  new Intent(mCtx, AccDetailsActivity.class);
                     mCtx.startActivity(intent1);
+
                 } else if (position == 2){
                     String actname="Change Password";
                     SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                     SharedPreferences.Editor edit = pref.edit();
-
                     edit.putString("Actvname",actname);
-
-                    edit.commit();
+                    edit.apply();
                     Intent intent2 =  new Intent(mCtx, ChangePassActivity.class);
                     mCtx.startActivity(intent2);
+
                }else if (position == 3) {
                     String actname="Invite To Friends";
                     SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                     SharedPreferences.Editor edit = pref.edit();
-
                     edit.putString("Actvname",actname);
-
-                    edit.commit();
+                    edit.apply();
                     Intent intent3 = new Intent(mCtx, InviteFrndsActivity.class);
                     mCtx.startActivity(intent3);
+
                 }else if (position == 4) {
                     String actname="Contact us";
                     SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                     SharedPreferences.Editor edit = pref.edit();
-
                     edit.putString("Actvname",actname);
-
-                    edit.commit();
+                    edit.apply();
                     Intent intent4 = new Intent(mCtx, ContactUsPrflActivity.class);
                     mCtx.startActivity(intent4);
                 }
-
             }
         });
-
     }
 
     @Override
@@ -128,21 +111,16 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
         return parentList.size();
     }
 
-    // implements View.OnClickListener
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public ImageView mImageView;
         public TextView mTextViewName;
-
         private RecyclerViewItemClickListener itemClickListener;
-
         public ViewHolder(View itemView ) {
 
             super(itemView);
-            //mImageView=(ImageView)itemView.findViewById(R.id.imageViewName);
-            mTextViewName=(TextView) itemView.findViewById(R.id.listTitle);
+            mTextViewName = (TextView) itemView.findViewById(R.id.listTitle);
             itemView.setOnClickListener(this);
-
         }
 
         @Override

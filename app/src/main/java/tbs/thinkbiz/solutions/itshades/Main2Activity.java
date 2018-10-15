@@ -330,26 +330,11 @@ public class Main2Activity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_aboutus) {
-            String actname ="About Us";
-            SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-            SharedPreferences.Editor edit = pref.edit();
-
-            edit.putString("Actvname",actname);
-
-            edit.commit();
 
             startActivity(new Intent(Main2Activity.this,AboutUsActivity.class));
-        } else if (id == R.id.nav_subsc) {
+        }
 
-            String actname ="Subscribe";
-            SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-            SharedPreferences.Editor edit = pref.edit();
-
-            edit.putString("Actvname",actname);
-
-            edit.commit();
-            startActivity(new Intent(Main2Activity.this, SubscribeActivity.class));
-        } else if (id == R.id.nav_profile) {
+        else if (id == R.id.nav_profile) {
                 startActivity(new Intent(Main2Activity.this,MyProfileActivity.class));
             }
          else if (id == R.id.nav_logout) {
@@ -357,13 +342,13 @@ public class Main2Activity extends AppCompatActivity
 
         } else if (id == R.id.nav_contactus) {
 
-            String actname ="Contact Us";
-            SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-            SharedPreferences.Editor edit = pref.edit();
-
-            edit.putString("Actvname",actname);
-
-            edit.commit();
+//            String actname ="Contact Us";
+//            SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+//            SharedPreferences.Editor edit = pref.edit();
+//
+//            edit.putString("Actvname",actname);
+//
+//            edit.commit();
             startActivity(new Intent(Main2Activity.this,ContactUsActivity.class));
         }
 

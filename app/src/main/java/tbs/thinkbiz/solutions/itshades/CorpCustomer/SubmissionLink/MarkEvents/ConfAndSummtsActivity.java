@@ -28,6 +28,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import tbs.thinkbiz.solutions.itshades.AllUrls;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.ArtifactsB.AddNewArtifactsActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.ArtifactsB.ArtListAdapter;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.ArtifactsB.ArtListModel;
@@ -122,7 +123,7 @@ public class ConfAndSummtsActivity extends AppCompatActivity {
         final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
 
-        String Tab_Url="https://www.itshades.com/appdata/emp-inpersonevent.php?cat_id="+CatId+"&uid="+uid;
+        String Tab_Url= AllUrls.CONF_SUMMTS+CatId+"&uid="+uid;
 
         Log.e("rootJsonArray",Tab_Url);
 

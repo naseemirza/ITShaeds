@@ -36,7 +36,7 @@
         android:paddingStart="18dp"
         android:paddingEnd="15dp"
         android:textColor="#545454"
-        android:textSize="12sp"
+        android:textSize="13sp"
         android:lineSpacingExtra="3sp"
         tools:ignore="RtlCompat"
         android:layout_below="@+id/textView9"

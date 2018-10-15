@@ -103,7 +103,7 @@ public class LoginActivity extends AppCompatActivity
 
         spiner = (Spinner) findViewById(R.id.spinner);
         //spiner.setFocusable(false);
-        spiner.setFocusableInTouchMode(true);
+       // spiner.setFocusableInTouchMode(true);
 
         String[] users = new String[]{
                 "Select Access Level",
@@ -335,9 +335,9 @@ public class LoginActivity extends AppCompatActivity
 
         if (id == R.id.nav_aboutus) {
             startActivity(new Intent(LoginActivity.this,AboutUsActivity.class));
-        } else if (id == R.id.nav_subsc) {
-            startActivity(new Intent(LoginActivity.this,SubscribeActivity.class));
-        } else if (id == R.id.nav_login) {
+        }
+
+        else if (id == R.id.nav_login) {
             startActivity(new Intent(LoginActivity.this,LoginActivity.class));
 
         } else if (id == R.id.nav_contactus) {

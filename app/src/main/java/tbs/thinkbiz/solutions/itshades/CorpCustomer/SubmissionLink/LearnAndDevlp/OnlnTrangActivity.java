@@ -28,6 +28,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import tbs.thinkbiz.solutions.itshades.AllUrls;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.Filteration.LnDFilterActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.WebinarB.AddNewWebinarActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.WebinarB.WebinarBActivity;
@@ -135,7 +136,8 @@ public class OnlnTrangActivity extends AppCompatActivity {
         progressBar.setVisibility(View.VISIBLE);
 
 
-        String Tab_Url="https://www.itshades.com/appdata/emp-onlinetraining.php?cat_id="+CatId+"&uid="+uid;
+       // String Tab_Url="https://www.itshades.com/appdata/emp-onlinetraining.php?cat_id="+CatId+"&uid="+uid;
+        String Tab_Url= AllUrls.LND_BUSINESS+CatId+"&uid="+uid;
 
         Log.e("rootJsonArray",Tab_Url);
 

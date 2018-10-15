@@ -48,8 +48,6 @@ public class MyEmpAdapter extends RecyclerView.Adapter<MyEmpAdapter.ProductViewH
         holder.tvlname.setText(product.getLname());
         holder.tvemail.setText(product.getEmail());
         holder.tvaddeddate.setText(product.getAddedate());
-        holder.tvstatus.setText(product.getStatus());
-
 
         holder.tvaction.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,10 +85,7 @@ public class MyEmpAdapter extends RecyclerView.Adapter<MyEmpAdapter.ProductViewH
         public TextView tvlname;
         public TextView tvemail;
         public TextView tvaddeddate;
-        public TextView tvstatus;
         public ImageView tvaction;
-
-
         //private RecyclerViewItemClickListener itemClickListener;
 
         public ProductViewHolder(final View itemView) {
@@ -101,7 +96,6 @@ public class MyEmpAdapter extends RecyclerView.Adapter<MyEmpAdapter.ProductViewH
             tvlname = itemView.findViewById(R.id.lname);
             tvemail = itemView.findViewById(R.id.email);
             tvaddeddate = itemView.findViewById(R.id.addatetv);
-            tvstatus = itemView.findViewById(R.id.statustv);
             tvaction = (ImageView) itemView.findViewById(R.id.editbtn);
 
             //itemView.setOnClickListener(this);

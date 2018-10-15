@@ -28,6 +28,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import tbs.thinkbiz.solutions.itshades.AllUrls;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.ArtifactsB.AddNewArtifactsActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.ArtifactsB.ArtListAdapter;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.ArtifactsB.ArtListModel;
@@ -124,7 +125,7 @@ public class OnlinEvntsActivity extends AppCompatActivity {
         progressBar.setVisibility(View.VISIBLE);
 
         //https://www.itshades.com/appdata/emp-onlineevents.php?cat_id=1&uid=329
-        String Tab_Url="https://www.itshades.com/appdata/emp-onlineevents.php?cat_id="+CatId+"&uid="+uid;
+        String Tab_Url= AllUrls.ONLINE_EVNT+CatId+"&uid="+uid;
 
         Log.e("rootJsonArray",Tab_Url);
 

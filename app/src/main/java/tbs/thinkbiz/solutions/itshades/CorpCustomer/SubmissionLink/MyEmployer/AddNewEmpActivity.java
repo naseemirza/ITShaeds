@@ -16,6 +16,7 @@ import android.webkit.WebViewClient;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import tbs.thinkbiz.solutions.itshades.AllUrls;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.Blog.AddNewBlogActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.Blog.BlogActivity;
 import tbs.thinkbiz.solutions.itshades.R;
@@ -71,7 +72,7 @@ public class AddNewEmpActivity extends AppCompatActivity {
         mywebview = (WebView) findViewById(R.id.webView1);
         mywebview.setWebViewClient(new MyWebViewClient());
 
-        String url="https://www.itshades.com/appdata/emp-addmyemployer.php?&uid="+uid;
+        String url= AllUrls.ADDNEW_MY_EMPLOYER+uid;
         mywebview.getSettings().setJavaScriptEnabled(true);
         mywebview.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
         mywebview.loadUrl(url);

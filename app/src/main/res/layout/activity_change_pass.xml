@@ -6,106 +6,116 @@
     android:layout_height="match_parent"
     tools:context="tbs.thinkbiz.solutions.itshades.CorpCustomer.Profile.ChangePassActivity">
 
-    <EditText
-        android:id="@+id/editOldpass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Old Password :"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@color/colorWhite"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:textCursorDrawable="@color/darkgray"
-        android:textSize="12sp"
-        android:paddingStart="10dp"
-        android:layout_marginTop="50dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:paddingLeft="10dp" />
 
-    <EditText
-        android:id="@+id/editNewPass"
+    <WebView
+        android:id="@+id/webView1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="10dp"
-        android:paddingLeft="10dp"
-        android:layout_below="@+id/editOldpass"
-        android:hint="New Password :"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@color/colorWhite"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:textCursorDrawable="@color/darkgray"
-        android:textSize="12sp"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        />
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
 
-    <EditText
-        android:id="@+id/editConfPass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="10dp"
-        android:paddingLeft="10dp"
-        android:layout_below="@+id/editNewPass"
-        android:hint="Confirm Password :"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@color/colorWhite"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:textCursorDrawable="@color/darkgray"
-        android:textSize="12sp"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:inputType="textPersonName"/>
+    </WebView>
 
-    <LinearLayout
-        android:id="@+id/buttonsubncncl"
-        android:orientation="horizontal"
-        android:layout_below="@+id/editConfPass"
-        android:layout_marginTop="30dp"
-        android:weightSum="2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <!--<EditText-->
+        <!--android:id="@+id/editOldpass"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:hint="Old Password :"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:background="@color/colorWhite"-->
+        <!--android:paddingBottom="10dp"-->
+        <!--android:paddingTop="10dp"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:layout_marginRight="20dp"-->
+        <!--android:textCursorDrawable="@color/darkgray"-->
+        <!--android:textSize="12sp"-->
+        <!--android:paddingStart="10dp"-->
+        <!--android:layout_marginTop="50dp"-->
+        <!--android:ems="10"-->
+        <!--android:inputType="textPersonName"-->
+        <!--android:paddingLeft="10dp" />-->
 
-        <Button
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:textSize="13sp"
-      android:layout_marginLeft="40dp"
-            android:layout_marginRight="10dp"
-        android:textColor="@color/colorWhite"
-        android:textAllCaps="false"
-        android:textStyle="bold"
-        android:text="Save"
-            android:layout_weight="1"
-        android:background="@drawable/buttoncorner" />
+    <!--<EditText-->
+        <!--android:id="@+id/editNewPass"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:paddingStart="10dp"-->
+        <!--android:paddingLeft="10dp"-->
+        <!--android:layout_below="@+id/editOldpass"-->
+        <!--android:hint="New Password :"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:background="@color/colorWhite"-->
+        <!--android:paddingBottom="10dp"-->
+        <!--android:paddingTop="10dp"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:layout_marginRight="20dp"-->
+        <!--android:textCursorDrawable="@color/darkgray"-->
+        <!--android:textSize="12sp"-->
+        <!--android:layout_marginTop="15dp"-->
+        <!--android:ems="10"-->
+        <!--android:inputType="textPersonName"-->
+        <!--/>-->
 
-        <Button
-        android:id="@+id/button3"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:textSize="13sp"
-            android:layout_marginLeft="10dp"
-      android:layout_marginRight="40dp"
-        android:textColor="@color/colorWhite"
-        android:textAllCaps="false"
-        android:textStyle="bold"
-            android:layout_weight="1"
-        android:text="Cancle"
-        android:background="@drawable/buttoncorner" />
+    <!--<EditText-->
+        <!--android:id="@+id/editConfPass"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:paddingStart="10dp"-->
+        <!--android:paddingLeft="10dp"-->
+        <!--android:layout_below="@+id/editNewPass"-->
+        <!--android:hint="Confirm Password :"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:background="@color/colorWhite"-->
+        <!--android:paddingBottom="10dp"-->
+        <!--android:paddingTop="10dp"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:layout_marginRight="20dp"-->
+        <!--android:textCursorDrawable="@color/darkgray"-->
+        <!--android:textSize="12sp"-->
+        <!--android:layout_marginTop="15dp"-->
+        <!--android:ems="10"-->
+        <!--android:inputType="textPersonName"/>-->
 
-    </LinearLayout>
+    <!--<LinearLayout-->
+        <!--android:id="@+id/buttonsubncncl"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:layout_below="@+id/editConfPass"-->
+        <!--android:layout_marginTop="30dp"-->
+        <!--android:weightSum="2"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <!--<Button-->
+        <!--android:id="@+id/button2"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:textSize="13sp"-->
+      <!--android:layout_marginLeft="40dp"-->
+            <!--android:layout_marginRight="10dp"-->
+        <!--android:textColor="@color/colorWhite"-->
+        <!--android:textAllCaps="false"-->
+        <!--android:textStyle="bold"-->
+        <!--android:text="Save"-->
+            <!--android:layout_weight="1"-->
+        <!--android:background="@drawable/buttoncorner" />-->
+
+        <!--<Button-->
+        <!--android:id="@+id/button3"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:textSize="13sp"-->
+            <!--android:layout_marginLeft="10dp"-->
+      <!--android:layout_marginRight="40dp"-->
+        <!--android:textColor="@color/colorWhite"-->
+        <!--android:textAllCaps="false"-->
+        <!--android:textStyle="bold"-->
+            <!--android:layout_weight="1"-->
+        <!--android:text="Cancle"-->
+        <!--android:background="@drawable/buttoncorner" />-->
+
+    <!--</LinearLayout>-->
 
 </RelativeLayout>

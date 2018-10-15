@@ -18,242 +18,250 @@
             android:layout_height="match_parent">
 
 
-
-        <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/colorBlack"
-        android:textStyle="bold"
-        android:textSize="15dp"
-        android:text="Contact Info" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView11"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="13dp"
-        android:text="Contact us and we'll get back to you within 24 hours" />
-
-    <LinearLayout
-        android:id="@+id/li1"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/textView12"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/img1"
-            android:layout_marginStart="30dp"
-            android:src="@drawable/ic_place_black_24dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp" />
-
-        <TextView
-            android:text="IT Shades P.O. Box 334 lselin, NJ 088300334"
-            android:layout_width="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_gravity="center_vertical"
-            android:textSize="12dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp" />
-
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:id="@+id/li2"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/li1"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/img2"
-            android:layout_marginStart="30dp"
-            android:src="@drawable/ic_phone_in_talk_black_24dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp" />
-
-        <TextView
-            android:text="+1 848 248 6045"
-            android:layout_width="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_gravity="center_vertical"
-            android:textSize="12dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/li3"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/li2"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/img3"
-            android:layout_marginStart="30dp"
-            android:src="@drawable/ic_email_black_24dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp" />
-
-        <TextView
-            android:text="contact@itshades.com"
-            android:layout_width="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_gravity="center_vertical"
-            android:textSize="12dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp" />
-
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/li3"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="28dp"
-        android:textColor="@color/colorBlack"
-        android:textStyle="bold"
-        android:textSize="15dp"
-        android:text="Contact Us" />
-
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@color/colorWhite"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:textCursorDrawable="@color/darkgray"
-        android:textSize="12dp"
-        android:paddingStart="10dp"
-        android:layout_below="@+id/textView13"
-        android:layout_marginTop="11dp"
-        android:ems="10"
-        android:hint="Name :"
-        android:inputType="textPersonName"
-        android:paddingLeft="10dp" />
-
-    <EditText
-        android:id="@+id/editText4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@color/colorWhite"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:textCursorDrawable="@color/darkgray"
-        android:textSize="12dp"
-        android:paddingLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/editText3"
-        android:ems="10"
-        android:hint="Email :"
-        android:inputType="textPersonName"
-        />
-
-    <EditText
-        android:id="@+id/editText5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@color/colorWhite"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:textCursorDrawable="@color/darkgray"
-        android:textSize="12dp"
-        android:paddingLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/editText4"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Phone :" />
-
-    <EditText
-        android:id="@+id/editText6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@color/colorWhite"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:textCursorDrawable="@color/darkgray"
-        android:textSize="12dp"
-        android:paddingLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_below="@+id/editText5"
-        android:hint="Subject :" />
-
-            <EditText
-                android:id="@+id/editText7"
+            <WebView
+                android:id="@+id/webView1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="100dp"
-                android:layout_below="@+id/editText6"
-                android:textCursorDrawable="@color/darkgray"
-                android:background="@color/colorWhite"
-                android:gravity="top|left"
-                android:paddingTop="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:textSize="12dp"
-                android:paddingStart="10dp"
-                android:hint="Type Text Here"
-                android:inputType="textMultiLine"
-                android:paddingLeft="10dp" />
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true">
+
+            </WebView>
+
+            <!--<TextView-->
+            <!--android:id="@+id/textView11"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:textColor="@color/colorBlack"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textSize="15dp"-->
+            <!--android:text="Contact Info" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/textView12"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@+id/textView11"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_marginTop="13dp"-->
+            <!--android:text="Contact us and we'll get back to you within 24 hours" />-->
+
+            <!--<LinearLayout-->
+            <!--android:id="@+id/li1"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:layout_below="@+id/textView12"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<ImageView-->
+            <!--android:id="@+id/img1"-->
+            <!--android:layout_marginStart="30dp"-->
+            <!--android:src="@drawable/ic_place_black_24dp"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="30dp" />-->
+
+            <!--<TextView-->
+            <!--android:text="IT Shades P.O. Box 334 lselin, NJ 088300334"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_marginStart="15dp"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:textSize="12dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="15dp" />-->
 
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="12dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="10dp"
-        android:textColor="@color/colorWhite"
-        android:textAllCaps="false"
-        android:textStyle="bold"
-        android:text="Submit"
-        android:layout_below="@+id/editText7"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/buttoncorner" />
+            <!--</LinearLayout>-->
+
+
+            <!--<LinearLayout-->
+            <!--android:id="@+id/li2"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:layout_below="@+id/li1"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<ImageView-->
+            <!--android:id="@+id/img2"-->
+            <!--android:layout_marginStart="30dp"-->
+            <!--android:src="@drawable/ic_phone_in_talk_black_24dp"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="30dp" />-->
+
+            <!--<TextView-->
+            <!--android:text="+1 848 248 6045"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_marginStart="15dp"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:textSize="12dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="15dp" />-->
+
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:id="@+id/li3"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:layout_below="@+id/li2"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<ImageView-->
+            <!--android:id="@+id/img3"-->
+            <!--android:layout_marginStart="30dp"-->
+            <!--android:src="@drawable/ic_email_black_24dp"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="30dp" />-->
+
+            <!--<TextView-->
+            <!--android:text="contact@itshades.com"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_marginStart="15dp"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:textSize="12dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="15dp" />-->
+
+
+            <!--</LinearLayout>-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/textView13"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@+id/li3"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_marginTop="28dp"-->
+            <!--android:textColor="@color/colorBlack"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textSize="15dp"-->
+            <!--android:text="Contact Us" />-->
+
+            <!--<EditText-->
+            <!--android:id="@+id/editText3"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:background="@color/colorWhite"-->
+            <!--android:paddingBottom="10dp"-->
+            <!--android:paddingTop="10dp"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:layout_marginRight="20dp"-->
+            <!--android:textCursorDrawable="@color/darkgray"-->
+            <!--android:textSize="12dp"-->
+            <!--android:paddingStart="10dp"-->
+            <!--android:layout_below="@+id/textView13"-->
+            <!--android:layout_marginTop="11dp"-->
+            <!--android:ems="10"-->
+            <!--android:hint="Name :"-->
+            <!--android:inputType="textPersonName"-->
+            <!--android:paddingLeft="10dp" />-->
+
+            <!--<EditText-->
+            <!--android:id="@+id/editText4"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:background="@color/colorWhite"-->
+            <!--android:paddingBottom="10dp"-->
+            <!--android:paddingTop="10dp"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:layout_marginRight="20dp"-->
+            <!--android:textCursorDrawable="@color/darkgray"-->
+            <!--android:textSize="12dp"-->
+            <!--android:paddingLeft="10dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_below="@+id/editText3"-->
+            <!--android:ems="10"-->
+            <!--android:hint="Email :"-->
+            <!--android:inputType="textPersonName"-->
+            <!--/>-->
+
+            <!--<EditText-->
+            <!--android:id="@+id/editText5"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:background="@color/colorWhite"-->
+            <!--android:paddingBottom="10dp"-->
+            <!--android:paddingTop="10dp"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:layout_marginRight="20dp"-->
+            <!--android:textCursorDrawable="@color/darkgray"-->
+            <!--android:textSize="12dp"-->
+            <!--android:paddingLeft="10dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_below="@+id/editText4"-->
+            <!--android:ems="10"-->
+            <!--android:inputType="textPersonName"-->
+            <!--android:hint="Phone :" />-->
+
+            <!--<EditText-->
+            <!--android:id="@+id/editText6"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:background="@color/colorWhite"-->
+            <!--android:paddingBottom="10dp"-->
+            <!--android:paddingTop="10dp"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:layout_marginRight="20dp"-->
+            <!--android:textCursorDrawable="@color/darkgray"-->
+            <!--android:textSize="12dp"-->
+            <!--android:paddingLeft="10dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:inputType="textPersonName"-->
+            <!--android:ems="10"-->
+            <!--android:layout_below="@+id/editText5"-->
+            <!--android:hint="Subject :" />-->
+
+            <!--<EditText-->
+            <!--android:id="@+id/editText7"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:paddingBottom="100dp"-->
+            <!--android:layout_below="@+id/editText6"-->
+            <!--android:textCursorDrawable="@color/darkgray"-->
+            <!--android:background="@color/colorWhite"-->
+            <!--android:gravity="top|left"-->
+            <!--android:paddingTop="10dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_marginStart="20dp"-->
+            <!--android:layout_marginEnd="20dp"-->
+            <!--android:textSize="12dp"-->
+            <!--android:paddingStart="10dp"-->
+            <!--android:hint="Type Text Here"-->
+            <!--android:inputType="textMultiLine"-->
+            <!--android:paddingLeft="10dp" />-->
+
+
+            <!--<Button-->
+            <!--android:id="@+id/button2"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="12dp"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:layout_marginRight="20dp"-->
+            <!--android:layout_marginBottom="10dp"-->
+            <!--android:textColor="@color/colorWhite"-->
+            <!--android:textAllCaps="false"-->
+            <!--android:textStyle="bold"-->
+            <!--android:text="Submit"-->
+            <!--android:layout_below="@+id/editText7"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:background="@drawable/buttoncorner" />-->
 
         </RelativeLayout>
     </ScrollView>

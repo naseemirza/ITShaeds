@@ -28,6 +28,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import tbs.thinkbiz.solutions.itshades.AllUrls;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.AddNewLnDActivity;
 import tbs.thinkbiz.solutions.itshades.R;
 
@@ -119,7 +120,8 @@ public class ITConsAndServActivity extends AppCompatActivity {
         progressBar.setVisibility(View.VISIBLE);
 
 
-        String Tab_Url="https://www.itshades.com/appdata/emp-usecases.php?cat_id="+CatId+"&uid="+uid;
+        //String Tab_Url="https://www.itshades.com/appdata/emp-usecases.php?cat_id="+CatId+"&uid="+uid;
+        String Tab_Url= AllUrls.SOLUTION+CatId+"&uid="+uid;
 
         Log.e("rootJsonArray",Tab_Url);
 

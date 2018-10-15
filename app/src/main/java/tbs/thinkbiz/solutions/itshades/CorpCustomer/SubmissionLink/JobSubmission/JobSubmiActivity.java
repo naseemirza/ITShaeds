@@ -42,7 +42,6 @@ import tbs.thinkbiz.solutions.itshades.R;
 
 public class JobSubmiActivity extends AppCompatActivity {
 
-
     Button jobadd;
     String Actname;
     TextView textname;
@@ -82,7 +81,6 @@ public class JobSubmiActivity extends AppCompatActivity {
 
                 SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor edit = pref.edit();
-
                 edit.putString("Actvname",actname);
                 edit.commit();
 
@@ -125,8 +123,7 @@ public class JobSubmiActivity extends AppCompatActivity {
         final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
 
-
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, "https://www.itshades.com/appdata/employer-job.php?uid="+uid,
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, AllUrls.JOB_SUBMISSION+uid,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -150,6 +147,7 @@ public class JobSubmiActivity extends AppCompatActivity {
 
                             }
 
+
                             Log.e("rootJsonArray",mExampleList1.size()+"");
 
                             mExampleAdapter1 = new JobSubAdapter(JobSubmiActivity.this, mExampleList1);
@@ -160,7 +158,6 @@ public class JobSubmiActivity extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-
                     }
                 },
                 new Response.ErrorListener() {

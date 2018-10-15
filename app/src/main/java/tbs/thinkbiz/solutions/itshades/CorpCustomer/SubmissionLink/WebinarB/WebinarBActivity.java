@@ -28,6 +28,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import tbs.thinkbiz.solutions.itshades.AllUrls;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.ArtifactsB.ArtListAdapter;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.ArtifactsB.ArtListModel;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.ArtifactsB.ArtifactsBActivity;
@@ -128,7 +129,7 @@ public class WebinarBActivity extends AppCompatActivity {
         progressBar.setVisibility(View.VISIBLE);
 
 
-        String Tab_Url="https://www.itshades.com/appdata/emp-webinar.php?uid="+uid;
+        String Tab_Url= AllUrls.WEBINAR_B+uid;
 
         Log.e("rootJsonArray",Tab_Url);
 

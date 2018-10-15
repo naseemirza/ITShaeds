@@ -16,6 +16,7 @@ import android.webkit.WebViewClient;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import tbs.thinkbiz.solutions.itshades.AllUrls;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.AddNewLnDActivity;
 import tbs.thinkbiz.solutions.itshades.R;
 
@@ -102,10 +103,10 @@ public class AddNewArtifactsActivity extends AppCompatActivity {
 
         mywebview = (WebView) findViewById(R.id.webView1);
         mywebview.setWebViewClient(new MyWebViewClient());
-       // editkey=6
-        String url="https://www.itshades.com/appdata/addartifacts.php?&cat_id="+CatId+"&uid="+uid;
 
-        //String url=" https://www.itshades.com/appdata/emp-addwebinar.php?editkey=20&uid="+uid;
+        //String url="https://www.itshades.com/appdata/addartifacts.php?&cat_id="+CatId+"&uid="+uid;
+         String url= AllUrls.ADDNEW_ARTF+CatId+"&uid="+uid;
+
         mywebview.getSettings().setJavaScriptEnabled(true);
         mywebview.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
         mywebview.loadUrl(url);

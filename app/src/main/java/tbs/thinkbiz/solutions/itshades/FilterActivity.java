@@ -15,15 +15,18 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubscribeActivity;
+
 public class FilterActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private Spinner spinerrl,spinercntry,spinercrntcntry;
+    Spinner spinerrl,spinercntry,spinercrntcntry;
 
     ImageButton imageButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter);
 
@@ -36,7 +39,6 @@ public class FilterActivity extends AppCompatActivity
                 finish();
             }
         });
-
 
         spinerrl = (Spinner) findViewById(R.id.spinnerRolllevel);
         String[] users = new String[]{

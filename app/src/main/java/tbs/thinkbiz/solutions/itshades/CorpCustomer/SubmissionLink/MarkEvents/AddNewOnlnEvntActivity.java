@@ -16,6 +16,7 @@ import android.webkit.WebViewClient;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import tbs.thinkbiz.solutions.itshades.AllUrls;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.ArtifactsB.AddNewArtifactsActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.ArtifactsB.AnalysReprtActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.ArtifactsB.CustScsStoriesActivity;
@@ -75,7 +76,7 @@ public class AddNewOnlnEvntActivity extends AppCompatActivity {
         mywebview.setWebViewClient(new MyWebViewClient());
 
                                                             //editkey=616
-        String url="https://www.itshades.com/appdata/emp-addnewonlineevent.php?&uid="+uid;
+        String url= AllUrls.ADDNEW_ONLINE_EVNT+uid;
 
         mywebview.getSettings().setJavaScriptEnabled(true);
         mywebview.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);

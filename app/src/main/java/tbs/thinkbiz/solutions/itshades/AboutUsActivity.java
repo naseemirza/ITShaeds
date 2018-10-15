@@ -11,8 +11,8 @@ import android.widget.TextView;
 
 public class AboutUsActivity extends AppCompatActivity {
 
-    String Actname;
-    TextView textname;
+   // String Actname;
+    //TextView textname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,7 @@ public class AboutUsActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setCustomView(R.layout.backbar);
+        getSupportActionBar().setCustomView(R.layout.aboutusbar);
         View view =getSupportActionBar().getCustomView();
 
         ImageButton imageButton= (ImageButton)view.findViewById(R.id.action_bar_back);
@@ -34,11 +34,11 @@ public class AboutUsActivity extends AppCompatActivity {
         });
 
 
-        SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-
-        Actname=pref.getString("Actvname","");
-        textname=(TextView)findViewById(R.id.textname);
-        textname.setText(Actname);
+//        SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+//
+//        Actname=pref.getString("Actvname","");
+//        textname=(TextView)findViewById(R.id.textname);
+//        textname.setText(Actname);
        // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

@@ -16,8 +16,8 @@ import android.webkit.WebViewClient;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import tbs.thinkbiz.solutions.itshades.AllUrls;
 import tbs.thinkbiz.solutions.itshades.R;
-import tbs.thinkbiz.solutions.itshades.SubscribeActivity;
 
 public class AddnewJobActivity extends AppCompatActivity {
 
@@ -70,7 +70,7 @@ public class AddnewJobActivity extends AppCompatActivity {
         mywebview = (WebView) findViewById(R.id.webView1);
         mywebview.setWebViewClient(new MyWebViewClient());
 
-        String url="https://www.itshades.com/appdata/employer-add-job.php?uid="+uid;
+        String url= AllUrls.ADDNEW_JOBSUBM+uid;
 
         //String url="https://www.itshades.com/appdata/employer-add-job.php?uid="+uid;
         mywebview.getSettings().setJavaScriptEnabled(true);

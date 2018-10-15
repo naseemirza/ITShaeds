@@ -24,7 +24,6 @@ public class ParentActivity extends AppCompatActivity {
 
     List<Parent> productList1;
     RecyclerView recyclerViewtitle;
-
     String Actname;
     TextView textname;
 
@@ -39,7 +38,6 @@ public class ParentActivity extends AppCompatActivity {
         View view =getSupportActionBar().getCustomView();
 
         SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-
         Actname=pref.getString("Actvname","");
         textname=(TextView)findViewById(R.id.textname);
         textname.setText(Actname);
@@ -54,9 +52,6 @@ public class ParentActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         productList1 = new ArrayList<>();
         recyclerViewtitle = (RecyclerView) findViewById(R.id.recycler);

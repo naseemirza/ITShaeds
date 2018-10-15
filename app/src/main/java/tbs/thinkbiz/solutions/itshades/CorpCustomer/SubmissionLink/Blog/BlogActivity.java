@@ -28,6 +28,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import tbs.thinkbiz.solutions.itshades.AllUrls;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.JobSubmission.JobSubmiActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.AddNewLnDActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.OnlnTrangActivity;
@@ -126,7 +127,7 @@ public class BlogActivity extends AppCompatActivity {
         progressBar.setVisibility(View.VISIBLE);
 
 
-        String Tab_Url="https://www.itshades.com/appdata/emp-blog.php?uid="+uid;
+        String Tab_Url= AllUrls.BLOG+uid;
 
         Log.e("rootJsonArray",Tab_Url);
 

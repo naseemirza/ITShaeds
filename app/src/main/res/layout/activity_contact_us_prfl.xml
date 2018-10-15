@@ -6,158 +6,167 @@
     android:layout_height="match_parent"
     tools:context="tbs.thinkbiz.solutions.itshades.CorpCustomer.Profile.ContactUsPrflActivity">
 
-    <ScrollView
-        android:id="@+id/scrolview"
+    <WebView
+        android:id="@+id/webView1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <RelativeLayout
-            android:id="@+id/re"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="30dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
-        android:text="Reason"
-        android:textAllCaps="false"
-        android:textColor="@color/colorBlack"
-        android:textSize="15sp" />
+        android:layout_centerHorizontal="true">
 
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView15"
-        android:layout_marginTop="10dp" />
+    </WebView>
 
-
-            <EditText
-                android:id="@+id/editTextadmin"
-                android:layout_below="@+id/spinner2"
-                android:textCursorDrawable="@drawable/black_cursor"
-                android:background="@color/colorWhite"
-                android:layout_marginTop="20dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
-                android:textSize="12dp"
-                android:visibility="gone"
-                android:paddingStart="10dp"
-                android:layout_width="match_parent"
-                android:hint="Your Company Name"
-                android:layout_height="40dp"
-                android:layout_marginLeft="20dp"
-                android:paddingLeft="10dp" />
-
-
-
-
-            <EditText
-                android:id="@+id/editTextmail"
-                android:layout_below="@+id/editTextadmin"
-                android:visibility="gone"
-                android:textCursorDrawable="@color/colorBlack"
-                android:background="@color/colorWhite"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
-                android:textSize="12dp"
-                android:paddingStart="10dp"
-                android:layout_width="match_parent"
-                android:hint="Your Company Email Address"
-                android:layout_height="40dp"
-                android:layout_marginLeft="20dp"
-                android:paddingLeft="10dp" />
-
-
-
-
-            <EditText
-                android:id="@+id/editTextphone"
-                android:layout_below="@+id/editTextmail"
-                android:visibility="gone"
-                android:textCursorDrawable="@color/colorBlack"
-                android:background="@color/colorWhite"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
-                android:textSize="12dp"
-                android:paddingStart="10dp"
-                android:layout_width="match_parent"
-                android:hint="Your Company Phone Number"
-                android:layout_height="40dp"
-                android:layout_marginLeft="20dp"
-                android:paddingLeft="10dp" />
-
-            <EditText
-                android:id="@+id/editTextmsg"
-                android:layout_below="@+id/editTextphone"
-                android:visibility="gone"
-                android:textCursorDrawable="@color/colorBlack"
-                android:background="@color/colorWhite"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
-                android:textSize="12dp"
-                android:gravity="top|left"
-                android:paddingStart="10dp"
-                android:layout_width="match_parent"
-                android:hint="Type Text Here"
-                android:layout_height="100dp"
-                android:layout_marginLeft="20dp"
-                android:paddingLeft="10dp" />
-
-
-
-
-    <!--<EditText-->
-        <!--android:id="@+id/editTextmsg"-->
+    <!--<ScrollView-->
+        <!--android:id="@+id/scrolview"-->
         <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="100dp"-->
-        <!--android:visibility="visible"-->
-        <!--android:layout_below="@+id/editTextphone"-->
-        <!--android:paddingLeft="10dp"-->
-        <!--android:ems="10"-->
-        <!--android:textSize="15dp"-->
-        <!--android:gravity="start"-->
+        <!--android:layout_height="match_parent">-->
+
+        <!--<RelativeLayout-->
+            <!--android:id="@+id/re"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/textView15"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_marginLeft="30dp"-->
+        <!--android:layout_marginStart="30dp"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:text="Reason"-->
+        <!--android:textAllCaps="false"-->
+        <!--android:textColor="@color/colorBlack"-->
+        <!--android:textSize="15sp" />-->
+
+    <!--<Spinner-->
+        <!--android:id="@+id/spinner2"-->
         <!--android:layout_marginStart="30dp"-->
         <!--android:layout_marginEnd="30dp"-->
-        <!--android:layout_marginTop="15dp"-->
-        <!--android:textCursorDrawable="@drawable/black_cursor"-->
-        <!--android:backgroundTint="@color/green"-->
-        <!--android:hint="Message :"-->
-        <!--android:inputType="textMultiLine"-->
-         <!--/>-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_below="@+id/textView15"-->
+        <!--android:layout_marginTop="10dp" />-->
 
-    <Button
-        android:id="@+id/buttonsendmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="10dp"
-        android:textColor="@color/colorWhite"
-        android:textAllCaps="false"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="20dp"
-        android:visibility="gone"
-        android:layout_marginBottom="20dp"
-        android:textStyle="bold"
-        android:text="Send Mail"
-        android:layout_below="@+id/editTextmsg"
-        android:background="@drawable/buttoncorner" />
 
-        </RelativeLayout>
-    </ScrollView>
+            <!--<EditText-->
+                <!--android:id="@+id/editTextadmin"-->
+                <!--android:layout_below="@+id/spinner2"-->
+                <!--android:textCursorDrawable="@drawable/black_cursor"-->
+                <!--android:background="@color/colorWhite"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:layout_marginStart="30dp"-->
+                <!--android:layout_marginEnd="30dp"-->
+                <!--android:textSize="12dp"-->
+                <!--android:visibility="gone"-->
+                <!--android:paddingStart="10dp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:hint="Your Company Name"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:layout_marginLeft="20dp"-->
+                <!--android:paddingLeft="10dp" />-->
+
+
+
+
+            <!--<EditText-->
+                <!--android:id="@+id/editTextmail"-->
+                <!--android:layout_below="@+id/editTextadmin"-->
+                <!--android:visibility="gone"-->
+                <!--android:textCursorDrawable="@color/colorBlack"-->
+                <!--android:background="@color/colorWhite"-->
+                <!--android:layout_marginTop="15dp"-->
+                <!--android:layout_marginStart="30dp"-->
+                <!--android:layout_marginEnd="30dp"-->
+                <!--android:textSize="12dp"-->
+                <!--android:paddingStart="10dp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:hint="Your Company Email Address"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:layout_marginLeft="20dp"-->
+                <!--android:paddingLeft="10dp" />-->
+
+
+
+
+            <!--<EditText-->
+                <!--android:id="@+id/editTextphone"-->
+                <!--android:layout_below="@+id/editTextmail"-->
+                <!--android:visibility="gone"-->
+                <!--android:textCursorDrawable="@color/colorBlack"-->
+                <!--android:background="@color/colorWhite"-->
+                <!--android:layout_marginTop="15dp"-->
+                <!--android:layout_marginStart="30dp"-->
+                <!--android:layout_marginEnd="30dp"-->
+                <!--android:textSize="12dp"-->
+                <!--android:paddingStart="10dp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:hint="Your Company Phone Number"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:layout_marginLeft="20dp"-->
+                <!--android:paddingLeft="10dp" />-->
+
+            <!--<EditText-->
+                <!--android:id="@+id/editTextmsg"-->
+                <!--android:layout_below="@+id/editTextphone"-->
+                <!--android:visibility="gone"-->
+                <!--android:textCursorDrawable="@color/colorBlack"-->
+                <!--android:background="@color/colorWhite"-->
+                <!--android:layout_marginTop="15dp"-->
+                <!--android:layout_marginStart="30dp"-->
+                <!--android:layout_marginEnd="30dp"-->
+                <!--android:textSize="12dp"-->
+                <!--android:gravity="top|left"-->
+                <!--android:paddingStart="10dp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:hint="Type Text Here"-->
+                <!--android:layout_height="100dp"-->
+                <!--android:layout_marginLeft="20dp"-->
+                <!--android:paddingLeft="10dp" />-->
+
+
+
+
+    <!--&lt;!&ndash;<EditText&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/editTextmsg"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="100dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:visibility="visible"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_below="@+id/editTextphone"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:paddingLeft="10dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:ems="10"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:textSize="15dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:gravity="start"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginStart="30dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginEnd="30dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginTop="15dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:textCursorDrawable="@drawable/black_cursor"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:backgroundTint="@color/green"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:hint="Message :"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:inputType="textMultiLine"&ndash;&gt;-->
+         <!--&lt;!&ndash;/>&ndash;&gt;-->
+
+    <!--<Button-->
+        <!--android:id="@+id/buttonsendmail"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textSize="10dp"-->
+        <!--android:textColor="@color/colorWhite"-->
+        <!--android:textAllCaps="false"-->
+        <!--android:layout_marginStart="30dp"-->
+        <!--android:layout_marginEnd="30dp"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:visibility="gone"-->
+        <!--android:layout_marginBottom="20dp"-->
+        <!--android:textStyle="bold"-->
+        <!--android:text="Send Mail"-->
+        <!--android:layout_below="@+id/editTextmsg"-->
+        <!--android:background="@drawable/buttoncorner" />-->
+
+        <!--</RelativeLayout>-->
+    <!--</ScrollView>-->
 
 </RelativeLayout>

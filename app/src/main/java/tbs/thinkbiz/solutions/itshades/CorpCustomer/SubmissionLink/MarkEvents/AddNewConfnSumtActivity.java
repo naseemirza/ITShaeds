@@ -16,6 +16,7 @@ import android.webkit.WebViewClient;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import tbs.thinkbiz.solutions.itshades.AllUrls;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.ArtifactsB.AddNewArtifactsActivity;
 import tbs.thinkbiz.solutions.itshades.R;
 
@@ -32,7 +33,6 @@ public class AddNewConfnSumtActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_confn_sumt);
-
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
@@ -72,7 +72,7 @@ public class AddNewConfnSumtActivity extends AppCompatActivity {
         mywebview.setWebViewClient(new MyWebViewClient());
 
                                                         //editkey=2308
-        String url="https://www.itshades.com/appdata/emp-addnewinpersonevent.php?&uid="+uid;
+        String url= AllUrls.ADDNEW_CONF_SUMMTS+uid;
 
         mywebview.getSettings().setJavaScriptEnabled(true);
         mywebview.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);

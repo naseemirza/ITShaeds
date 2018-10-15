@@ -28,6 +28,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import tbs.thinkbiz.solutions.itshades.AllUrls;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.AddNewLnDActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.CertifictinActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.ClassRmTrngActivity;
@@ -162,7 +163,7 @@ public class LnDFiltrationActivity extends AppCompatActivity {
 
         //String Tab_Url=" https://www.itshades.com/appdata/emp-onlinetraining.php?cat_id=1&uid=329&industry=&item=&title_search=";
 
-      String Tab_Url="https://www.itshades.com/appdata/emp-onlinetraining.php?cat_id="+CatId+"&uid="+uid+"&industry="+SpInd+"&item="+SpFA+"&title_search="+EdtSrch;
+      String Tab_Url= AllUrls.LND_FILTRATION+CatId+"&uid="+uid+"&industry="+SpInd+"&item="+SpFA+"&title_search="+EdtSrch;
 
         Log.e("rootJsonArray",Tab_Url);
 

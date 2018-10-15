@@ -5,6 +5,8 @@
 
 
     <group android:checkableBehavior="single">
+
+
         <item
             android:id="@+id/nav_profile"
             android:icon="@drawable/ic_person_outline_black_24dp"
@@ -14,11 +16,10 @@
             android:icon="@drawable/ic_check_black_24dp"
             android:title="Submission Links" />
 
-        <!--<item-->
-            <!--android:id="@+id/nav_authuser"-->
-            <!--android:icon="@drawable/ic_people_black_24dp"-->
-            <!--android:title="Manage Authorized Users" />-->
-
+        <item
+            android:id="@+id/nav_subsc"
+            android:icon="@drawable/ic_subscriptions_black_24dp"
+            android:title="Subscribe" />
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_lock_outline_black_24dp"

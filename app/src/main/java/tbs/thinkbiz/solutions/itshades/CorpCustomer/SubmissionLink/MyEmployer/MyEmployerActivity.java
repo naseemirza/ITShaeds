@@ -28,6 +28,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import tbs.thinkbiz.solutions.itshades.AllUrls;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.Blog.AddNewBlogActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.Blog.BlogActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.Blog.BlogAdapter;
@@ -122,7 +123,7 @@ public class MyEmployerActivity extends AppCompatActivity {
         progressBar.setVisibility(View.VISIBLE);
 
 
-        String Tab_Url="https://www.itshades.com/appdata/emp-myemployer.php?uid="+uid;
+        String Tab_Url= AllUrls.MY_EMPLOYER+uid;
 
         Log.e("rootJsonArray",Tab_Url);
 

@@ -121,7 +121,7 @@ public class FilterEditActivity extends AppCompatActivity {
         mywebview = (WebView) findViewById(R.id.webView1);
         mywebview.setWebViewClient(new MyWebViewClient());
 
-        String EditUrl="https://www.itshades.com/appdata/emp-addnewonlinetraining.php?editkey=2434&cat_id=1&uid=329";
+        //String EditUrl="https://www.itshades.com/appdata/emp-addnewonlinetraining.php?editkey=2434&cat_id=1&uid=329";
 
         String Edit_URL=editurl+"&cat_id="+CatId+"&uid="+uid;
 

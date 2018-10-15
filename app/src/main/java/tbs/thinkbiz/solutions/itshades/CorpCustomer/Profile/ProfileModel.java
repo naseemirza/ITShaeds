@@ -7,7 +7,8 @@ package tbs.thinkbiz.solutions.itshades.CorpCustomer.Profile;
 public class ProfileModel {
     String name;
 
-    public ProfileModel(String name) {
+    public ProfileModel(String name)
+    {
         this.name = name;
     }
 

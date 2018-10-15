@@ -38,10 +38,6 @@
             android:label=""
             android:parentActivityName=".LoginActivity" />
         <activity
-            android:name=".SubscribeActivity"
-            android:label=""
-            android:parentActivityName=".LoginActivity" />
-        <activity
             android:name=".ContactUsActivity"
             android:label="                Contact Us"
             android:parentActivityName=".LoginActivity" />
@@ -116,7 +112,6 @@
             android:label="Contact Us"
             android:parentActivityName=".CorpCustomer.Profile.ProfileActivity" />
         <activity android:name=".ITByteDetailsRecy.FinancialActivity" />
-        <activity android:name=".MyProfileActivity" />
         <activity android:name=".ITByteDetailsRecy.SolutionsActivity" />
         <activity android:name=".ITByteDetailsRecy.RewardAndRecogActivity" />
         <activity android:name=".ITByteDetailsRecy.CustSuccessActivity" />
@@ -174,7 +169,11 @@
         <activity android:name=".CorpCustomer.SubmissionLink.SolutionsB.SoluEditActivity" />
         <activity android:name=".CorpCustomer.SubmissionLink.LearnAndDevlp.Filteration.LnDFiltrationActivity" />
         <activity android:name=".CorpCustomer.SubmissionLink.LearnAndDevlp.Filteration.LnDFilterActivity" />
-        <activity android:name=".CorpCustomer.SubmissionLink.LearnAndDevlp.Filteration.FilterEditActivity"></activity>
+        <activity android:name=".CorpCustomer.SubmissionLink.LearnAndDevlp.Filteration.FilterEditActivity" />
+        <activity android:name=".CorpCustomer.SubscribeActivity" />
+        <activity android:name=".MyProfileActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.ClassifiedsB.AddNewClassBActivity" />
+        <activity android:name=".CorpCustomer.SubmissionLink.ClassifiedsB.EditClassBActivity"></activity>
     </application>
 
 </manifest>
