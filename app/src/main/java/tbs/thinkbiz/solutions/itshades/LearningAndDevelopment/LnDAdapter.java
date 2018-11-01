@@ -53,25 +53,30 @@ public class LnDAdapter extends RecyclerView.Adapter<LnDAdapter.ProductViewHolde
             @Override
             public void onClick(View v) {
 
-                String id=product.getId();
-                String title=product.getName();
-                String inds=product.getIndrel();
-                String focs=product.getFocsar();
-                String dscrp=product.getDesc();
+                //String id=product.getId();
+                String cmpurl=product.getComsite();
+                Log.e("responce", cmpurl);
+//
+//                String id=product.getId();
+//                String title=product.getName();
+//                String inds=product.getIndrel();
+//                String focs=product.getFocsar();
+//                String dscrp=product.getDesc();
 
 
-                Log.e("responce", title);
+                //Log.e("responce", title);
 
                 SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor edit = pref.edit();
+               // edit.putString("id",id);
+                edit.putString("url",cmpurl);
+//                edit.putString("Id",id);
+//                edit.putString("Title",title);
+//                edit.putString("Inds",inds);
+//                edit.putString("Focus",focs);
+//                edit.putString("DESC",dscrp);
 
-                edit.putString("Id",id);
-                edit.putString("Title",title);
-                edit.putString("Inds",inds);
-                edit.putString("Focus",focs);
-                edit.putString("DESC",dscrp);
-
-                edit.commit();
+                edit.apply();
 
                 Intent intent = new Intent(v.getContext(), LandDetailsActivity.class);
                 v.getContext().startActivity(intent);

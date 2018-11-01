@@ -23,7 +23,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import tbs.thinkbiz.solutions.itshades.AllUrls;
 import tbs.thinkbiz.solutions.itshades.R;
-import tbs.thinkbiz.solutions.itshades.Solutions.FilterAllActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -85,7 +84,7 @@ public class CertificationsActivity extends AppCompatActivity {
 //                edit.putString("Actvname",actname );
 //
 //                edit.commit();
-                Intent intent=new Intent(CertificationsActivity.this,FilterAllActivity.class);
+                Intent intent=new Intent(CertificationsActivity.this,LndFilterationActivity.class);
 
                 startActivity(intent);
             }
@@ -129,7 +128,8 @@ public class CertificationsActivity extends AppCompatActivity {
                                         object.optString("breif_desc"),
                                         object.optString("industry_relevance"),
                                         object.optString("focus_area"),
-                                        object.optString("added_by")));
+                                        object.optString("added_by"),
+                                        object.optString("sourse_url")));
 
                             }
 

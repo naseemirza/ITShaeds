@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
@@ -53,6 +54,7 @@ public class JobsNameAdapter extends RecyclerView.Adapter<JobsNameAdapter.Produc
         holder.checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+               // String Jobid=product.getmID();
                 if(holder.checkBox.isChecked()){
                     asyncResult_addNewConnection.success(1);
                 }else{
@@ -62,7 +64,6 @@ public class JobsNameAdapter extends RecyclerView.Adapter<JobsNameAdapter.Produc
         });
 
 
-
         holder.setItemClickListener(new RecyclerViewItemClickListener() {
             @Override
             public void onClick(View view, int position) {
@@ -70,6 +71,7 @@ public class JobsNameAdapter extends RecyclerView.Adapter<JobsNameAdapter.Produc
                 String actname ="Job Descriptions";
 
                 String jobID=product.getmID();
+                String userID=product.getUserid();
                 String title=product.getTitle();
                 String exp=product.getExp()+" Yrs";
                 String contry=product.getCountry();
@@ -80,10 +82,13 @@ public class JobsNameAdapter extends RecyclerView.Adapter<JobsNameAdapter.Produc
                 String explevel=product.getExpLevel();
 
 
-                Log.e("responce", jobID);
+               // Log.e("responce", jobaply);
 
                 SharedPreferences pref = view.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor edit = pref.edit();
+
+                edit.putString("ID",jobID);
+                edit.putString("UserId",userID);
                 edit.putString("Title",title);
                 edit.putString("Exp",exp);
                 edit.putString("Country",contry);
@@ -93,7 +98,6 @@ public class JobsNameAdapter extends RecyclerView.Adapter<JobsNameAdapter.Produc
                 edit.putString("Jobdesc",jobdes);
                 edit.putString("ExpLevel",explevel);
                 edit.putString("Actvname",actname);
-
 
                 edit.apply();
                 Intent intent = new Intent(view.getContext(), DetailsActivity.class);
@@ -116,7 +120,7 @@ public class JobsNameAdapter extends RecyclerView.Adapter<JobsNameAdapter.Produc
         TextView textViewcontry;
         TextView textViewloc;
         CheckBox checkBox;
-//        Button buttonaply;
+        //Button buttonaply;
 
         private RecyclerViewItemClickListener itemClickListener;
 
@@ -128,7 +132,7 @@ public class JobsNameAdapter extends RecyclerView.Adapter<JobsNameAdapter.Produc
             textViewcontry = itemView.findViewById(tbs.thinkbiz.solutions.itshades.R.id.contryTextview);
             textViewloc = itemView.findViewById(tbs.thinkbiz.solutions.itshades.R.id.locTextview);
             checkBox=itemView.findViewById(tbs.thinkbiz.solutions.itshades.R.id.chkox);
-//            buttonaply=itemView.findViewById(R.id.applybutton);
+            //buttonaply=itemView.findViewById(R.id.applybutton);
 
             itemView.setOnClickListener(this);
 

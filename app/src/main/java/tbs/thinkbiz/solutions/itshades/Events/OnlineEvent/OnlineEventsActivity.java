@@ -22,7 +22,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import tbs.thinkbiz.solutions.itshades.AllUrls;
 import tbs.thinkbiz.solutions.itshades.R;
-import tbs.thinkbiz.solutions.itshades.Solutions.FilterAllActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,6 +33,7 @@ public class OnlineEventsActivity extends AppCompatActivity {
 
     String Actname,CatId;
     TextView textname;
+    String uid;
 
     private OnlineEventAdapter mExampleAdapter1;
     private ArrayList<OnlineEventModel> mExampleList1;
@@ -54,6 +54,7 @@ public class OnlineEventsActivity extends AppCompatActivity {
 
         Actname=pref.getString("Actvname","");
         CatId=pref.getString("CatId","");
+        uid = pref.getString("UserId", "");
 
         textname=(TextView)findViewById(tbs.thinkbiz.solutions.itshades.R.id.textname);
         textname.setText(Actname);
@@ -73,7 +74,7 @@ public class OnlineEventsActivity extends AppCompatActivity {
         imageButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(OnlineEventsActivity.this,FilterAllActivity.class);
+                Intent intent=new Intent(OnlineEventsActivity.this,OnlnEvntFilterationActivity.class);
 
                 startActivity(intent);
             }
@@ -96,7 +97,7 @@ public class OnlineEventsActivity extends AppCompatActivity {
         final ProgressBar progressBar = (ProgressBar) findViewById(tbs.thinkbiz.solutions.itshades.R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, AllUrls.ONLINE_EVENTS,
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, AllUrls.ONLINE_EVENTS+"&uid="+uid,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -117,7 +118,8 @@ public class OnlineEventsActivity extends AppCompatActivity {
                                         object.optString("breif_desc"),
                                         object.optString("industry_relevance"),
                                         object.optString("focus_area"),
-                                        object.optString("posted_by")));
+                                        object.optString("posted_by"),
+                                        object.optString("sourse_url")));
 
                             }
 

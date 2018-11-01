@@ -29,14 +29,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import tbs.thinkbiz.solutions.itshades.AllUrls;
-import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.AddNewLnDActivity;
-import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.CertifictinActivity;
-import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.LearngAndDevActivity;
-import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.ListAdapterB;
-import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.ListModelB;
-import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.OnlnTrangActivity;
 import tbs.thinkbiz.solutions.itshades.R;
-import tbs.thinkbiz.solutions.itshades.Solutions.FilterAllActivity;
 
 public class AnalysReprtActivity extends AppCompatActivity {
 

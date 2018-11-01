@@ -22,7 +22,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import tbs.thinkbiz.solutions.itshades.AllUrls;
 import tbs.thinkbiz.solutions.itshades.R;
-import tbs.thinkbiz.solutions.itshades.Solutions.FilterAllActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -74,7 +73,7 @@ public class CustSuccStoriesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent=new Intent(CustSuccStoriesActivity.this,FilterAllActivity.class);
+                Intent intent=new Intent(CustSuccStoriesActivity.this,ArtfacFiltrationActivity.class);
 
                 startActivity(intent);
             }

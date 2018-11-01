@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -18,7 +17,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -29,6 +27,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import tbs.thinkbiz.solutions.itshades.IndividulaProfile.MyProfileActivity;
 import tbs.thinkbiz.solutions.itshades.Jobs.AdapterJobs;
 import tbs.thinkbiz.solutions.itshades.Jobs.AsyncResult;
 import tbs.thinkbiz.solutions.itshades.Jobs.JobsModelName;
@@ -252,6 +251,7 @@ public class Main2Activity extends AppCompatActivity
                                 JSONObject object = rootJsonArray.getJSONObject(i);
 
                                 mExampleList1.add(new JobsModelName(object.optString("id"),
+                                        object.optString("user_id"),
                                         object.optString("job_title"),
                                         object.optString("expirence"),
                                         object.optString("country"),
@@ -295,7 +295,11 @@ public class Main2Activity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            //super.onBackPressed();
+            Intent a = new Intent(Intent.ACTION_MAIN);
+            a.addCategory(Intent.CATEGORY_HOME);
+            a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(a);
         }
     }
 
@@ -335,20 +339,29 @@ public class Main2Activity extends AppCompatActivity
         }
 
         else if (id == R.id.nav_profile) {
+
+            String actname="My Profile";
+            SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor edit = pref.edit();
+            edit.putString("Actvname",actname);
+            edit.apply();
                 startActivity(new Intent(Main2Activity.this,MyProfileActivity.class));
             }
+//        else if (id == R.id.nav_chngpass) {
+//            startActivity(new Intent(Main2Activity.this,IndChangePassActivity.class));
+//        }
+//        else if (id == R.id.nav_invtfrnds) {
+//            startActivity(new Intent(Main2Activity.this,IndInvitFrndsActivity.class));
+//        }
+//        else if (id == R.id.subscrib) {
+//            startActivity(new Intent(Main2Activity.this,IndSubscrbActivity.class));
+//        }
+
          else if (id == R.id.nav_logout) {
             startActivity(new Intent(Main2Activity.this,LoginActivity.class));
 
         } else if (id == R.id.nav_contactus) {
 
-//            String actname ="Contact Us";
-//            SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-//            SharedPreferences.Editor edit = pref.edit();
-//
-//            edit.putString("Actvname",actname);
-//
-//            edit.commit();
             startActivity(new Intent(Main2Activity.this,ContactUsActivity.class));
         }
 

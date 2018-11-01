@@ -1,13 +1,19 @@
 package tbs.thinkbiz.solutions.itshades.Solutions;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.List;
+
+import tbs.thinkbiz.solutions.itshades.LearningAndDevelopment.LandDetailsActivity;
+import tbs.thinkbiz.solutions.itshades.R;
 
 /**
  * Created by User on 29-Aug-18.
@@ -39,36 +45,31 @@ public class SoluAdapter extends RecyclerView.Adapter<SoluAdapter.ProductViewHol
 
         holder.textViewName.setText(product.getName());
         holder.textViewDesc.setText(product.getDesc());
+        holder.textViewIndAra.setText(product.getIndAra());
+        holder.textViewFocsAra.setText(product.getFocsar());
         holder.textViewprce.setText(product.getUprice());
         holder.textViewpstd.setText(product.getPsted());
         holder.textViewevntstrt.setText(product.getEvntstart());
         holder.textViewevntend.setText(product.getEvntend());
         //holder.checkBox.setChecked(productList1.get(position).getSelected());
 
-//        holder.setItemClickListener(new RecyclerViewItemClickListener() {
-//            @Override
-//            public void onClick(View view, int position) {
-//
-//                String title=product.getName().toString();
-//                String exp=product.getExp().toString();
-//
-//
-//                Log.e("responce", title);
-//
-//                SharedPreferences pref = view.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-//                SharedPreferences.Editor edit = pref.edit();
-//
-//                edit.putString("Title",title);
-//                edit.putString("Exp",exp);
-//
-//
-//                edit.commit();
-//                Intent intent = new Intent(view.getContext(), ITBytDetailsActivity1.class);
-//                view.getContext().startActivity(intent);
-//
-//            }
-//        });
+        holder.textViewdetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                String cmpurl=product.getComsite();
+                Log.e("responce", cmpurl);
+                //Log.e("responce", title);
+
+                SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor edit = pref.edit();
+                edit.putString("url",cmpurl);
+                edit.apply();
+
+                Intent intent = new Intent(v.getContext(), SoluDetailsActivity.class);
+                v.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -81,11 +82,13 @@ public class SoluAdapter extends RecyclerView.Adapter<SoluAdapter.ProductViewHol
 
         TextView textViewName;
         TextView textViewDesc;
+        public TextView textViewIndAra;
+        public TextView textViewFocsAra;
         TextView textViewprce;
         TextView textViewpstd;
         TextView textViewevntstrt;
         TextView textViewevntend;
-
+        TextView textViewdetails;
 
 
 
@@ -96,10 +99,13 @@ public class SoluAdapter extends RecyclerView.Adapter<SoluAdapter.ProductViewHol
             mCtx=itemView.getContext();
             textViewName = itemView.findViewById(tbs.thinkbiz.solutions.itshades.R.id.nameTextview);
             textViewDesc = itemView.findViewById(tbs.thinkbiz.solutions.itshades.R.id.descTextview);
+            textViewIndAra = itemView.findViewById(R.id.indrel);
+            textViewFocsAra = itemView.findViewById(R.id.fcsar1);
             textViewprce = itemView.findViewById(tbs.thinkbiz.solutions.itshades.R.id.price);
             textViewpstd = itemView.findViewById(tbs.thinkbiz.solutions.itshades.R.id.pstdby);
             textViewevntstrt = itemView.findViewById(tbs.thinkbiz.solutions.itshades.R.id.date1);
             textViewevntend = itemView.findViewById(tbs.thinkbiz.solutions.itshades.R.id.date2);
+            textViewdetails =(TextView) itemView.findViewById(R.id.compsite);
 
             //itemView.setOnClickListener(this);
 

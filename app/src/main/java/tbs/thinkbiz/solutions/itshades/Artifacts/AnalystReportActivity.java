@@ -21,7 +21,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import tbs.thinkbiz.solutions.itshades.AllUrls;
-import tbs.thinkbiz.solutions.itshades.Solutions.FilterAllActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -72,7 +71,7 @@ public class AnalystReportActivity extends AppCompatActivity {
         imageButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(AnalystReportActivity.this,FilterAllActivity.class);
+                Intent intent=new Intent(AnalystReportActivity.this,ArtfacFiltrationActivity.class);
 
                 startActivity(intent);
             }

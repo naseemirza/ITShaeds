@@ -26,7 +26,6 @@ public class AddNewBlogActivity extends AppCompatActivity {
     WebView mywebview;
     ProgressDialog progressDialog;
     String uid;
-
     String Actname;
     TextView textname;
 
@@ -57,10 +56,8 @@ public class AddNewBlogActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //finish();
                 String actname="Blog";
-
                 SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor edit = pref.edit();
-
                 edit.putString("Actvname",actname);
                 edit.apply();
 
@@ -84,7 +81,6 @@ public class AddNewBlogActivity extends AppCompatActivity {
             view.loadUrl(url);
             return true;
         }
-
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
             super.onPageStarted(view, url, favicon);

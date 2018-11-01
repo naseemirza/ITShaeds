@@ -30,14 +30,7 @@ import java.util.ArrayList;
 
 import tbs.thinkbiz.solutions.itshades.AllUrls;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.Filteration.LnDFilterActivity;
-import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.WebinarB.AddNewWebinarActivity;
-import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.WebinarB.WebinarBActivity;
-import tbs.thinkbiz.solutions.itshades.LearningAndDevelopment.LandDetailsActivity;
-import tbs.thinkbiz.solutions.itshades.LearningAndDevelopment.TableAdapter;
-import tbs.thinkbiz.solutions.itshades.LearningAndDevelopment.TableModel;
 import tbs.thinkbiz.solutions.itshades.R;
-import tbs.thinkbiz.solutions.itshades.Solutions.FilterAllActivity;
-import tbs.thinkbiz.solutions.itshades.Solutions.ITConsltAndServActivity;
 
 public class OnlnTrangActivity extends AppCompatActivity {
 

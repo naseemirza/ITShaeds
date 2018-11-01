@@ -1,8 +1,10 @@
 package tbs.thinkbiz.solutions.itshades.LearningAndDevelopment;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +13,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
@@ -34,6 +39,7 @@ import java.util.ArrayList;
 import tbs.thinkbiz.solutions.itshades.AllUrls;
 import tbs.thinkbiz.solutions.itshades.Artifacts.ArtfAdapter;
 import tbs.thinkbiz.solutions.itshades.Artifacts.ArtfModel;
+import tbs.thinkbiz.solutions.itshades.Artifacts.ArtifactsViewActivity;
 import tbs.thinkbiz.solutions.itshades.Artifacts.CustSuccStoriesActivity;
 import tbs.thinkbiz.solutions.itshades.Jobs.CrntJobFilterActivity;
 import tbs.thinkbiz.solutions.itshades.Jobs.CurrentJobActivity;
@@ -43,30 +49,34 @@ public class LandDetailsActivity extends AppCompatActivity {
 
     String Actname;
     TextView textname;
+    WebView mywebview;
+    ProgressDialog progressDialog;
+    String url,id,CatId;
+    String uid;
 
     //Table Data
-
-    private TableAdapter mExampleAdapter;
-    private ArrayList<TableModel> mExampleList;
-    private RequestQueue mRequestQueue;
-    private RecyclerView mRecyclerview;
-
-    TextView textViewTitle;
-    TextView indstry;
-    TextView focus;
-    TextView desc;
-    TextView desc1;
-
-    String title, indst, fcsar, des;
-    String id, CatId;
-
-    Button Contactbtn;
-    TextView Clicktext;
-
-    private LnDRltdAdapter mExampleAdapter1;
-    private ArrayList<LnDRltdModel> mExampleList1;
-    private RequestQueue mRequestQueue1;
-    private RecyclerView mRecyclerview1;
+//
+//    private TableAdapter mExampleAdapter;
+//    private ArrayList<TableModel> mExampleList;
+//    private RequestQueue mRequestQueue;
+//    private RecyclerView mRecyclerview;
+//
+//    TextView textViewTitle;
+//    TextView indstry;
+//    TextView focus;
+//    TextView desc;
+//    TextView desc1;
+//
+//    String title, indst, fcsar, des;
+//    String id, CatId;
+//
+//    Button Contactbtn;
+//    TextView Clicktext;
+//
+//    private LnDRltdAdapter mExampleAdapter1;
+//    private ArrayList<LnDRltdModel> mExampleList1;
+//    private RequestQueue mRequestQueue1;
+//    private RecyclerView mRecyclerview1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,10 +92,12 @@ public class LandDetailsActivity extends AppCompatActivity {
 
 
         Actname = pref.getString("Actvname", "");
-        id = pref.getString("Id", "");
-        CatId = pref.getString("CatId", "");
+        url = pref.getString("url", "");
+//        CatId = pref.getString("CatId", "");
+//        id = pref.getString("Id", "");
+//        uid = pref.getString("UserId", "");
 
-        Log.e("id",id);
+
 
 
         textname = (TextView) findViewById(R.id.textname);
@@ -100,193 +112,226 @@ public class LandDetailsActivity extends AppCompatActivity {
             }
         });
 
-        textViewTitle = (TextView) findViewById(R.id.textvpost);
-        indstry = (TextView) findViewById(R.id.indrel);
-        focus = (TextView) findViewById(R.id.fcsar1);
-        desc = (TextView) findViewById(R.id.desc);
-        desc1 = (TextView) findViewById(R.id.desc1);
+        mywebview = (WebView) findViewById(R.id.webView1);
+        mywebview.setWebViewClient(new MyWebViewClient());
+        //String url= "https://www.itshades.com/appwebservices/company-profile.php?uid="+uid;
+        mywebview.getSettings().setJavaScriptEnabled(true);
+        mywebview.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+        mywebview.loadUrl(url);
 
-        title = pref.getString("Title", "");
-        indst = pref.getString("Inds", "");
-        fcsar = pref.getString("Focus", "");
-        des = pref.getString("DESC", "");
+    }
 
-        textViewTitle.setText(title);
-        indstry.setText(indst);
-        focus.setText(fcsar);
-        desc.setText(des);
-        desc1.setText(des);
+    private class MyWebViewClient extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            view.loadUrl(url);
+            return true;
+        }
 
-        Contactbtn = (Button) findViewById(R.id.buttonContact);
-
-        Contactbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-                SharedPreferences.Editor edit = pref.edit();
-                String actname = "Contact Corporate";
-
-                edit.putString("Actvname", actname);
-
-                edit.commit();
-
-                Intent intent = new Intent(LandDetailsActivity.this, ContactForm.class);
-                startActivity(intent);
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            super.onPageStarted(view, url, favicon);
+            progressDialog = new ProgressDialog(LandDetailsActivity.this);
+            progressDialog.setMessage("Please wait ...");
+            progressDialog.setProgressStyle(90);
+            progressDialog.show();
+        }
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            super.onPageFinished(view, url);
+            if (progressDialog != null) {
+                progressDialog.dismiss();
             }
-        });
+        }
+
+
+//        textViewTitle = (TextView) findViewById(R.id.textvpost);
+//        indstry = (TextView) findViewById(R.id.indrel);
+//        focus = (TextView) findViewById(R.id.fcsar1);
+//        desc = (TextView) findViewById(R.id.desc);
+//        desc1 = (TextView) findViewById(R.id.desc1);
+//
+//        title = pref.getString("Title", "");
+//        indst = pref.getString("Inds", "");
+//        fcsar = pref.getString("Focus", "");
+//        des = pref.getString("DESC", "");
+//
+//        textViewTitle.setText(title);
+//        indstry.setText(indst);
+//        focus.setText(fcsar);
+//        desc.setText(des);
+//        desc1.setText(des);
+//
+//        Contactbtn = (Button) findViewById(R.id.buttonContact);
+//
+//        Contactbtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+//                SharedPreferences.Editor edit = pref.edit();
+//                String actname = "Contact Corporate";
+//
+//                edit.putString("Actvname", actname);
+//
+//                edit.commit();
+//
+//                Intent intent = new Intent(LandDetailsActivity.this, ContactForm.class);
+//                startActivity(intent);
+//            }
+//        });
 
 
         //TableData
 
-        mExampleList = new ArrayList<>();
-        mRequestQueue = Volley.newRequestQueue(this);
-
-        mRecyclerview = (RecyclerView) findViewById(R.id.my_recycler_jobs1);
-        mRecyclerview.setNestedScrollingEnabled(false);
-        mRecyclerview.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        mRecyclerview.setHasFixedSize(true);
-
-        parseJSON();
-
-
-        //Related
-
-        mExampleList1 = new ArrayList<>();
-        mRequestQueue1 = Volley.newRequestQueue(this);
-
-        mRecyclerview1 = (RecyclerView) findViewById(R.id.my_recycler_jobs);
-        mRecyclerview1.setNestedScrollingEnabled(false);
-        mRecyclerview1.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        mRecyclerview1.setHasFixedSize(true);
-
-        parseJSON1();
+//        mExampleList = new ArrayList<>();
+//        mRequestQueue = Volley.newRequestQueue(this);
+//
+//        mRecyclerview = (RecyclerView) findViewById(R.id.my_recycler_jobs1);
+//        mRecyclerview.setNestedScrollingEnabled(false);
+//        mRecyclerview.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+//        mRecyclerview.setHasFixedSize(true);
+//
+//        parseJSON();
+//
+//
+//        //Related
+//
+//        mExampleList1 = new ArrayList<>();
+//        mRequestQueue1 = Volley.newRequestQueue(this);
+//
+//        mRecyclerview1 = (RecyclerView) findViewById(R.id.my_recycler_jobs);
+//        mRecyclerview1.setNestedScrollingEnabled(false);
+//        mRecyclerview1.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+//        mRecyclerview1.setHasFixedSize(true);
+//
+//        parseJSON1();
 
 
     }
 
-    private void parseJSON1() {
-
-        final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        progressBar.setVisibility(View.VISIBLE);
-
-        String url="https://www.itshades.com/appwebservices/online-training-detail.php?cat_id="+CatId+"&id="+id;
-
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-                        progressBar.setVisibility(View.INVISIBLE);
-
-                        try {
-                            Log.e("rootJsonArray",response);
-                            JSONArray rootJsonArray = new JSONArray(response);
-
-
-                            Log.e("rootJsonArrayLength",rootJsonArray.length()+"");
-
-                            for (int i = 0; i < rootJsonArray.length(); i++) {
-                                JSONObject object = rootJsonArray.getJSONObject(i);
-
-                                mExampleList1.add(new LnDRltdModel(object.optString("id"),
-                                        object.optString("title_name"),
-                                        object.optString("breif_desc"),
-                                        object.optString("industry_relevance"),
-                                        object.optString("focus_area"),
-                                        object.optString("telecon_bridge"),
-                                        object.optString("posted_by")));
-
-                            }
-
-                            Log.e("rootJsonArray",mExampleList1.size()+"");
-
-                            mExampleAdapter1 = new LnDRltdAdapter(LandDetailsActivity.this, mExampleList1);
-                            mRecyclerview1.setAdapter(mExampleAdapter1);
-                            mExampleAdapter1.notifyDataSetChanged();
-                            mRecyclerview1.setHasFixedSize(true);
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
-                        Log.e("TAg",error.getMessage());
-                    }
-                });
-
-        mRequestQueue1 = Volley.newRequestQueue(this);
-        mRequestQueue1.add(stringRequest);
-    }
-
-
-    private void parseJSON() {
-
-        final ProgressBar progressBar1 = (ProgressBar) findViewById(R.id.progressBar1);
-        progressBar1.setVisibility(View.VISIBLE);
-
-        String Tab_Url="https://www.itshades.com/appwebservices/learning-development-detail.php?cat_id="+CatId+"&id="+id;
-
-        StringRequest stringRequest = new StringRequest(Request.Method.GET,Tab_Url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-                        progressBar1.setVisibility(View.INVISIBLE);
-
-                        try {
-                            Log.e("rootJsonArray",response);
-                            JSONArray rootJsonArray = new JSONArray(response);
-
-
-                            Log.e("rootJsonArrayLength",rootJsonArray.length()+"");
-
-                            for (int i = 0; i < rootJsonArray.length(); i++) {
-                                JSONObject object = rootJsonArray.getJSONObject(i);
-
-
-                                mExampleList.add(new TableModel(object.optString("id"),
-                                        object.optString("srnu"),
-                                        object.optString("address"),
-                                        object.optString("country"),
-                                        object.optString("telecon_bridge"),
-                                        object.optString("city"),
-                                        object.optString("user_price_per_unit"),
-                                        object.optString("reg_link"),
-                                        object.optString("posted_by"),
-                                        object.optString("publish_date"),
-                                        object.optString("expiry_date"),
-                                        object.optString("sourse_url")));
-
-                            }
-
-                            Log.e("rootJsonArray",mExampleList.size()+"");
-
-                            mExampleAdapter = new TableAdapter(LandDetailsActivity.this, mExampleList);
-                            mRecyclerview.setAdapter(mExampleAdapter);
-                            mExampleAdapter.notifyDataSetChanged();
-                            mRecyclerview.setHasFixedSize(true);
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
-                        Log.e("TAg",error.getMessage());
-                    }
-                });
-
-        mRequestQueue = Volley.newRequestQueue(this);
-        mRequestQueue.add(stringRequest);
-    }
+//    private void parseJSON1() {
+//
+//        final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+//        progressBar.setVisibility(View.VISIBLE);
+//
+//        String url="https://www.itshades.com/appwebservices/online-training-detail.php?cat_id="+CatId+"&id="+id;
+//
+//        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+//                new Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String response) {
+//
+//                        progressBar.setVisibility(View.INVISIBLE);
+//
+//                        try {
+//                            Log.e("rootJsonArray",response);
+//                            JSONArray rootJsonArray = new JSONArray(response);
+//
+//
+//                            Log.e("rootJsonArrayLength",rootJsonArray.length()+"");
+//
+//                            for (int i = 0; i < rootJsonArray.length(); i++) {
+//                                JSONObject object = rootJsonArray.getJSONObject(i);
+//
+//                                mExampleList1.add(new LnDRltdModel(object.optString("id"),
+//                                        object.optString("title_name"),
+//                                        object.optString("breif_desc"),
+//                                        object.optString("industry_relevance"),
+//                                        object.optString("focus_area"),
+//                                        object.optString("telecon_bridge"),
+//                                        object.optString("posted_by")));
+//
+//                            }
+//
+//                            Log.e("rootJsonArray",mExampleList1.size()+"");
+//
+//                            mExampleAdapter1 = new LnDRltdAdapter(LandDetailsActivity.this, mExampleList1);
+//                            mRecyclerview1.setAdapter(mExampleAdapter1);
+//                            mExampleAdapter1.notifyDataSetChanged();
+//                            mRecyclerview1.setHasFixedSize(true);
+//
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        }
+//
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+//                        Log.e("TAg",error.getMessage());
+//                    }
+//                });
+//
+//        mRequestQueue1 = Volley.newRequestQueue(this);
+//        mRequestQueue1.add(stringRequest);
+//    }
+//
+//
+//    private void parseJSON() {
+//
+//        final ProgressBar progressBar1 = (ProgressBar) findViewById(R.id.progressBar1);
+//        progressBar1.setVisibility(View.VISIBLE);
+//
+//        String Tab_Url="https://www.itshades.com/appwebservices/learning-development-detail.php?cat_id="+CatId+"&id="+id;
+//
+//        StringRequest stringRequest = new StringRequest(Request.Method.GET,Tab_Url,
+//                new Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String response) {
+//
+//                        progressBar1.setVisibility(View.INVISIBLE);
+//
+//                        try {
+//                            Log.e("rootJsonArray",response);
+//                            JSONArray rootJsonArray = new JSONArray(response);
+//
+//
+//                            Log.e("rootJsonArrayLength",rootJsonArray.length()+"");
+//
+//                            for (int i = 0; i < rootJsonArray.length(); i++) {
+//                                JSONObject object = rootJsonArray.getJSONObject(i);
+//
+//
+//                                mExampleList.add(new TableModel(object.optString("id"),
+//                                        object.optString("srnu"),
+//                                        object.optString("address"),
+//                                        object.optString("country"),
+//                                        object.optString("telecon_bridge"),
+//                                        object.optString("city"),
+//                                        object.optString("user_price_per_unit"),
+//                                        object.optString("reg_link"),
+//                                        object.optString("posted_by"),
+//                                        object.optString("publish_date"),
+//                                        object.optString("expiry_date"),
+//                                        object.optString("sourse_url")));
+//
+//                            }
+//
+//                            Log.e("rootJsonArray",mExampleList.size()+"");
+//
+//                            mExampleAdapter = new TableAdapter(LandDetailsActivity.this, mExampleList);
+//                            mRecyclerview.setAdapter(mExampleAdapter);
+//                            mExampleAdapter.notifyDataSetChanged();
+//                            mRecyclerview.setHasFixedSize(true);
+//
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        }
+//
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+//                        Log.e("TAg",error.getMessage());
+//                    }
+//                });
+//
+//        mRequestQueue = Volley.newRequestQueue(this);
+//        mRequestQueue.add(stringRequest);
+//    }
 }

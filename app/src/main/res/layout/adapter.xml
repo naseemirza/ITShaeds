@@ -48,13 +48,13 @@
             android:clickable="false"
             android:gravity="start"
             android:maxLines="2"
+            android:paddingLeft="2dp"
             android:paddingStart="2dp"
             android:paddingTop="3dp"
             android:text="Name"
             android:textAlignment="center"
             android:textColor="@color/colorBlack"
-            android:textSize="10dp"
-            android:paddingLeft="2dp" />
+            android:textSize="13sp" />
 
 
     </LinearLayout>

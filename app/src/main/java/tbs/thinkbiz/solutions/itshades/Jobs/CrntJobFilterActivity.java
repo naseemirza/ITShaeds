@@ -1,13 +1,18 @@
 package tbs.thinkbiz.solutions.itshades.Jobs;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -21,6 +26,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import tbs.thinkbiz.solutions.itshades.AllUrls;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.JobSubmission.JobSubmiActivity;
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.ParentActivity;
 import tbs.thinkbiz.solutions.itshades.R;
 
 import org.json.JSONArray;
@@ -29,19 +36,28 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class CrntJobFilterActivity extends AppCompatActivity  {
+public class CrntJobFilterActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener  {
 
 
+    Button btnsrch;
     String Actname;
     TextView textname;
     private Spinner spinerFE,spinerInd,spinerExp,spinerCntry,spinerRL;
     ImageButton imageButton;
 
     private ArrayList<String> FuncExprt =new ArrayList<String>();
+    private ArrayList<String> FuncExprtid =new ArrayList<String>();
     private ArrayList<String> Indst =new ArrayList<String>();
+    private ArrayList<String> Indstid =new ArrayList<String>();
     private ArrayList<String> YrExp =new ArrayList<String>();
+    private ArrayList<String> YrExpid =new ArrayList<String>();
     private ArrayList<String> Country =new ArrayList<String>();
+    private ArrayList<String> Countryid =new ArrayList<String>();
     private ArrayList<String> Rolvl =new ArrayList<String>();
+    private ArrayList<String> Rolvlid =new ArrayList<String>();
+
+    String FExp,IndR,yrExp,Contry,Rllvl,Edttext;
+    EditText EdtSrch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,38 +85,89 @@ public class CrntJobFilterActivity extends AppCompatActivity  {
             }
         });
 
-
         spinerFE = (Spinner) findViewById(R.id.spinnerFE);
-
+        spinerFE.setOnItemSelectedListener(this);
         getDataFE();
-//        spinerFE.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                String country=   spinerFE.getItemAtPosition(spinerFE.getSelectedItemPosition()).toString();
-//                Toast.makeText(getApplicationContext(),country,Toast.LENGTH_LONG).show();
-//            }
-//            @Override
-//            public void onNothingSelected(AdapterView<?> adapterView) {
-//                // DO Nothing here
-//            }
-//        });
-
 
         spinerInd = (Spinner) findViewById(R.id.spinnerInd);
+        spinerInd.setOnItemSelectedListener(this);
         getDataInd();
 
         spinerExp = (Spinner) findViewById(R.id.spinnerExp);
+        spinerExp.setOnItemSelectedListener(this);
         getDataExp();
 
         spinerCntry = (Spinner) findViewById(R.id.spinnerCntry);
+        spinerCntry.setOnItemSelectedListener(this);
         getDataCountry();
 
-
         spinerRL = (Spinner) findViewById(R.id.spinnerRlllvl);
+        spinerRL.setOnItemSelectedListener(this);
         getDataRolvl();
+
+
+        btnsrch=(Button)findViewById(R.id.btnjobsrch);
+        btnsrch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //yrExp1=spinerExp.getTx
+                EdtSrch=(EditText)findViewById(R.id.editTextsrch);
+                Edttext=EdtSrch.getText().toString();
+
+                String actname="Current Jobs";
+                SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor edit = pref.edit();
+                edit.putString("Actvname",actname);
+                edit.putString("FE",FExp);
+                edit.putString("INDR",IndR);
+                edit.putString("YREXP",yrExp);
+                edit.putString("CONYRY",Contry);
+                edit.putString("ROLLVL",Rllvl);
+                edit.putString("EditSearch",Edttext);
+                edit.apply();
+
+                Intent intent=new Intent(CrntJobFilterActivity.this, CrntJobFilterationActivity.class);
+                startActivity(intent);
+
+                Log.e("rootJsonArray",yrExp);
+            }
+        });
 
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+        Spinner spinner = (Spinner) parent;
+
+        if(spinner.getId() == R.id.spinnerFE)
+        {
+            FExp=FuncExprtid.get((int) id);
+        }
+        else if(spinner.getId() == R.id.spinnerInd)
+        {
+            IndR=Indstid.get((int) id);
+        }
+        else if(spinner.getId() == R.id.spinnerExp)
+        {
+            yrExp=YrExpid.get((int) id);
+        }
+        else if(spinner.getId() == R.id.spinnerCntry)
+        {
+            Contry= Countryid.get((int) id);
+        }
+        else if(spinner.getId() == R.id.spinnerRlllvl)
+        {
+            Rllvl=Rolvlid.get((int) id);
+        }
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
     private void  getDataFE() {
 
         StringRequest stringRequest=new StringRequest(Request.Method.GET, AllUrls.FUNC_EXPERTIES,
@@ -113,7 +180,9 @@ public class CrntJobFilterActivity extends AppCompatActivity  {
 
                         for(int i=0;i<rootJsonArray.length();i++){
                             JSONObject jsonObject1=rootJsonArray.getJSONObject(i);
+                            String feid=jsonObject1.getString("id");
                             String country=jsonObject1.getString("expertise_name");
+                            FuncExprtid.add(feid);
                             FuncExprt.add(country);
                         }
 
@@ -138,8 +207,6 @@ public class CrntJobFilterActivity extends AppCompatActivity  {
         requestQueue.add(stringRequest);
     }
 
-
-
     private void  getDataInd() {
 
         StringRequest stringRequest=new StringRequest(Request.Method.GET, AllUrls.INDUSTRY,
@@ -152,10 +219,11 @@ public class CrntJobFilterActivity extends AppCompatActivity  {
 
                             for(int i=0;i<rootJsonArray.length();i++){
                                 JSONObject jsonObject1=rootJsonArray.getJSONObject(i);
+                                String Indid=jsonObject1.getString("id");
                                 String country=jsonObject1.getString("industry_name");
+                                Indstid.add(Indid);
                                 Indst.add(country);
                             }
-
                             spinerInd.setAdapter(new ArrayAdapter<String>(CrntJobFilterActivity.this, R.layout.spinneritems, Indst));
 
                         }catch (JSONException e) {
@@ -189,7 +257,9 @@ public class CrntJobFilterActivity extends AppCompatActivity  {
 
                             for(int i=0;i<rootJsonArray.length();i++){
                                 JSONObject jsonObject1=rootJsonArray.getJSONObject(i);
+                                String yrxp =jsonObject1.getString("id");
                                 String country=jsonObject1.getString("exp_name");
+                                YrExpid.add(yrxp);
                                 YrExp.add(country+" Years");
                             }
 
@@ -214,8 +284,6 @@ public class CrntJobFilterActivity extends AppCompatActivity  {
         requestQueue.add(stringRequest);
     }
 
-
-
     private void  getDataCountry() {
 
         StringRequest stringRequest=new StringRequest(Request.Method.GET, AllUrls.COUNTRY,
@@ -228,7 +296,9 @@ public class CrntJobFilterActivity extends AppCompatActivity  {
 
                             for(int i=0;i<rootJsonArray.length();i++){
                                 JSONObject jsonObject1=rootJsonArray.getJSONObject(i);
+                                String cntrid=jsonObject1.getString("id");
                                 String country=jsonObject1.getString("name");
+                                Countryid.add(cntrid);
                                 Country.add(country);
                             }
 
@@ -253,7 +323,6 @@ public class CrntJobFilterActivity extends AppCompatActivity  {
         requestQueue.add(stringRequest);
     }
 
-
     private void  getDataRolvl() {
 
         StringRequest stringRequest=new StringRequest(Request.Method.GET, AllUrls.ROLL_LEVEL,
@@ -266,7 +335,9 @@ public class CrntJobFilterActivity extends AppCompatActivity  {
 
                             for(int i=0;i<rootJsonArray.length();i++){
                                 JSONObject jsonObject1=rootJsonArray.getJSONObject(i);
+                                String rlvl=jsonObject1.getString("id");
                                 String country=jsonObject1.getString("name");
+                                Rolvlid.add(rlvl);
                                 Rolvl.add(country);
                             }
 
@@ -290,5 +361,6 @@ public class CrntJobFilterActivity extends AppCompatActivity  {
         stringRequest.setRetryPolicy(policy);
         requestQueue.add(stringRequest);
     }
+
 
 }

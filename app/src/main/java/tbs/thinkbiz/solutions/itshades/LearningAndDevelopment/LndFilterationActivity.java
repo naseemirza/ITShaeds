@@ -1,12 +1,17 @@
-package tbs.thinkbiz.solutions.itshades.Solutions;
+package tbs.thinkbiz.solutions.itshades.LearningAndDevelopment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -19,8 +24,6 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import tbs.thinkbiz.solutions.itshades.AllUrls;
-import tbs.thinkbiz.solutions.itshades.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,20 +31,30 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class FilterAllActivity extends AppCompatActivity {
+import tbs.thinkbiz.solutions.itshades.AllUrls;
+import tbs.thinkbiz.solutions.itshades.Events.Webinar.FilterWebnrActivity;
+import tbs.thinkbiz.solutions.itshades.Events.Webinar.FilterationWebnrActivity;
+import tbs.thinkbiz.solutions.itshades.R;
+
+public class LndFilterationActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener  {
 
     private Spinner spinerFA,spinerInd;
-    String Actname,filter;
-    TextView textname,filtext;
+    String Actname;
+    TextView textname;
+    Button btnsrch;
+    String IndR,FA,Edttext;
+    EditText EdtSrch;
 
-    private ArrayList<String> FocusArea =new ArrayList<String>();
     private ArrayList<String> Indst =new ArrayList<String>();
-
+    private ArrayList<String> Indstid =new ArrayList<String>();
+    private ArrayList<String> FocusArea =new ArrayList<String>();
+    private ArrayList<String> FocusAreaid =new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_filter_all);
+        setContentView(R.layout.activity_lnd_filteration);
+
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
@@ -65,11 +78,62 @@ public class FilterAllActivity extends AppCompatActivity {
             }
         });
 
-        spinerInd = (Spinner) findViewById(tbs.thinkbiz.solutions.itshades.R.id.spinnerInd);
+        spinerInd = (Spinner) findViewById(R.id.spinnerInd);
+        spinerInd.setOnItemSelectedListener(this);
         getDataInd();
 
-        spinerFA = (Spinner) findViewById(tbs.thinkbiz.solutions.itshades.R.id.spinnerFA);
+        spinerFA = (Spinner) findViewById(R.id.spinnerFA);
+        spinerFA.setOnItemSelectedListener(this);
         getDataFA();
+
+        btnsrch=(Button)findViewById(R.id.btnjobsrch);
+        btnsrch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //yrExp1=spinerExp.getTx
+                EdtSrch=(EditText)findViewById(R.id.editTextsrch);
+                Edttext=EdtSrch.getText().toString();
+
+                SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor edit = pref.edit();
+                edit.putString("INDR",IndR);
+                edit.putString("FA",FA);
+                edit.putString("EditSearch",Edttext);
+                edit.apply();
+
+                Intent intent=new Intent(LndFilterationActivity.this, LndFilterActivity.class);
+                startActivity(intent);
+
+                Log.e("rootJsonArray",IndR);
+                Log.e("rootJsonArray",FA);
+            }
+        });
+
+
+    }
+
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+        Spinner spinner = (Spinner) parent;
+
+        if(spinner.getId() == R.id.spinnerInd)
+        {
+            IndR=Indstid.get((int) id);
+        }
+
+        else if(spinner.getId() == R.id.spinnerFA)
+        {
+            FA=FocusAreaid.get((int) id);
+        }
+
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
 
     }
 
@@ -85,11 +149,13 @@ public class FilterAllActivity extends AppCompatActivity {
 
                             for(int i=0;i<rootJsonArray.length();i++){
                                 JSONObject jsonObject1=rootJsonArray.getJSONObject(i);
+                                String Indid=jsonObject1.getString("id");
                                 String country=jsonObject1.getString("industry_name");
+                                Indstid.add(Indid);
                                 Indst.add(country);
                             }
 
-                            spinerInd.setAdapter(new ArrayAdapter<String>(FilterAllActivity.this, tbs.thinkbiz.solutions.itshades.R.layout.spinneritems, Indst));
+                            spinerInd.setAdapter(new ArrayAdapter<String>(LndFilterationActivity.this, R.layout.spinneritems, Indst));
 
                         }catch (JSONException e) {
                             e.printStackTrace();
@@ -122,11 +188,14 @@ public class FilterAllActivity extends AppCompatActivity {
 
                             for(int i=0;i<rootJsonArray.length();i++){
                                 JSONObject jsonObject1=rootJsonArray.getJSONObject(i);
+                                String faid=jsonObject1.getString("id");
                                 String country=jsonObject1.getString("item_name");
+                                FocusAreaid.add(faid);
                                 FocusArea.add(country);
+
                             }
 
-                            spinerFA.setAdapter(new ArrayAdapter<String>(FilterAllActivity.this, tbs.thinkbiz.solutions.itshades.R.layout.spinneritems, FocusArea));
+                            spinerFA.setAdapter(new ArrayAdapter<String>(LndFilterationActivity.this,R.layout.spinneritems, FocusArea));
 
                         }catch (JSONException e) {
                             e.printStackTrace();

@@ -33,6 +33,7 @@ public class IndSolutionsActivity extends AppCompatActivity {
 
     String Actname,CatId;
     TextView textname;
+    String uid;
 
     private SoluAdapter mExampleAdapter1;
     private ArrayList<SoluModel> mExampleList1;
@@ -53,6 +54,7 @@ public class IndSolutionsActivity extends AppCompatActivity {
 
         Actname=pref.getString("Actvname","");
         CatId=pref.getString("CatId","");
+        uid = pref.getString("UserId", "");
 
         textname=(TextView)findViewById(R.id.textname);
         textname.setText(Actname);
@@ -72,7 +74,7 @@ public class IndSolutionsActivity extends AppCompatActivity {
         imageButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Intent intent=new Intent(IndSolutionsActivity.this,FilterAllActivity.class);
+               Intent intent=new Intent(IndSolutionsActivity.this,SoluFiltrationActivity.class);
 
                 startActivity(intent);
             }
@@ -96,7 +98,7 @@ public class IndSolutionsActivity extends AppCompatActivity {
         final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, AllUrls.SOLUTIONS+CatId,
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, AllUrls.SOLUTIONS+CatId+"&uid="+uid,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -115,10 +117,13 @@ public class IndSolutionsActivity extends AppCompatActivity {
                                 mExampleList1.add(new SoluModel(object.optString("id"),
                                         object.optString("title_name"),
                                         object.optString("breif_desc"),
+                                        object.optString("industry_relevance"),
+                                        object.optString("focus_area"),
                                         object.optString("user_price_per_unit"),
                                         object.optString("added_by"),
                                         object.optString("added_date"),
-                                        object.optString("expiry_date")));
+                                        object.optString("expiry_date"),
+                                        object.optString("sourse_url")));
 
                             }
 

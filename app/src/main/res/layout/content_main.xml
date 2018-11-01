@@ -24,15 +24,9 @@
                 android:id="@+id/imageView2"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
+                android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
                 android:src="@drawable/itshadslogo" />
-
-
-
-
-
 
     <EditText
         android:id="@+id/editTextU"
@@ -74,29 +68,56 @@
         android:inputType="textPassword"
         android:paddingLeft="10dp" />
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginLeft="20dp"
-        android:clickable="false"
-        android:focusable="false"
-        android:layout_marginRight="20dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/editTextP"
-        android:layout_marginTop="15dp" />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editTextP"
+                android:layout_marginStart="20dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="110dp"
+                android:id="@+id/radioGroup">
+
+                <RadioButton
+                    android:id="@+id/rb1"
+                    android:buttonTint="@color/green"
+                    android:text="Individual User"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <RadioButton
+                    android:id="@+id/rb2"
+                    android:buttonTint="@color/green"
+                    android:text="Corporate Customer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+            </RadioGroup>
+
+    <!--<Spinner-->
+        <!--android:id="@+id/spinner"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:clickable="false"-->
+        <!--android:focusable="false"-->
+        <!--android:layout_marginRight="20dp"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_below="@+id/editTextP"-->
+        <!--android:layout_marginTop="15dp" />-->
 
 
     <Button
         android:id="@+id/buttonL"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_below="@+id/spinner"
+        android:layout_below="@+id/radioGroup"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/buttoncorner"
         android:text="Login"
         android:textAllCaps="false"
@@ -115,29 +136,30 @@
                 android:text="@string/signuptext_login"
                 android:textSize="14sp" />
 
-    <TextView
-        android:id="@+id/textViewRgs"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView3"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:layout_marginTop="20dp"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        android:textColor="@color/colorBlack"
-        android:text="@string/registered_textlogin" />
+            <TextView
+                android:id="@+id/textViewRgs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/registered_textlogin"
+                android:textColor="@color/colorBlack"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textViewfrgt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewRgs"
-        android:layout_marginTop="30dp"
-        android:gravity="center"
-        android:text="@string/forgot_passwordtextlogin"
-        android:textColor="#FF0000"
-        android:textSize="14sp" />
+            <TextView
+                android:id="@+id/textViewfrgt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewRgs"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/forgot_passwordtextlogin"
+                android:textColor="#FF0000"
+                android:textSize="14sp" />
 
 
 

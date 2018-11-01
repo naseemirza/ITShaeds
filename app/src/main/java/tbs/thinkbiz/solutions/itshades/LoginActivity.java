@@ -20,6 +20,8 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -50,7 +52,9 @@ public class LoginActivity extends AppCompatActivity
     EditText editTextpass, editTextmail;
     final Context context = this;
     ProgressDialog progressDialog;
-    String userrole;
+    String Uroll;
+    RadioGroup radioGroup;
+    RadioButton radioButton;
 
    //public static String uid;
 
@@ -61,6 +65,8 @@ public class LoginActivity extends AppCompatActivity
 
         editTextmail = (EditText) findViewById(R.id.editTextU);
         editTextpass = (EditText) findViewById(R.id.editTextP);
+        radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
+        radioButton = (RadioButton) findViewById(R.id.rb1);
 
 
 
@@ -101,21 +107,21 @@ public class LoginActivity extends AppCompatActivity
         });
 
 
-        spiner = (Spinner) findViewById(R.id.spinner);
+        //spiner = (Spinner) findViewById(R.id.spinner);
         //spiner.setFocusable(false);
        // spiner.setFocusableInTouchMode(true);
 
-        String[] users = new String[]{
-                "Select Access Level",
-                "Individual User",
-                "Corporate Customer"
-        };
-
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
-                this, R.layout.spinneritems, users
-        );
-        spinnerArrayAdapter.setDropDownViewResource(R.layout.spinneritems);
-        spiner.setAdapter(spinnerArrayAdapter);
+//        String[] users = new String[]{
+//                "Select Access Level",
+//                "Individual User",
+//                "Corporate Customer"
+//        };
+//
+//        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
+//                this, R.layout.spinneritems, users
+//        );
+//        spinnerArrayAdapter.setDropDownViewResource(R.layout.spinneritems);
+//        spiner.setAdapter(spinnerArrayAdapter);
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -155,7 +161,7 @@ public class LoginActivity extends AppCompatActivity
     private boolean isValidate()
     {
         final String email = editTextmail.getText().toString().trim();
-        int pos =spiner.getSelectedItemPosition();
+        //int pos =spiner.getSelectedItemPosition();
 
                 if (TextUtils.isEmpty(email)) {
                     editTextmail.setError("Please enter your email");
@@ -179,11 +185,16 @@ public class LoginActivity extends AppCompatActivity
                     editTextpass.requestFocus();
                     return false;
                 }
-                if (pos==0){
-                    //spiner.requestFocus();
-                    Toast.makeText(LoginActivity.this, "Select User Type", Toast.LENGTH_LONG).show();
-                    return false;
-                }
+        if (radioGroup.getCheckedRadioButtonId() == -1) {
+            radioButton.setError("Please select one option");
+            radioGroup.requestFocus();
+            return false;
+        }
+//                if (pos==0){
+//                    //spiner.requestFocus();
+//                    Toast.makeText(LoginActivity.this, "Select User Type", Toast.LENGTH_LONG).show();
+//                    return false;
+//                }
 
                 return true;
     }
@@ -196,15 +207,24 @@ public class LoginActivity extends AppCompatActivity
 
         final String email = editTextmail.getText().toString().trim();
         final String password = editTextpass.getText().toString().trim();
-        final String usertype = spiner.getSelectedItem().toString();
+        final String usertype = ((RadioButton) findViewById(radioGroup.getCheckedRadioButtonId())).getText().toString();
 
-        if (usertype.equals("Individual User")) {
-            userrole = "1";
-        } else if (usertype.equals("Corporate Customer")) {
-            userrole = "2";
+        if (usertype.equals("Individual User"))
+        {
+            Uroll="1";
         }
-
-        Log.e("resp", userrole);
+        else if (usertype.equals("Corporate Customer")){
+            Uroll="2";
+        }
+//        final String usertype = spiner.getSelectedItem().toString();
+//
+//        if (usertype.equals("Individual User")) {
+//            userrole = "1";
+//        } else if (usertype.equals("Corporate Customer")) {
+//            userrole = "2";
+//        }
+//
+        Log.e("resp", Uroll);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, AllUrls.LOGIN_URL,
                 new Response.Listener<String>() {
@@ -230,7 +250,7 @@ public class LoginActivity extends AppCompatActivity
 
                             if (success.equalsIgnoreCase("1"))
                             {
-                                if (userrole.equals("1")){
+                                if (Uroll.equals("1")){
 
                                     SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                                     SharedPreferences.Editor edit = pref.edit();
@@ -239,6 +259,7 @@ public class LoginActivity extends AppCompatActivity
                                     edit.putString("userid",uid);
 
                                     Log.e("resp", usertype);
+                                    Log.e("resp", uid);
 
                                     Toast.makeText(LoginActivity.this, msg, Toast.LENGTH_SHORT).show();
                                     progressDialog.dismiss();
@@ -247,10 +268,11 @@ public class LoginActivity extends AppCompatActivity
                                     startActivity(intent);
                                     editTextmail.setText("");
                                     editTextpass.setText("");
+                                    radioGroup.clearCheck();
 
                                 }
 
-                             else if (userrole.equals("2")){
+                             else if (Uroll.equals("2")){
 
                                     SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                                     SharedPreferences.Editor edit = pref.edit();
@@ -267,8 +289,8 @@ public class LoginActivity extends AppCompatActivity
                                 startActivity(intent);
                                 editTextmail.setText("");
                                 editTextpass.setText("");
+                                    radioGroup.clearCheck();
                             }
-
 
                             }
                             else
@@ -281,7 +303,6 @@ public class LoginActivity extends AppCompatActivity
                             Toast.makeText(LoginActivity.this,e.getMessage(), Toast.LENGTH_SHORT).show();
                             progressDialog.dismiss();
                         }
-
                     }
                 },
                 new Response.ErrorListener() {
@@ -289,7 +310,6 @@ public class LoginActivity extends AppCompatActivity
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(LoginActivity.this, "error" + error.getMessage(), Toast.LENGTH_SHORT).show();
                         progressDialog.dismiss();
-
                     }
                 }) {
             @Override
@@ -298,7 +318,7 @@ public class LoginActivity extends AppCompatActivity
                 Map<String, String> params = new HashMap<>();
                 params.put("username", email);
                 params.put("password", password);
-                params.put("job", userrole);
+                params.put("job", Uroll);
                 return params;
             }
         };
@@ -306,8 +326,6 @@ public class LoginActivity extends AppCompatActivity
         RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
         queue.add(stringRequest);
     }
-
-
 
     @Override
     public void onBackPressed() {
@@ -325,7 +343,6 @@ public class LoginActivity extends AppCompatActivity
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override

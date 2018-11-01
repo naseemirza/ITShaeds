@@ -31,6 +31,7 @@ import tbs.thinkbiz.solutions.itshades.LearningAndDevelopment.OnDemandTrangActiv
 import tbs.thinkbiz.solutions.itshades.LearningAndDevelopment.OnlineTrainingActivity;
 import tbs.thinkbiz.solutions.itshades.LearningAndDevelopment.OnlineTranPortalActivity;
 import tbs.thinkbiz.solutions.itshades.Main2Activity;
+import tbs.thinkbiz.solutions.itshades.R;
 import tbs.thinkbiz.solutions.itshades.RecyclerViewItemClickListener;
 import tbs.thinkbiz.solutions.itshades.Solutions.ITConsltAndServActivity;
 import tbs.thinkbiz.solutions.itshades.Solutions.IndSolutionsActivity;
@@ -56,7 +57,7 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
     public ProductViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //inflating and returning our view holder
         LayoutInflater inflater = LayoutInflater.from(mCtx);
-        View view = inflater.inflate(tbs.thinkbiz.solutions.itshades.R.layout.adapter, null);
+        View view = inflater.inflate(R.layout.adapter, null);
         return new ProductViewHolder(view);
     }
 
@@ -109,18 +110,18 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
 
             } else if (position== 3) {
                 final AlertDialog.Builder mBuilder = new AlertDialog.Builder(mCtx);
-                View mView = View.inflate(mCtx, tbs.thinkbiz.solutions.itshades.R.layout.classifiedsdialog, null);
+                View mView = View.inflate(mCtx, R.layout.classifiedsdialog, null);
 
-                final Button buttoncls=(Button)mView.findViewById(tbs.thinkbiz.solutions.itshades.R.id.buttonclass);
-                final Button buttondrc=(Button)mView.findViewById(tbs.thinkbiz.solutions.itshades.R.id.buttoncompdr);
+                final Button buttoncls=(Button)mView.findViewById(R.id.buttonclass);
+                final Button buttondrc=(Button)mView.findViewById(R.id.buttoncompdr);
 
                 buttoncls.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        buttondrc.setBackgroundResource(tbs.thinkbiz.solutions.itshades.R.drawable.buttonalrt);
+                        buttondrc.setBackgroundResource(R.drawable.buttonalrt);
                         buttondrc.setTextColor(Color.BLACK);
 
-                        buttoncls.setBackgroundResource(tbs.thinkbiz.solutions.itshades.R.drawable.clickbgclor);
+                        buttoncls.setBackgroundResource(R.drawable.clickbgclor);
                         buttoncls.setTextColor(Color.WHITE);
 
                         String actname="Classifieds";
@@ -138,10 +139,10 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
                     @Override
                     public void onClick(View v) {
 
-                        buttoncls.setBackgroundResource(tbs.thinkbiz.solutions.itshades.R.drawable.buttonalrt);
+                        buttoncls.setBackgroundResource(R.drawable.buttonalrt);
                         buttoncls.setTextColor(Color.BLACK);
 
-                        buttondrc.setBackgroundResource(tbs.thinkbiz.solutions.itshades.R.drawable.clickbgclor);
+                        buttondrc.setBackgroundResource(R.drawable.clickbgclor);
                         buttondrc.setTextColor(Color.WHITE);
 
                         String actname="Company Directory";
@@ -201,7 +202,7 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
                 dialog.getWindow().setDimAmount(0.7f);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
                 dialog.show();
-                ImageView imageView=dialog.findViewById(tbs.thinkbiz.solutions.itshades.R.id.cancel);
+                ImageView imageView=dialog.findViewById(R.id.cancel);
                 imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -212,11 +213,11 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
             }else if (position == 4) {
 
                 final AlertDialog.Builder mBuilder = new AlertDialog.Builder(mCtx);
-                View mView = View.inflate(mCtx, tbs.thinkbiz.solutions.itshades.R.layout.solutionsdialog, null);
+                View mView = View.inflate(mCtx, R.layout.solutionsdialog, null);
 
-                final Button buttonprd=(Button)mView.findViewById(tbs.thinkbiz.solutions.itshades.R.id.buttonprdct);
-                final Button buttonitcns=(Button)mView.findViewById(tbs.thinkbiz.solutions.itshades.R.id.buttonitcns);
-                final Button buttonindsol=(Button)mView.findViewById(tbs.thinkbiz.solutions.itshades.R.id.buttonindsln);
+                final Button buttonprd=(Button)mView.findViewById(R.id.buttonprdct);
+                final Button buttonitcns=(Button)mView.findViewById(R.id.buttonitcns);
+                final Button buttonindsol=(Button)mView.findViewById(R.id.buttonindsln);
 
                 buttonprd.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -571,7 +572,7 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
                 final Button buttonAR=(Button)mView.findViewById(tbs.thinkbiz.solutions.itshades.R.id.buttonAR);
                 final Button buttonWP=(Button)mView.findViewById(tbs.thinkbiz.solutions.itshades.R.id.buttonWP);
                 final Button buttonCSS=(Button)mView.findViewById(tbs.thinkbiz.solutions.itshades.R.id.buttonCSS);
-//
+
                 buttonAR.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -709,7 +710,7 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
             }else if (position == 7) {
 
                 final AlertDialog.Builder mBuilder = new AlertDialog.Builder(mCtx);
-                View mView = View.inflate(mCtx, tbs.thinkbiz.solutions.itshades.R.layout.eventsdialog, null);
+                View mView = View.inflate(mCtx, R.layout.eventsdialog, null);
 
                 final Button buttonOE=(Button)mView.findViewById(tbs.thinkbiz.solutions.itshades.R.id.buttonOE);
                 final Button buttonOnfrndsumt=(Button)mView.findViewById(tbs.thinkbiz.solutions.itshades.R.id.buttonCAS);
@@ -852,6 +853,12 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
                //Intent intent7 = new Intent(mCtx, EventsActivity.class);
                 //mCtx.startActivity(intent7);
             }else if (position == 8) {
+                String actname="Company Review";
+                SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor edit = pref.edit();
+                edit.putString("Actvname",actname);
+                edit.apply();
+
                 Intent intent8 = new Intent(mCtx, CompReviewActivity.class);
                 mCtx.startActivity(intent8);
             }

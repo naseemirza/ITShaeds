@@ -22,7 +22,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import tbs.thinkbiz.solutions.itshades.AllUrls;
 import tbs.thinkbiz.solutions.itshades.R;
-import tbs.thinkbiz.solutions.itshades.Solutions.FilterAllActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,6 +33,7 @@ public class ConfrncSummitsActivity extends AppCompatActivity {
 
     String Actname,CatId;
     TextView textname;
+    String uid;
 
     private ConfSummAdapter mExampleAdapter1;
     private ArrayList<ConfSummModel> mExampleList1;
@@ -54,6 +54,7 @@ public class ConfrncSummitsActivity extends AppCompatActivity {
 
         Actname=pref.getString("Actvname","");
         CatId=pref.getString("CatId","");
+        uid = pref.getString("UserId", "");
 
         textname=(TextView)findViewById(R.id.textname);
         textname.setText(Actname);
@@ -72,7 +73,12 @@ public class ConfrncSummitsActivity extends AppCompatActivity {
         imageButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(ConfrncSummitsActivity.this,FilterAllActivity.class);
+//                String actname="Company Review";
+//                SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+//                SharedPreferences.Editor edit = pref.edit();
+//                edit.putString("Actvname",actname);
+//                edit.apply();
+                Intent intent=new Intent(ConfrncSummitsActivity.this,FilterationConfSummActivity.class);
 
                 startActivity(intent);
             }
@@ -94,7 +100,7 @@ public class ConfrncSummitsActivity extends AppCompatActivity {
         final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, AllUrls.CONFIRMSUMMITS,
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, AllUrls.CONFIRMSUMMITS+"&uid="+uid,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -115,7 +121,8 @@ public class ConfrncSummitsActivity extends AppCompatActivity {
                                         object.optString("breif_desc"),
                                         object.optString("industry_relevance"),
                                         object.optString("focus_area"),
-                                        object.optString("posted_by")));
+                                        object.optString("posted_by"),
+                                        object.optString("sourse_url")));
 
                             }
 

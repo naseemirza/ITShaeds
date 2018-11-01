@@ -52,25 +52,32 @@ public class ConfSummAdapter extends RecyclerView.Adapter<ConfSummAdapter.Produc
             @Override
             public void onClick(View v) {
 
+                String cmpurl=product.getComsite();
+                Log.e("responce", cmpurl);
                 String id=product.getId();
-                String title=product.getName();
-                String inds=product.getIndrel();
-                String focs=product.getFocsar();
-                String dscrp=product.getDesc();
 
-
-                Log.e("responce", title);
+//                String id=product.getId();
+//                String title=product.getName();
+//                String inds=product.getIndrel();
+//                String focs=product.getFocsar();
+//                String dscrp=product.getDesc();
+//
+//
+//                Log.e("responce", title);
 
                 SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor edit = pref.edit();
 
                 edit.putString("Id",id);
-                edit.putString("Title",title);
-                edit.putString("Inds",inds);
-                edit.putString("Focus",focs);
-                edit.putString("DESC",dscrp);
+                edit.putString("url",cmpurl);
 
-                edit.commit();
+//                edit.putString("Id",id);
+//                edit.putString("Title",title);
+//                edit.putString("Inds",inds);
+//                edit.putString("Focus",focs);
+//                edit.putString("DESC",dscrp);
+
+                edit.apply();
 
                 Intent intent = new Intent(v.getContext(), ConfSummDetailsActivity.class);
                 v.getContext().startActivity(intent);

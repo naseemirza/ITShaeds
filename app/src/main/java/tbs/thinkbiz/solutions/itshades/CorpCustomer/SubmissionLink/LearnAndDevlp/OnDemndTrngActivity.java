@@ -30,7 +30,6 @@ import java.util.ArrayList;
 
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.Filteration.LnDFilterActivity;
 import tbs.thinkbiz.solutions.itshades.R;
-import tbs.thinkbiz.solutions.itshades.Solutions.FilterAllActivity;
 
 public class OnDemndTrngActivity extends AppCompatActivity {
 

@@ -2,12 +2,14 @@ package tbs.thinkbiz.solutions.itshades.Artifacts;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.TextView;
 
 import tbs.thinkbiz.solutions.itshades.R;
@@ -55,7 +57,14 @@ public class ArtfAdapter  extends RecyclerView.Adapter<ArtfAdapter.ProductViewHo
                 String cmpurl=product.getComsite();
                 Log.e("responce", cmpurl);
 
-                Intent browserIntent = new Intent( Intent.ACTION_VIEW, Uri.parse((cmpurl)));
+                String actname=product.getName();
+                SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor edit = pref.edit();
+                edit.putString("url",cmpurl);
+                edit.putString("Actvname",actname);
+                edit.apply();
+
+                Intent browserIntent = new Intent( mCtx, ArtifactsViewActivity.class);
                 v.getContext().startActivity(browserIntent);
             }
         });

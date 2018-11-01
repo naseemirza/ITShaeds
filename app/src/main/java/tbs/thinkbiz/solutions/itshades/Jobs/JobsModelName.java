@@ -10,6 +10,7 @@ import android.os.Parcelable;
 public class JobsModelName  implements Parcelable {
 
     private String mID;
+    private String Userid;
     private String Title;
     private String Exp;
     private String Country;
@@ -19,9 +20,10 @@ public class JobsModelName  implements Parcelable {
     private String JobDesc;
     private String ExpLevel;
 
-
-    public JobsModelName(String mID, String title, String exp, String country, String loc, String cmpName, String keyskils, String jobDesc, String expLevel) {
+    public JobsModelName(String mID,String Userid, String title, String exp, String country, String loc,
+                         String cmpName, String keyskils, String jobDesc, String expLevel) {
         this.mID = mID;
+        this.Userid = Userid;
         Title = title;
         Exp = exp;
         Country = country;
@@ -34,6 +36,7 @@ public class JobsModelName  implements Parcelable {
 
     protected JobsModelName(Parcel in) {
         mID = in.readString();
+        Userid = in.readString();
         Title = in.readString();
         Exp = in.readString();
         Country = in.readString();
@@ -42,6 +45,7 @@ public class JobsModelName  implements Parcelable {
         Keyskils = in.readString();
         JobDesc = in.readString();
         ExpLevel = in.readString();
+
     }
 
     public static final Parcelable.Creator<JobsModelName> CREATOR = new Parcelable.Creator<JobsModelName>() {
@@ -62,6 +66,14 @@ public class JobsModelName  implements Parcelable {
 
     public void setmID(String mID) {
         this.mID = mID;
+    }
+
+    public String getUserid() {
+        return Userid;
+    }
+
+    public void setUserid(String userid) {
+        Userid = userid;
     }
 
     public String getTitle() {
@@ -127,6 +139,7 @@ public class JobsModelName  implements Parcelable {
     public void setExpLevel(String expLevel) {
         ExpLevel = expLevel;
     }
+
 
     @Override
     public int describeContents() {

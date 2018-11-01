@@ -12,14 +12,17 @@ public class ConfSummModel {
     private String Indrel;
     private String focsar;
     private String psted;
+    private String comsite;
+    private String BaseUrl="https://www.itshades.com/appwebservices/";
 
-    public ConfSummModel(String id, String name, String desc, String indrel, String focsar, String psted) {
+    public ConfSummModel(String id, String name, String desc, String indrel, String focsar, String psted,String comsite) {
         this.id = id;
         this.name = name;
         this.desc = desc;
         Indrel = indrel;
         this.focsar = focsar;
         this.psted = psted;
+        this.comsite = BaseUrl+comsite;
     }
 
     public String getId() {
@@ -68,5 +71,13 @@ public class ConfSummModel {
 
     public void setPsted(String psted) {
         this.psted = psted;
+    }
+
+    public String getComsite() {
+        return comsite;
+    }
+
+    public void setComsite(String comsite) {
+        this.comsite = comsite;
     }
 }

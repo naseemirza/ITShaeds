@@ -74,6 +74,8 @@ public class JobsActivity extends AppCompatActivity {
         imageButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 startActivity(new Intent(JobsActivity.this,JobsFilterActivity.class));
             }
         });
@@ -131,6 +133,7 @@ public class JobsActivity extends AppCompatActivity {
                                 JSONObject object = rootJsonArray.getJSONObject(i);
 
                                 mExampleList1.add(new JobsModelName(object.optString("id"),
+                                        object.optString("user_id"),
                                         object.optString("job_title"),
                                         object.optString("expirence"),
                                         object.optString("country"),

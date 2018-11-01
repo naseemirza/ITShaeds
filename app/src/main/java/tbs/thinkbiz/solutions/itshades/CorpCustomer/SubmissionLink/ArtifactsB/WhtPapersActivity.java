@@ -29,10 +29,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import tbs.thinkbiz.solutions.itshades.AllUrls;
-import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.AddNewLnDActivity;
-import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.OnlnTrangActivity;
 import tbs.thinkbiz.solutions.itshades.R;
-import tbs.thinkbiz.solutions.itshades.Solutions.FilterAllActivity;
 
 public class WhtPapersActivity extends AppCompatActivity {
 

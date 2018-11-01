@@ -19,8 +19,6 @@ public class TermsActivity extends AppCompatActivity {
         View view =getSupportActionBar().getCustomView();
 
 
-
-
         ImageButton imageButton= (ImageButton)view.findViewById(R.id.action_bar_back);
 
         imageButton.setOnClickListener(new View.OnClickListener() {

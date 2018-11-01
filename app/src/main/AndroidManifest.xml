@@ -5,6 +5,8 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.intent.action.CALL_PRIVILEGED" />
 
     <application
         android:allowBackup="true"
@@ -80,7 +82,6 @@
         <activity android:name=".Events.OnlineEvent.OnlineEventsActivity" />
         <activity android:name=".Events.ConfSumm.ConfrncSummitsActivity" />
         <activity android:name=".Events.Webinar.WebinarActivity" />
-        <activity android:name=".Solutions.FilterAllActivity" />
         <activity android:name=".Jobs.JobsFilterActivity" />
         <activity
             android:name=".CorpCustomer.CorpMainActivity"
@@ -171,9 +172,29 @@
         <activity android:name=".CorpCustomer.SubmissionLink.LearnAndDevlp.Filteration.LnDFilterActivity" />
         <activity android:name=".CorpCustomer.SubmissionLink.LearnAndDevlp.Filteration.FilterEditActivity" />
         <activity android:name=".CorpCustomer.SubscribeActivity" />
-        <activity android:name=".MyProfileActivity" />
+        <activity android:name=".IndividulaProfile.MyProfileActivity" />
         <activity android:name=".CorpCustomer.SubmissionLink.ClassifiedsB.AddNewClassBActivity" />
-        <activity android:name=".CorpCustomer.SubmissionLink.ClassifiedsB.EditClassBActivity"></activity>
+        <activity android:name=".CorpCustomer.SubmissionLink.ClassifiedsB.EditClassBActivity" />
+        <activity android:name=".Jobs.CrntJobFilterationActivity" />
+        <activity android:name=".Artifacts.ArtifactsViewActivity" />
+        <activity android:name=".Events.ConfSumm.FilterationConfSummActivity" />
+        <activity android:name=".Events.ConfSumm.FilterConfSummActivity" />
+        <activity android:name=".Events.OnlineEvent.OnlnEvntFilterActivity" />
+        <activity android:name=".Events.OnlineEvent.OnlnEvntFilterationActivity" />
+        <activity android:name=".Events.Webinar.FilterationWebnrActivity" />
+        <activity android:name=".Events.Webinar.FilterWebnrActivity" />
+        <activity android:name=".LearningAndDevelopment.LndFilterationActivity" />
+        <activity android:name=".LearningAndDevelopment.LndFilterActivity" />
+        <activity android:name=".Artifacts.ArtfacFiltrationActivity" />
+        <activity android:name=".Artifacts.ArtfacFilterActivity" />
+        <activity android:name=".Solutions.SoluFiltrationActivity" />
+        <activity android:name=".Solutions.SoluFilterActivity" />
+        <activity android:name=".Solutions.SoluDetailsActivity" />
+        <activity android:name=".IndividulaProfile.PremiumUserActivity" />
+        <activity android:name=".IndividulaProfile.IndChangePassActivity" />
+        <activity android:name=".IndividulaProfile.IndInvitFrndsActivity" />
+        <activity android:name=".IndividulaProfile.IndContactUsActivity" />
+        <activity android:name=".IndividulaProfile.IndSubscrbActivity"></activity>
     </application>
 
 </manifest>

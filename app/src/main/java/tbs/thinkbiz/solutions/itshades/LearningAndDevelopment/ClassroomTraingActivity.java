@@ -22,7 +22,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import tbs.thinkbiz.solutions.itshades.AllUrls;
 import tbs.thinkbiz.solutions.itshades.R;
-import tbs.thinkbiz.solutions.itshades.Solutions.FilterAllActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,6 +33,7 @@ public class ClassroomTraingActivity extends AppCompatActivity {
 
     String Actname,CatId;
     TextView textname;
+    String uid;
 
     private LnDAdapter mExampleAdapter1;
     private ArrayList<LnDModel> mExampleList1;
@@ -58,6 +58,7 @@ public class ClassroomTraingActivity extends AppCompatActivity {
 
         Actname=pref.getString("Actvname","");
         CatId=pref.getString("CatId","");
+        uid = pref.getString("UserId", "");
 
         textname=(TextView)findViewById(R.id.textname);
         textname.setText(Actname);
@@ -83,7 +84,7 @@ public class ClassroomTraingActivity extends AppCompatActivity {
 //                edit.putString("Actvname",actname );
 //
 //                edit.commit();
-                Intent intent=new Intent(ClassroomTraingActivity.this,FilterAllActivity.class);
+                Intent intent=new Intent(ClassroomTraingActivity.this,LndFilterationActivity.class);
 
                 startActivity(intent);
             }
@@ -107,7 +108,7 @@ public class ClassroomTraingActivity extends AppCompatActivity {
         final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, AllUrls.L_AND_D+CatId,
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, AllUrls.L_AND_D+CatId+"&uid="+uid,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -128,7 +129,8 @@ public class ClassroomTraingActivity extends AppCompatActivity {
                                         object.optString("breif_desc"),
                                         object.optString("industry_relevance"),
                                         object.optString("focus_area"),
-                                        object.optString("added_by")));
+                                        object.optString("added_by"),
+                                        object.optString("sourse_url")));
 
                             }
 

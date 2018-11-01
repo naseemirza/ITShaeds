@@ -22,7 +22,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import tbs.thinkbiz.solutions.itshades.AllUrls;
 import tbs.thinkbiz.solutions.itshades.R;
-import tbs.thinkbiz.solutions.itshades.Solutions.FilterAllActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,6 +33,7 @@ public class OnlineTrainingActivity extends AppCompatActivity {
 
     String Actname, CatId;
     TextView textname;
+    String uid;
 
     private LnDAdapter mExampleAdapter1;
     private ArrayList<LnDModel> mExampleList1;
@@ -55,6 +55,7 @@ public class OnlineTrainingActivity extends AppCompatActivity {
 
         Actname=pref.getString("Actvname","");
         CatId=pref.getString("CatId","");
+        uid = pref.getString("UserId", "");
 
         Log.e("CatId",CatId);
 
@@ -76,7 +77,7 @@ public class OnlineTrainingActivity extends AppCompatActivity {
         imageButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(OnlineTrainingActivity.this,FilterAllActivity.class);
+                Intent intent=new Intent(OnlineTrainingActivity.this,LndFilterationActivity.class);
 
                 startActivity(intent);
             }
@@ -100,7 +101,7 @@ public class OnlineTrainingActivity extends AppCompatActivity {
         final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, AllUrls.L_AND_D+CatId,
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, AllUrls.L_AND_D+CatId+"&uid="+uid,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -121,7 +122,8 @@ public class OnlineTrainingActivity extends AppCompatActivity {
                                         object.optString("breif_desc"),
                                         object.optString("industry_relevance"),
                                         object.optString("focus_area"),
-                                        object.optString("added_by")));
+                                        object.optString("added_by"),
+                                        object.optString("sourse_url")));
 
                             }
 

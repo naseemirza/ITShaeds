@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -41,6 +42,7 @@ public class CurrentJobActivity extends AppCompatActivity {
 
     String Actname;
     TextView textname;
+    String jobid,uid;
 
     Button applyBtn;
     static int isClicked=0;
@@ -58,6 +60,8 @@ public class CurrentJobActivity extends AppCompatActivity {
         SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
         Actname=pref.getString("Actvname","");
+        jobid = pref.getString("ID", "");
+        uid = pref.getString("UserId", "");
         textname=(TextView)findViewById(R.id.textname);
         textname.setText(Actname);
 
@@ -85,11 +89,17 @@ public class CurrentJobActivity extends AppCompatActivity {
                 Intent intent = new Intent(CurrentJobActivity.this, CrntJobFilterActivity.class);
                 startActivity(intent);
 
-                //startActivity(new Intent(CurrentJobActivity.this,CrntJobFilterActivity.class));
             }
         });
 
         applyBtn =(Button)findViewById(R.id.applybutton);
+        applyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //JobApply();
+            }
+        });
 
         mExampleList1 = new ArrayList<>();
         mRequestQueue1 = Volley.newRequestQueue(this);
@@ -119,6 +129,50 @@ public class CurrentJobActivity extends AppCompatActivity {
         }
     };
 
+    private void JobApply() {
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST,"https://www.itshades.com/appwebservices/job-apply.php?uid="+uid+"&job_id="+jobid,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.e("resp",response);
+                        //progressDialog.dismiss();
+                        try {
+                            JSONObject obj = new JSONObject(response);
+                            String success= obj.getString("s");
+                            String error= obj.getString("e");
+                            String msg=obj.getString("m");
+
+                            if (success.equalsIgnoreCase("1")) {
+
+                                Toast.makeText(CurrentJobActivity.this, msg, Toast.LENGTH_SHORT).show();
+                            }
+                            else {
+                                Toast.makeText(CurrentJobActivity.this, msg, Toast.LENGTH_SHORT).show();
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(CurrentJobActivity.this,e.getMessage(), Toast.LENGTH_SHORT).show();
+                            //progressDialog.dismiss();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(CurrentJobActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                        // progressDialog.dismiss();
+                    }
+                })
+        {
+        };
+
+        RequestQueue requestQueue= Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+
+    }
+
     private void parseJSON1() {
 
         final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
@@ -141,6 +195,7 @@ public class CurrentJobActivity extends AppCompatActivity {
                                 JSONObject object = rootJsonArray.getJSONObject(i);
 
                                 mExampleList1.add(new JobsModelName(object.optString("id"),
+                                        object.optString("user_id"),
                                         object.optString("job_title"),
                                         object.optString("expirence"),
                                         object.optString("country"),

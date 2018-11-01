@@ -77,11 +77,71 @@
             android:id="@+id/linhrz"
             android:layout_below="@+id/compsite"
             android:orientation="horizontal"
+            android:clickable="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/indrelty"
+                android:layout_marginStart="10dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorBlack"
+                android:text="Industry Area : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:layout_marginLeft="10dp" />
+
+            <TextView
+                android:id="@+id/indrel"
+                android:text="All Industries"
+                android:layout_width="wrap_content"
+                android:clickable="true"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linhrz1"
+            android:layout_marginTop="5dp"
+            android:clickable="true"
+            android:layout_below="@+id/linhrz"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/fcsar"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold"
+                android:text="Focus Area : "
+                android:clickable="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp" />
+
+            <TextView
+                android:id="@+id/fcsar1"
+                android:text=" Digital"
+                android:clickable="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linhrz2"
+            android:layout_below="@+id/linhrz1"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/userprc"
                 android:layout_marginStart="10dp"
                 android:textStyle="bold"
                 android:textColor="@color/colorBlack"
@@ -100,15 +160,15 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linhrz1"
+            android:id="@+id/linhrz3"
             android:layout_marginTop="5dp"
-            android:layout_below="@+id/linhrz"
+            android:layout_below="@+id/linhrz2"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/fcsar"
+                android:id="@+id/pstdby1"
                 android:layout_marginStart="10dp"
                 android:textColor="@color/colorBlack"
                 android:textStyle="bold"
@@ -128,9 +188,9 @@
 
         <LinearLayout
 
-            android:id="@+id/linhrz2"
+            android:id="@+id/linhrz4"
             android:layout_marginTop="5dp"
-            android:layout_below="@+id/linhrz1"
+            android:layout_below="@+id/linhrz3"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -158,9 +218,9 @@
 
         <LinearLayout
         android:layout_marginBottom="10dp"
-        android:id="@+id/linhrz3"
+        android:id="@+id/linhrz5"
         android:layout_marginTop="5dp"
-        android:layout_below="@+id/linhrz2"
+        android:layout_below="@+id/linhrz4"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

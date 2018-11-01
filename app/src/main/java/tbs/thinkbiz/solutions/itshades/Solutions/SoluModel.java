@@ -9,19 +9,27 @@ public class SoluModel {
     private String id;
     private String name;
     private String desc;
+    private String IndAra;
+    private String focsar;
     private String uprice;
     private String psted;
     private String evntstart;
     private String evntend;
+    private String comsite;
+   // private String BaseUrl="https://www.itshades.com/appwebservices/";
 
-    public SoluModel(String id, String name, String desc, String uprice, String psted, String evntstart, String evntend) {
+    public SoluModel(String id, String name, String desc,String IndAra, String focsar, String uprice,
+                     String psted, String evntstart, String evntend,String comsite) {
         this.id = id;
         this.name = name;
         this.desc = desc;
+        this.IndAra = IndAra;
+        this.focsar = focsar;
         this.uprice = uprice;
         this.psted = psted;
         this.evntstart = evntstart;
         this.evntend = evntend;
+        this.comsite = comsite; //BaseUrl+
     }
 
     public String getId() {
@@ -46,6 +54,22 @@ public class SoluModel {
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+
+    public String getIndAra() {
+        return IndAra;
+    }
+
+    public void setIndAra(String indAra) {
+        IndAra = indAra;
+    }
+
+    public String getFocsar() {
+        return focsar;
+    }
+
+    public void setFocsar(String focsar) {
+        this.focsar = focsar;
     }
 
     public String getUprice() {
@@ -78,5 +102,13 @@ public class SoluModel {
 
     public void setEvntend(String evntend) {
         this.evntend = evntend;
+    }
+
+    public String getComsite() {
+        return comsite;
+    }
+
+    public void setComsite(String comsite) {
+        this.comsite = comsite;
     }
 }
