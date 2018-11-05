@@ -213,7 +213,7 @@ public class LoginActivity extends AppCompatActivity
         {
             Uroll="1";
         }
-        else if (usertype.equals("Corporate Customer")){
+        else if (usertype.equals("Business User")){
             Uroll="2";
         }
 //        final String usertype = spiner.getSelectedItem().toString();

@@ -49,21 +49,29 @@
                 </RelativeLayout>
 
 
-            <RelativeLayout
-                android:id="@+id/re1"
-                android:layout_marginTop="5dp"
-                android:layout_below="@+id/r1"
-                android:background="@color/gray"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:id="@+id/re1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/r1"
+                    android:layout_marginTop="5dp">
 
-                    <android.support.v7.widget.RecyclerView
-                        android:id="@+id/my_recycler_jobs"
+                    <!--<android.support.v7.widget.RecyclerView-->
+                    <!--android:id="@+id/my_recycler_jobs"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent" />-->
+
+                    <WebView
+                        android:id="@+id/webView1"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="match_parent"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true">
+
+                    </WebView>
 
 
-            </RelativeLayout>
+                </RelativeLayout>
 
 
                 <TextView

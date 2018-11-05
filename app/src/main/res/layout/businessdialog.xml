@@ -32,31 +32,45 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/buttonclass"
+                android:id="@+id/buttonOE"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginEnd="50dp"
                 android:layout_marginStart="50dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/buttonalrt"
-                android:text="Classifieds"
+                android:text="Business Directory"
                 android:textAllCaps="false"
                 android:textColor="@color/colorBlack"
                 />
             <Button
-                android:id="@+id/buttoncompdr"
+                android:id="@+id/buttonCAS"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/buttonclass"
-                android:layout_marginBottom="10dp"
+                android:layout_below="@+id/buttonOE"
                 android:layout_marginEnd="50dp"
                 android:layout_marginStart="50dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/buttonalrt"
                 android:gravity="center"
-                android:text="Company Directory"
+                android:text="Business Classifieds"
+                android:textAllCaps="false"
+                android:textColor="@color/colorBlack" />
+
+            <Button
+                android:id="@+id/buttonWbnr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/buttonCAS"
+                android:layout_marginBottom="15dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/buttonalrt"
+                android:gravity="center"
+                android:text="Business Reviews"
                 android:textAllCaps="false"
                 android:textColor="@color/colorBlack" />
 

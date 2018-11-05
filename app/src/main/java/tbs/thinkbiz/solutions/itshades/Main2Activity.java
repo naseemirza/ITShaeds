@@ -1,8 +1,10 @@
 package tbs.thinkbiz.solutions.itshades;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,7 +18,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -27,6 +33,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import tbs.thinkbiz.solutions.itshades.CorpCustomer.Profile.AccDetailsActivity;
 import tbs.thinkbiz.solutions.itshades.IndividulaProfile.MyProfileActivity;
 import tbs.thinkbiz.solutions.itshades.Jobs.AdapterJobs;
 import tbs.thinkbiz.solutions.itshades.Jobs.AsyncResult;
@@ -52,6 +59,10 @@ public class Main2Activity extends AppCompatActivity
     Button applyBtn;
     static int isClicked=0;
 
+    WebView mywebview;
+    ProgressDialog progressDialog;
+    String uid;
+
     private JobsNameAdapter mExampleAdapter1;
     private ArrayList<JobsModelName> mExampleList1;
     private RequestQueue mRequestQueue1;
@@ -59,6 +70,7 @@ public class Main2Activity extends AppCompatActivity
 
     String username,usermail;
     TextView textViewname,textViewemail;
+    ImageView imghome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +80,7 @@ public class Main2Activity extends AppCompatActivity
 
 
         SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        uid=pref.getString("userid","");
         username = pref.getString("Username", "");
         usermail = pref.getString("email", "");
 
@@ -84,6 +97,13 @@ public class Main2Activity extends AppCompatActivity
         //checkBox=(CheckBox)findViewById(R.id.chkox);
         //buttonaply=(Button)findViewById(R.id.applybutton);
 
+        imghome=(ImageView)findViewById(R.id.homeicon);
+        imghome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Main2Activity.this,Main2Activity.class));
+            }
+        });
 
 
         discla=(TextView)findViewById(R.id.textdesc);
@@ -120,15 +140,17 @@ public class Main2Activity extends AppCompatActivity
 
         productList = new ArrayList<>();
 
-        productList.add(new ModelJobs("Dream Jobs", R.drawable.jobs));
-        productList.add(new ModelJobs("Current Jobs", R.drawable.jobs));
+        //productList.add(new ModelJobs("Dream Jobs", R.drawable.jobs));
+
         productList.add(new ModelJobs("IT Bytes", R.drawable.it));
-        productList.add(new ModelJobs("Classified", R.drawable.classifieds));
         productList.add(new ModelJobs("Solutions", R.drawable.solutions));
         productList.add(new ModelJobs("L & D", R.drawable.learning));
         productList.add(new ModelJobs("Artifacts", R.drawable.artifacts));
-        productList.add(new ModelJobs("Events", R.drawable.events));
-        productList.add(new ModelJobs("Company Reviews", R.drawable.company_reviews));
+        productList.add(new ModelJobs("Marketing Events", R.drawable.events));
+        productList.add(new ModelJobs("Business Corner", R.drawable.classifieds));
+        productList.add(new ModelJobs("IT Jobs", R.drawable.jobs));
+
+        //productList.add(new ModelJobs("Company Reviews", R.drawable.company_reviews));
 
 
 
@@ -137,15 +159,22 @@ public class Main2Activity extends AppCompatActivity
 
         // Jobs Title names
 
+        mywebview = (WebView) findViewById(R.id.webView1);
+        mywebview.setWebViewClient(new MyWebViewClient());
+        String url= "https://www.itshades.com/appwebservices/company-profile.php?uid="+uid;
+        mywebview.getSettings().setJavaScriptEnabled(true);
+        mywebview.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+        mywebview.loadUrl(url);
 
-        mExampleList1 = new ArrayList<>();
-        mRequestQueue1 = Volley.newRequestQueue(this);
-        mRecyclerview1=(RecyclerView)findViewById(R.id.my_recycler_jobs);
-        mRecyclerview1.setNestedScrollingEnabled(false);
-        mRecyclerview1.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
-        mRecyclerview1.setHasFixedSize(true);
-
-        parseJSON1();
+//
+//        mExampleList1 = new ArrayList<>();
+//        mRequestQueue1 = Volley.newRequestQueue(this);
+//        mRecyclerview1=(RecyclerView)findViewById(R.id.my_recycler_jobs);
+//        mRecyclerview1.setNestedScrollingEnabled(false);
+//        mRecyclerview1.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+//        mRecyclerview1.setHasFixedSize(true);
+//
+//        parseJSON1();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -176,6 +205,29 @@ public class Main2Activity extends AppCompatActivity
         textViewemail.setText(usermail);
     }
 
+    private class MyWebViewClient extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            view.loadUrl(url);
+            return true;
+        }
+
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            super.onPageStarted(view, url, favicon);
+            progressDialog = new ProgressDialog(Main2Activity.this);
+            progressDialog.setMessage("Please wait ...");
+            progressDialog.setProgressStyle(90);
+            progressDialog.show();
+        }
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            super.onPageFinished(view, url);
+            if (progressDialog != null) {
+                progressDialog.dismiss();
+            }
+        }
+    }
 
     AsyncResult<Integer> asyncResult_addNewConnection = new AsyncResult<Integer>() {
         @Override
@@ -229,64 +281,64 @@ public class Main2Activity extends AppCompatActivity
 //    }
 
 
-    private void parseJSON1() {
-
-        final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        progressBar.setVisibility(View.VISIBLE);
-
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, "https://www.itshades.com/appwebservices/job-search.php",
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-                        progressBar.setVisibility(View.INVISIBLE);
-
-                        try {
-                            Log.e("rootJsonArray",response);
-                            JSONArray rootJsonArray = new JSONArray(response);
-
-                            Log.e("rootJsonArrayLength",rootJsonArray.length()+"");
-
-                            for (int i = 0; i < rootJsonArray.length(); i++) {
-                                JSONObject object = rootJsonArray.getJSONObject(i);
-
-                                mExampleList1.add(new JobsModelName(object.optString("id"),
-                                        object.optString("user_id"),
-                                        object.optString("job_title"),
-                                        object.optString("expirence"),
-                                        object.optString("country"),
-                                        object.optString("work_city"),
-                                        object.optString("company_name"),
-                                        object.optString("job_keyskill"),
-                                        object.optString("job_description"),
-                                        object.optString("job_postion")));
-
-                            }
-
-                            Log.e("rootJsonArray",mExampleList1.size()+"");
-
-                            mExampleAdapter1 = new JobsNameAdapter(Main2Activity.this, mExampleList1,asyncResult_addNewConnection);
-                            mRecyclerview1.setAdapter(mExampleAdapter1);
-                            mExampleAdapter1.notifyDataSetChanged();
-                            mRecyclerview1.setHasFixedSize(true);
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
-                        Log.e("TAg",error.getMessage());
-                    }
-                });
-
-        mRequestQueue1 = Volley.newRequestQueue(this);
-        mRequestQueue1.add(stringRequest);
-    }
+//    private void parseJSON1() {
+//
+//        final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+//        progressBar.setVisibility(View.VISIBLE);
+//
+//        StringRequest stringRequest = new StringRequest(Request.Method.GET, "https://www.itshades.com/appwebservices/job-search.php",
+//                new Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String response) {
+//
+//                        progressBar.setVisibility(View.INVISIBLE);
+//
+//                        try {
+//                            Log.e("rootJsonArray",response);
+//                            JSONArray rootJsonArray = new JSONArray(response);
+//
+//                            Log.e("rootJsonArrayLength",rootJsonArray.length()+"");
+//
+//                            for (int i = 0; i < rootJsonArray.length(); i++) {
+//                                JSONObject object = rootJsonArray.getJSONObject(i);
+//
+//                                mExampleList1.add(new JobsModelName(object.optString("id"),
+//                                        object.optString("user_id"),
+//                                        object.optString("job_title"),
+//                                        object.optString("expirence"),
+//                                        object.optString("country"),
+//                                        object.optString("work_city"),
+//                                        object.optString("company_name"),
+//                                        object.optString("job_keyskill"),
+//                                        object.optString("job_description"),
+//                                        object.optString("job_postion")));
+//
+//                            }
+//
+//                            Log.e("rootJsonArray",mExampleList1.size()+"");
+//
+//                            mExampleAdapter1 = new JobsNameAdapter(Main2Activity.this, mExampleList1,asyncResult_addNewConnection);
+//                            mRecyclerview1.setAdapter(mExampleAdapter1);
+//                            mExampleAdapter1.notifyDataSetChanged();
+//                            mRecyclerview1.setHasFixedSize(true);
+//
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        }
+//
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+//                        Log.e("TAg",error.getMessage());
+//                    }
+//                });
+//
+//        mRequestQueue1 = Volley.newRequestQueue(this);
+//        mRequestQueue1.add(stringRequest);
+//    }
 
 
     @Override

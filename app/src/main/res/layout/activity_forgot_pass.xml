@@ -13,9 +13,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="69dp"
+        android:layout_marginTop="30dp"
         android:textColor="@color/green"
-        android:textSize="12dp"
+        android:textSize="14sp"
         android:text="@string/password_will_be_send_on_your_authorized_email_idFogtPass" />
 
     <EditText
@@ -25,24 +25,29 @@
         android:layout_below="@+id/textView6"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="36dp"
-        android:paddingStart="5dp"
+        android:textCursorDrawable="@color/darkgray"
+        android:background="@color/colorWhite"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:ems="10"
-        android:textCursorDrawable="@drawable/black_cursor"
-        android:backgroundTint="@color/green"
-        android:textSize="10dp"
+        android:textSize="13sp"
         android:inputType="textPersonName"
-       android:hint="@string/emailReg"
-        android:paddingLeft="5dp" />
+       android:hint="@string/emailReg" />
 
     <Button
         android:id="@+id/button_frgt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editText2"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="28dp"
         android:background="@drawable/buttoncorner"
         android:text="Recover Password"
         android:textColor="@color/colorWhite"
-        android:textSize="10dp" />
+        android:textSize="13sp" />
 </RelativeLayout>

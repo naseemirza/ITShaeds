@@ -44,6 +44,7 @@
 
             <ImageView
                 android:layout_width="match_parent"
+                android:id="@+id/homeicon"
                 android:layout_height="50dp"
                 android:layout_marginRight="40dp"
                 android:scaleType="fitCenter"

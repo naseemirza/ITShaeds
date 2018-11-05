@@ -22,8 +22,8 @@
         android:id="@+id/imageView2"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
         android:src="@drawable/itshadslogo" />
 
@@ -35,9 +35,9 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textStyle="bold"
-        android:textSize="13sp"
+        android:textSize="15sp"
         android:textColor="@color/green"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:text="@string/get_startedLogintitle" />
 
     <EditText
@@ -47,49 +47,52 @@
         android:layout_below="@+id/imageView2"
         android:layout_marginTop="10dp"
         android:ems="10"
+        android:textCursorDrawable="@color/darkgray"
+        android:background="@color/colorWhite"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
         android:hint="@string/first_nameReg"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:textCursorDrawable="@drawable/black_cursor"
-        android:backgroundTint="@color/green"
         android:inputType="textPersonName"
-        android:paddingLeft="5dp"
-        android:paddingStart="5dp"
-        android:textSize="12sp" />
+        android:textSize="13sp" />
 
     <EditText
         android:id="@+id/editTextlnm"
         android:layout_width="match_parent"
-        android:textCursorDrawable="@drawable/black_cursor"
-        android:backgroundTint="@color/green"
+        android:textCursorDrawable="@color/darkgray"
+        android:background="@color/colorWhite"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editTextfnm"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:textSize="12sp"
-        android:paddingStart="5dp"
+        android:textSize="13sp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="@string/last_nameReg"
-        android:paddingLeft="5dp" />
+        android:hint="@string/last_nameReg" />
 
     <EditText
         android:id="@+id/editTextemail"
         android:layout_width="match_parent"
-        android:textCursorDrawable="@drawable/black_cursor"
-        android:backgroundTint="@color/green"
+        android:textCursorDrawable="@color/darkgray"
+        android:background="@color/colorWhite"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editTextlnm"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:textSize="12sp"
-        android:paddingStart="5dp"
+        android:textSize="13sp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="@string/emailReg"
-        android:paddingLeft="5dp" />
+        android:hint="@string/emailReg" />
 
     <EditText
         android:id="@+id/editTextps"
@@ -98,32 +101,34 @@
         android:layout_below="@+id/editTextemail"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:paddingStart="5dp"
-        android:textCursorDrawable="@drawable/black_cursor"
-        android:backgroundTint="@color/green"
+        android:textCursorDrawable="@color/darkgray"
+        android:background="@color/colorWhite"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
         android:layout_marginTop="10dp"
         android:ems="10"
-        android:textSize="12sp"
+        android:textSize="13sp"
         android:hint="@string/passwordtext_login"
-        android:inputType="textPassword"
-        android:paddingLeft="5dp" />
+        android:inputType="textPassword" />
 
     <EditText
         android:id="@+id/editTextps1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editTextps"
-        android:paddingStart="5dp"
-        android:textCursorDrawable="@drawable/black_cursor"
-        android:backgroundTint="@color/green"
+        android:textCursorDrawable="@color/darkgray"
+        android:background="@color/colorWhite"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
         android:ems="10"
-        android:textSize="12sp"
+        android:textSize="13sp"
         android:hint="@string/confirm_passwordReg"
-        android:inputType="textPassword"
-        android:paddingLeft="5dp" />
+        android:inputType="textPassword" />
 
     <RadioGroup
         android:layout_width="match_parent"
@@ -145,7 +150,8 @@
         <RadioButton
             android:id="@+id/rb2"
             android:buttonTint="@color/green"
-            android:text="Corporate Customer"
+            android:text="Business User"
+            android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
