@@ -77,8 +77,6 @@ public class Main2Activity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-
-
         SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         uid=pref.getString("userid","");
         username = pref.getString("Username", "");
