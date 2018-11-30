@@ -65,10 +65,10 @@ public class SoluFiltrationActivity extends AppCompatActivity implements Adapter
         Actname=pref.getString("Actvname","");
 
 
-        textname=(TextView)findViewById(tbs.thinkbiz.solutions.itshades.R.id.textname);
-        textname.setText("View "+Actname);
+        textname=(TextView)findViewById(R.id.textname);
+        textname.setText(Actname+" Filtration");
 
-        ImageButton imageButton= (ImageButton)view.findViewById(tbs.thinkbiz.solutions.itshades.R.id.action_bar_back);
+        ImageButton imageButton= (ImageButton)view.findViewById(R.id.action_bar_back);
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,12 +90,12 @@ public class SoluFiltrationActivity extends AppCompatActivity implements Adapter
             @Override
             public void onClick(View v) {
 
-                //yrExp1=spinerExp.getTx
                 EdtSrch=(EditText)findViewById(R.id.editTextsrch);
                 Edttext=EdtSrch.getText().toString();
 
                 SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor edit = pref.edit();
+
                 edit.putString("INDR",IndR);
                 edit.putString("FA",FA);
                 edit.putString("EditSearch",Edttext);

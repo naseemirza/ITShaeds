@@ -194,7 +194,11 @@
         <activity android:name=".IndividulaProfile.IndChangePassActivity" />
         <activity android:name=".IndividulaProfile.IndInvitFrndsActivity" />
         <activity android:name=".IndividulaProfile.IndContactUsActivity" />
-        <activity android:name=".IndividulaProfile.IndSubscrbActivity"></activity>
+        <activity android:name=".IndividulaProfile.IndSubscrbActivity" />
+        <activity
+            android:name=".MainPageTab.MainPageActivity"
+            android:label="Get Started"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

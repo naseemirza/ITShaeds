@@ -16,11 +16,12 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:background="@color/colorWhite"
             app:contentInsetStartWithNavigation="-5dp"
             app:popupTheme="@style/AppTheme.PopupOverlay"
             app:titleTextColor="@color/colorWhite">
+
+
 
             <!--<EditText-->
                 <!--android:id="@+id/etext"-->
@@ -49,6 +50,8 @@
                 android:layout_marginRight="40dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/itshadslogo" />
+
+
 
         </android.support.v7.widget.Toolbar>
 

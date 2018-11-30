@@ -101,7 +101,7 @@ public class LandDetailsActivity extends AppCompatActivity {
 
 
         textname = (TextView) findViewById(R.id.textname);
-        textname.setText(Actname + " Detail");
+        textname.setText(Actname);
 
         ImageButton imageButton = (ImageButton) view.findViewById(R.id.action_bar_back);
 

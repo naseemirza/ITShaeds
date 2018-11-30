@@ -2,8 +2,11 @@ package tbs.thinkbiz.solutions.itshades;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
@@ -35,6 +38,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.CorpMainActivity;
+import tbs.thinkbiz.solutions.itshades.MainPageTab.MainPageActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -132,6 +136,29 @@ public class LoginActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
 
+                if (isOnline()) {
+                    //do whatever you want to do
+                } else {
+                    try {
+                        android.app.AlertDialog alertDialog = new android.app.AlertDialog.Builder(LoginActivity.this).create();
+
+                        alertDialog.setTitle("Info");
+                        alertDialog.setMessage("Internet not available, Cross check your internet connectivity and try again");
+                        alertDialog.setIcon(R.drawable.ic_warning_black_24dp);
+                        alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+//                        finish();
+                                startActivity(new Intent(LoginActivity.this,LoginActivity.class));
+
+                            }
+                        });
+
+                        alertDialog.show();
+                    } catch (Exception e) {
+                        //Log.d(SyncStateContract.Constants.TAG, "Show Dialog: " + e.getMessage());
+                    }
+                }
+
                 if(isValidate())
                 {
                     Loginbtn();
@@ -146,6 +173,8 @@ public class LoginActivity extends AppCompatActivity
             }
         });
 
+
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -156,6 +185,17 @@ public class LoginActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    public boolean isOnline() {
+        ConnectivityManager conMgr = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = conMgr.getActiveNetworkInfo();
+
+        if(netInfo == null || !netInfo.isConnected() || !netInfo.isAvailable()){
+            // Toast.makeText(this, "No Internet connection!", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        return true;
     }
 
     private boolean isValidate()
@@ -263,8 +303,8 @@ public class LoginActivity extends AppCompatActivity
 
                                     Toast.makeText(LoginActivity.this, msg, Toast.LENGTH_SHORT).show();
                                     progressDialog.dismiss();
-                                    edit.apply();
-                                    Intent intent=new Intent(LoginActivity.this,Main2Activity.class);
+                                    edit.apply();                                                     //Main2Activity
+                                    Intent intent=new Intent(LoginActivity.this, MainPageActivity.class);
                                     startActivity(intent);
                                     editTextmail.setText("");
                                     editTextpass.setText("");

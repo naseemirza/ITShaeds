@@ -65,10 +65,10 @@ public class ArtfacFiltrationActivity extends AppCompatActivity implements Adapt
         Actname=pref.getString("Actvname","");
 
 
-        textname=(TextView)findViewById(tbs.thinkbiz.solutions.itshades.R.id.textname);
-        textname.setText("View "+Actname);
+        textname=(TextView)findViewById(R.id.textname);
+        textname.setText(Actname+" Filtration");
 
-        ImageButton imageButton= (ImageButton)view.findViewById(tbs.thinkbiz.solutions.itshades.R.id.action_bar_back);
+        ImageButton imageButton= (ImageButton)view.findViewById(R.id.action_bar_back);
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override

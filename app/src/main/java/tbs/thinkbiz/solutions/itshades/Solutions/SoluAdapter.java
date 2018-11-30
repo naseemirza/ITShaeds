@@ -57,6 +57,7 @@ public class SoluAdapter extends RecyclerView.Adapter<SoluAdapter.ProductViewHol
             @Override
             public void onClick(View v) {
 
+                String details="Details";
                 String cmpurl=product.getComsite();
                 Log.e("responce", cmpurl);
                 //Log.e("responce", title);
@@ -64,6 +65,7 @@ public class SoluAdapter extends RecyclerView.Adapter<SoluAdapter.ProductViewHol
                 SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor edit = pref.edit();
                 edit.putString("url",cmpurl);
+                edit.putString("Actvname",details);
                 edit.apply();
 
                 Intent intent = new Intent(v.getContext(), SoluDetailsActivity.class);

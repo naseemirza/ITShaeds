@@ -44,6 +44,7 @@ public class JobsActivity extends AppCompatActivity {
     Button applyBtn;
     static int isClicked=0;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +52,7 @@ public class JobsActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setCustomView(tbs.thinkbiz.solutions.itshades.R.layout.backandfilterbar);
+        getSupportActionBar().setCustomView(R.layout.backandfilterbar);
         View view =getSupportActionBar().getCustomView();
 
         SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
@@ -113,7 +114,7 @@ public class JobsActivity extends AppCompatActivity {
     };
     private void parseJSON1() {
 
-        final ProgressBar progressBar = (ProgressBar) findViewById(tbs.thinkbiz.solutions.itshades.R.id.progressBar);
+        final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, AllUrls.JOBS_URL,

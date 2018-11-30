@@ -8,7 +8,6 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -23,27 +22,17 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 
-import tbs.thinkbiz.solutions.itshades.CorpCustomer.Profile.AccDetailsActivity;
 import tbs.thinkbiz.solutions.itshades.IndividulaProfile.MyProfileActivity;
 import tbs.thinkbiz.solutions.itshades.Jobs.AdapterJobs;
 import tbs.thinkbiz.solutions.itshades.Jobs.AsyncResult;
 import tbs.thinkbiz.solutions.itshades.Jobs.JobsModelName;
 import tbs.thinkbiz.solutions.itshades.Jobs.JobsNameAdapter;
 import tbs.thinkbiz.solutions.itshades.Jobs.ModelJobs;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import tbs.thinkbiz.solutions.itshades.MainPageTab.MainPageActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +50,7 @@ public class Main2Activity extends AppCompatActivity
 
     WebView mywebview;
     ProgressDialog progressDialog;
-    String uid;
+
 
     private JobsNameAdapter mExampleAdapter1;
     private ArrayList<JobsModelName> mExampleList1;
@@ -71,6 +60,7 @@ public class Main2Activity extends AppCompatActivity
     String username,usermail;
     TextView textViewname,textViewemail;
     ImageView imghome;
+    String uid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +69,7 @@ public class Main2Activity extends AppCompatActivity
 
         SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         uid=pref.getString("userid","");
-        username = pref.getString("Username", "");
+        username = pref.getString("username", "");
         usermail = pref.getString("email", "");
 
 
@@ -412,7 +402,9 @@ public class Main2Activity extends AppCompatActivity
 
         } else if (id == R.id.nav_contactus) {
 
-            startActivity(new Intent(Main2Activity.this,ContactUsActivity.class));
+            //ContactUsActivity
+            Intent intent=new Intent(Main2Activity.this,ContactUsActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

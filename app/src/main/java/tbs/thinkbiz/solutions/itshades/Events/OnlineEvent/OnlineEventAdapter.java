@@ -53,6 +53,8 @@ public class OnlineEventAdapter extends RecyclerView.Adapter<OnlineEventAdapter.
             public void onClick(View v) {
 
                 String cmpurl=product.getComsite();
+                String details="Details";
+
                 Log.e("responce", cmpurl);
                 String id=product.getId();
                 SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
@@ -60,6 +62,7 @@ public class OnlineEventAdapter extends RecyclerView.Adapter<OnlineEventAdapter.
 
                 edit.putString("Id",id);
                 edit.putString("url",cmpurl);
+                edit.putString("Actvname",details);
                 edit.apply();
 
                 Intent intent = new Intent(v.getContext(), OnlineEventDetailsActivity.class);

@@ -54,7 +54,7 @@ public class IndSolutionsActivity extends AppCompatActivity {
 
         Actname=pref.getString("Actvname","");
         CatId=pref.getString("CatId","");
-        uid = pref.getString("UserId", "");
+        uid = pref.getString("userId", "");
 
         textname=(TextView)findViewById(R.id.textname);
         textname.setText(Actname);

@@ -20,6 +20,7 @@ import tbs.thinkbiz.solutions.itshades.CorpCustomer.Profile.ProfileActivity;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.Profile.ProfileAdapter;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.Profile.ProfileModel;
 import tbs.thinkbiz.solutions.itshades.Main2Activity;
+import tbs.thinkbiz.solutions.itshades.MainPageTab.MainPageActivity;
 import tbs.thinkbiz.solutions.itshades.R;
 
 public class MyProfileActivity extends AppCompatActivity {
@@ -50,7 +51,7 @@ public class MyProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //finish();
-                Intent intent=new Intent(MyProfileActivity.this, Main2Activity.class);
+                Intent intent=new Intent(MyProfileActivity.this, MainPageActivity.class);
                 startActivity(intent);
             }
         });

@@ -21,6 +21,8 @@
         tools:context="com.example.naseem.priceomania1.ScrollingActivity"
         tools:showIn="@layout/app_bar_main">
 
+
+
         <ScrollView
             android:id="@+id/scrolview"
             android:layout_width="match_parent"

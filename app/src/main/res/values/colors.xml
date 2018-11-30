@@ -15,6 +15,10 @@
     <color name="DarkGreen"> #5ec639</color>
     <color name="red"> #FF0000</color>
     <color name="darkgray">#545454</color>
+    <color name="lightwhite">#B7B7B7</color>
+    <color name="grrnlgt">  #288b48</color>
+
+
 
 
 </resources>

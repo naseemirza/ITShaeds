@@ -127,11 +127,11 @@ public class JobsNameAdapter extends RecyclerView.Adapter<JobsNameAdapter.Produc
         public ProductViewHolder(final View itemView) {
             super(itemView);
             mCtx=itemView.getContext();
-            textViewTitle = itemView.findViewById(tbs.thinkbiz.solutions.itshades.R.id.nameTextview);
-            textViewexp = itemView.findViewById(tbs.thinkbiz.solutions.itshades.R.id.expTextview);
-            textViewcontry = itemView.findViewById(tbs.thinkbiz.solutions.itshades.R.id.contryTextview);
-            textViewloc = itemView.findViewById(tbs.thinkbiz.solutions.itshades.R.id.locTextview);
-            checkBox=itemView.findViewById(tbs.thinkbiz.solutions.itshades.R.id.chkox);
+            textViewTitle = itemView.findViewById(R.id.nameTextview);
+            textViewexp = itemView.findViewById(R.id.expTextview);
+            textViewcontry = itemView.findViewById(R.id.contryTextview);
+            textViewloc = itemView.findViewById(R.id.locTextview);
+            checkBox=itemView.findViewById(R.id.chkox);
             //buttonaply=itemView.findViewById(R.id.applybutton);
 
             itemView.setOnClickListener(this);

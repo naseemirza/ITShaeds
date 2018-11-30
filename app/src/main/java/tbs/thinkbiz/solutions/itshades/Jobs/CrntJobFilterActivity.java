@@ -73,7 +73,7 @@ public class CrntJobFilterActivity extends AppCompatActivity implements AdapterV
 
         Actname=pref.getString("Actvname","");
         textname=(TextView)findViewById(R.id.textname);
-        textname.setText(Actname);
+        textname.setText(Actname+" Filtration");
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 

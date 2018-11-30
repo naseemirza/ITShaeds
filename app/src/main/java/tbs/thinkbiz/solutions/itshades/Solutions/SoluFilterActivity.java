@@ -60,7 +60,7 @@ public class SoluFilterActivity extends AppCompatActivity {
         fa=pref.getString("FA","");
         editxt=pref.getString("EditSearch","");
 
-        Log.e("rootJsonArray",CatId);
+        Log.e("rootJsonArray",fa);
 
         textname=(TextView)findViewById(R.id.textname);
         textname.setText(Actname);
@@ -90,9 +90,11 @@ public class SoluFilterActivity extends AppCompatActivity {
         final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
 
-        String OnlnEvntUrl="https://www.itshades.com/appwebservices/solution.php?cat_id="+CatId+"&industry="+ind+"&item="+fa+"&title_search="+editxt;
+        String Solufilterurl="https://www.itshades.com/appwebservices/solution.php?cat_id="+CatId+"&industry="+ind+"&item="+fa+"&title_search="+editxt;
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, OnlnEvntUrl,
+        Log.e("rootJsonArray",Solufilterurl);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, Solufilterurl,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

@@ -66,7 +66,7 @@ public class FilterationWebnrActivity extends AppCompatActivity implements Adapt
 
 
         textname=(TextView)findViewById(tbs.thinkbiz.solutions.itshades.R.id.textname);
-        textname.setText("View "+Actname);
+        textname.setText(Actname+" Filtration");
 
         ImageButton imageButton= (ImageButton)view.findViewById(tbs.thinkbiz.solutions.itshades.R.id.action_bar_back);
 

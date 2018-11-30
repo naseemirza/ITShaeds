@@ -156,5 +156,9 @@
     <string name="aboutitshades">ITshades.com has been founded with singular aim of engaging and enabling
         the Talent with opportunities, learnings, best practices, collaboration and innovation from IT industry
         for best and brightest of businesses, professionals and students.</string>
+    <string name="title_activity_main_page">MainPageActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

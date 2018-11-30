@@ -53,7 +53,7 @@ public class LnDAdapter extends RecyclerView.Adapter<LnDAdapter.ProductViewHolde
             @Override
             public void onClick(View v) {
 
-                //String id=product.getId();
+                String details="Details";
                 String cmpurl=product.getComsite();
                 Log.e("responce", cmpurl);
 //
@@ -70,6 +70,7 @@ public class LnDAdapter extends RecyclerView.Adapter<LnDAdapter.ProductViewHolde
                 SharedPreferences.Editor edit = pref.edit();
                // edit.putString("id",id);
                 edit.putString("url",cmpurl);
+                edit.putString("Actvname",details);
 //                edit.putString("Id",id);
 //                edit.putString("Title",title);
 //                edit.putString("Inds",inds);
