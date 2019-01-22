@@ -25,6 +25,7 @@ import com.android.volley.toolbox.Volley;
 
 import tbs.thinkbiz.solutions.itshades.Jobs.ModelJobs;
 import tbs.thinkbiz.solutions.itshades.PrevayActivity;
+import tbs.thinkbiz.solutions.itshades.R;
 import tbs.thinkbiz.solutions.itshades.TermsActivity;
 
 import org.json.JSONArray;
@@ -123,26 +124,26 @@ public class ITBytDetailsActivity extends AppCompatActivity {
 
         //category name with icon
 
-        recyclerView = (RecyclerView) findViewById(tbs.thinkbiz.solutions.itshades.R.id.my_recycler_view);
+        recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
 
         productList = new ArrayList<>();
 
-        productList.add(new ModelJobs("Financial", tbs.thinkbiz.solutions.itshades.R.drawable.financial));
-        productList.add(new ModelJobs("Solutions", tbs.thinkbiz.solutions.itshades.R.drawable.solutions));
-        productList.add(new ModelJobs("Reward & Ricognition", tbs.thinkbiz.solutions.itshades.R.drawable.reward));
-        productList.add(new ModelJobs("Customer Success", tbs.thinkbiz.solutions.itshades.R.drawable.customer_reviews));
-        productList.add(new ModelJobs("Marketing & Events", tbs.thinkbiz.solutions.itshades.R.drawable.marketing));
-        productList.add(new ModelJobs("A & A Partnership", tbs.thinkbiz.solutions.itshades.R.drawable.partnership));
-        productList.add(new ModelJobs("Miscellaneous", tbs.thinkbiz.solutions.itshades.R.drawable.misclenious));
-        productList.add(new ModelJobs("Announcements", tbs.thinkbiz.solutions.itshades.R.drawable.anouncment));
+        productList.add(new ModelJobs("Financial", R.drawable.financial));
+        productList.add(new ModelJobs("IT Solutions", R.drawable.solutions));
+        productList.add(new ModelJobs("Reward & Ricognition", R.drawable.reward));
+        productList.add(new ModelJobs("Customer Success", R.drawable.customer_reviews));
+        productList.add(new ModelJobs("Marketing & Events", R.drawable.marketing));
+        productList.add(new ModelJobs("M & A Partnership", R.drawable.partnership));
+        productList.add(new ModelJobs("Miscellaneous", R.drawable.misclenious));
+        productList.add(new ModelJobs("Announcements", R.drawable.anouncment));
 
         ITBytRecycAdapter adapter = new ITBytRecycAdapter(this, productList);
         recyclerView.setAdapter(adapter);
 
-        imageViewadd=(ImageView)findViewById(tbs.thinkbiz.solutions.itshades.R.id.imgadd);
-        imageViewminus=(ImageView)findViewById(tbs.thinkbiz.solutions.itshades.R.id.imgminus);
+        imageViewadd=(ImageView)findViewById(R.id.imgadd);
+        imageViewminus=(ImageView)findViewById(R.id.imgminus);
 
 
         // Jobs Title names
@@ -150,7 +151,7 @@ public class ITBytDetailsActivity extends AppCompatActivity {
         mExampleList1 = new ArrayList<>();
         mRequestQueue1 = Volley.newRequestQueue(this);
 
-        mRecyclerview1=(RecyclerView)findViewById(tbs.thinkbiz.solutions.itshades.R.id.my_recycler_jobs);
+        mRecyclerview1=(RecyclerView)findViewById(R.id.my_recycler_jobs);
         mRecyclerview1.setNestedScrollingEnabled(false);
         mRecyclerview1.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         mRecyclerview1.setHasFixedSize(true);
@@ -161,7 +162,7 @@ public class ITBytDetailsActivity extends AppCompatActivity {
 
     private void parseJSON1() {
 
-        final ProgressBar progressBar = (ProgressBar) findViewById(tbs.thinkbiz.solutions.itshades.R.id.progressBar);
+        final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
         String rurl = "https://www.itshades.com/appwebservices/industry-update.php?year="+year+"&month_edition="+month_edition+"&catid="+pos+"";
         // Log.e("Url",rurl);

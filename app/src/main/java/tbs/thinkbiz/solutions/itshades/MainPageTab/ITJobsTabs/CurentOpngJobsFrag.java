@@ -16,7 +16,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -29,12 +31,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import tbs.thinkbiz.solutions.itshades.AllUrls;
 import tbs.thinkbiz.solutions.itshades.Events.OnlineEvent.OnlnEvntFilterationActivity;
 import tbs.thinkbiz.solutions.itshades.Jobs.AsyncResult;
 import tbs.thinkbiz.solutions.itshades.Jobs.CrntJobFilterActivity;
 import tbs.thinkbiz.solutions.itshades.Jobs.CrntJobFilterationActivity;
+import tbs.thinkbiz.solutions.itshades.Jobs.DetailsActivity;
 import tbs.thinkbiz.solutions.itshades.Jobs.JobsActivity;
 import tbs.thinkbiz.solutions.itshades.Jobs.JobsModelName;
 import tbs.thinkbiz.solutions.itshades.Jobs.JobsNameAdapter;
@@ -55,6 +60,9 @@ public class CurentOpngJobsFrag extends Fragment {
 
     Button applyBtn;
     static int isClicked=0;
+   // ArrayList<String> jobids=new ArrayList<String>();
+    ArrayList<String> JobIDs=new ArrayList<String>();
+    String jobid,uid;
 
     public CurentOpngJobsFrag() {
         // Required empty public constructor
@@ -65,6 +73,14 @@ public class CurentOpngJobsFrag extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView= inflater.inflate(R.layout.fragment_curent_opng_jobs, container, false);
+
+
+        SharedPreferences pref = getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        jobid = pref.getString("ID", "");
+        uid = pref.getString("UserId", "");
+
+        //Log.e("jid",jobid);
+       // Log.e("uid",uid);
 
         progressBar = (ProgressBar)rootView.findViewById(R.id.progressBar);
         floatingButton = (FloatingActionButton)rootView.findViewById(R.id.fab);
@@ -83,8 +99,6 @@ public class CurentOpngJobsFrag extends Fragment {
         });
 
 
-        applyBtn =(Button)rootView.findViewById(R.id.applybutton);
-
         mExampleList1 = new ArrayList<>();
         mRequestQueue1 = Volley.newRequestQueue(getActivity());
 
@@ -95,19 +109,41 @@ public class CurentOpngJobsFrag extends Fragment {
 
         parseJSON1();
 
+        applyBtn =(Button)rootView.findViewById(R.id.applybutton);
+        applyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+              // Log.e("jid", String.valueOf(JobIDs));
+                JobApply(JobIDs);
+            }
+        });
+
+
         return rootView;
     }
 
+
+
     AsyncResult<Integer> asyncResult_addNewConnection = new AsyncResult<Integer>() {
         @Override
-        public void success(Integer click) {
+        public void success(Integer click, ArrayList<String> JobID) {
+
+            JobIDs=JobID;
             isClicked= isClicked+click;
+
+//            for (int k =0;k<mExampleList1.size();k++){
+//                jobids.add(mExampleList1.get(k).getmID());
+//            }
+           // Log.e("jid", String.valueOf(JobIDs));
+
             if(isClicked>0){
                 applyBtn.setVisibility(View.VISIBLE);
             }else{
                 applyBtn.setVisibility(View.GONE);
             }
         }
+
 
         @Override
         public void error(String error) {
@@ -166,11 +202,69 @@ public class CurentOpngJobsFrag extends Fragment {
                         //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
                         Log.e("TAg",error.getMessage());
                     }
-                });
+                })
+        {
+//            @Override
+//
+//            protected Map<String, String> getParams() throws AuthFailureError {
+//                Map<String, String> params = new HashMap<>();
+//                //params.put("ID", jobid);
+//                return params;
+//            }
+        };
 
         mRequestQueue1 = Volley.newRequestQueue(getActivity());
         mRequestQueue1.add(stringRequest);
     }
 
+    private void JobApply(final ArrayList<String> jobIDs) {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST,"https://www.itshades.com/appwebservices/job-apply-multiple.php?uid="+uid,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.e("resp", String.valueOf(jobIDs));
+                        //progressDialog.dismiss();
+                        try {
+                            JSONObject obj = new JSONObject(response);
+                            String success= obj.getString("s");
+                            String error= obj.getString("e");
+                            String msg=obj.getString("m");
+
+                            if (success.equalsIgnoreCase("1")) {
+
+                                Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
+                            }
+                            else {
+                                Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(getActivity(),e.getMessage(), Toast.LENGTH_SHORT).show();
+                            //progressDialog.dismiss();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                        // progressDialog.dismiss();
+                    }
+                })
+        {
+            @Override
+
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("job_id", String.valueOf(jobIDs));
+                return params;
+            }
+        };
+
+        RequestQueue requestQueue= Volley.newRequestQueue(getActivity());
+        requestQueue.add(stringRequest);
+
+    }
 
 }

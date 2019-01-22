@@ -33,7 +33,7 @@ public class L_AND_DFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_solutions, container, false);
+        View view = inflater.inflate(R.layout.fragment_l__and__d, container, false);
 
         viewPager = (ViewPager)view.findViewById(R.id.viewpager);
         setupViewPager(viewPager);

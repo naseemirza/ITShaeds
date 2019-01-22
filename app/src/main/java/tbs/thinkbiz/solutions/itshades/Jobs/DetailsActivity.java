@@ -112,9 +112,16 @@ public class DetailsActivity extends AppCompatActivity {
         BtnAply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(v.getId() == R.id.btnapply) {
+                    BtnAply.setText("Applied");
+                    BtnAply.setBackgroundResource(R.drawable.aftrapplybtn);
+                }
+//                else if(v.getId() == R.id.btnapply){
+//
+//                }
 
-                BtnAply.setText("Applied");
-                BtnAply.setBackgroundResource(R.drawable.aftrapplybtn);
+               // BtnAply.setText("Applied");
+              //  BtnAply.setBackgroundResource(R.drawable.aftrapplybtn);
 
                 JobApply();
 
@@ -162,6 +169,13 @@ public class DetailsActivity extends AppCompatActivity {
         }
     })
        {
+           @Override
+
+           protected Map<String, String> getParams() throws AuthFailureError {
+               Map<String, String> params = new HashMap<>();
+               params.put("job_id", jobid);
+               return params;
+           }
     };
 
     RequestQueue requestQueue= Volley.newRequestQueue(this);

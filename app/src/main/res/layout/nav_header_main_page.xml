@@ -27,16 +27,17 @@
         android:paddingLeft="10dp"
         android:textColor="@color/colorBlack"
         android:text="Individual User"
+        android:layout_marginBottom="20dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
-    <TextView
-        android:id="@+id/textViewmail"
-        android:paddingLeft="10dp"
-        android:textColor="@color/colorBlack"
-        android:layout_marginBottom="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="email" />
+    <!--<TextView-->
+        <!--android:id="@+id/textViewmail"-->
+        <!--android:paddingLeft="10dp"-->
+        <!--android:textColor="@color/colorBlack"-->
+        <!--android:layout_marginBottom="20dp"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="email" />-->
 
 
 </LinearLayout>

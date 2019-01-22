@@ -57,7 +57,7 @@ public class ArtfacFiltrationActivity extends AppCompatActivity implements Adapt
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setCustomView(tbs.thinkbiz.solutions.itshades.R.layout.backbar);
+        getSupportActionBar().setCustomView(R.layout.backbar);
         View view =getSupportActionBar().getCustomView();
 
         SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);

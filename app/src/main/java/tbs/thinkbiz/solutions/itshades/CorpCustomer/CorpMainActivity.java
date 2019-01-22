@@ -22,6 +22,8 @@ import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.ParentActivit
 import tbs.thinkbiz.solutions.itshades.LoginActivity;
 import tbs.thinkbiz.solutions.itshades.R;
 
+import static tbs.thinkbiz.solutions.itshades.LoginActivity.booltype;
+
 public class CorpMainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -45,7 +47,8 @@ public class CorpMainActivity extends AppCompatActivity
 
         SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         username = pref.getString("Username", "");
-        usermail = pref.getString("email", "");
+        booltype=pref.getBoolean("Booltype", Boolean.parseBoolean(""));
+       // usermail = pref.getString("email", "");
         Userid = pref.getString("userid", "");
         //Actname = pref.getString("Actvname", "");
 
@@ -81,9 +84,9 @@ public class CorpMainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(tbs.thinkbiz.solutions.itshades.R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         textViewname= (TextView) navigationView.getHeaderView(0).findViewById(tbs.thinkbiz.solutions.itshades.R.id.corptext);
-        textViewemail= (TextView) navigationView.getHeaderView(0).findViewById(tbs.thinkbiz.solutions.itshades.R.id.corptextmail);
+      //  textViewemail= (TextView) navigationView.getHeaderView(0).findViewById(tbs.thinkbiz.solutions.itshades.R.id.corptextmail);
         textViewname.setText(username);
-        textViewemail.setText(usermail);
+       // textViewemail.setText(usermail);
     }
 
 //    private class MyWebViewClient extends WebViewClient {
@@ -178,7 +181,7 @@ public class CorpMainActivity extends AppCompatActivity
 
             edit.putString("Actvname",actname);
 
-            edit.commit();
+            edit.apply();
             Intent intent=new Intent(CorpMainActivity.this,ParentActivity.class);
             startActivity(intent);
            //startActivity(new Intent(CorpMainActivity.this,ParentActivity.class));
@@ -190,13 +193,12 @@ public class CorpMainActivity extends AppCompatActivity
         if (id == R.id.nav_logout) {
 
             String actname="Profile";
-
+            booltype=false;
             SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
             SharedPreferences.Editor edit = pref.edit();
-
             edit.putString("Actvname",actname);
-
-            edit.commit();
+            edit.putBoolean("Booltype",booltype);
+            edit.apply();
             Intent intent=new Intent(CorpMainActivity.this,LoginActivity.class);
             startActivity(intent);
             //startActivity(new Intent(CorpMainActivity.this,LoginActivity.class));

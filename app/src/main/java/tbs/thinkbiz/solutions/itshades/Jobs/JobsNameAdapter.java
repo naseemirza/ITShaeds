@@ -16,6 +16,7 @@ import android.widget.TextView;
 import tbs.thinkbiz.solutions.itshades.R;
 import tbs.thinkbiz.solutions.itshades.RecyclerViewItemClickListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,6 +28,7 @@ public class JobsNameAdapter extends RecyclerView.Adapter<JobsNameAdapter.Produc
     private Context mCtx;
     private List<JobsModelName> productList1;
     AsyncResult<Integer> asyncResult_addNewConnection;
+    private ArrayList<String> jobids=new ArrayList<String>();
 
     public JobsNameAdapter(Context mCtx, List<JobsModelName> productList1,AsyncResult<Integer> asyncResult_addNewConnection) {
         this.mCtx = mCtx;
@@ -43,7 +45,7 @@ public class JobsNameAdapter extends RecyclerView.Adapter<JobsNameAdapter.Produc
     }
 
     @Override
-    public void onBindViewHolder( final ProductViewHolder holder, int position) {
+    public void onBindViewHolder(final ProductViewHolder holder, final int position) {
         final JobsModelName product = productList1.get(position);
 
         holder.textViewTitle.setText(product.getTitle());
@@ -54,15 +56,18 @@ public class JobsNameAdapter extends RecyclerView.Adapter<JobsNameAdapter.Produc
         holder.checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // String Jobid=product.getmID();
+                //String Jobid=product.getmID();
+               // Log.e("jid",Jobid);
+               /// jobids.add(productList1.get(position).getmID());
+                //Log.e("jid", String.valueOf(jobids));
                 if(holder.checkBox.isChecked()){
-                    asyncResult_addNewConnection.success(1);
+                    jobids.add(productList1.get(position).getmID());
+                    asyncResult_addNewConnection.success(1, jobids);
                 }else{
-                    asyncResult_addNewConnection.success(-1);
+                    asyncResult_addNewConnection.success(-1, jobids);
                 }
             }
         });
-
 
         holder.setItemClickListener(new RecyclerViewItemClickListener() {
             @Override

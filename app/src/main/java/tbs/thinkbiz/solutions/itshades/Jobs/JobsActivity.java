@@ -98,7 +98,7 @@ public class JobsActivity extends AppCompatActivity {
 
     AsyncResult<Integer> asyncResult_addNewConnection = new AsyncResult<Integer>() {
         @Override
-        public void success(Integer click) {
+        public void success(Integer click, ArrayList<String> JobID) {
             isClicked= isClicked+click;
             if(isClicked>0){
                 applyBtn.setVisibility(View.VISIBLE);

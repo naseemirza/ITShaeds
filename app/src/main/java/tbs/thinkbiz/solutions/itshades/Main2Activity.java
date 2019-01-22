@@ -70,7 +70,7 @@ public class Main2Activity extends AppCompatActivity
         SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         uid=pref.getString("userid","");
         username = pref.getString("username", "");
-        usermail = pref.getString("email", "");
+       // usermail = pref.getString("email", "");
 
 
         applyBtn =(Button)findViewById(R.id.applybutton);
@@ -188,9 +188,9 @@ public class Main2Activity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         textViewname= (TextView) navigationView.getHeaderView(0).findViewById(R.id.usernametext);
-        textViewemail= (TextView) navigationView.getHeaderView(0).findViewById(R.id.textViewmail);
+       // textViewemail= (TextView) navigationView.getHeaderView(0).findViewById(R.id.textViewmail);
         textViewname.setText(username);
-        textViewemail.setText(usermail);
+        //textViewemail.setText(usermail);
     }
 
     private class MyWebViewClient extends WebViewClient {
@@ -219,7 +219,7 @@ public class Main2Activity extends AppCompatActivity
 
     AsyncResult<Integer> asyncResult_addNewConnection = new AsyncResult<Integer>() {
         @Override
-        public void success(Integer click) {
+        public void success(Integer click, ArrayList<String> JobID) {
             isClicked= isClicked+click;
             if(isClicked>0){
                 applyBtn.setVisibility(View.VISIBLE);

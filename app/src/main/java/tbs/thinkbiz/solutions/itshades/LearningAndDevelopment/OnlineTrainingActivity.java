@@ -86,7 +86,6 @@ public class OnlineTrainingActivity extends AppCompatActivity {
 
         mExampleList1 = new ArrayList<>();
         mRequestQueue1 = Volley.newRequestQueue(this);
-
         mRecyclerview1=(RecyclerView)findViewById(R.id.my_recycler_jobs);
         mRecyclerview1.setNestedScrollingEnabled(false);
         mRecyclerview1.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));

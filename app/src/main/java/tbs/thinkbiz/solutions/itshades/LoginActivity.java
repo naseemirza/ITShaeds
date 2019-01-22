@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity
     RadioGroup radioGroup;
     RadioButton radioButton;
 
-   //public static String uid;
+  public static Boolean booltype;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +72,13 @@ public class LoginActivity extends AppCompatActivity
         radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
         radioButton = (RadioButton) findViewById(R.id.rb1);
 
+        SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+          booltype=pref.getBoolean("Booltype", Boolean.parseBoolean(""));
+
+        if(booltype){
+            startActivity(new Intent(LoginActivity.this,MainPageActivity.class));
+            finish();   //finish current activity
+        }
 
 
         forgotpass = (TextView) findViewById(R.id.textViewfrgt);
@@ -83,10 +90,9 @@ public class LoginActivity extends AppCompatActivity
                 String actname="Forgot Password";
                 SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor edit = pref.edit();
-
                 edit.putString("Actvname",actname);
 
-                edit.commit();
+                edit.apply();
                 Intent intent = new Intent(LoginActivity.this, ForgotPassActivity.class);
                 startActivity(intent);
             }
@@ -103,35 +109,17 @@ public class LoginActivity extends AppCompatActivity
                 SharedPreferences.Editor edit = pref.edit();
 
                 edit.putString("Actvname",actname);
-
-                edit.commit();
+                edit.apply();
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
             }
         });
 
-
-        //spiner = (Spinner) findViewById(R.id.spinner);
-        //spiner.setFocusable(false);
-       // spiner.setFocusableInTouchMode(true);
-
-//        String[] users = new String[]{
-//                "Select Access Level",
-//                "Individual User",
-//                "Corporate Customer"
-//        };
-//
-//        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
-//                this, R.layout.spinneritems, users
-//        );
-//        spinnerArrayAdapter.setDropDownViewResource(R.layout.spinneritems);
-//        spiner.setAdapter(spinnerArrayAdapter);
-
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         buttonLogin = (Button) findViewById(R.id.buttonL);
+
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -172,7 +160,6 @@ public class LoginActivity extends AppCompatActivity
 
             }
         });
-
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -230,11 +217,6 @@ public class LoginActivity extends AppCompatActivity
             radioGroup.requestFocus();
             return false;
         }
-//                if (pos==0){
-//                    //spiner.requestFocus();
-//                    Toast.makeText(LoginActivity.this, "Select User Type", Toast.LENGTH_LONG).show();
-//                    return false;
-//                }
 
                 return true;
     }
@@ -256,14 +238,7 @@ public class LoginActivity extends AppCompatActivity
         else if (usertype.equals("Business User")){
             Uroll="2";
         }
-//        final String usertype = spiner.getSelectedItem().toString();
-//
-//        if (usertype.equals("Individual User")) {
-//            userrole = "1";
-//        } else if (usertype.equals("Corporate Customer")) {
-//            userrole = "2";
-//        }
-//
+
         Log.e("resp", Uroll);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, AllUrls.LOGIN_URL,
@@ -281,47 +256,35 @@ public class LoginActivity extends AppCompatActivity
                             String msg=obj.getString("m");
                             String uid=obj.getString("userid");
 
-                           // SharedPreferences.Editor editor = getSharedPreferences("MyPrefs", MODE_PRIVATE).edit();
-                            //editor.putString("userid", uid);
-                            //editor.commit();
-
-
                             Log.e("resp", uid);
 
                             if (success.equalsIgnoreCase("1"))
                             {
                                 if (Uroll.equals("1")){
 
+                                    booltype=true;
                                     SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-                                    SharedPreferences.Editor edit = pref.edit();
-                                    edit.putString("Username",usertype);
-                                    edit.putString("email",email);
-                                    edit.putString("userid",uid);
-
-                                    Log.e("resp", usertype);
-                                    Log.e("resp", uid);
-
-                                    Toast.makeText(LoginActivity.this, msg, Toast.LENGTH_SHORT).show();
-                                    progressDialog.dismiss();
-                                    edit.apply();                                                     //Main2Activity
-                                    Intent intent=new Intent(LoginActivity.this, MainPageActivity.class);
-                                    startActivity(intent);
-                                    editTextmail.setText("");
-                                    editTextpass.setText("");
-                                    radioGroup.clearCheck();
-
+                                        SharedPreferences.Editor edit = pref.edit();
+                                        edit.putString("Username", usertype);
+                                        edit.putString("userid", uid);
+                                        edit.putBoolean("Booltype",booltype);
+                                        Toast.makeText(LoginActivity.this, msg, Toast.LENGTH_SHORT).show();
+                                        progressDialog.dismiss();
+                                        edit.apply();                                                     //Main2Activity
+                                        Intent intent = new Intent(LoginActivity.this, MainPageActivity.class);
+                                        startActivity(intent);
+                                        editTextmail.setText("");
+                                        editTextpass.setText("");
+                                        radioGroup.clearCheck();
                                 }
 
                              else if (Uroll.equals("2")){
-
+                                     booltype=true;
                                     SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                                     SharedPreferences.Editor edit = pref.edit();
                                     edit.putString("Username",usertype);
-                                    edit.putString("email",email);
                                     edit.putString("userid",uid);
-
-                                    Log.e("resp", usertype);
-
+                                    edit.putBoolean("Booltype",booltype);
                                 Toast.makeText(LoginActivity.this, msg, Toast.LENGTH_SHORT).show();
                                 progressDialog.dismiss();
                                     edit.apply();
@@ -331,7 +294,6 @@ public class LoginActivity extends AppCompatActivity
                                 editTextpass.setText("");
                                     radioGroup.clearCheck();
                             }
-
                             }
                             else
                             {

@@ -15,8 +15,10 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -36,6 +38,8 @@ import tbs.thinkbiz.solutions.itshades.MainPageTab.MarkEventTabs.MarkEvntFrag;
 import tbs.thinkbiz.solutions.itshades.MainPageTab.SolutionsTabs.SolutionsFrag;
 import tbs.thinkbiz.solutions.itshades.R;
 
+import static tbs.thinkbiz.solutions.itshades.LoginActivity.booltype;
+
 public class MainPageActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -43,10 +47,11 @@ public class MainPageActivity extends AppCompatActivity
      TabLayout tabLayout;
     ViewPager viewPager;
 
-    String username,usermail;
-    TextView textViewname,textViewemail;
+    String username;
+    TextView textViewname;
     ImageView imghome;
     String uid;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,15 +63,16 @@ public class MainPageActivity extends AppCompatActivity
         SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         uid=pref.getString("userid","");
         username = pref.getString("Username", "");
-        usermail = pref.getString("email", "");
+         booltype=pref.getBoolean("Booltype", Boolean.parseBoolean(""));
 
-//        imghome=(ImageView)findViewById(R.id.homeicon);
-//        imghome.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(MainPageActivity.this,MainPageActivity.class));
-//            }
-//        });
+       // Log.e("booltype", String.valueOf(booltype));
+        imghome=(ImageView)findViewById(R.id.homeicon);
+        imghome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainPageActivity.this,MainPageActivity.class));
+            }
+        });
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -76,8 +82,6 @@ public class MainPageActivity extends AppCompatActivity
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
         //tabLayout.setTabTextColors(R.color.colorBlack, R.color.colorBlack);
-
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -90,12 +94,8 @@ public class MainPageActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         textViewname= (TextView) navigationView.getHeaderView(0).findViewById(R.id.usernametext);
-        textViewemail= (TextView) navigationView.getHeaderView(0).findViewById(R.id.textViewmail);
         textViewname.setText(username);
-        textViewemail.setText(usermail);
     }
-
-
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
@@ -142,6 +142,7 @@ public class MainPageActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
+      //  finish();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
@@ -159,15 +160,13 @@ public class MainPageActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -192,17 +191,13 @@ public class MainPageActivity extends AppCompatActivity
             edit.apply();
             startActivity(new Intent(MainPageActivity.this,MyProfileActivity.class));
         }
-//        else if (id == R.id.nav_chngpass) {
-//            startActivity(new Intent(Main2Activity.this,IndChangePassActivity.class));
-//        }
-//        else if (id == R.id.nav_invtfrnds) {
-//            startActivity(new Intent(Main2Activity.this,IndInvitFrndsActivity.class));
-//        }
-//        else if (id == R.id.subscrib) {
-//            startActivity(new Intent(Main2Activity.this,IndSubscrbActivity.class));
-//        }
 
         else if (id == R.id.nav_logout) {
+            booltype=false;
+            SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor edit = pref.edit();
+            edit.putBoolean("Booltype",booltype);
+            edit.apply();
             startActivity(new Intent(MainPageActivity.this,LoginActivity.class));
 
         } else if (id == R.id.nav_contactus) {

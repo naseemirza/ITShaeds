@@ -9,7 +9,7 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/grrnlgt"
+        android:background="@color/colorWhite"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <android.support.v7.widget.Toolbar
@@ -33,8 +33,8 @@
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs"
             style="@style/MyCustomTabLayout"
-            app:tabTextColor="@color/lightwhite"
-            app:tabIndicatorColor="@android:color/white"
+            app:tabTextColor="@color/colorBlack"
+            app:tabIndicatorColor="@android:color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:tabMode="scrollable"
