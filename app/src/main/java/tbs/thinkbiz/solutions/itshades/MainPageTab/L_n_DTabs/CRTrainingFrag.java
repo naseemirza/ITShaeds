@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -47,6 +48,7 @@ public class CRTrainingFrag extends Fragment {
     private RecyclerView mRecyclerview1;
     ProgressBar progressBar;
     FloatingActionButton floatingButton;
+    TextView jsonotfound;
 
     public CRTrainingFrag() {
         // Required empty public constructor
@@ -66,6 +68,8 @@ public class CRTrainingFrag extends Fragment {
 
 
         progressBar = (ProgressBar)rootView.findViewById(R.id.progressBar);
+        jsonotfound=(TextView)rootView.findViewById(R.id.jsondata);
+
         floatingButton = (FloatingActionButton)rootView.findViewById(R.id.fab);
         floatingButton.setAlpha(0.50f);
         floatingButton.setOnClickListener(new View.OnClickListener() {
@@ -111,6 +115,10 @@ public class CRTrainingFrag extends Fragment {
                             JSONArray rootJsonArray = new JSONArray(response);
 
                             Log.e("rootJsonArrayLength",rootJsonArray.length()+"");
+                            if (rootJsonArray.length()==0)
+                            {
+                                jsonotfound.setVisibility(View.VISIBLE);
+                            }
 
                             for (int i = 0; i < rootJsonArray.length(); i++) {
                                 JSONObject object = rootJsonArray.getJSONObject(i);

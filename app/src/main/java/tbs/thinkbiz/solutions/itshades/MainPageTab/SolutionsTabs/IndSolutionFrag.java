@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -42,6 +43,7 @@ public class IndSolutionFrag extends Fragment {
     //String CatId;
     String uid;
     String CatId="3";
+    TextView jsonotfound;
     //String uid="329";
 
     private SoluAdapter mExampleAdapter1;
@@ -69,6 +71,8 @@ public class IndSolutionFrag extends Fragment {
 
         Log.e("rootJsonArray",CatId);
         Log.e("rootJsonArray",uid);
+
+        jsonotfound=(TextView)rootView.findViewById(R.id.jsondata);
 
         progressBar = (ProgressBar)rootView.findViewById(R.id.progressBar);
         floatingButton = (FloatingActionButton)rootView.findViewById(R.id.fab);
@@ -122,6 +126,10 @@ public class IndSolutionFrag extends Fragment {
                             JSONArray rootJsonArray = new JSONArray(response);
 
                             Log.e("rootJsonArrayLength",rootJsonArray.length()+"");
+                            if (rootJsonArray.length()==0)
+                            {
+                                jsonotfound.setVisibility(View.VISIBLE);
+                            }
 
                             for (int i = 0; i < rootJsonArray.length(); i++) {
                                 JSONObject object = rootJsonArray.getJSONObject(i);
@@ -136,9 +144,7 @@ public class IndSolutionFrag extends Fragment {
                                         object.optString("added_date"),
                                         object.optString("expiry_date"),
                                         object.optString("sourse_url")));
-
                             }
-
                             Log.e("rootJsonArray",mExampleList1.size()+"");
 
                             mExampleAdapter1 = new SoluAdapter(getActivity(), mExampleList1);

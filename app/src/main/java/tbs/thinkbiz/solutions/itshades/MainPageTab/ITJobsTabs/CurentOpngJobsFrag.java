@@ -57,6 +57,7 @@ public class CurentOpngJobsFrag extends Fragment {
 
     ProgressBar progressBar;
     FloatingActionButton floatingButton;
+    TextView jsonotfound;
 
     Button applyBtn;
     static int isClicked=0;
@@ -81,6 +82,8 @@ public class CurentOpngJobsFrag extends Fragment {
 
         //Log.e("jid",jobid);
        // Log.e("uid",uid);
+
+        jsonotfound=(TextView)rootView.findViewById(R.id.jsondata);
 
         progressBar = (ProgressBar)rootView.findViewById(R.id.progressBar);
         floatingButton = (FloatingActionButton)rootView.findViewById(R.id.fab);
@@ -123,8 +126,6 @@ public class CurentOpngJobsFrag extends Fragment {
         return rootView;
     }
 
-
-
     AsyncResult<Integer> asyncResult_addNewConnection = new AsyncResult<Integer>() {
         @Override
         public void success(Integer click, ArrayList<String> JobID) {
@@ -143,7 +144,6 @@ public class CurentOpngJobsFrag extends Fragment {
                 applyBtn.setVisibility(View.GONE);
             }
         }
-
 
         @Override
         public void error(String error) {
@@ -167,6 +167,10 @@ public class CurentOpngJobsFrag extends Fragment {
                             JSONArray rootJsonArray = new JSONArray(response);
 
                             Log.e("rootJsonArrayLength",rootJsonArray.length()+"");
+                            if (rootJsonArray.length()==0)
+                            {
+                                jsonotfound.setVisibility(View.VISIBLE);
+                            }
 
                             for (int i = 0; i < rootJsonArray.length(); i++) {
                                 JSONObject object = rootJsonArray.getJSONObject(i);
@@ -193,7 +197,6 @@ public class CurentOpngJobsFrag extends Fragment {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-
                     }
                 },
                 new Response.ErrorListener() {
@@ -204,13 +207,6 @@ public class CurentOpngJobsFrag extends Fragment {
                     }
                 })
         {
-//            @Override
-//
-//            protected Map<String, String> getParams() throws AuthFailureError {
-//                Map<String, String> params = new HashMap<>();
-//                //params.put("ID", jobid);
-//                return params;
-//            }
         };
 
         mRequestQueue1 = Volley.newRequestQueue(getActivity());
@@ -254,17 +250,13 @@ public class CurentOpngJobsFrag extends Fragment {
                 })
         {
             @Override
-
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put("job_id", String.valueOf(jobIDs));
                 return params;
             }
         };
-
         RequestQueue requestQueue= Volley.newRequestQueue(getActivity());
         requestQueue.add(stringRequest);
-
     }
-
 }

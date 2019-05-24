@@ -15,7 +15,7 @@
 
         <Button
             android:id="@+id/addnewjob"
-            android:text="Add New IT Consulting Services"
+            android:text="Add New IT Consulting and Services"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
             android:background="@drawable/buttoncorner"

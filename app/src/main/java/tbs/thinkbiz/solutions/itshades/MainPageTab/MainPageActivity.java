@@ -39,6 +39,7 @@ import tbs.thinkbiz.solutions.itshades.MainPageTab.SolutionsTabs.SolutionsFrag;
 import tbs.thinkbiz.solutions.itshades.R;
 
 import static tbs.thinkbiz.solutions.itshades.LoginActivity.booltype;
+import static tbs.thinkbiz.solutions.itshades.LoginActivity.Uroll;
 
 public class MainPageActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -46,7 +47,6 @@ public class MainPageActivity extends AppCompatActivity
      Toolbar toolbar;
      TabLayout tabLayout;
     ViewPager viewPager;
-
     String username;
     TextView textViewname;
     ImageView imghome;
@@ -58,14 +58,12 @@ public class MainPageActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
 
-       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         uid=pref.getString("userid","");
         username = pref.getString("Username", "");
+        Uroll = pref.getString("uroll", "");
          booltype=pref.getBoolean("Booltype", Boolean.parseBoolean(""));
 
-       // Log.e("booltype", String.valueOf(booltype));
         imghome=(ImageView)findViewById(R.id.homeicon);
         imghome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,12 +100,12 @@ public class MainPageActivity extends AppCompatActivity
 
         adapter.addFragment(new HomeFrag(), "HOME");
         adapter.addFragment(new ITBytesFrag(), "IT BYTES");
-        adapter.addFragment(new SolutionsFrag(), "SOLUTIONS");
+        adapter.addFragment(new SolutionsFrag(), "IT SOLUTIONS");
         adapter.addFragment(new L_AND_DFrag(), "L & D");
         adapter.addFragment(new ArtifactsFrag(), "ARTIFACTS");
         adapter.addFragment(new MarkEvntFrag(), "MARKETING EVENTS");
         adapter.addFragment(new BusinessCornerFrag(), "BUSINESS CORNER");
-        adapter.addFragment(new ITJobsFrag(), "IT Jobs");
+        adapter.addFragment(new ITJobsFrag(), "IT JOBS");
         viewPager.setAdapter(adapter);
     }
 
@@ -194,9 +192,11 @@ public class MainPageActivity extends AppCompatActivity
 
         else if (id == R.id.nav_logout) {
             booltype=false;
+
             SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
             SharedPreferences.Editor edit = pref.edit();
             edit.putBoolean("Booltype",booltype);
+            edit.putString("uroll", Uroll);
             edit.apply();
             startActivity(new Intent(MainPageActivity.this,LoginActivity.class));
 

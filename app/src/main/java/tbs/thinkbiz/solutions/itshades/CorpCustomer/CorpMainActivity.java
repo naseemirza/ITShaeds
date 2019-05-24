@@ -23,6 +23,7 @@ import tbs.thinkbiz.solutions.itshades.LoginActivity;
 import tbs.thinkbiz.solutions.itshades.R;
 
 import static tbs.thinkbiz.solutions.itshades.LoginActivity.booltype;
+import static tbs.thinkbiz.solutions.itshades.LoginActivity.Uroll;
 
 public class CorpMainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -30,7 +31,7 @@ public class CorpMainActivity extends AppCompatActivity
     WebView mywebview;
     ProgressDialog progressDialog;
 
-    String username,usermail,Userid;
+    String username,usermail,Userid,uroll;
     TextView textViewname,textViewemail;
 
     String Actname ;
@@ -47,6 +48,7 @@ public class CorpMainActivity extends AppCompatActivity
 
         SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         username = pref.getString("Username", "");
+        uroll = pref.getString("uroll", "");
         booltype=pref.getBoolean("Booltype", Boolean.parseBoolean(""));
        // usermail = pref.getString("email", "");
         Userid = pref.getString("userid", "");
@@ -192,12 +194,13 @@ public class CorpMainActivity extends AppCompatActivity
         }
         if (id == R.id.nav_logout) {
 
-            String actname="Profile";
+            //String actname="Profile";
             booltype=false;
             SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
             SharedPreferences.Editor edit = pref.edit();
-            edit.putString("Actvname",actname);
+           // edit.putString("Actvname",actname);
             edit.putBoolean("Booltype",booltype);
+            edit.putString("uroll", Uroll);
             edit.apply();
             Intent intent=new Intent(CorpMainActivity.this,LoginActivity.class);
             startActivity(intent);

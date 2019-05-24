@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -48,6 +49,7 @@ public class OnDTrainingFrag extends Fragment {
     private RecyclerView mRecyclerview1;
     ProgressBar progressBar;
     FloatingActionButton floatingButton;
+    TextView jsonotfound;
 
     public OnDTrainingFrag() {
         // Required empty public constructor
@@ -64,7 +66,7 @@ public class OnDTrainingFrag extends Fragment {
         // CatId=pref.getString("CatId","");
         uid = pref.getString("userId", "");
 
-
+        jsonotfound=(TextView)rootView.findViewById(R.id.jsondata);
         progressBar = (ProgressBar)rootView.findViewById(R.id.progressBar);
         floatingButton = (FloatingActionButton)rootView.findViewById(R.id.fab);
         floatingButton.setAlpha(0.50f);
@@ -110,6 +112,10 @@ public class OnDTrainingFrag extends Fragment {
                             JSONArray rootJsonArray = new JSONArray(response);
 
                             Log.e("rootJsonArrayLength",rootJsonArray.length()+"");
+                            if (rootJsonArray.length()==0)
+                            {
+                                jsonotfound.setVisibility(View.VISIBLE);
+                            }
 
                             for (int i = 0; i < rootJsonArray.length(); i++) {
                                 JSONObject object = rootJsonArray.getJSONObject(i);

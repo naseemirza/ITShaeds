@@ -62,5 +62,4 @@ public class AllUrls {
     public static final String CLASSIFIEDSB="https://www.itshades.com/appdata/employer-announcement.php?uid=";
     public static final String ADDNEW_CLASSIFIEDSB="https://www.itshades.com/appdata/employer-add-announcement.php?uid=";
 
-
 }

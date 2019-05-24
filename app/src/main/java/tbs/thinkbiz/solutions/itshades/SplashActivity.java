@@ -16,21 +16,16 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-
-
         StartAnimation();
-
     }
     private void StartAnimation() {
 
         Animation animation= AnimationUtils.loadAnimation(this, R.anim.alpha);
         animation.reset();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         LinearLayout l= (LinearLayout) findViewById(R.id.lin_lay);
         l.clearAnimation();
         l.startAnimation(animation);
-
         animation=AnimationUtils.loadAnimation(this,R.anim.translate);
         animation.reset();
 
@@ -48,8 +43,7 @@ public class SplashActivity extends AppCompatActivity {
                         sleep(100);
                         waited += 100;
                     }
-                    Intent intent = new Intent(SplashActivity.this,
-                            LoginActivity.class);
+                    Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
                     SplashActivity.this.finish();

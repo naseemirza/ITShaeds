@@ -14,21 +14,16 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
-
-import tbs.thinkbiz.solutions.itshades.AllUrls;
 import tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp.Filteration.LnDFilterActivity;
 import tbs.thinkbiz.solutions.itshades.R;
 
@@ -40,7 +35,6 @@ public class OnlnTrangActivity extends AppCompatActivity {
     Button addonlntrng;
 
     //Table Data
-
     private ListAdapterB mExampleAdapter;
     private ArrayList<ListModelB> mExampleList;
     private RequestQueue mRequestQueue;
@@ -58,13 +52,9 @@ public class OnlnTrangActivity extends AppCompatActivity {
 
         SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
-
         Actname = pref.getString("Actvname", "");
         uid = pref.getString("userid", "");
         CatId = pref.getString("CatId", "");
-
-        Log.e("rootJsonArray",uid);
-        Log.e("rootJsonArray1",CatId);
 
         textname = (TextView) findViewById(R.id.textname);
         textname.setText(Actname);
@@ -78,7 +68,7 @@ public class OnlnTrangActivity extends AppCompatActivity {
                 SharedPreferences.Editor edit = pref.edit();
                 edit.putString("Actvname",actname);
 
-                edit.commit();
+                edit.apply();
                 Intent intent=new Intent(OnlnTrangActivity.this,LearngAndDevActivity.class);
                 startActivity(intent);
             }
@@ -97,14 +87,11 @@ public class OnlnTrangActivity extends AppCompatActivity {
         addonlntrng.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String actname="Add New Online Training";
                 SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor edit = pref.edit();
-
                 edit.putString("Actvname",actname);
-                edit.commit();
-
+                edit.apply();
                 Intent intent=  new Intent(OnlnTrangActivity.this,AddNewLnDActivity.class);
                 startActivity(intent);
             }
@@ -113,84 +100,71 @@ public class OnlnTrangActivity extends AppCompatActivity {
 
         mExampleList = new ArrayList<>();
         mRequestQueue = Volley.newRequestQueue(this);
-
         mRecyclerview = (RecyclerView) findViewById(R.id.my_recycler_jobs1);
         mRecyclerview.setNestedScrollingEnabled(false);
         mRecyclerview.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         mRecyclerview.setHasFixedSize(true);
-
         parseJSON();
 
     }
-
     private void parseJSON() {
-
         final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
-
-
-       // String Tab_Url="https://www.itshades.com/appdata/emp-onlinetraining.php?cat_id="+CatId+"&uid="+uid;
-        String Tab_Url= AllUrls.LND_BUSINESS+CatId+"&uid="+uid;
-
-        Log.e("rootJsonArray",Tab_Url);
+        String Tab_Url="https://www.itshades.com/appdata/emp-onlinetraining.php?cat_id="+CatId+"&uid="+uid;
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET,Tab_Url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
 
-                        progressBar.setVisibility(View.INVISIBLE);
+//                        GsonBuilder builder = new GsonBuilder();
+//                        Gson mGson = builder.create();
+//                        List<ListModelB> posts = new ArrayList<ListModelB>();
+//                        posts = Arrays.asList(mGson.fromJson(response, ListModelB[].class));
+//                        mExampleAdapter = new ListAdapterB(OnlnTrangActivity.this, posts);
+//                        mRecyclerview.setAdapter(mExampleAdapter);
 
-                        try {
-                            Log.e("rootJsonArray",response);
-                            JSONArray rootJsonArray = new JSONArray(response);
+                                progressBar.setVisibility(View.INVISIBLE);
+                                try {
+                                   // Log.e("rootJsonArray",response);
+                                    JSONArray rootJsonArray = new JSONArray(response);
 
-                            Log.e("rootJsonArrayLength",rootJsonArray.length()+"");
+                                    Log.e("rootJsonArrayLength",rootJsonArray.length()+"");
 
-                            for (int i = 0; i < rootJsonArray.length(); i++) {
-                                JSONObject object = rootJsonArray.getJSONObject(i);
+                                    for (int i = 0; i < rootJsonArray.length(); i++) {
+                                        JSONObject object = rootJsonArray.getJSONObject(i);
+                                        mExampleList.add(new ListModelB(object.optString("id"),
+                                                object.optString("title_name"),
+                                                object.optString("industry_relevance"),
+                                                object.optString("focus_area"),
+                                                object.optString("user_price_per_unit"),
+                                                object.optString("added_date"),
+                                                object.optString("status"),
+                                                object.optString("editdata")));
+                                    }
+                                    Log.e("rootJsonArray",mExampleList.size()+"");
+                                    mExampleAdapter = new ListAdapterB(OnlnTrangActivity.this, mExampleList);
+                                    mRecyclerview.setAdapter(mExampleAdapter);
+                                    mExampleAdapter.notifyDataSetChanged();
+                                    mRecyclerview.setHasFixedSize(true);
 
-
-                                mExampleList.add(new ListModelB(object.optString("id"),
-                                        object.optString("title_name"),
-                                        object.optString("industry_relevance"),
-                                        object.optString("focus_area"),
-                                        object.optString("user_price_per_unit"),
-                                        object.optString("added_date"),
-                                        object.optString("status"),
-                                        object.optString("editdata")));
-
-                            }
-
-                            Log.e("rootJsonArray",mExampleList.size()+"");
-
-                            mExampleAdapter = new ListAdapterB(OnlnTrangActivity.this, mExampleList);
-                            mRecyclerview.setAdapter(mExampleAdapter);
-                            mExampleAdapter.notifyDataSetChanged();
-                            mRecyclerview.setHasFixedSize(true);
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
                     }
                 },
-                new Response.ErrorListener() {
+                new Response.ErrorListener()
+                {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
-                        Log.e("TAg",error.getMessage());
+                       Log.e("TAg",error.getMessage());
                     }
                 });
-
         mRequestQueue = Volley.newRequestQueue(this);
         mRequestQueue.add(stringRequest);
     }
-
     @Override
     public void onBackPressed() {
-
         finish();
-
     }
 }

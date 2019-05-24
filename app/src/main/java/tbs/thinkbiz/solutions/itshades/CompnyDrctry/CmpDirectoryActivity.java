@@ -46,8 +46,8 @@ public class CmpDirectoryActivity extends AppCompatActivity {
 //    private RecyclerView mRecyclerview1;
 //
 //    List<CmpDrModel> productList;
-//    List<CompnyNameModel> productList1;
-//    RecyclerView recyclerView,recyclerCompny;
+//
+// ,recyclerCompny;
 //    //CheckBox checkBox;
 //    TextView discla,termsndcond,prvynspolcy;
 

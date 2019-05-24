@@ -133,6 +133,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/buttonL"
                 android:gravity="center"
+                android:textColor="@color/darkgray"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="30dp"
                 android:text="@string/signuptext_login"
@@ -160,7 +161,7 @@
                 android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:text="@string/forgot_passwordtextlogin"
-                android:textColor="#FF0000"
+                android:textColor="@color/darkgray"
                 android:textSize="14sp" />
 
 

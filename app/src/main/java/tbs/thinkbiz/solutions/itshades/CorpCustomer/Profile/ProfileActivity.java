@@ -58,7 +58,7 @@ public class ProfileActivity extends AppCompatActivity {
         productList1.add(new ProfileModel("Company Site"));
         productList1.add(new ProfileModel("Account Details"));
         productList1.add(new ProfileModel("Change Password"));
-        productList1.add(new ProfileModel("Invite To Friends"));
+        productList1.add(new ProfileModel("Invite Friends"));
         productList1.add(new ProfileModel("Contact Us"));
 
         ProfileAdapter adapter1 = new ProfileAdapter(this, productList1);

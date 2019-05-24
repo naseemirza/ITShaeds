@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import tbs.thinkbiz.solutions.itshades.R;
@@ -28,6 +29,7 @@ public class ListAdapterB extends RecyclerView.Adapter<ListAdapterB.ProductViewH
         this.mCtx = mCtx;
         this.productList = productList;
     }
+
 
     @Override
     public ListAdapterB.ProductViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

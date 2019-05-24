@@ -1,6 +1,7 @@
 package tbs.thinkbiz.solutions.itshades.CorpCustomer;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -36,7 +37,7 @@ public class SubscribeActivity extends AppCompatActivity {
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                startActivity(new Intent(SubscribeActivity.this,CorpMainActivity.class));
             }
         });
 

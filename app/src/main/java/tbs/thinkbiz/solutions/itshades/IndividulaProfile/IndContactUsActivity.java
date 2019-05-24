@@ -19,7 +19,6 @@ import tbs.thinkbiz.solutions.itshades.R;
 
 public class IndContactUsActivity extends AppCompatActivity {
 
-
     String Actname;
     TextView textname;
     WebView mywebview;

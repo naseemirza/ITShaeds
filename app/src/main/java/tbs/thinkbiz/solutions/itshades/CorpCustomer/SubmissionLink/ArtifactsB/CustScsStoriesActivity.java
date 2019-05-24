@@ -99,7 +99,7 @@ public class CustScsStoriesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String actname="Add New Cust Success Stories";
+                String actname="Add New Customer Success Stories";
                 SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor edit = pref.edit();
 
@@ -150,7 +150,6 @@ public class CustScsStoriesActivity extends AppCompatActivity {
 
                             for (int i = 0; i < rootJsonArray.length(); i++) {
                                 JSONObject object = rootJsonArray.getJSONObject(i);
-
 
                                 mExampleList.add(new ArtListModel(object.optString("id"),
                                         object.optString("title_name"),

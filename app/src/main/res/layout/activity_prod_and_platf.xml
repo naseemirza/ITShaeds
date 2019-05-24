@@ -15,7 +15,7 @@
 
         <Button
             android:id="@+id/addnewjob"
-            android:text="Add New Products Platforms"
+            android:text="Add New Products and Platforms"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
             android:background="@drawable/buttoncorner"

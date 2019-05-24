@@ -152,7 +152,7 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
                             String actname="Industry Solutions";
                             String cat_id="3";
 
-                            buttonitcns.setBackgroundResource(tbs.thinkbiz.solutions.itshades.R.drawable.buttonalrt);
+                            buttonitcns.setBackgroundResource(R.drawable.buttonalrt);
                             buttonitcns.setTextColor(Color.BLACK);
                             buttonprd.setBackgroundResource(tbs.thinkbiz.solutions.itshades.R.drawable.buttonalrt);
                             buttonprd.setTextColor(Color.BLACK);
@@ -303,6 +303,7 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
                             SharedPreferences pref = v.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                             SharedPreferences.Editor edit = pref.edit();
                             edit.putString("Actvname",actname);
+
                             edit.putString("CatId",cat_id );
 
                             edit.apply();
@@ -319,7 +320,7 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
                             String actname="On Demand Training";
                             String cat_id="4";
 
-                            buttonOTP.setBackgroundResource(tbs.thinkbiz.solutions.itshades.R.drawable.buttonalrt);
+                            buttonOTP.setBackgroundResource(R.drawable.buttonalrt);
                             buttonOTP.setTextColor(Color.BLACK);
                             buttonOT.setBackgroundResource(tbs.thinkbiz.solutions.itshades.R.drawable.buttonalrt);
                             buttonOT.setTextColor(Color.BLACK);
@@ -348,7 +349,7 @@ public class AdapterJobs extends RecyclerView.Adapter<AdapterJobs.ProductViewHol
                     dialog.getWindow().setDimAmount(0.7f);
                     dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
                     dialog.show();
-                    ImageView imageView=dialog.findViewById(tbs.thinkbiz.solutions.itshades.R.id.cancel);
+                    ImageView imageView=dialog.findViewById(R.id.cancel);
                     imageView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {

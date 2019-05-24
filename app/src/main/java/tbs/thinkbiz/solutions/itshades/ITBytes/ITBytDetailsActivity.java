@@ -56,6 +56,7 @@ public class ITBytDetailsActivity extends AppCompatActivity {
     String year,month_edition , pos;
 
     TextView textname;
+    TextView jsonotfound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +88,7 @@ public class ITBytDetailsActivity extends AppCompatActivity {
 //        acttyname1=pref.getString("Edition","");
 //
 //        activitynametext.setText(actvtyname+" "+acttyname1);
+        jsonotfound=(TextView)findViewById(R.id.jsondata);
 
         ImageButton imageButton= (ImageButton)view.findViewById(tbs.thinkbiz.solutions.itshades.R.id.action_bar_back);
 
@@ -180,6 +182,11 @@ public class ITBytDetailsActivity extends AppCompatActivity {
                                 JSONArray rootJsonArray = new JSONArray(response);
 
                                 Log.e("rootJsonArrayLength", rootJsonArray.length() + "");
+
+                                if (rootJsonArray.length()==0)
+                                {
+                                    jsonotfound.setVisibility(View.VISIBLE);
+                                }
 
                                 for (int i = 0; i < rootJsonArray.length(); i++) {
                                     JSONObject object = rootJsonArray.getJSONObject(i);

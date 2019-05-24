@@ -1,18 +1,28 @@
 package tbs.thinkbiz.solutions.itshades.CorpCustomer.SubmissionLink.LearnAndDevlp;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by User on 19-Sep-18.
  */
 
 public class ListModelB {
 
+   // @SerializedName("id")
     private String id;
+   // @SerializedName("title_name")
     private String name;
+   // @SerializedName("industry_relevance")
     private String indsRelv;
+  //  @SerializedName("focus_area")
     private String focsAra;
+   // @SerializedName("user_price_per_unit")
     private String userPrice;
+   // @SerializedName("added_date")
     private String addeddate;
+   // @SerializedName("status")
     private String status;
+  //  @SerializedName("editdata")
     private String action;
 
     private String BaseUrl="https://www.itshades.com/appdata/";

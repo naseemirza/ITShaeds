@@ -36,7 +36,6 @@ public class BusnsRevsFrag extends Fragment {
         // Inflate the layout for this fragment
         View rootView =  inflater.inflate(R.layout.fragment_busns_revs, container, false);
 
-
         SharedPreferences pref = getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
         uid = pref.getString("userId", "");

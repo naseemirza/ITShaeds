@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity
     EditText editTextpass, editTextmail;
     final Context context = this;
     ProgressDialog progressDialog;
-    String Uroll;
+    public static String Uroll; //, uroll;
     RadioGroup radioGroup;
     RadioButton radioButton;
 
@@ -74,10 +74,21 @@ public class LoginActivity extends AppCompatActivity
 
         SharedPreferences pref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
           booltype=pref.getBoolean("Booltype", Boolean.parseBoolean(""));
+          Uroll = pref.getString("uroll", "");
+
+          // Log.e("url",uroll);
 
         if(booltype){
-            startActivity(new Intent(LoginActivity.this,MainPageActivity.class));
-            finish();   //finish current activity
+
+            if (Uroll.equals("1")) {
+                startActivity(new Intent(LoginActivity.this, MainPageActivity.class));
+                finish();
+            }
+           else if (Uroll.equals("2")) {
+                startActivity(new Intent(LoginActivity.this, CorpMainActivity.class));
+                finish();
+            }
+           // finish();   //finish current activity
         }
 
 
@@ -97,7 +108,6 @@ public class LoginActivity extends AppCompatActivity
                 startActivity(intent);
             }
         });
-
 
         reg = (TextView) findViewById(R.id.textViewRgs);
 
@@ -267,6 +277,7 @@ public class LoginActivity extends AppCompatActivity
                                         SharedPreferences.Editor edit = pref.edit();
                                         edit.putString("Username", usertype);
                                         edit.putString("userid", uid);
+                                        edit.putString("uroll", Uroll);
                                         edit.putBoolean("Booltype",booltype);
                                         Toast.makeText(LoginActivity.this, msg, Toast.LENGTH_SHORT).show();
                                         progressDialog.dismiss();
@@ -284,6 +295,7 @@ public class LoginActivity extends AppCompatActivity
                                     SharedPreferences.Editor edit = pref.edit();
                                     edit.putString("Username",usertype);
                                     edit.putString("userid",uid);
+                                    edit.putString("uroll", Uroll);
                                     edit.putBoolean("Booltype",booltype);
                                 Toast.makeText(LoginActivity.this, msg, Toast.LENGTH_SHORT).show();
                                 progressDialog.dismiss();
@@ -331,6 +343,7 @@ public class LoginActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
+       // finish();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);

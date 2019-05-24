@@ -7,7 +7,7 @@
         <item
             android:id="@+id/nav_aboutus"
             android:icon="@drawable/ic_people_black_24dp"
-            android:title="About ITShades" />
+            android:title="About IT Shades" />
 
         <!--<item-->
         <!--android:id="@+id/nav_premUser"-->

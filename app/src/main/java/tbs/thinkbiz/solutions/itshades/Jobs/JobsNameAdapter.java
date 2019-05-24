@@ -56,10 +56,7 @@ public class JobsNameAdapter extends RecyclerView.Adapter<JobsNameAdapter.Produc
         holder.checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //String Jobid=product.getmID();
-               // Log.e("jid",Jobid);
-               /// jobids.add(productList1.get(position).getmID());
-                //Log.e("jid", String.valueOf(jobids));
+
                 if(holder.checkBox.isChecked()){
                     jobids.add(productList1.get(position).getmID());
                     asyncResult_addNewConnection.success(1, jobids);

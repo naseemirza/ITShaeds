@@ -30,7 +30,6 @@ public class MyProfileActivity extends AppCompatActivity {
     String Actname;
     TextView textname;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +49,7 @@ public class MyProfileActivity extends AppCompatActivity {
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 //finish();
                 Intent intent=new Intent(MyProfileActivity.this, MainPageActivity.class);
                 startActivity(intent);
@@ -66,7 +66,7 @@ public class MyProfileActivity extends AppCompatActivity {
         productList1.add(new IndProfileModel("Change Password"));
         productList1.add(new IndProfileModel("Invite To Friends"));
         productList1.add(new IndProfileModel("Contact Us"));
-        productList1.add(new IndProfileModel("Subscibe"));
+        productList1.add(new IndProfileModel("Subcribe"));
 
         IndprofileAdapter adapter1 = new IndprofileAdapter(this, productList1);
         recyclerViewtitle.setAdapter(adapter1);

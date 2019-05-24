@@ -79,7 +79,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
                     mCtx.startActivity(intent2);
 
                }else if (position == 3) {
-                    String actname="Invite To Friends";
+                    String actname="Invite Friends";
                     SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                     SharedPreferences.Editor edit = pref.edit();
                     edit.putString("Actvname",actname);
@@ -88,7 +88,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
                     mCtx.startActivity(intent3);
 
                 }else if (position == 4) {
-                    String actname="Contact us";
+                    String actname="Contact Us";
                     SharedPreferences pref = mCtx.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                     SharedPreferences.Editor edit = pref.edit();
                     edit.putString("Actvname",actname);
