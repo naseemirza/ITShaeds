@@ -28,12 +28,15 @@ import tbs.thinkbiz.solutions.itshades.PrevayActivity;
 import tbs.thinkbiz.solutions.itshades.R;
 import tbs.thinkbiz.solutions.itshades.TermsActivity;
 
+
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class ITBytDetailsActivity extends AppCompatActivity {
 
@@ -49,11 +52,10 @@ public class ITBytDetailsActivity extends AppCompatActivity {
     private RequestQueue mRequestQueue1;
     private RecyclerView mRecyclerview1;
 
-
     ImageView imageViewadd,imageViewminus;
 
     String actvtyname,acttyname1;
-    String year,month_edition , pos;
+    String yeard,month_edition , pos,url;
 
     TextView textname;
     TextView jsonotfound;
@@ -61,7 +63,7 @@ public class ITBytDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(tbs.thinkbiz.solutions.itshades.R.layout.activity_itbyt_details);
+        setContentView(R.layout.activity_itbyt_details);
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
@@ -70,16 +72,21 @@ public class ITBytDetailsActivity extends AppCompatActivity {
 
         SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
-        actvtyname=pref.getString("Month","");
-        acttyname1=pref.getString("Edition","");
-        textname=(TextView)findViewById(tbs.thinkbiz.solutions.itshades.R.id.textname);
-        textname.setText(actvtyname+" "+acttyname1);
+        url=pref.getString("url","");
+        month_edition=pref.getString("monthedi","");
 
-        year=pref.getString("year","");
-        month_edition=pref.getString("month_edition","");
+        yeard=pref.getString("yeardisp","");
         pos=pref.getString("position","");
 
-        Log.e("position",pos);
+        textname=(TextView)findViewById(R.id.textname);
+        textname.setText(yeard);
+
+
+      ///  month_edition=pref.getString("month_edition","");
+
+
+       // Log.e("yr",month_edition);
+
 
 //        activitynametext=(TextView)findViewById(R.id.actname);
 //        SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
@@ -99,14 +106,14 @@ public class ITBytDetailsActivity extends AppCompatActivity {
             }
         });
 
-        discla=(TextView)findViewById(tbs.thinkbiz.solutions.itshades.R.id.textdesc);
-        termsndcond=(TextView)findViewById(tbs.thinkbiz.solutions.itshades.R.id.texttnc);
-        prvynspolcy=(TextView)findViewById(tbs.thinkbiz.solutions.itshades.R.id.textpnp);
+        discla=(TextView)findViewById(R.id.textdesc);
+        termsndcond=(TextView)findViewById(R.id.texttnc);
+        prvynspolcy=(TextView)findViewById(R.id.textpnp);
 
 //        discla.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                startActivity(new Intent(Main2Activity.this,DisclaierActivity.class));
+//                startActivity(new Intent(ITBytDetailsActivity.this,Disc.class));
 //            }
 //        });
 
@@ -166,9 +173,12 @@ public class ITBytDetailsActivity extends AppCompatActivity {
 
         final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
-        String rurl = "https://www.itshades.com/appwebservices/industry-update.php?year="+year+"&month_edition="+month_edition+"&catid="+pos+"";
+
+       // String url="https://www.itshades.com/appwebservices/industry-update.php?year="+year+"&catid="+pos;
+       // String url= "https://www.itshades.com/appwebservices/industry-update.php?year=2018"+"&month_edition="+month_edition+"&catid="+pos;
+       // String rurl = "https://www.itshades.com/appwebservices/industry-update.php?year="+year+"&month_edition="+month_edition+"&catid="+pos+"";
         // Log.e("Url",rurl);
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, rurl,
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

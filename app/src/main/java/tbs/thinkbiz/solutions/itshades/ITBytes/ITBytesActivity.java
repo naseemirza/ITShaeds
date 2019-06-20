@@ -96,9 +96,8 @@ public class ITBytesActivity extends AppCompatActivity {
                                 JSONObject object = rootJsonArray.getJSONObject(i);
 
                                 mExampleList.add(new ITBytesModel(object.optString("year"),
-                                        object.optString("month_edition"),
                                         object.optString("year_display"),
-                                        object.optString("edition_display")));
+                                        object.optString("month_edition")));
                             }
 
                             Log.e("rootJsonArray",mExampleList.size()+"");

@@ -7,16 +7,13 @@ package tbs.thinkbiz.solutions.itshades.ITBytes;
 public class ITBytesModel {
 
     private String year;
-    private String month_edition;
+    private String yeardisplay;
+    private String monthedition;
 
-    private String Month;
-    private String Edition;
-
-    public ITBytesModel(String year, String month_edition, String month, String edition) {
+    public ITBytesModel(String year, String yeardisplay, String monthedition) {
         this.year = year;
-        this.month_edition = month_edition;
-        Month = month;
-        Edition = edition;
+        this.yeardisplay = yeardisplay;
+        this.monthedition = monthedition;
     }
 
     public String getYear() {
@@ -27,27 +24,19 @@ public class ITBytesModel {
         this.year = year;
     }
 
-    public String getMonth_edition() {
-        return month_edition;
+    public String getYeardisplay() {
+        return yeardisplay;
     }
 
-    public void setMonth_edition(String month_edition) {
-        this.month_edition = month_edition;
+    public void setYeardisplay(String yeardisplay) {
+        this.yeardisplay = yeardisplay;
     }
 
-    public String getMonth() {
-        return Month;
+    public String getMonthedition() {
+        return monthedition;
     }
 
-    public void setMonth(String month) {
-        Month = month;
-    }
-
-    public String getEdition() {
-        return Edition;
-    }
-
-    public void setEdition(String edition) {
-        Edition = edition;
+    public void setMonthedition(String monthedition) {
+        this.monthedition = monthedition;
     }
 }

@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -32,6 +33,7 @@ public class ITBytRecycAdapter extends RecyclerView.Adapter<ITBytRecycAdapter.Pr
 
     private Context mCtx;
     private List<ModelJobs> productList;
+    private String month_edition;
 
     public ITBytRecycAdapter(Context mCtx, List<ModelJobs> productList) {
         this.mCtx = mCtx;
@@ -61,17 +63,16 @@ public class ITBytRecycAdapter extends RecyclerView.Adapter<ITBytRecycAdapter.Pr
 
                 SharedPreferences pref = view.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor edit = pref.edit();
-
-
-                //Log.e("responce", String.valueOf(position));
+                month_edition=pref.getString("monthedi","");
+                Log.e("responce", month_edition);
 
                 //final Intent intent;
                 if (position == 0){
-                    String actname ="Financial ";
+                    String actname ="Financial";
                     edit.putString("position", String.valueOf(position));
                     edit.putString("Actvname",actname );
 
-                    edit.commit();
+                    edit.apply();
                    Intent intent0 =  new Intent(mCtx, FinancialActivity.class);
                     mCtx.startActivity(intent0);
                 }
@@ -133,15 +134,12 @@ public class ITBytRecycAdapter extends RecyclerView.Adapter<ITBytRecycAdapter.Pr
                    Intent intent7 =  new Intent(mCtx, AnnouncementsActivity.class);
                     mCtx.startActivity(intent7);
                 }
-
-
                 else {
 
                    Intent intent =  new Intent(mCtx, ITBytDetailsActivity.class);
                     mCtx.startActivity(intent);
                 }
                // mCtx.startActivity(intent);
-
             }
         });
 
@@ -151,7 +149,6 @@ public class ITBytRecycAdapter extends RecyclerView.Adapter<ITBytRecycAdapter.Pr
     public int getItemCount() {
         return productList.size();
     }
-
 
     class ProductViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 

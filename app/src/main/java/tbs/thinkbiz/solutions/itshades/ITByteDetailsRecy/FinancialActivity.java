@@ -1,6 +1,7 @@
 package tbs.thinkbiz.solutions.itshades.ITByteDetailsRecy;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -19,9 +20,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import tbs.thinkbiz.solutions.itshades.ITBytes.ITBytDetailsActivity;
 import tbs.thinkbiz.solutions.itshades.ITBytes.ITbytdetailsAdapter;
 import tbs.thinkbiz.solutions.itshades.ITBytes.ITbytdetalsmodel;
+import tbs.thinkbiz.solutions.itshades.PrevayActivity;
 import tbs.thinkbiz.solutions.itshades.R;
+import tbs.thinkbiz.solutions.itshades.TermsActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,6 +41,7 @@ public class FinancialActivity extends AppCompatActivity {
     private RequestQueue mRequestQueue1;
     private RecyclerView mRecyclerview1;
 
+    TextView discla,termsndcond,prvynspolcy;
 
     String Actname;
     TextView textname;
@@ -54,7 +60,7 @@ public class FinancialActivity extends AppCompatActivity {
         SharedPreferences pref = this.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
         year=pref.getString("year","");
-        month_edition=pref.getString("month_edition","");
+        month_edition=pref.getString("monthedi","");
         pos=pref.getString("position","");
 
 
@@ -63,12 +69,42 @@ public class FinancialActivity extends AppCompatActivity {
         textname.setText(Actname);
 
 
+        Log.e("yr",year);
+        Log.e("po",pos);
+        Log.e("mo",month_edition);
+
         ImageButton imageButton= (ImageButton)view.findViewById(R.id.action_bar_back);
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+
+        discla=(TextView)findViewById(R.id.textdesc);
+        termsndcond=(TextView)findViewById(R.id.texttnc);
+        prvynspolcy=(TextView)findViewById(R.id.textpnp);
+
+//        discla.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(ITBytDetailsActivity.this,Disc.class));
+//            }
+//        });
+
+        termsndcond.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(FinancialActivity.this,TermsActivity.class));
+            }
+        });
+
+        prvynspolcy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(FinancialActivity.this,PrevayActivity.class));
             }
         });
 
@@ -90,9 +126,12 @@ public class FinancialActivity extends AppCompatActivity {
 
         final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
-        String rurl = "https://www.itshades.com/appwebservices/industry-update.php?year="+year+"&month_edition="+month_edition+"&catid="+pos+"";
-        // Log.e("Url",rurl);
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, rurl,
+
+       // String url ="https://www.itshades.com/appwebservices/industry-update.php?year="+year+"&month_edition="+month_edition+"&catid="+pos+"";
+        String url ="https://www.itshades.com/appwebservices/industry-update.php?year=2018&month_edition=Previous&catid="+pos+"";
+         Log.e("Url",url);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -124,7 +163,6 @@ public class FinancialActivity extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-
                     }
                 },
                 new Response.ErrorListener() {

@@ -1,6 +1,7 @@
 package tbs.thinkbiz.solutions.itshades.ITByteDetailsRecy;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -21,7 +22,9 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import tbs.thinkbiz.solutions.itshades.ITBytes.ITbytdetailsAdapter;
 import tbs.thinkbiz.solutions.itshades.ITBytes.ITbytdetalsmodel;
+import tbs.thinkbiz.solutions.itshades.PrevayActivity;
 import tbs.thinkbiz.solutions.itshades.R;
+import tbs.thinkbiz.solutions.itshades.TermsActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,11 +42,12 @@ public class SolutionsActivity extends AppCompatActivity {
     String Actname;
     TextView textname;
     String year,month_edition , pos;
+    TextView discla,termsndcond,prvynspolcy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(tbs.thinkbiz.solutions.itshades.R.layout.activity_solutions);
+        setContentView(R.layout.activity_solutions);
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
@@ -69,6 +73,31 @@ public class SolutionsActivity extends AppCompatActivity {
         });
 
 
+        discla=(TextView)findViewById(tbs.thinkbiz.solutions.itshades.R.id.textdesc);
+        termsndcond=(TextView)findViewById(tbs.thinkbiz.solutions.itshades.R.id.texttnc);
+        prvynspolcy=(TextView)findViewById(tbs.thinkbiz.solutions.itshades.R.id.textpnp);
+
+//        discla.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(ITBytDetailsActivity.this,Disc.class));
+//            }
+//        });
+
+        termsndcond.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SolutionsActivity.this,TermsActivity.class));
+            }
+        });
+
+        prvynspolcy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SolutionsActivity.this,PrevayActivity.class));
+            }
+        });
+
         // Jobs Title names
 
         mExampleList1 = new ArrayList<>();
@@ -86,8 +115,9 @@ public class SolutionsActivity extends AppCompatActivity {
 
         final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
-        String rurl = "https://www.itshades.com/appwebservices/industry-update.php?year="+year+"&month_edition="+month_edition+"&catid="+pos+"";
-        // Log.e("Url",rurl);
+       // String rurl = "https://www.itshades.com/appwebservices/industry-update.php?year="+year+"&month_edition="+month_edition+"&catid="+pos+"";
+        String rurl ="https://www.itshades.com/appwebservices/industry-update.php?year=2018&month_edition=Previous&catid="+pos+"";
+         Log.e("Url",rurl);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, rurl,
                 new Response.Listener<String>() {
                     @Override

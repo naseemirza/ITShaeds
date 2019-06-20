@@ -18,7 +18,7 @@ public class AllUrls {
     public static final String COUNTRY="https://www.itshades.com/appwebservices/country.php?";
     public static final String ROLL_LEVEL="https://www.itshades.com/appwebservices/role-level.php?";
     public static final String FOCUS_AREA="https://www.itshades.com/appwebservices/focus-area.php?";
-    public static final String ITBYTES_HOME="https://www.itshades.com/appwebservices/it-bytes.php?";
+    public static final String ITBYTES_HOME="https://www.itshades.com/appwebservices/it-bytes.php";
     public static final String COMP_DIR="https://www.itshades.com/appwebservices/company-profile.php?";
     public static final String SOLUTIONS="https://www.itshades.com/appwebservices/solution.php?cat_id=";
     public static final String L_AND_D="https://www.itshades.com/appwebservices/online-training.php?cat_id=";

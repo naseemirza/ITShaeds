@@ -52,22 +52,17 @@ public class ITbytdetailsAdapter extends RecyclerView.Adapter<ITbytdetailsAdapte
                 //SharedPreferences pref1 = view.getContext().getSharedPreferences("MyPrefs1", Context.MODE_PRIVATE);
                 //String actname1="Financial";
 
-
                 SharedPreferences pref = view.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                 String actname=pref.getString("Actvname","");
 
                     String title = product.getTitlename();
                     String desc = product.getDescr();
 
-
-
                     SharedPreferences.Editor edit = pref.edit();
                     edit.putString("Title", title);
                     edit.putString("Descr", desc);
                     edit.putString("Actvname", actname);
-
-
-                    edit.commit();
+                    edit.apply();
                     Intent intent = new Intent(view.getContext(), ITBytDetailsActivity1.class);
                     view.getContext().startActivity(intent);
 

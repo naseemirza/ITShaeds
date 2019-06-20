@@ -54,8 +54,6 @@ public class ITbytdetailsAdapter11 extends RecyclerView.Adapter<ITbytdetailsAdap
                 String title = product.getTitlename();
                 String desc = product.getDescr();
 
-
-
                 SharedPreferences.Editor edit = pref.edit();
                 edit.putString("Title", title);
                 edit.putString("Descr", desc);

@@ -4,11 +4,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import tbs.thinkbiz.solutions.itshades.ITByteDetailsRecy.AnnouncementsActivity;
+import tbs.thinkbiz.solutions.itshades.ITByteDetailsRecy.CustSuccessActivity;
+import tbs.thinkbiz.solutions.itshades.ITByteDetailsRecy.FinancialActivity;
+import tbs.thinkbiz.solutions.itshades.ITByteDetailsRecy.MandAPartActivity;
+import tbs.thinkbiz.solutions.itshades.ITByteDetailsRecy.MarktAndEventsActivity;
+import tbs.thinkbiz.solutions.itshades.ITByteDetailsRecy.MiscellaneousActivity;
+import tbs.thinkbiz.solutions.itshades.ITByteDetailsRecy.RewardAndRecogActivity;
+import tbs.thinkbiz.solutions.itshades.ITByteDetailsRecy.SolutionsActivity;
 import tbs.thinkbiz.solutions.itshades.R;
 import tbs.thinkbiz.solutions.itshades.RecyclerViewItemClickListener;
 
@@ -22,6 +31,7 @@ public class ITBytesAdapter extends RecyclerView.Adapter<ITBytesAdapter.ITBytesV
 
     private List<ITBytesModel> itemList;
     private Context context;
+    String url;
 
     public ITBytesAdapter(Context context, List<ITBytesModel> itemList) {
         this.itemList = itemList;
@@ -41,37 +51,105 @@ public class ITBytesAdapter extends RecyclerView.Adapter<ITBytesAdapter.ITBytesV
 
         final ITBytesModel product = itemList.get(position);
 
-        holder.month.setText(itemList.get(position).getMonth());
-        holder.edition.setText(itemList.get(position).getEdition());
+        holder.yeardispl.setText(itemList.get(position).getYeardisplay());
+       // holder.edition.setText(itemList.get(position).getEdition());
 
         holder.setItemClickListener(new RecyclerViewItemClickListener() {
             @Override
             public void onClick(View view, int position) {
 
-                String pos="0";
-
-                String msg1=product.getMonth();
-                String msg2=product.getEdition();
-
-                String year=product.getYear();
-                String month_edition=product.getMonth_edition();
-
-               // Log.e("yr",year);
-               // Log.e("msg1",msg1);
-
                 SharedPreferences pref = view.getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor edit = pref.edit();
+                String year=product.getYear();
+                String yeardisp=product.getYeardisplay();
+                String monthdispl=product.getMonthedition();
 
-                edit.putString("Month",msg1);
-                edit.putString("Edition",msg2);
+                 url ="https://www.itshades.com/appwebservices/industry-update.php?year="+year+"&month_edition="+monthdispl+"&catid=0";
 
-                edit.putString("year",year);
-                edit.putString("month_edition",month_edition);
-                edit.putString("position",pos);
+                Log.e("pos", url);
 
-                edit.commit();
-                Intent intent = new Intent(view.getContext(), ITBytDetailsActivity.class);
-                view.getContext().startActivity(intent);
+                if (position == 0){
+                     edit.putString("monthedi",monthdispl );
+                     edit.putString("url",url );
+                     edit.putString("position", String.valueOf(position));
+                     edit.putString("year",year );
+                     edit.putString("yeardisp",yeardisp );
+                    edit.apply();
+                    Intent intent0 =  new Intent(context, ITBytDetailsActivity.class);
+                    context.startActivity(intent0);
+                }
+                else if (position == 1){
+                    edit.putString("monthedi",monthdispl );
+                    edit.putString("url",url );
+                    edit.putString("position",String.valueOf(position));
+                    edit.putString("year",year );
+                    edit.putString("yeardisp",yeardisp );
+                    edit.apply();
+                    Intent intent1 =  new Intent(context, ITBytDetailsActivity.class);
+                    context.startActivity(intent1);
+                }
+                else if (position == 2){
+
+                    edit.putString("monthedi",monthdispl );
+                    edit.putString("url",url );
+                    edit.putString("position",String.valueOf(position));
+                    edit.putString("year",year );
+                    edit.putString("yeardisp",yeardisp );
+                    edit.apply();
+                    Intent intent2 =  new Intent(context, ITBytDetailsActivity.class);
+                    context.startActivity(intent2);
+                }
+                else if (position == 3){
+
+                    edit.putString("monthedi",monthdispl );
+                    edit.putString("url",url );
+                    edit.putString("position",String.valueOf(position));
+                    edit.putString("year",year );
+                    edit.putString("yeardisp",yeardisp );
+                    edit.apply();
+                    Intent intent3 =  new Intent(context, ITBytDetailsActivity.class);
+                    context.startActivity(intent3);
+
+                }
+                else if (position == 4){
+                    edit.putString("monthedi",monthdispl );
+                    edit.putString("url",url );
+                    edit.putString("position",String.valueOf(position));
+                    edit.putString("year",year );
+                    edit.putString("yeardisp",yeardisp );
+                    edit.apply();
+                    Intent intent4 =  new Intent(context, ITBytDetailsActivity.class);
+                    context.startActivity(intent4);
+                }
+                else if (position == 5){
+
+                    edit.putString("monthedi",monthdispl );
+                    edit.putString("url",url );
+                    edit.putString("position",String.valueOf(position));
+                    edit.putString("year",year );
+                    edit.putString("yeardisp",yeardisp );
+                    edit.apply();
+                    Intent intent5 =  new Intent(context, ITBytDetailsActivity.class);
+                    context.startActivity(intent5);
+                }
+
+                else if (position == 6){
+                    String url="https://www.itshades.com/appwebservices/industry-update.php?year=2018&month_edition=Previous&catid=0";
+                    edit.putString("monthedi",monthdispl );
+                    edit.putString("url",url );
+                    edit.putString("position",String.valueOf(position));
+                    edit.putString("year",year );
+                    edit.putString("yeardisp",yeardisp );
+                    edit.apply();
+                    Intent intent6 =  new Intent(context, ITBytDetailsActivity.class);
+                    context.startActivity(intent6);
+                }
+
+                else {
+
+                    Intent intent =  new Intent(context, ITBytDetailsActivity.class);
+                    context.startActivity(intent);
+                }
 
             }
         });
@@ -85,15 +163,15 @@ public class ITBytesAdapter extends RecyclerView.Adapter<ITBytesAdapter.ITBytesV
 
     class ITBytesViewHolders extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        public TextView month, edition;
+        public TextView yeardispl;
 
         private RecyclerViewItemClickListener itemClickListener;
 
         public ITBytesViewHolders(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
-            month = (TextView) itemView.findViewById(R.id.text1);
-            edition = (TextView) itemView.findViewById(R.id.text2);
+
+            yeardispl = (TextView) itemView.findViewById(R.id.text1);
 
             itemView.setOnClickListener(this);
 

@@ -45,20 +45,21 @@
             android:layout_gravity="center_vertical"
             android:layout_marginTop="15dp"
             android:gravity="center"
-            android:text="June 2018"
+            android:text="year display"
+            android:layout_marginBottom="20dp"
             android:textColor="@color/colorBlack"
             android:textSize="15dp" />
 
-        <TextView
-            android:id="@+id/text2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:gravity="center"
-            android:layout_marginBottom="20dp"
-            android:text="First-Edition"
-            android:textColor="@color/colorBlack"
-            android:textSize="15dp" />
+        <!--<TextView-->
+            <!--android:id="@+id/text2"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:gravity="center"-->
+            <!--android:layout_marginBottom="20dp"-->
+            <!--android:text="First-Edition"-->
+            <!--android:textColor="@color/colorBlack"-->
+            <!--android:textSize="15dp" />-->
 
 
     </LinearLayout>

@@ -6,6 +6,7 @@ package tbs.thinkbiz.solutions.itshades.Jobs;
 
 public class ModelJobs  {
 
+
     private String name;
     private int image;
 

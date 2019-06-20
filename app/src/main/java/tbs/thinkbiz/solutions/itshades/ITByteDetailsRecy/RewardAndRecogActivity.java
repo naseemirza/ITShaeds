@@ -1,6 +1,7 @@
 package tbs.thinkbiz.solutions.itshades.ITByteDetailsRecy;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -21,7 +22,9 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import tbs.thinkbiz.solutions.itshades.ITBytes.ITbytdetailsAdapter;
 import tbs.thinkbiz.solutions.itshades.ITBytes.ITbytdetalsmodel;
+import tbs.thinkbiz.solutions.itshades.PrevayActivity;
 import tbs.thinkbiz.solutions.itshades.R;
+import tbs.thinkbiz.solutions.itshades.TermsActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,6 +38,7 @@ public class RewardAndRecogActivity extends AppCompatActivity {
     private ArrayList<ITbytdetalsmodel> mExampleList1;
     private RequestQueue mRequestQueue1;
     private RecyclerView mRecyclerview1;
+    TextView discla,termsndcond,prvynspolcy;
 
     String Actname;
     TextView textname;
@@ -68,6 +72,31 @@ public class RewardAndRecogActivity extends AppCompatActivity {
             }
         });
 
+        discla=(TextView)findViewById(tbs.thinkbiz.solutions.itshades.R.id.textdesc);
+        termsndcond=(TextView)findViewById(tbs.thinkbiz.solutions.itshades.R.id.texttnc);
+        prvynspolcy=(TextView)findViewById(tbs.thinkbiz.solutions.itshades.R.id.textpnp);
+
+//        discla.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(ITBytDetailsActivity.this,Disc.class));
+//            }
+//        });
+
+        termsndcond.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RewardAndRecogActivity.this,TermsActivity.class));
+            }
+        });
+
+        prvynspolcy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RewardAndRecogActivity.this,PrevayActivity.class));
+            }
+        });
+
 
 
         // Jobs Title names
@@ -87,7 +116,8 @@ public class RewardAndRecogActivity extends AppCompatActivity {
 
         final ProgressBar progressBar = (ProgressBar) findViewById(tbs.thinkbiz.solutions.itshades.R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
-        String rurl = "https://www.itshades.com/appwebservices/industry-update.php?year="+year+"&month_edition="+month_edition+"&catid="+pos+"";
+        String rurl ="https://www.itshades.com/appwebservices/industry-update.php?year=2018&month_edition=Previous&catid="+pos+"";
+        //String rurl = "https://www.itshades.com/appwebservices/industry-update.php?year="+year+"&month_edition="+month_edition+"&catid="+pos+"";
         // Log.e("Url",rurl);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, rurl,
                 new Response.Listener<String>() {

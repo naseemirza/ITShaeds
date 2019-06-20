@@ -60,7 +60,7 @@ public class ParentActivity extends AppCompatActivity {
         recyclerViewtitle.setHasFixedSize(true);
 
         productList1.add(new Parent("Jobs Submission"));
-        productList1.add(new Parent("Solutions"));
+        productList1.add(new Parent("IT Solutions"));
         productList1.add(new Parent("Learning & Development"));
         productList1.add(new Parent("Artifacts"));
         productList1.add(new Parent("Marketing Events"));
